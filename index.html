@@ -1,0 +1,585 @@
+<!-- 
+    Credit to original code author Alysii
+    on Alysii’s PI Scheme https://hanns.io/pi/
+	alysii.com 
+	............
+	Wh by Type
+	info pulled from Anoik.is http://anoik.is/ and updated on grid
+	o7 to all the Capsuleers who are helping to keep this tool 
+	updated with fresh info!
+	
+	info mail ingame: Sothis Ast
+-->
+
+<style type="text/css" media="screen">
+	body { background-color: #000; }
+	body,td { font: 0.9em Roboto Mono, Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1a303d; padding: 0; margin: 0; }
+	ul { list-style: none none; margin: 0; padding: 0; display: block; }
+	
+	a,a:link { color: #ffcc00; text-decoration: none; }
+	
+	td { padding: 4px 4px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0; }
+	tr:last-child td { border-bottom-width: 0; }
+	tr.header td { padding: 10px 4px; font-size: 1.5em; font-weight: 200; font: Roboto Mono, Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #287099; }
+	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
+
+	.items li { margin: 6px 0px; }
+	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
+	.arrows li { margin: 5px 0px; color: #333; }
+	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.55); border-radius: 3px; padding: 1px 4px; }
+	
+	tr.footer { display: none; }
+/*
+	tr.footer td { color: #111; }
+	.p1 td,.p2 td,.p3 td,.p4 td,
+	.p1,.p2,.p3,.p4 { font-weight: 900 !important; }
+	.p1.current,.p2.current,.p3.current,.p4.current,
+	.p1.current td,.p2.current td,.p3.current td,.p4.current td { color: red; }
+*/
+	#canvas { z-index: 1; display: block; position: absolute; left: 0; top: 0; background-color: transparent; }
+	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 0; top: 0; }
+
+</style>
+<body>
+<table id="pi" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class="header">
+	
+<td valign="top" colspan="4" style="background-color:#287099; color: black;"> <b>WH</b> BY TYPE</td>
+<td valign="top" colspan="3" style="text-align: center;">/</td>
+<td valign="top" colspan="3" style="text-align: center;">SPAWN IN</td>
+<td valign="top" colspan="3" style="text-align: center;">LEADS TO</td>
+<td valign="top" colspan="5">SHIP JUMP SIZE</td>
+<td valign="top" colspan="3">TOTAL MASS</td>
+<td valign="top" colspan="4">LIFETIME</td>
+</tr>
+<tr>
+
+	
+
+
+<td colspan="1" class="items" style="width: 50px;">
+<ul id="type" style="width: 50px;">
+	<li>A009</li>
+	<li>A239</li>
+	<li>A641</li>
+	<li>A982</li>
+	<li>B041</li>
+	<li>B274</li>
+	<li>B449</li>
+	<li>B520</li>
+	<li>B735</li>
+	<li>C008</li>
+	<li>C125</li>
+	<li>C140</li>
+	<li>C247</li>
+	<li>C248</li>
+	<li>C391</li>
+	<li>C414</li>
+	<li>C729</li>
+	<li>D364</li>
+	<li>D382</li>
+	<li>D792</li>
+	<li>D845</li>
+	<li>E004</li>
+	<li>E175</li>
+	<li>E545</li>
+	<li>E587</li>
+	<li>F135</li>
+	<li>F216</li>
+	<li>F353</li>
+	<li>F355</li>
+	<li>G008</li>
+	<li>G024</li>
+	<li>H121</li>
+</ul> </td>
+<td class="items" style="width: 50px;">
+<ul id="type" style="width: 50px;">
+	<li>H296</li>
+	<li>H900</li>
+	<li>I182</li>
+	<li>J244</li>
+	<li>K329</li>
+	<li>K346</li>
+	<li>L005</li>
+	<li>L031</li>
+	<li>L477</li>
+	<li>L614</li>
+	<li>M001</li>
+	<li>M164</li>
+	<li>M267</li>
+	<li>M555</li>
+	<li>M609</li>
+	<li>N062</li>
+	<li>N110</li>
+	<li>N290</li>
+	<li>N432</li>
+	<li>N766</li>
+	<li>N770</li>
+	<li>N944</li>
+	<li>N968</li>
+	<li>O128</li>
+	<li>O477</li>
+	<li>O883</li>
+	<li>P060</li>
+	<li>Q003</li>
+	<li>Q063</li>
+	<li>Q317</li>
+	<li>R051</li>
+	<li>R081</li>
+</ul></td>
+<td class="items" style="width: 50px;">
+<ul id="type" style="width: 50px;">	
+	<li>R259</li>
+	<li>R474</li>
+	<li>R943</li>
+	<li>S047</li>
+	<li>S199</li>
+	<li>S804</li>
+	<li>S877</li>
+	<li>T405</li>
+	<li>T458</li>
+	<li>U210</li>
+	<li>U319</li>
+	<li>U372</li>
+	<li>U574</li>
+	<li>V283</li>
+	<li>V301</li>
+	<li>V753</li>
+	<li>V898</li>
+	<li>V911</li>
+	<li>V928</li>
+	<li>W237</li>
+	<li>X450</li>
+	<li>X702</li>
+	<li>X877</li>
+	<li>Y683</li>
+	<li>Y790</li>
+	<li>Z006</li>
+	<li>Z060</li>
+	<li>Z142</li>
+	<li>Z457</li>
+	<li>Z647</li>
+	<li>Z971</li>
+<li style="border-left: 1px dotted #2389a6;">K162</li>
+</ul>
+</td>
+
+<td class="items"></td>
+<td colspan="3" class="items">
+<ul id="respawn" style="text-align: center;">
+<li class="z647 p060 y790 q317 d382 n766 d364 g024 o477 c247 m267 l477 y683 x877 e175 z457 n062 h900 h296 v911 r474 u574 v753 w237 n110 b274 d845 q063 j244 a239 u210 v898 z060 e545 k346 e587">Static</li>
+<li class="h121 v301 z971 e004 c125 i182 r943 l005 o883 n968 x702 z006 m609 t405 o128 m001 l614 n770 m555 n432 c008 s804 a982 b041 u319 g008 s047 d792 a641 b449 n290 c140 c391 r051 n944 k329 z142 c248 v283 s199 q003 f353 f355 f135 t458 m164 l031 a009 b520">Wandering</li>
+
+</ul>
+</td>
+
+
+<td colspan="3" class="items" style="text-align: center;">
+	<ul id="spawnIn">
+	<li class="h121 c125 o883 m609 l614 s804 n110 j244 z060 f353 f355">Class 1</li>
+	<li class="z647 f216 d382 o477 y683 n062 r474 b274 a239 e545 f135 m001">Class 2</li>
+	<li class="f216 v301 i182 n968 t405 n770 a982 d845 u210 k346 f135 c008 z006">Class 3</li>
+	<li class="f216 p060 n766 c247 x877 h900 u574 s047 n290 k329 m001 z006 q003 l005">Class 4</li>
+	<li class="f216 y790 d364 m267 e175 h296 v753 d792 c140 z142 z006">Class 5</li>
+	<li class="f216 q317 g024 l477 z457 v911 w237 b520 d792 c140 c391 c248 z142">Class 6</li>
+	<li class="z971 r943 x702 o128 m555 b041 a641 r051 v283 t458 r259">HighSec</li>
+	<li class="z971 r943 x702 o128 n432 u319 b449 n944 s199 m164 r259">LowSec</li>
+	<li class="z971 r943 x702 o128 n432 u319 b449 n944 s199 l031 r259">NullSec</li>
+	<li class="u372">Drone Regions</li>
+	<li class="r081 x450">Povchen &#9650; Trig space</li>
+	<li class="q063 v898 e587">Class 12 - Thera</li>
+	<li class="e004 l005 z006 m001 c008 g008 q003">Class 13 - Shattered</li>
+
+	<br>
+	<li class="o128">never spawn</li>
+	<li class="e004 l005 z006 m001 c008 g008 q003 a009 s877 b735 c414 r259 v928 u372 c729">info required</li>
+	<br>
+	<li class="k162">EXIT</li>
+
+	</ul>
+	</td>
+
+
+
+<td colspan="3" class="items" style="text-align: center;">
+<ul id="leadsTo">
+<li class="h121 z647 v301 p060 y790 q317 z971 e004">C1</li>
+<li class="c125 d382 i182 n766 d364 g024 r943 l005">C2</li>
+<li class="o883 o477 n968 c247 m267 l477 x702 z006">C3</li>
+<li class="m609 y683 t405 x877 e175 z457 o128 r081 m001">C4</li>
+<li class="l614 n062 n770 h900 h296 v911 m555 n432 n432 c008">C5</li>
+<li class="s804 r474 a982 u574 v753 w237 b041 u319 g008">C6</li>
+<li class="n110 b274 d845 s047 d792 b520 d792 a641 b449 b449 q063">HS</li>
+<li class="j244 a239 u210 n290 c140 c140 c391 r051 n944 n944 v898">LS</li>
+<li class="z060 e545 k346 k329 z142 c248 z142 v283 s199 e587 x450 q003">NS</li>
+<li class="c729 f216 u372">Povchen</li>
+<li class="f353 f355 f135 t458 m164 l031">Thera</li>
+<li class="a009">C13</li>
+<br>
+<li class="v928">Drifter Vidette - J164710</li>
+<li class="r259">Drifter Redoubt - J174618</li>
+<li class="s877">Drifter Sentinel - J055520</li>
+<li class="b735">Drifter Barbican - J110145</li>
+<li class="c414">Drifter Conflux - J200727</li>
+<br>
+<li class="exit k162">jump to identify</li>
+</ul>
+</td>
+
+
+<td class="items"></td>
+<td colspan="3" class="items">
+<ul id="indMass">
+<li class="a009 c008 e004 g008 l005 m001 q003 z006">up to Frigate</li>
+<li class="c125 f353 f355 h121 j244 l614 m609 n110 o883 p060 q063 q317 s804 t458 v301 y790 z060 z647 z971">up to Battlecruiser</li>
+<li class="a239 a982 b041 b274 b520 b735 c247 c414 d364 d382 d845 e175 e545 f135 f216 g024 h900 i182 k346 l477 m164 m267 n062 n766 n770 n968 o128 o477 r081 r259 r474 r943 s047 s877 t405 u210 u372 u574 v898 v928 x450 x702 x877 y683 z457">up to Battleship</li>
+<li class="a641 b449 d792 e587 l031 m555 r051 v283 c140 h296 n432 n944 s199 v753 v911 w237 z142 c248 c391 k329 n290 u319">up to Capital</li>
+
+</ul>
+</td>
+
+<td class="items"></td>
+<td colspan="3" class="items">
+<ul id="toMass">
+<li class="f353 f355 z971">100 000 000 kg</li>
+<li class="a009 h121 p060 q063 q317 t458 v301 y790 z647">500 000 000 kg</li>
+<li class="b735 c414 f135 r259 r943 s877 v928">750 000 000 kg</li>
+<li class="c008 c125 c729 d364 e004 f216 g008 j244 l005 l614 m001 m267 m609 n110 o128 o883 r081 q003 s804 u372 x450 x702 z006 z060">1 000 000 000 kg</li>
+<li class="a239 a641 b274 b449 c247 d382 e175 e545 g024 i182 l477 m164 n766 n968 o477 t405 v898 x877 y683 z457">2 000 000 000 kg</li>
+<li class="a982 c140 d792 e587 h296 h900 k346 l031 m555 n062 n432 n770 n944 r051 r474 s047 s199 u210 u319 u574 v283 v753 v911 w237 z142">3 000 000 000 kg</li>
+<li class="b041 b520 c248 c391 d845 k329 n290">5 000 000 000 kg</li>
+</ul>
+</td>
+
+<td class="items"></td>
+<td colspan="3" class="items">
+<ul id="lifeTime">
+	<li class="c729">12h</li>
+<li class="a009 a641 b449 b735 c008 c125 c247 c414 d364 d382 e004 e175 e587 f135 f216 f353 f355 g008 g024 h121 i182 l005 l031 l477 m001 m164 m267 m609 n766 n968 o477 o883
+p060 q003 q063 q317 r051 r081 r259 r943 s877 t405 t458 u372 v301 v898 v928 x450 x877 y683 y790 z006 z457 z647 z971">16h</li>
+<li class="a239 a982 b274 b520 c140 c248 c391 d792 d845 e545 h296 h900 j244 k329 k346 l614 m555 n062 n110 n290 n432 n770 n944 o128 r474 s047 s199 s804 u210 u574 v283 v753 v911 
+w237 x702 z060 z142">24h</li>
+<li class="u319 b041">48h</li>
+</ul>
+</td>
+
+</tr>
+</table>
+<canvas id="canvas"></canvas>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+	var colors = ["#d1d1d1","#1a303d","#763c19","#79cef4","yellow","#79cef4","orange","lime","green","#304b15"];
+	$(".items li").css({color:colors[1]});
+
+	var groupColors = ["#42ffec",
+            "#42b3ff",
+            "#4265ff",
+            "#4230cf",
+            "#9c32ed",
+            "#f230dc",
+            "#0dfa05",
+            "#f0a800",
+            "#e81e1e",
+            "#f6fc32"];
+        $(".items li").css({
+            color: colors[1]
+        });
+
+
+	canvas();
+	$(window).resize(function() { // todo: get event, only repaint on mouse release
+		canvas();
+	});
+
+	// distribute before list to span
+	$(".items ul li")
+		.wrapInner($('<span />'))
+		.each(function() {
+
+			item = lower_case($(this).children("span").html());		// turn item name css compliant
+			$(this).attr({ id: item });								// set li id as item name
+			
+			if ($(this).parents("ul").attr("id") != "type") {		// type has no before
+				list = $(this).attr("class").split(/\s+/);			// get before items from li class
+				for (i in list) {
+					$("#"+list[i]+" span").addClass(item);			// find id with class, inject itself into span as class
+				}
+			}
+		})
+	$('.items')
+		.on('mouseenter','ul li',function() {
+			if (! $('#pi').hasClass('sticky')) {
+				$(this).addClass("current");
+				$(this).css({color:colors[5]});
+				pi_link($(this));
+			}
+		})
+		.on('mouseleave','ul li',function() {
+			if (! $('#pi').hasClass('sticky')) {
+				$(this).removeClass("current");
+				$(".items li").css({color:colors[1]});
+				canvas();
+			}
+		})
+
+
+
+
+		.on('click','ul li',function() {
+			
+			if (!$(this).hasClass('current')) {
+				$('#pi').removeClass('sticky')
+			}
+			
+			if ($('#pi').hasClass('sticky')) {
+				$('#pi').removeClass('sticky')
+				
+				$('.items li').removeClass('current').css({color:colors[1]});
+			} else {
+				$('#pi').addClass('sticky')
+				
+				$('.items li').removeClass('current').css({color:"#06171c"});
+				canvas();
+
+				$(this).addClass("current");
+				$(this).css({color:colors[5]});
+				pi_link($(this));
+			}
+		})
+		
+		// $("ul#basic").hover(function() { $(".p1").toggleClass("current"); });
+		// $("ul#toMass").hover(function() { $(".p2").toggleClass("current"); });
+		// $("ul#indMass").hover(function() { $(".p3").toggleClass("current"); });
+		// $("ul#advanced").hover(function() { $(".p4").toggleClass("current"); });
+	
+function lower_case(s) { return s.toLowerCase().replace(/ /g, '-').replace(/\./g, ''); }
+	function pi_link(item) {
+		pi_link_before(item,-1);
+		pi_link_after(item,1);
+	}
+	function pi_link_before(item, degree, depth) {
+		type   = item.parent("ul").attr("id");
+		degree = degree + ((type == "basic") ? 1 : 0);
+
+		class_prefex = ".items li span.";
+		$(".items li span."+item.attr("id"))
+			.each(function() {
+				$(this).parent("li").css({color: colors[5+degree]});
+				if (type != "basic" && degree > -4) {
+					line(item.children("span"),$(this),colors[5+degree],colors[5+degree+1]);
+				}
+				pi_link_before($(this).parent("li"),degree-1);
+			});
+	}
+	function pi_link_after(item, degree, depth) {
+		type   = item.parent("ul").attr("id");
+		degree = degree + ((type == "resources") ? -1 : 0);
+		
+		var i = 0;
+            $(".items li." + item.attr("id"))
+                .each(function () {
+
+                    switch ($(this).text()) {
+                        case "Class 1":
+                            $(this).css({
+                                color: groupColors[0]
+                            });
+                            break;
+                        case "Class 2":
+                            $(this).css({
+                                color: groupColors[1]
+                            });
+                            break;
+                        case "Class 3":
+                            $(this).css({
+                                color: groupColors[2]
+                            });
+                            break;
+                        case "Class 4":
+                            $(this).css({
+                                color: groupColors[3]
+                            });
+                            break;
+                        case "Class 5":
+                            $(this).css({
+                                color: groupColors[4]
+                            });
+                            break;
+                        case "Class 6":
+                            $(this).css({
+                                color: groupColors[5]
+                            });
+                            break;
+                        case "HighSec":
+                            $(this).css({
+                                color: groupColors[6]
+                            });
+                            break;
+                        case "LowSec":
+                            $(this).css({
+                                color: groupColors[7]
+                            });
+                            break;
+                        case "NullSec":
+                            $(this).css({
+                                color: groupColors[8]
+                            });
+                            break;
+                        case "Class 12 - Thera":
+                            $(this).css({
+                                color: groupColors[9]
+                            });
+                            break;
+							case "Class 13 - Shattered":
+                            $(this).css({
+                                color: "#ffffff"
+                            });
+                            break;
+							case "Povchen ▲ Trig space":
+                            $(this).css({
+                                color: groupColors[8]
+                            });
+                            break;
+							case "Drone Regions":
+                            $(this).css({
+                                color: groupColors[8]
+                            });
+                            break;
+                        case "C1":
+                            $(this).css({
+                                color: groupColors[0]
+                            });
+                            break;
+                        case "C2":
+                            $(this).css({
+                                color: groupColors[1]
+                            });
+                            break;
+                        case "C3":
+                            $(this).css({
+                                color: groupColors[2]
+                            });
+                            break;
+                        case "C4":
+                            $(this).css({
+                                color: groupColors[3]
+                            });
+                            break;
+                        case "C5":
+                            $(this).css({
+                                color: groupColors[4]
+                            });
+                            break;
+                        case "C6":
+                            $(this).css({
+                                color: groupColors[5]
+                            });
+                            break;
+							case "C13":
+                            $(this).css({
+                                color: "#ffffff"
+                            });
+                            break;
+                        case "HS":
+                            $(this).css({
+                                color: groupColors[6]
+                            });
+                            break;
+                        case "LS":
+                            $(this).css({
+                                color: groupColors[7]
+                            });
+                            break;
+                        case "NS":
+                            $(this).css({
+                                color: groupColors[8]
+                            });
+                            break;
+							case "Povchen":
+                            $(this).css({
+                                color: groupColors[8]
+                            });
+                            break;
+                        case "Thera":
+                            $(this).css({
+                                color: groupColors[9]
+                            });
+                            break;
+                        default:
+                            $(this).css({
+                                color: colors[3]
+                            });
+                            break;
+                    }
+
+                  
+                    if (type != "leadsTo") {
+                        line($(this).children("span"), item.children("span"), colors[5],
+                            colors[6]);
+                    }
+                    //  pi_link_after($(this), degree + 1);
+                });
+        }
+	
+	$("#disco").toggle(
+		function() {
+			$(this).text("Disco!");
+		}
+	,
+		function() {
+			$(this).text("type");
+		}
+	);
+});
+function canvas() {
+	$("#canvas").attr({ 
+		"height": $("#pi").outerHeight(),
+		"width": $("#pi").outerWidth() 
+	});
+}
+function line(a,b,c1,c2) {
+	pad = 0;
+	fx  = a.position().left + 4;
+	fy  = a.position().top + a.height()/2 + 1;
+	tx  = b.position().left + b.width() + 2;
+	ty  = b.position().top + b.height()/2 + 1;
+
+	var cvs = document.getElementById('canvas');
+
+	var ctx = cvs.getContext('2d');
+	ctx.lineWidth = 1;
+	ctx.beginPath();
+	ctx.moveTo(tx,ty);
+	ctx.lineTo(fx,fy);
+	ctx.globalAlpha = 0.5;
+
+	var gdt = ctx.createLinearGradient( tx,ty, fx,fy );
+	gdt.addColorStop(0, c1);
+	gdt.addColorStop(1, c2);
+
+	ctx.strokeStyle = gdt;
+	ctx.stroke();
+}
+
+
+pi = {
+	type: ['C125','C140','C247','C248','C391','C414','D364','D382','D792','D845','E004','E175','E545',
+'E587','F135','F353','F355','G008','G024','H121','H296','H900','I182','J244','K162','K329',
+'K346','L005','L031','L477','L614','M001','M164','M267','M555','M609','N062','N110','N290',
+'N432','N766','N770','N944','N968','O128','O477','O883','P060','Q003','Q063','Q317','R051',
+'R259','R474','R943','S047','S199','S804','S877','T405','T458','U210','U319','U574','V283',
+'V301','V753','V898','V911','V928','W237','X702','X877','Y683','Y790','Z006','Z060','Z142',
+'Z457','Z647','Z971'],
+	spawnIn: ['Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 13','HighSec','LowSec','NullSec','Drone Regions','Povchen ▲ Trig space','Theras', 'Barbicans','Confluxs', 'Redoubts', 'Sentinels', 'Videttes', 'EXIT'],
+	leadsTo: ['C1','C2','C3','C4','C5','C6','C13','HS','LS','NS','Thera', 'Barbican','Conflux', 'Redoubt', 'Sentinel', 'Vidette'],
+	productions: {
+		lifeTime: ['12h','16h','24h','48h'],
+		respawn: ['static','wandering'],
+		toMass: ['100,000,000 kg','500,000,000 kg','750,000,000 kg','1,000,000,000 kg','2,000,000,000 kg','3,000,000,000 kg','5,000,000,000 kg'],
+		indMass: ['frigate','battlecruiser','battleship','capital',],
+	} 
+}
+</script>
