@@ -18,6 +18,7 @@
 	
 	a,a:link { color: #ffcc00; text-decoration: none; }
 	
+    table:hover { border: 1px solid #315970;}   
 	td { padding: 4px 4px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0; }
 	tr:last-child td { border-bottom-width: 0; }
 	tr.header td { padding: 10px 4px; font-size: 1.5em; font-weight: 200; font: Roboto Mono, Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #287099; }
@@ -36,13 +37,14 @@
 	.p1.current,.p2.current,.p3.current,.p4.current,
 	.p1.current td,.p2.current td,.p3.current td,.p4.current td { color: red; }
 */
-	#canvas { z-index: 1; display: block; position: absolute; left: 0; top: 0; background-color: transparent; }
-	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 0; top: 0; }
+	#canvas { z-index: 1; display: block; position: absolute; left: 250; top: 50; background-color: transparent; }
+	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 250; top: 50; }
+    
 
 </style>
 <body>
 <div id="wrapper">
-<table id="pi" border="0" cellpadding="0" cellspacing="0" width="100%">
+<table id="pi" border="0" cellpadding="0" cellspacing="0" width="70%">
 <tr class="header">
 	
 <td valign="top" colspan="4" style="background-color:#287099; color: black;"> <b>WH</b> BY TYPE</td>
@@ -54,7 +56,6 @@
 <td valign="top" colspan="4">LIFETIME</td>
 </tr>
 <tr>
-
 	
 
 
@@ -177,23 +178,23 @@
 
 <td colspan="3" class="items" style="text-align: center;">
 	<ul id="spawnIn">
-	<li class="h121 c125 o883 m609 l614 s804 n110 j244 z060 f353 f355">Class 1</li>
-	<li class="z647 f216 d382 o477 y683 n062 r474 b274 a239 e545 f135 m001">Class 2</li>
-	<li class="f216 v301 i182 n968 t405 n770 a982 d845 u210 k346 f135 c008 z006">Class 3</li>
-	<li class="f216 p060 n766 c247 x877 h900 u574 s047 n290 k329 m001 z006 q003 l005">Class 4</li>
-	<li class="f216 y790 d364 m267 e175 h296 v753 d792 c140 z142 z006">Class 5</li>
-	<li class="f216 q317 g024 l477 z457 v911 w237 b520 d792 c140 c391 c248 z142">Class 6</li>
+	<li class="a009 h121 c125 o883 m609 l614 s804 n110 j244 z060 f353 f355">Class 1</li>
+	<li class="a009 z647 f216 d382 o477 y683 n062 r474 b274 a239 e545 f135 m001">Class 2</li>
+	<li class="a009 f216 v301 i182 n968 t405 n770 a982 d845 u210 k346 f135 c008 z006">Class 3</li>
+	<li class="a009 f216 p060 n766 c247 x877 h900 u574 s047 n290 k329 m001 z006 q003 l005">Class 4</li>
+	<li class="a009 f216 y790 d364 m267 e175 h296 v753 d792 c140 z142 z006">Class 5</li>
+	<li class="a009 f216 q317 g024 l477 z457 v911 w237 b520 d792 c140 c391 c248 z142">Class 6</li>
 	<li class="z971 r943 x702 o128 m555 b041 a641 r051 v283 t458 r259">HighSec</li>
 	<li class="z971 r943 x702 o128 n432 u319 b449 n944 s199 m164 r259">LowSec</li>
 	<li class="z971 r943 x702 o128 n432 u319 b449 n944 s199 l031 r259">NullSec</li>
 	<li class="u372">Drone Regions</li>
-	<li class="r081 x450">Povchen &#9650; Trig space</li>
+	<li class="r081 x450">Pochven &#9650; Trig space</li>
 	<li class="q063 v898 e587">Class 12 - Thera</li>
 	<li class="e004 l005 z006 m001 c008 g008 q003">Class 13 - Shattered</li>
 
 	<br>
 	<li class="o128">never spawn</li>
-	<li class="e004 l005 z006 m001 c008 g008 q003 a009 s877 b735 c414 r259 v928 u372 c729">info required</li>
+	<li class="e004 l005 z006 m001 c008 g008 q003 s877 b735 c414 r259 v928 u372 c729">info required</li>
 	<br>
 	<li class="k162">EXIT</li>
 
@@ -213,7 +214,7 @@
 <li class="n110 b274 d845 s047 d792 b520 d792 a641 b449 b449 q063">HS</li>
 <li class="j244 a239 u210 n290 c140 c140 c391 r051 n944 n944 v898">LS</li>
 <li class="z060 e545 k346 k329 z142 c248 z142 v283 s199 e587 x450 q003">NS</li>
-<li class="c729 f216 u372">Povchen</li>
+<li class="c729 f216 u372">Pochven</li>
 <li class="f353 f355 f135 t458 m164 l031">Thera</li>
 <li class="a009">C13</li>
 <br>
@@ -440,7 +441,7 @@ function lower_case(s) { return s.toLowerCase().replace(/ /g, '-').replace(/\./g
                                 color: "#ffffff"
                             });
                             break;
-							case "Povchen ▲ Trig space":
+							case "Pochven ▲ Trig space":
                             $(this).css({
                                 color: groupColors[8]
                             });
@@ -500,7 +501,7 @@ function lower_case(s) { return s.toLowerCase().replace(/ /g, '-').replace(/\./g
                                 color: groupColors[8]
                             });
                             break;
-							case "Povchen":
+							case "Pochven":
                             $(this).css({
                                 color: groupColors[8]
                             });
@@ -575,7 +576,7 @@ pi = {
 'R259','R474','R943','S047','S199','S804','S877','T405','T458','U210','U319','U574','V283',
 'V301','V753','V898','V911','V928','W237','X702','X877','Y683','Y790','Z006','Z060','Z142',
 'Z457','Z647','Z971'],
-	spawnIn: ['Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 13','HighSec','LowSec','NullSec','Drone Regions','Povchen ▲ Trig space','Theras', 'Barbicans','Confluxs', 'Redoubts', 'Sentinels', 'Videttes', 'EXIT'],
+	spawnIn: ['Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 13','HighSec','LowSec','NullSec','Drone Regions','Pochven ▲ Trig space','Theras', 'Barbicans','Confluxs', 'Redoubts', 'Sentinels', 'Videttes', 'EXIT'],
 	leadsTo: ['C1','C2','C3','C4','C5','C6','C13','HS','LS','NS','Thera', 'Barbican','Conflux', 'Redoubt', 'Sentinel', 'Vidette'],
 	productions: {
 		lifeTime: ['12h','16h','24h','48h'],
