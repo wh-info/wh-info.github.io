@@ -15,36 +15,53 @@
 <style type="text/css" media="screen">
 
 
-	body { background-color: #000; }
+	body { background-color: #000; cursor: context-menu; }
 	body,td { font: 0.9em Roboto Mono, Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1a303d; padding: 0; margin: 0; }
-	ul { list-style: none none; margin: 0; padding: 0; display: block; }
+	ul {list-style: none none; margin: 0; padding: 0; display: block; }
 	
-	a,a:link { color: #ffcc00; text-decoration: none; }
-	
+	a,a:link { color: black; text-decoration: none;}
 	table {border: 1px solid transparent;}
-    table:hover { border: 1px solid #315970;}   
-	td { padding: 4px 4px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0; }
+    table:hover { border: 1px solid #315970; }   
+	td { padding: 4px 4px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
 	tr:last-child td { border-bottom-width: 0; }
 	
 	tr.header td { padding: 10px 4px; font-size: 1.5em; font-weight: 200; font: Roboto Mono, Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #287099; }
 	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
 
-	.items li { margin: 6px 0px; }
+	.items li { margin: 6px 0px;}
 	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
 	.arrows li { margin: 5px 0px; color: #333; }
-	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.55); border-radius: 3px; padding: 1px 4px; }
-	
+	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.55); border-radius: 3px; padding: 1px 4px; }	
 	tr.footer { display: none; }
 
+
+
 	.footer {
-	font-size: 12px;
-  	position: fixed;
-  	left: 0;
-  	bottom: 0;
-  	width: 100%;
-  	color: #315970;
-  	text-align: center;
+   position: absolute;
+   right: 1;
+   bottom: 1;
+   text-align: center;
 }
+
+.bot {
+	font-size: 15px;
+	color: black;
+	font-weight: bold;
+	background-color: #1e3644;
+	}
+
+table .bot:hover {
+	border: none;
+	background-color: #315970;
+}
+
+.botime {
+	font-size: 15px;
+	color: black;
+	font-weight: bold;
+	background-color: #315970;
+	}
+
 /*
 	tr.footer td { color: #111; }
 	.p1 td,.p2 td,.p3 td,.p4 td,
@@ -54,6 +71,8 @@
 */
 	#canvas { z-index: 1; display: block; position: absolute; left: 250; top: 50; background-color: transparent; }
 	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 250; top: 50; }
+
+
 
 </style>
 
@@ -73,8 +92,25 @@
 
 });
 </script>
+<script>
+function startTime() {
+	var today = new Date();
+	var h = today.getUTCHours();
+	var m = today.getUTCMinutes();
+	var s = today.getUTCSeconds();
+	m = checkTime(m);
+	s = checkTime(s);
+	document.getElementById('showtime').innerHTML =
+	h + ":" + m + ":" + s;
+	var t = setTimeout(startTime, 1000);
+  }
+  function checkTime(i) {
+	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	return i;
+  }
+</script>
 
-<body>
+<body onload="startTime()">
 <div id="wrapper">
 <table id="pi" border="0" cellpadding="0" cellspacing="0" width="70%">
 <tr class="header">
@@ -194,7 +230,7 @@
 	<li>Z457</li>
 	<li>Z647</li>
 	<li>Z971</li>
-<li style="border-left: 1px dotted #2389a6;">K162</li>
+	<span class="tooltip" data-jbox-content="Generic type designating an exit."><li style="border-left: 1px dotted #2389a6;">K162</li></span>
 </ul>
 </td>
 
@@ -222,7 +258,7 @@
 	<span class="tooltip" data-jbox-content="<i>NullSec regions:</i><br>Cobalt Edge, Etherium Reach, Kalevala Expanse, Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire."><li class="u372">Drone Regions</li></span>
 	<li class="r081 x450">Pochven &#9650; Trig space</li>
 	<li class="q063 v898 e587">Class 12 - Thera</li>
-	<li class="e004 l005 z006 m001 c008 g008 q003">Class 13 - Shattered</li>
+	<span class="tooltip" data-jbox-content="Unique 25 wormhole systems accessible only via frigate holes.<br>They have C6 Wolf Rayet effect with C1-C3 anomalies and signature sites."><li class="e004 l005 z006 m001 c008 g008 q003">Class 13 - Shattered</li></span>
 
 	<br>
 	<li class="o128">never spawn</li>
@@ -264,10 +300,10 @@
 <td class="items"></td>
 <td colspan="3" class="items">
 <ul id="indMass">
-<span class="tooltip" data-jbox-content="<i>In addition to:</i> Heavy Interdiction Cruiser<br><i>Jump size mass:</i> 5 000 000 kg<br><i>Regen per hour:</i> 3 000 000 000 kg"><li class="a009 c008 e004 g008 l005 m001 q003 z006">up to Destroyer</li></span>
-<span class="tooltip" data-jbox-content="<i>In addition to:</i> DST and Nestor<br><i>Jump size mass:</i> 20 000 000 kg"><li class="c125 f353 f355 h121 j244 l614 m609 n110 o883 p060 q063 q317 s804 t458 v301 y790 z060 z647 z971">up to Battlecruiser</li></span>
-<span class="tooltip" data-jbox-content="<i>In addition to:</i> Orca<br><i>Jump size mass:</i> 300 000 000 kg"><li class="a239 a982 b041 b274 b520 b735 c247 c414 d364 d382 d845 e175 e545 f135 f216 g024 h900 i182 k346 l477 m164 m267 n062 n766 n770 n968 o128 o477 r081 r259 r474 r943 s047 s877 t405 u210 u372 u574 v898 v928 x450 x702 x877 y683 z457">up to Battleship</li></span>
-<span class="tooltip" data-jbox-content="<i>Jump size mass:</i> 3 000 000 000 kg"><li class="a641 b449 d792 e587 l031 m555 r051 v283 c140 h296 n432 n944 s199 v753 v911 w237 z142 c248 c391 k329 n290 u319">up to Capital</li></span>
+<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> Heavy Interdiction Cruiser<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; Known as 'frigate hole'"><li class="a009 c008 e004 g008 l005 m001 q003 z006">up to Destroyer</li></span>
+<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 20 000 000 kg"><li class="c125 f353 f355 h121 j244 l614 m609 n110 o883 p060 q063 q317 s804 t458 v301 y790 z060 z647 z971">up to Battlecruiser</li></span>
+<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 300 000 000 kg"><li class="a239 a982 b041 b274 b520 b735 c247 c414 d364 d382 d845 e175 e545 f135 f216 g024 h900 i182 k346 l477 m164 m267 n062 n766 n770 n968 o128 o477 r081 r259 r474 r943 s047 s877 t405 u210 u372 u574 v898 v928 x450 x702 x877 y683 z457">up to Battleship</li></span>
+<span class="tooltip" data-jbox-content="&#8594; <i>Excluded:</i> Supercarriers and Titans<br>&#8594; <i>Jump size mass:</i> 3 000 000 000 kg"><li class="a641 b449 d792 e587 l031 m555 r051 v283 c140 h296 n432 n944 s199 v753 v911 w237 z142 c248 c391 k329 n290 u319">up to Capital</li></span>
 
 </ul>
 </td>
@@ -301,6 +337,16 @@ w237 x702 z060 z142">24h</li>
 </table>
 </div>
 <canvas id="canvas"></canvas>
+
+<div class="footer">
+	<table>
+	<tr>
+		<td class="bot"><span class="tooltip" data-jbox-content="Sothis Ast">ign</span></td>
+		<td class="bot"><span class="tooltip" data-jbox-content="Use this tool to identify your <i>wormhole connection by type</i>.<br>Initial data pulled from <i>Anoik.is</i>, updated and verified on grid.">info</span></td>
+		<td class="botime"><span class="tooltip" data-jbox-content="EVE time"><span id="showtime"></span> YC123</span></td>
+	</tr>
+	</table>	
+</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script>
