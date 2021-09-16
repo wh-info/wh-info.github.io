@@ -609,6 +609,26 @@ function lower_case(s) { return s.toLowerCase().replace(/ /g, '-').replace(/\./g
                                 color: groupColors[9]
                             });
                             break;
+						case "up to Destroyer":
+                            $(this).css({
+                                color: "#1f5eeb"
+                            });
+                            break;
+							case "up to Battlecruiser":
+                            $(this).css({
+                                color: "#36cccc"
+                            });
+                            break;
+							case "up to Battleship":
+                            $(this).css({
+                                color: "#D6D9CC"
+                            });
+                            break;
+							case "up to Capital":
+                            $(this).css({
+                                color: "#d7601b"
+                            });
+                            break;
                         default:
                             $(this).css({
                                 color: colors[3]
