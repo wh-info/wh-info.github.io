@@ -11,24 +11,29 @@
 	info mail ingame: Sothis Ast
 -->
 
+<head>
 
-<style type="text/css" media="screen">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"> 
 
+	<style type="text/css" media="screen">
 
-	body { background-color: #000; cursor: context-menu; }
-	body,td { font: 0.9em Roboto Mono, Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1a303d; padding: 0; margin: 0; }
+body { background-color: #000; cursor: context-menu; }
+	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1a303d; padding: 0; margin: 0; }
 	ul {list-style: none none; margin: 0; padding: 0; display: block; }
 	
 	a,a:link { color: black; text-decoration: none;}
 	table {border: 1px solid transparent;}
     table:hover { border: 1px solid #315970; }   
-	td { padding: 4px 4px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
+	td { padding: 2px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
 	tr:last-child td { border-bottom-width: 0; }
 	
-	tr.header td { padding: 10px 4px; font-size: 1.5em; font-weight: 200; font: Roboto Mono, Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #287099; }
+	tr.header td { font-family: 'Roboto Mono', monospace;  padding: 10px 4px; font-size: 1.5em; font-weight: 400; color: #287099; }
 	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
 
-	.items li { margin: 6px 0px;}
+	li{ font-family: 'Roboto Mono', monospace; font-size: 14px; padding: 0px 0px;}
+	.items li { margin: 3px 0px;}
 	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
 	.arrows li { margin: 5px 0px; color: #333; }
 	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.55); border-radius: 3px; padding: 1px 4px; }	
@@ -38,9 +43,10 @@
 
 	.footer {
    position: absolute;
-   width: 220px	;
+   width: 240px	;
    right: 0%;
 	top: 0%;
+	font-size: 20px;
    text-align: center;
 }
 
@@ -49,7 +55,8 @@
 	color: black;
 	font-weight: bold;
 	background-color: #1e3644;
-	}
+	padding: 3px 5px;
+}
 
 table .bot:hover {
 	border: none;
@@ -61,6 +68,7 @@ table .bot:hover {
 	color: black;
 	font-weight: bold;
 	background-color: #315970;
+	padding: 3px 5px;
 	}
 
 /*
@@ -111,12 +119,14 @@ function startTime() {
   }
 </script>
 
+</head>
+
 <body onload="startTime()">
 <div id="wrapper">
 <table id="pi" border="0" cellpadding="0" cellspacing="0" width="70%" height="30%">
 <tr class="header">
 	
-<td valign="top" colspan="4" style="background-color:#287099; color: black;"> <span class="tooltip" data-jbox-content="Wormhole type can be found on Overview."><b>WH</b> BY TYPE</span></td>
+<td valign="top" colspan="4" style="background-color:#287099; color: black;"> <span class="tooltip" data-jbox-content="Wormhole type can be found on the <i>Overview.</i>"><b>WH</b>_BY_TYPE</span></td>
 <td valign="top" colspan="3" style="text-align: center;">&#x26AF;</td>
 <td valign="top" colspan="3" style="text-align: center;">SPAWN IN</td>
 <td valign="top" colspan="3" style="text-align: center;">LEADS TO</td>
@@ -231,7 +241,7 @@ function startTime() {
 	<li>Z457</li>
 	<li>Z647</li>
 	<li>Z971</li>
-	<br>
+	<li>⛯</li>
 	<span class="tooltip" data-jbox-content="Generic type designating an exit."><li style="border-left: 1px dotted #2389a6;">K162</li></span>
 </ul>
 </td>
