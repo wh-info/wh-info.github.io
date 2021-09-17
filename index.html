@@ -19,7 +19,16 @@
 
 	<style type="text/css" media="screen">
 
-body { background-color: #000; cursor: context-menu; }
+body { background-color: #000; cursor: context-menu; animation: fadeInAnimation ease 1.5s; animation-iteration-count: 1; animation-fill-mode: forwards;
+}
+	@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
 	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1a303d; padding: 0; margin: 0; }
 	ul {list-style: none none; margin: 0; padding: 0; display: block; }
 	
