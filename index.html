@@ -449,8 +449,9 @@ $(document).ready(function() {
 			if (! $('#pi').hasClass('sticky')) {
 				$(this).removeClass("current");
 				$(".items li").css({color:colors[1]});
+
 				$(".star").each(function( i ) {
-    $(this).css("color","black"); //black bob
+    			$(this).css("color","black"); //black bob
   });
 
 				canvas();
@@ -468,6 +469,10 @@ $(document).ready(function() {
 				
 				$('.items li').removeClass('current').css({color:colors[1]});
 				
+				$(".star").each(function( i ) {
+    			$(this).css("color","black"); //black bob
+  });
+				
 			} else {
 				$('#pi').addClass('sticky')
 				
@@ -476,6 +481,9 @@ $(document).ready(function() {
 
 				$(this).addClass("current");
 				$(this).css({color:colors[5]});
+				$(".star").each(function( i ) {
+    $(this).css("color","black"); //black bob
+  });
 				pi_link($(this));
 			}
 		})
