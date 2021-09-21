@@ -45,7 +45,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	.items li { margin: 3px 0px;}
 	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
 	.arrows li { margin: 5px 0px; color: #333; }
-	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.55); border-radius: 3px; padding: 1px 4px; }	
+	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.01); border-radius: 3px; padding: 1px 4px; }	
 	tr.footer { display: none; }
 
 	.footer {
@@ -79,6 +79,8 @@ table .bot:hover {
 	}
 
 	.numbers{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
+
+	.vertical 	{writing-mode: vertical-rl;	text-orientation: sideways-right; margin-right: -25;}
 
 /*
 	tr.footer td { color: #111; }
@@ -297,13 +299,6 @@ function startTime() {
 
 <td colspan="3" class="items" style="text-align: center;">
 <ul id="leadsTo">
-	<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <li class="h121 z647 v301 p060 y790 q317 z971 e004">C1</li>
 <li class="c125 d382 i182 n766 d364 g024 r943 l005">C2</li>
 <li class="o883 o477 n968 c247 m267 l477 x702 z006">C3</li>
@@ -324,14 +319,8 @@ function startTime() {
 <span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C18<br><i>&#8594; Jcode:</i> J174618<br><i>&#8594; System effect:</i> C2 Wolf-Rayet"><li class="r259">Drifter Redoubt</li></span>
 <br>
 <li class="exit k162">jump to identify</li>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<li class="star &#9966;">praise bob</li>
+
 </ul>
 </td>
 
@@ -369,6 +358,13 @@ p060 q003 q063 q317 r051 r081 r259 r943 s877 t405 t458 u372 v301 v898 v928 x450 
 <li class="a239 a982 b274 b520 c140 c248 c391 d792 d845 e545 h296 h900 j244 k329 k346 l614 m555 n062 n110 n290 n432 n770 n944 o128 r474 s047 s199 s804 u210 u574 v283 v753 v911 
 w237 x702 z060 z142">24h</li>
 <li class="u319 b041">48h</li>
+</ul>
+</td>
+
+<td class="items"></td>
+<td colspan="3" class="items">
+<ul id="lifeTime">
+	<li class="star &#9966;"><span class="vertical">praise bob</span></li>
 </ul>
 </td>
 
@@ -483,9 +479,7 @@ $(document).ready(function() {
 
 				$(this).addClass("current");
 				$(this).css({color:colors[5]});
-				$(".star").each(function( i ) {
-    $(this).css("color","black"); //black bob
-  });
+				
 				pi_link($(this));
 			}
 		})
