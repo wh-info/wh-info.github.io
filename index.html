@@ -1,192 +1,164 @@
 <html lang="en-us">
-<!-- 
-    shut out to Alysii for Alysii’s PI Scheme https://hanns.io/pi/
-	............
--->
+
+	<!--  shut out to Alysii for Alysii’s PI Scheme https://hanns.io/pi/ -->
 
 <head>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G7MDJPTDL9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G7MDJPTDL9"></script>
+	<script>
+ 		window.dataLayer = window.dataLayer || [];
+ 		function gtag(){dataLayer.push(arguments);}
+	 	gtag('js', new Date());
 
-  gtag('config', 'G-G7MDJPTDL9');
-</script>
+ 		gtag('config', 'G-G7MDJPTDL9');
+	</script>
 
 	<title>Wormhole by type</title>
 	<link rel="shortcut icon" type="image/jpg" href="icon.png"/>
 	<meta charset="UTF-8">
 	<meta name="description" content="Identify your EVE wormhole connection by type.">
-	<meta name="keywords" content="Eve wormholes, wormhole type, wormhole information, Eve online,">
+	<meta name="keywords" content="Eve wormholes, wormhole type, wormhole information, k162">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"> 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"> 
 
-<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="styles/style.css">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.2/dist/jBox.all.min.js"></script>
-<link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.2/dist/jBox.all.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.2/dist/jBox.all.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.2/dist/jBox.all.min.css" rel="stylesheet">
 
 
-<script>
-	$(document).ready(function() {
- 
-		new jBox('Mouse', {
-  attach: '.tooltip',
-  theme: 'TooltipDark',
-  getContent: 'data-jbox-content',
-});
-
-});
-</script>
-<script>
-function startTime() {
-	var today = new Date();
-	var h = today.getUTCHours();
-	var m = today.getUTCMinutes();
-	var s = today.getUTCSeconds();
-	m = checkTime(m);
-	s = checkTime(s);
-	document.getElementById('showtime').innerHTML =
-	h + ":" + m + ":" + s;
-	var t = setTimeout(startTime, 1000);
-  }
-  function checkTime(i) {
-	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-	return i;
-  }
-</script>
+	<script src="js/box.js"></script> 
+	<script src="js/eveTime.js"></script> 
 
 </head>
 
 <body onload="startTime()">
+
 <div id="wrapper">
-<table id="pi" border="0" cellpadding="0" cellspacing="0" width="73%" height="30%">
-<tr class="header">
+	<table id="pi" border="0" cellpadding="0" cellspacing="0" width="73%" height="30%">
+	<tr class="header">
 	
-<td valign="top" colspan="4" style="background-color:#287099; color: black;"> <span class="tooltip" data-jbox-content="Wormhole type can be found on the <i>Overview.</i>"><b>wh</b>_by_type</span></td>
-<td valign="top" colspan="3" style="text-align: center;"><img src="icon_connect.png"></td>
-<td valign="top" colspan="3" style="text-align: center;">SPAWN IN</td>
-<td valign="top" colspan="3" style="text-align: center;">LEADS TO</td>
-<td valign="top" colspan="5">SHIP JUMP SIZE</td>
-<td valign="top" colspan="3"><span class="tooltip" data-jbox-content="Total mass may vary ± 10%.">TOTAL MASS</span></td>
-<td valign="top" colspan="4"><span class="tooltip" data-jbox-content="Lifetime may increase for several hours relative to situational spawn mechanics.">LIFETIME</span></td>	
-</tr>
-<tr>
-	
-
-
-<td colspan="1" class="items" style="width: 50px;">
-<ul id="type" style="width: 50px;">
-	<li>A009</li>
-	<li>A239</li>
-	<li>A641</li>
-	<li>A982</li>
-	<li>B041</li>
-	<li>B274</li>
-	<li>B449</li>
-	<li>B520</li>
-	<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>B735</li></span>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">C008</li></span>
-	<li>C125</li>
-	<li>C140</li>
-	<li>C247</li>
-	<li>C248</li>
-	<li>C391</li>
-	<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>C414</li></span>
-	<span class="tooltip" data-jbox-content="&#8594; Every <i>Pochven</i> system is allways connected to this type.<br>&#8594; <i>Ship allowed:</i> Bowhead<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"><li class="static">C729</li></span>
-	<li>D364</li>
-	<li>D382</li>
-	<span class="tooltip" data-jbox-content="&#8594; Is <a>static</a> only in one shattered C5 system; J011790"><li class="static">D792</li></span>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in shattered C4 systems"><li>D845</li></span>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">E004</li></span>
-	<li>E175</li>
-	<li>E545</li>
-	<li>E587</li>
-	<li>F135</li>
-	<li>F216</li>
-	<li>F353</li>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">G008</li></span>
-	<li>G024</li>
-	<li>H121</li>
-	<li>H296</li>
-</ul> </td>
-<td class="items" style="width: 50px;">
-<ul id="type" style="width: 50px;">	
-	<li>H900</li>
-	<li>I182</li>
-	<li>J244</li>
-	<li>K329</li>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in shattered C4, C5 and C6 systems"><li>K346</li></span>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">L005</li></span>
-	<li>L031</li>
-	<li>L477</li>
-	<li>L614</li>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">M001</li></span>
-	<li>M164</li>
-	<li>M267</li>
-	<li>M555</li>
-	<li>M609</li>
-	<li>N062</li>
-	<li>N110</li>
-	<li>N290</li>
-	<li>N432</li>
-	<li>N766</li>
-	<li>N770</li>
-	<li>N944</li>
-	<li>N968</li>
-	<li>O128</li>
-	<li>O477</li>
-	<li>O883</li>
-	<li>P060</li>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">Q003</li></span>
-	<li>Q063</li>
-	<li>Q317</li>
-	<li>R051</li>
-	<li>R081</li>
-	<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>R259</li></span>
-</ul></td>
-<td class="items" style="width: 50px;">
-<ul id="type" style="width: 50px;">		
-	<li>R474</li>
-	<li>R943</li>
-	<li>S047</li>
-	<li>S199</li>
-	<li>S804</li>
-	<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>S877</li></span>
-	<li>T405</li>
-	<li>T458</li>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in shattered C4 and C5 systems"><li>U210</li></span>
-	<li>U319</li>
-	<li>U372</li>
-	<li>U574</li>
-	<li>V283</li>
-	<li>V301</li>
-	<li>V753</li>
-	<li>V898</li>
-	<li>V911</li>
-	<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>V928</li></span>
-	<li>W237</li>
-	<li>X450</li>
-	<li>X702</li>
-	<li>X877</li>
-	<li>Y683</li>
-	<li>Y790</li>
-	<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">Z006</li></span>
-	<li>Z060</li>
-	<li>Z142</li>
-	<li>Z457</li>
-	<li>Z647</li>
-	<li>Z971</li>
-	<li>&#9966;</li>
-	<span class="tooltip" data-jbox-content="Generic type designating an exit."><li style="border-left: 1px dotted #2389a6;">K162</li></span>
-</ul>
-</td>
+		<td valign="top" colspan="4" style="background-color:#287099; color: black;"> <span class="tooltip" data-jbox-content="Wormhole type can be found on the <i>Overview.</i>"><b>wh</b>_by_type</span></td>
+		<td valign="top" colspan="3" style="text-align: center;"><img src="icon_connect.png"></td>
+		<td valign="top" colspan="3" style="text-align: center;">SPAWN IN</td>
+		<td valign="top" colspan="3" style="text-align: center;">LEADS TO</td>
+		<td valign="top" colspan="5">SHIP JUMP SIZE</td>
+		<td valign="top" colspan="3"><span class="tooltip" data-jbox-content="Total mass may vary ± 10%.">TOTAL MASS</span></td>
+		<td valign="top" colspan="4"><span class="tooltip" data-jbox-content="Lifetime may increase for several hours relative to situational spawn mechanics.">LIFETIME</span></td>	
+	</tr>
+	<tr>
+	<td colspan="1" class="items" style="width: 50px;">
+	<ul id="type" style="width: 50px;">
+		<li>A009</li>
+		<li>A239</li>
+		<li>A641</li>
+		<li>A982</li>
+		<li>B041</li>
+		<li>B274</li>
+		<li>B449</li>
+		<li>B520</li>
+		<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>B735</li></span>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">C008</li></span>
+		<li>C125</li>
+		<li>C140</li>
+		<li>C247</li>
+		<li>C248</li>
+		<li>C391</li>
+		<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>C414</li></span>
+		<span class="tooltip" data-jbox-content="&#8594; Every <i>Pochven</i> system is allways connected to this type.<br>&#8594; <i>Ship allowed:</i> Bowhead<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"><li class="static">C729</li></span>
+		<li>D364</li>
+		<li>D382</li>
+		<span class="tooltip" data-jbox-content="&#8594; Is <a>static</a> only in one shattered C5 system; J011790"><li class="static">D792</li></span>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in shattered C4 systems"><li>D845</li></span>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">E004</li></span>
+		<li>E175</li>
+		<li>E545</li>
+		<li>E587</li>
+		<li>F135</li>
+		<li>F216</li>
+		<li>F353</li>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">G008</li></span>
+		<li>G024</li>
+		<li>H121</li>
+		<li>H296</li>
+	</ul> 
+	</td>
+	<td class="items" style="width: 50px;">
+	<ul id="type" style="width: 50px;">	
+		<li>H900</li>
+		<li>I182</li>
+		<li>J244</li>
+		<li>K329</li>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in shattered C4, C5 and C6 systems"><li>K346</li></span>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">L005</li></span>
+		<li>L031</li>
+		<li>L477</li>
+		<li>L614</li>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">M001</li></span>
+		<li>M164</li>
+		<li>M267</li>
+		<li>M555</li>
+		<li>M609</li>
+		<li>N062</li>
+		<li>N110</li>
+		<li>N290</li>
+		<li>N432</li>
+		<li>N766</li>
+		<li>N770</li>
+		<li>N944</li>
+		<li>N968</li>
+		<li>O128</li>
+		<li>O477</li>
+		<li>O883</li>
+		<li>P060</li>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">Q003</li></span>
+		<li>Q063</li>
+		<li>Q317</li>
+		<li>R051</li>
+		<li>R081</li>
+		<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>R259</li></span>
+	</ul>
+	</td>
+	<td class="items" style="width: 50px;">
+	<ul id="type" style="width: 50px;">		
+		<li>R474</li>
+		<li>R943</li>
+		<li>S047</li>
+		<li>S199</li>
+		<li>S804</li>
+		<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>S877</li></span>
+		<li>T405</li>
+		<li>T458</li>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in shattered C4 and C5 systems"><li>U210</li></span>
+		<li>U319</li>
+		<li>U372</li>
+		<li>U574</li>
+		<li>V283</li>
+		<li>V301</li>
+		<li>V753</li>
+		<li>V898</li>
+		<li>V911</li>
+		<span class="tooltip" data-jbox-content="&#8594; It doesn't need to be scanned<br>&#8594; Visible as <i>Unidentified Wormhole</i>"><li>V928</li></span>
+		<li>W237</li>
+		<li>X450</li>
+		<li>X702</li>
+		<li>X877</li>
+		<li>Y683</li>
+		<li>Y790</li>
+		<span class="tooltip" data-jbox-content="&#8594; Can be <a>static</a> in C13 systems"><li class="static">Z006</li></span>
+		<li>Z060</li>
+		<li>Z142</li>
+		<li>Z457</li>
+		<li>Z647</li>
+		<li>Z971</li>
+		<li>&#9966;</li>
+		<span class="tooltip" data-jbox-content="Generic type designating an exit."><li style="border-left: 1px dotted #2389a6;">K162</li></span>
+	</ul>
+	</td>
 
 <td class="items"></td>
 <td colspan="3" class="items">
@@ -229,33 +201,31 @@ function startTime() {
 	</td>
 
 
-
 <td colspan="3" class="items" style="text-align: center;">
 <ul id="leadsTo">
-<li class="h121 z647 v301 p060 y790 q317 z971 e004">C1</li>
-<li class="c125 d382 i182 n766 d364 g024 r943 l005">C2</li>
-<li class="o883 o477 n968 c247 m267 l477 x702 z006">C3</li>
-<li class="m609 y683 t405 x877 e175 z457 o128 r081 m001">C4</li>
-<li class="l614 n062 n770 h900 h296 v911 m555 n432 n432 c008">C5</li>
-<li class="s804 r474 a982 u574 v753 w237 b041 u319 g008">C6</li>
-<li class="n110 b274 d845 s047 d792 b520 d792 a641 b449 b449 q063">HS</li>
-<li class="j244 a239 u210 n290 c140 c140 c391 r051 n944 n944 v898">LS</li>
-<li class="z060 e545 k346 k329 z142 c248 z142 v283 s199 e587 x450 q003">NS</li>
-<li class="c729 f216 u372">Pochven</li>
-<li class="f353 f355 f135 t458 m164 l031">Thera</li>
-<li class="a009">C13</li>
+	<li class="h121 z647 v301 p060 y790 q317 z971 e004">C1</li>
+	<li class="c125 d382 i182 n766 d364 g024 r943 l005">C2</li>
+	<li class="o883 o477 n968 c247 m267 l477 x702 z006">C3</li>
+	<li class="m609 y683 t405 x877 e175 z457 o128 r081 m001">C4</li>
+	<li class="l614 n062 n770 h900 h296 v911 m555 n432 n432 c008">C5</li>
+	<li class="s804 r474 a982 u574 v753 w237 b041 u319 g008">C6</li>
+	<li class="n110 b274 d845 s047 d792 b520 d792 a641 b449 b449 q063">HS</li>
+	<li class="j244 a239 u210 n290 c140 c140 c391 r051 n944 n944 v898">LS</li>
+	<li class="z060 e545 k346 k329 z142 c248 z142 v283 s199 e587 x450 q003">NS</li>
+	<li class="c729 f216 u372">Pochven</li>
+	<li class="f353 f355 f135 t458 m164 l031">Thera</li>
+	<li class="a009">C13</li>
 <br>
-<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"><li class="s877">Drifter Sentinel</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C15<br><i>&#8594; Jcode:</i> J110145<br><i>&#8594; System effect:</i> C2 Cataclysmic Variable"><li class="b735">Drifter Barbican</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C16<br><i>&#8594; Jcode:</i> J164710<br><i>&#8594; System effect:</i> C2 Magnetar"><li class="v928">Drifter Vidette</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C17<br><i>&#8594; Jcode:</i> J200727<br><i>&#8594; System effect:</i> C2 Pulsar"><li class="c414">Drifter Conflux</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C18<br><i>&#8594; Jcode:</i> J174618<br><i>&#8594; System effect:</i> C2 Wolf-Rayet"><li class="r259">Drifter Redoubt</li></span>
-<br>
-<br>
-<li class="exit k162">jump to identify</li>
+	<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"><li class="s877">Drifter Sentinel</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C15<br><i>&#8594; Jcode:</i> J110145<br><i>&#8594; System effect:</i> C2 Cataclysmic Variable"><li class="b735">Drifter Barbican</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C16<br><i>&#8594; Jcode:</i> J164710<br><i>&#8594; System effect:</i> C2 Magnetar"><li class="v928">Drifter Vidette</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C17<br><i>&#8594; Jcode:</i> J200727<br><i>&#8594; System effect:</i> C2 Pulsar"><li class="c414">Drifter Conflux</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>Class:</i> C18<br><i>&#8594; Jcode:</i> J174618<br><i>&#8594; System effect:</i> C2 Wolf-Rayet"><li class="r259">Drifter Redoubt</li></span>
 <br>
 <br>
-
+	<li class="exit k162">jump to identify</li>
+<br>
+<br>
 </ul>
 </td>
 
@@ -263,11 +233,11 @@ function startTime() {
 <td class="items"></td>
 <td colspan="3" class="items">
 <ul id="indMass">
-<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> Porpoise and Heavy Interdiction Cruiser<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <b>Frigate holes (S)</b>; each have 00 in its type"><li class="a009 c008 e004 g008 l005 m001 q003 z006">up to Destroyer</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <b>Medium holes (M)</b>"><li class="c125 f353 f355 h121 j244 l614 m609 n110 o883 p060 q063 q317 s804 t458 v301 y790 z060 z647 z971">up to Battlecruiser</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <b>Large holes (L)</b>"><li class="a239 a982 b274 b735 c247 c414 d364 d382 d845 e175 e545 f135 f216 g024 h900 i182 k346 l477 m267 n062 n766 n770 n968 o128 o477 r081 r259 r474 r943 s047 s877 t405 u210 u372 u574 v928 x450 x702 x877 y683 z457 c729">up to Battleship</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <b>X-Large holes (XL)</b>"><li class="b041 b520 m164 v898 a641 b449 d792 e587 l031 m555 r051 v283">up to Freighter</li></span>
-<span class="tooltip" data-jbox-content="&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <b>X-Large holes (XL)</b>"><li class="c140 h296 n432 n944 s199 v753 v911 w237 z142 c248 c391 k329 n290 u319">up to Capital</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> Porpoise and Heavy Interdiction Cruiser<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <b>Frigate holes (S)</b>; each have 00 in its type"><li class="a009 c008 e004 g008 l005 m001 q003 z006">up to Destroyer</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <b>Medium holes (M)</b>"><li class="c125 f353 f355 h121 j244 l614 m609 n110 o883 p060 q063 q317 s804 t458 v301 y790 z060 z647 z971">up to Battlecruiser</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <b>Large holes (L)</b>"><li class="a239 a982 b274 b735 c247 c414 d364 d382 d845 e175 e545 f135 f216 g024 h900 i182 k346 l477 m267 n062 n766 n770 n968 o128 o477 r081 r259 r474 r943 s047 s877 t405 u210 u372 u574 v928 x450 x702 x877 y683 z457 c729">up to Battleship</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <b>X-Large holes (XL)</b>"><li class="b041 b520 m164 v898 a641 b449 d792 e587 l031 m555 r051 v283">up to Freighter</li></span>
+	<span class="tooltip" data-jbox-content="&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <b>X-Large holes (XL)</b>"><li class="c140 h296 n432 n944 s199 v753 v911 w237 z142 c248 c391 k329 n290 u319">up to Capital</li></span>
 
 </ul>
 </td>
@@ -275,14 +245,14 @@ function startTime() {
 <td class="items"></td>
 <td colspan="3" class="items">
 <ul id="toMass">
-<li class="f353 f355 z971">100 000 000 kg</li>
-<li class="h121 p060 q063 q317 t458 v301 y790 z647">500 000 000 kg</li>
-<li class="b735 c414 f135 r259 r943 s877 v928">750 000 000 kg</li>
-<li class="c125 c729 d364 f216 j244 l614 m267 m609 n110 o128 o883 r081 s804 u372 x450 x702 z060">1 000 000 000 kg</li>
-<li class="a239 a641 b274 b449 c247 d382 e175 e545 g024 i182 l477 m164 n766 n968 o477 t405 v898 x877 y683 z457">2 000 000 000 kg</li>
-<li class="a009 h900 r474 s047 a982 b041 k346 l031 b520 u210 u574 v283 m555 n062 d792 n770 e587 r051 c008 e004 g008 l005 m001 q003 z006">3 000 000 000 kg</li>
-<li class="c140 h296 n432 n944 s199 u319 v753 v911 w237 z142 c248 c391 n290">3 300 000 000 kg</li>
-<li class="d845 k329">5 000 000 000 kg</li>
+	<li class="f353 f355 z971">100 000 000 kg</li>
+	<li class="h121 p060 q063 q317 t458 v301 y790 z647">500 000 000 kg</li>
+	<li class="b735 c414 f135 r259 r943 s877 v928">750 000 000 kg</li>
+	<li class="c125 c729 d364 f216 j244 l614 m267 m609 n110 o128 o883 r081 s804 u372 x450 x702 z060">1 000 000 000 kg</li>
+	<li class="a239 a641 b274 b449 c247 d382 e175 e545 g024 i182 l477 m164 n766 n968 o477 t405 v898 x877 y683 z457">2 000 000 000 kg</li>
+	<li class="a009 h900 r474 s047 a982 b041 k346 l031 b520 u210 u574 v283 m555 n062 d792 n770 e587 r051 c008 e004 g008 l005 m001 q003 z006">3 000 000 000 kg</li>
+	<li class="c140 h296 n432 n944 s199 u319 v753 v911 w237 z142 c248 c391 n290">3 300 000 000 kg</li>
+	<li class="d845 k329">5 000 000 000 kg</li>
 </ul>
 </td>
 
@@ -290,10 +260,10 @@ function startTime() {
 <td colspan="3" class="items">
 <ul id="lifeTime">
 	<li class="c729">12h</li>
-<li class="a009 a641 b449 b735 c008 c125 c247 c414 d364 d382 e004 e175 e587 f135 f216 f353 f355 g008 g024 h121 i182 l005 l031 l477 m001 m164 m267 m609 n766 n968 o477 o883
-p060 q003 q063 q317 r051 r081 r259 r943 s877 t405 t458 u372 v301 v898 v928 x450 x877 y683 y790 z006 z457 z647 z971 e545 k346 v283 z060 z142">16h</li>
-<li class="a239 a982 b274 c140 c248 d792 d845 h296 h900 j244 k329 l614 m555 n062 n110 n290 n432 n770 n944 o128 r474 s047 s199 s804 u210 u574 v753 v911 w237 x702">24h</li>
-<li class="u319 b041 b520 c391">48h</li>
+	<li class="a009 a641 b449 b735 c008 c125 c247 c414 d364 d382 e004 e175 e587 f135 f216 f353 f355 g008 g024 h121 i182 l005 l031 l477 m001 m164 m267 m609 n766 n968 o477 o883
+				p060 q003 q063 q317 r051 r081 r259 r943 s877 t405 t458 u372 v301 v898 v928 x450 x877 y683 y790 z006 z457 z647 z971 e545 k346 v283 z060 z142">16h</li>
+	<li class="a239 a982 b274 c140 c248 d792 d845 h296 h900 j244 k329 l614 m555 n062 n110 n290 n432 n770 n944 o128 r474 s047 s199 s804 u210 u574 v753 v911 w237 x702">24h</li>
+	<li class="u319 b041 b520 c391">48h</li>
 </ul>
 </td>
 
@@ -307,9 +277,10 @@ p060 q003 q063 q317 r051 r081 r259 r943 s877 t405 t458 u372 v301 v898 v928 x450 
 </tr>
 </table>
 </div>
-<canvas id="canvas"></canvas>
 
-<div class="footer">
+	<canvas id="canvas"></canvas>
+
+	<div class="footer">
 	<table>
 	<tr>
 		<td class="bot"><span class="tooltip" data-jbox-content="Use this tool to identify your <a><i>wormhole connection by type</i></a>.<br>Initial data pulled from <i>Anoik.is</i> and several other sources.<br>Updated and verified on grid.">info</span></td>
@@ -318,364 +289,12 @@ p060 q003 q063 q317 r051 r081 r259 r943 s877 t405 t458 u372 v301 v898 v928 x450 
 		<td class="bot"><span class="tooltip" data-jbox-content="Site use cookies to count visitors.<br>--------------------------------------------------<br>This material is used with limited permission of CCP Games. © CCP hf<br>No official affiliation or endorsement by CCP Games is stated or implied."><span id="showtime"></span> &#8942;</span></td>
 	</tr>
 	</table>	
-</div>
+	</div>
 
-<script async src="//static.getclicky.com/101333060.js"></script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101333060ns.gif" /></p></noscript>
+	<script async src="//static.getclicky.com/101333060.js"></script>
+	<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101333060ns.gif" /></p></noscript>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
-
-<script>
-$(document).ready(function() {
-	
-	var colors = ["#d1d1d1","#1d4145","#763c19","#79cef4","yellow","#79cef4","orange","lime","green","#304b15"];
-	$(".items li").css({color:colors[1]});
-
-	var groupColors = ["#42ffec",
-            "#42b3ff",
-            "#4265ff",
-            "#4230cf",
-            "#9c32ed",
-            "#f230dc",
-            "#0dfa05",
-            "#f0a800",
-            "#e81e1e",
-            "#f6fc32"];
-        $(".items li").css({
-            color: colors[1]
-        });
-	$(".star").each(function( i ) {
-    $(this).css("color","black"); //black bob
-  });
-
-	canvas();
-	$(window).resize(function() { // todo: get event, only repaint on mouse release
-		canvas();
-	});
-
-	// distribute before list to span
-	$(".items ul li")
-		.wrapInner($('<span />'))
-		.each(function() {
-
-			item = lower_case($(this).children("span").html());		// turn item name css compliant
-			$(this).attr({ id: item });								// set li id as item name
-			
-			if ($(this).parents("ul").attr("id") != "type") {		// type has no before
-				list = $(this).attr("class").split(/\s+/);			// get before items from li class
-				for (i in list) {
-					$("#"+list[i]+" span").addClass(item);			// find id with class, inject itself into span as class
-				}
-			}
-		})
-	$('.items')
-		.on('mouseenter','ul li',function() {
-			if (! $('#pi').hasClass('sticky')) {
-				$(this).addClass("current");
-				$(this).css({color:colors[5]});
-				pi_link($(this));
-			}
-		})
-		
-		.on('mouseleave','ul li',function() {
-			if (! $('#pi').hasClass('sticky')) {
-				$(this).removeClass("current");
-				$(".items li").css({color:colors[1]});
-
-				$(".star").each(function( i ) {
-    			$(this).css("color","black"); //black bob
-  });
-
-				canvas();
-			}
-		})
-
-		.on('click','ul li',function() {
-			
-			if (!$(this).hasClass('current')) {
-				$('#pi').removeClass('sticky')
-			}
-			
-			if ($('#pi').hasClass('sticky')) {
-				$('#pi').removeClass('sticky')
-				
-				$('.items li').removeClass('current').css({color:colors[1]});
-				
-				$(".star").each(function( i ) {
-    			$(this).css("color","black"); //black bob
-  });
-				
-			} else {
-				$('#pi').addClass('sticky')
-				
-				$('.items li').removeClass('current').css({color:"#06171c"});
-				canvas();
-
-				$(this).addClass("current");
-				$(this).css({color:colors[5]});
-				
-				pi_link($(this));
-			}
-		})
-		
-		// $("ul#basic").hover(function() { $(".p1").toggleClass("current"); });
-		// $("ul#toMass").hover(function() { $(".p2").toggleClass("current"); });
-		// $("ul#indMass").hover(function() { $(".p3").toggleClass("current"); });
-		// $("ul#advanced").hover(function() { $(".p4").toggleClass("current"); });
-	
-function lower_case(s) { return s.toLowerCase().replace(/ /g, '-').replace(/\./g, ''); }
-	function pi_link(item) {
-		pi_link_before(item,-1);
-		pi_link_after(item,1);
-	}
-	function pi_link_before(item, degree, depth) {
-		type   = item.parent("ul").attr("id");
-		degree = degree + ((type == "basic") ? 1 : 0);
-
-		class_prefex = ".items li span.";
-		$(".items li span."+item.attr("id"))
-			.each(function() {
-				$(this).parent("li").css({color: colors[5+degree]});
-				if (type != "basic" && degree > -4) {
-					line(item.children("span"),$(this),colors[5+degree],colors[5+degree+1]);
-				}
-				pi_link_before($(this).parent("li"),degree-1);
-			});
-	}
-	function pi_link_after(item, degree, depth) {
-		type   = item.parent("ul").attr("id");
-		degree = degree + ((type == "resources") ? -1 : 0);
-		
-		var i = 0;
-            $(".items li." + item.attr("id"))
-                .each(function () {
-
-                    switch ($(this).text()) {
-                        case "Class 1":
-                            $(this).css({
-                                color: groupColors[0]
-                            });
-                            break;
-                        case "Class 2":
-                            $(this).css({
-                                color: groupColors[1]
-                            });
-                            break;
-                        case "Class 3":
-                            $(this).css({
-                                color: groupColors[2]
-                            });
-                            break;
-                        case "Class 4":
-                            $(this).css({
-                                color: groupColors[3]
-                            });
-                            break;
-                        case "Class 5":
-                            $(this).css({
-                                color: groupColors[4]
-                            });
-                            break;
-                        case "Class 6":
-                            $(this).css({
-                                color: groupColors[5]
-                            });
-                            break;
-                        case "HighSec":
-                            $(this).css({
-                                color: groupColors[6]
-                            });
-                            break;
-                        case "LowSec":
-                            $(this).css({
-                                color: groupColors[7]
-                            });
-                            break;
-                        case "NullSec":
-                            $(this).css({
-                                color: groupColors[8]
-                            });
-                            break;
-                        case "Class 12 - Thera":
-                            $(this).css({
-                                color: groupColors[9]
-                            });
-                            break;
-							case "Class 13 - Shattered":
-                            $(this).css({
-                                color: "#ffffff"
-                            });
-                            break;
-							case "Pochven ▲ Trig space":
-                            $(this).css({
-                                color: groupColors[8]
-                            });
-                            break;
-							case "Drone Regions":
-                            $(this).css({
-                                color: groupColors[8]
-                            });
-                            break;
-                        case "C1":
-                            $(this).css({
-                                color: groupColors[0]
-                            });
-                            break;
-                        case "C2":
-                            $(this).css({
-                                color: groupColors[1]
-                            });
-                            break;
-                        case "C3":
-                            $(this).css({
-                                color: groupColors[2]
-                            });
-                            break;
-                        case "C4":
-                            $(this).css({
-                                color: groupColors[3]
-                            });
-                            break;
-                        case "C5":
-                            $(this).css({
-                                color: groupColors[4]
-                            });
-                            break;
-                        case "C6":
-                            $(this).css({
-                                color: groupColors[5]
-                            });
-                            break;
-							case "C13":
-                            $(this).css({
-                                color: "#ffffff"
-                            });
-                            break;
-                        case "HS":
-                            $(this).css({
-                                color: groupColors[6]
-                            });
-                            break;
-                        case "LS":
-                            $(this).css({
-                                color: groupColors[7]
-                            });
-                            break;
-                        case "NS":
-                            $(this).css({
-                                color: groupColors[8]
-                            });
-                            break;
-							case "Pochven":
-                            $(this).css({
-                                color: groupColors[8]
-                            });
-                            break;
-                        case "Thera":
-                            $(this).css({
-                                color: groupColors[9]
-                            });
-                            break;
-						case "up to Destroyer":
-                            $(this).css({
-                                color: "#1f5eeb"
-                            });
-                            break;
-							case "up to Battlecruiser":
-                            $(this).css({
-                                color: "#36cccc"
-                            });
-                            break;
-							case "up to Battleship":
-                            $(this).css({
-                                color: "#D6D9CC"
-                            });
-                            break;
-							case "up to Freighter":
-                            $(this).css({
-                                color: "#d7601b"
-                            });
-                            break;
-							case "up to Capital":
-                            $(this).css({
-                                color: "#d7601b"
-                            });
-                            break;
-                        default:
-                            $(this).css({
-                                color: colors[3]
-                            });
-                            break;
-                    }
-
-                  
-                    if (type != "leadsTo") {
-                        line($(this).children("span"), item.children("span"), colors[5],
-                            colors[6]);
-                    }
-                    //  pi_link_after($(this), degree + 1);
-                });
-        }
-	
-	$("#disco").toggle(
-		function() {
-			$(this).text("Disco!");
-		}
-	,
-		function() {
-			$(this).text("type");
-		}
-	);
-});
-function canvas() {
-	$("#canvas").attr({ 
-		"height": $("#pi").outerHeight(),
-		"width": $("#pi").outerWidth() 
-	});
-}
-function line(a,b,c1,c2) {
-	pad = 0;
-	fx  = a.position().left + 4;
-	fy  = a.position().top + a.height()/2 + 1;
-	tx  = b.position().left + b.width() - 2;
-	ty  = b.position().top + b.height()/2 + 1;
-
-	var cvs = document.getElementById('canvas');
-
-	var ctx = cvs.getContext('2d');
-	ctx.lineWidth = 1;
-	ctx.beginPath();
-	ctx.moveTo(tx,ty);
-	ctx.lineTo(fx,fy);
-	ctx.globalAlpha = 0.5;
-
-	var gdt = ctx.createLinearGradient( tx,ty, fx,fy );
-	gdt.addColorStop(0, c1);
-	gdt.addColorStop(1, c2);
-
-	ctx.strokeStyle = gdt;
-	ctx.stroke();
-}
-
-
-pi = {
-	type: ['C125','C140','C247','C248','C391','C414','D364','D382','D792','D845','E004','E175','E545',
-'E587','F135','F353','F355','G008','G024','H121','H296','H900','I182','J244','K162','K329',
-'K346','L005','L031','L477','L614','M001','M164','M267','M555','M609','N062','N110','N290',
-'N432','N766','N770','N944','N968','O128','O477','O883','P060','Q003','Q063','Q317','R051',
-'R259','R474','R943','S047','S199','S804','S877','T405','T458','U210','U319','U574','V283',
-'V301','V753','V898','V911','V928','W237','X702','X877','Y683','Y790','Z006','Z060','Z142',
-'Z457','Z647','Z971'],
-	spawnIn: ['Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 13','HighSec','LowSec','NullSec','Drone Regions','Pochven ▲ Trig space','Theras', 'Barbicans','Confluxs', 'Redoubts', 'Sentinels', 'Videttes', 'EXIT'],
-	leadsTo: ['C1','C2','C3','C4','C5','C6','C13','HS','LS','NS','Thera', 'Barbican','Conflux', 'Redoubt', 'Sentinel', 'Vidette'],
-	productions: {
-		lifeTime: ['12h','16h','24h','48h'],
-		respawn: ['static','wandering'],
-		toMass: ['100,000,000 kg','500,000,000 kg','750,000,000 kg','1,000,000,000 kg','2,000,000,000 kg','3,000,000,000 kg','5,000,000,000 kg'],
-		indMass: ['destroyer','battlecruiser','battleship','capital',],
-	} 
-}
-</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="js/vectorScript.js"></script> 
 </html>
