@@ -24,84 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"> 
 
-	<style type="text/css" media="screen">
-
-body { background-color: #000; cursor: context-menu; animation: fadeInAnimation ease 1.5s; animation-iteration-count: 1; animation-fill-mode: forwards;
-}
-	@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-}
-	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1a303d; padding: 0; margin: 0; }
-	ul {list-style: none none; margin: 0; padding: 0; display: block; }
-	
-	a,a:link { color: #79cef4; text-decoration: none; }
-	table {border: 1px solid transparent;}
-    table:hover { border: 1px solid #315970; }   
-	td { padding: 2px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
-	tr:last-child td { border-bottom-width: 0; }
-	
-	tr.header td { font-family: 'Roboto Mono', monospace;  padding: 10px 4px; font-size: 1.5em; font-weight: 400; color: #287099; }
-	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
-
-	li{ font-family: 'Roboto Mono', monospace; font-size: 14px; padding: 1px 0px 0px 0px;}
-	.items li { margin: 3px 0px;}
-	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
-	.arrows li { margin: 5px 0px; color: #333; }
-	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 1px 2px; }	
-	tr.footer { display: none; }
-
-	.footer {
-   position: absolute;
-   width: 220px	;
-   right: 0%;
-	top: 0%;
-	font-size: 20px;
-   text-align: center;
-}
-
-.bot {
-	font-size: 15px;
-	color: black;
-	font-weight: bold;
-	background-color: #1e3644;
-	padding: 3px 5px;
-}
-
-table .bot:hover {
-	border: none;
-	background-color: #315970;
-}
-
-.botime {
-	font-size: 15px;
-	color: black;
-	font-weight: bold;
-	background-color: #315970;
-	padding: 3px 5px;
-	}
-
-	.numbers{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
-
-	.vertical 	{writing-mode: vertical-rl;	text-orientation: sideways-right; margin-right: -25; background-color: rgba(0,0,0,0.01) !important;}
-
-/*
-	tr.footer td { color: #111; }
-	.p1 td,.p2 td,.p3 td,.p4 td,
-	.p1,.p2,.p3,.p4 { font-weight: 900 !important; }
-	.p1.current,.p2.current,.p3.current,.p4.current,
-	.p1.current td,.p2.current td,.p3.current td,.p4.current td { color: red; }
-*/
-	#canvas { z-index: 1; display: block; position: absolute; left: 15%; top: 70; background-color: transparent; }
-	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 15%; top: 70; }
-
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.2/dist/jBox.all.min.js"></script>
@@ -141,7 +64,7 @@ function startTime() {
 
 <body onload="startTime()">
 <div id="wrapper">
-<table id="pi" border="0" cellpadding="0" cellspacing="0" width="70%" height="30%">
+<table id="pi" border="0" cellpadding="0" cellspacing="0" width="73%" height="30%">
 <tr class="header">
 	
 <td valign="top" colspan="4" style="background-color:#287099; color: black;"> <span class="tooltip" data-jbox-content="Wormhole type can be found on the <i>Overview.</i>"><b>wh</b>_by_type</span></td>
@@ -289,10 +212,10 @@ function startTime() {
 	<span class="tooltip" data-jbox-content="25 shattered wormhole systems accessible only via 'frigate holes'. Their Jcode starts with J000.<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Constellations:</i> H-C00331, H-C00332, H-C00333<br><i>&#8594; Region: H-R00032</i>"><li class="e004 l005 z006 m001 c008 g008 q003 a009">Class 13 - Shattered</li></span>
 
 	<br>
-	<span class="tooltip" data-jbox-content="&#8594; <i>NullSec regions:</i> Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire."><li class="u372">Drone Regions</li></span>
+	<span class="tooltip" data-jbox-content="<i>NullSec regions:</i><br>&#8594; Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>&#8594; Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire."><li class="u372">Drone Regions</li></span>
 	<span class="tooltip" data-jbox-content="5 unique shattered wormhole systems, each with its own class and system effect.<br>&#8594; <i>Constellation:</i> K-C00334<br>&#8594; <i>Region: K-R00033"><li class="z647 o477 n062 y683 r474 d382">Drifter wormholes</li></span>	
 	<br>
-		<span class="tooltip" data-jbox-content="&#8594; These observatories are located across <i>known space</i>.<br>&#8594; Referred wormhole types spawn only in systems having those.<br>&#8594; First letter in each type reveals the name of a <i>Drifter</i> system destination."><li class="s877 b735 v928 c414 r259">Jove Observatories</li></span>
+		<span class="tooltip" data-jbox-content="&#8594; These observatories are located across <i>known space</i>.<br>&#8594; Referred wormhole types spawn only in those systems.<br>&#8594; First letter in each type reveals the name of a <i>Drifter</i> system destination."><li class="s877 b735 v928 c414 r259">Jove Observatories</li></span>
 
 	<br>
 	<span class="tooltip" data-jbox-content="Bob knows why ..."><li class="o128 n290 k329">never spawn</li></span>
