@@ -68,5 +68,5 @@ table .bot:hover {
 	.p1.current,.p2.current,.p3.current,.p4.current,
 	.p1.current td,.p2.current td,.p3.current td,.p4.current td { color: red; }
 */
-	#canvas { z-index: 1; display: block; position: absolute; left: 13%; top: 70; background-color: transparent; }
-	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 13%; top: 70; }
+	#canvas { z-index: 1; display: block; position: absolute; left: 14%; top: 70; background-color: transparent; }
+	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 14%; top: 70; }
