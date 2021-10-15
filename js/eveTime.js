@@ -13,3 +13,10 @@ function startTime() {
 	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
 	return i;
   }
+
+const socket = new WebSocket('wss://expressjs-production-04a4.up.railway.app');
+
+socket.addEventListener('message', function (event) {
+var div = document.getElementById('whkills');
+div.innerHTML = event.data;
+});
