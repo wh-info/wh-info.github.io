@@ -16,10 +16,6 @@ function startTime() {
 
 const socket = new WebSocket('wss://expressjs-production-04a4.up.railway.app');
 
-socket.addEventListener('open', function (event) {
-    socket.send('Hello Server!');
-});
-
 socket.addEventListener('message', function (event) {	
 var div = document.getElementById('whkills');
 div.innerHTML = event.data;
