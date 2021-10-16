@@ -27,7 +27,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 1px 2px; }	
 	tr.footer { display: none; }
 
-	.footer { position: absolute; width: 290px; right: 0%; top: 0%;	font-size: 20px; text-align: center; }
+	.footer { position: absolute; width: 300px; right: 0%; top: 0%;	font-size: 20px; text-align: center; }
 
 	.bot { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; }
 
