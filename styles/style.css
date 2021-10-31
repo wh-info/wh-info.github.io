@@ -20,15 +20,13 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	tr.header td { font-family: 'Roboto Mono', monospace;  padding: 10px 4px; font-size: 23px; font-weight: 400; color: #287099; }
 	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
 
-	li{ font-family: 'Roboto Mono', monospace; font-size: 14px; padding: 1px 0px 0px 0px;}
-	.items li { margin: 3px 0px;}
+	li{ font-family: 'Roboto Mono', monospace; font-size: 14px; padding: 0px 0px 0px 0px;}
+	.items li { margin: none; padding: 2px 0px;}
 	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
-	.arrows li { margin: 5px 0px; color: #333; }
 	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 1px 2px; }	
 	tr.footer { display: none; }
 
-	.footer { position: absolute; width: 300px; right: 0%; top: 0%;	font-size: 20px; text-align: center; }
-
+	.footer { position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
 	.bot { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; }
 
 	table .bot:hover { border: none; background-color: #315970; }
@@ -37,7 +35,8 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 
 	.numbers{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
 
-	.vertical 	{writing-mode: vertical-rl;	text-orientation: sideways-right; margin-right: -25; background-color: rgba(0,0,0,0.01) !important;}
+	.reset {writing-mode: vertical-rl;	text-orientation: sideways-right; background-color: #315970 !important; color: black; font-size: 16px; font-weight: bold;}
+	.reset:hover {background-color: #1e3644 !important;}
 
 /*
 	tr.footer td { color: #111; }
@@ -48,3 +47,43 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 */
 	#canvas { z-index: 1; display: block; position: absolute; left: 14%; top: 70; background-color: transparent; }
 	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 14%; top: 70; }
+
+	.update {
+		position: fixed;
+		bottom: 30px;
+		left: 28%;
+		right: 28%;
+		width: 44%;
+		height: 25px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: black;
+		border: 1px dotted #315970;
+		color: white;
+		padding-left: 20px;
+		z-index: 99;
+	}
+
+	.update-btn {
+		padding: 10px 10px;
+		margin: 0px 10px;
+		font-weight: bold;
+		background-color: #287099;
+		color: black;
+	}
+
+	.close {
+		display: block;
+		height: 25px;
+		width: 25px;
+		background-color: #1e3644;
+		border: 1px solid #315970;
+		color: white;
+		cursor: pointer;
+		margin-left: 20px;
+	}
+
+	.close:hover {
+		background-color: #315970;
+	  }
