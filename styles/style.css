@@ -14,16 +14,16 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	a,a:link { color: #79cef4; text-decoration: none; }
 	table {border: 1px solid transparent;}
     table:hover { border: 1px solid #315970; }   
-	td { padding: 15px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
+	td { padding: 2px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
 	tr:last-child td { border-bottom-width: 0; }
 	
-	tr.header td { font-family: 'Roboto Mono', monospace;  padding: 10px 4px; font-size: 23px; font-weight: 400; color: #287099; }
+	tr.header td { font-family: 'Roboto Mono', monospace; padding: 10px 4px; font-size: 23px; font-weight: 400; color: #287099; }
 	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
 
 	li{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
-	.items li { margin: none; padding: 1px 0px;}
+	.items li { margin: none; padding: 2px 0px; }
 	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
-	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 1px 2px; }	
+	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 2px 2px; }	
 	tr.footer { display: none; }
 
 	.footer { position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
@@ -45,8 +45,8 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	.p1.current,.p2.current,.p3.current,.p4.current,
 	.p1.current td,.p2.current td,.p3.current td,.p4.current td { color: red; }
 */
-	#canvas { z-index: 1; display: block; position: absolute; left: 14%; top: 100; background-color: transparent; }
-	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 14%; top: 100; }
+	#canvas { z-index: 1; display: block; position: absolute; left: 14%; top: 70; background-color: transparent; }
+	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 14%; top: 70; }
 
 	.update {
 		position: fixed;
