@@ -154,7 +154,7 @@ let leadsTo={
 let indMass={
     0:{   key:"up-to-destroyer", hover:"#1f5eeb", color:"#1d4145",     title:"up to Destroyer",    tooltip:tooltips[25]},
     1:{  key:"up-to-battlecruiser",  hover:"#36cccc", color:"#1d4145",     title:"up to Battlecruiser",    tooltip:tooltips[26]},
-    2:{  key:"up-to-battleship",  hover:"#ffffff", color:"#1d4145",     title:"up to Battleship",    tooltip:tooltips[27]},
+    2:{  key:"up-to-battleship",  hover:"#d6d9cc", color:"#1d4145",     title:"up to Battleship",    tooltip:tooltips[27]},
     3:{  key:"up-to-freighter",  hover:"#d7601b", color:"#1d4145",     title:"up to Freighter",    tooltip:tooltips[28]},
     4:{   key:"up-to-capital", hover:"#d7601b", color:"#1d4145",     title:"up to Capital",    tooltip:tooltips[29]},
 }
