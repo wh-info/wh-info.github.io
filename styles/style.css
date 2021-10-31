@@ -8,7 +8,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
         opacity: 1;
      }
 }
-	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1a303d; padding: 0; margin: 0; }
+	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1d4145; padding: 0; margin: 0; }
 	ul {list-style: none none; margin: 0; padding: 0; display: block; }
 	
 	a,a:link { color: #79cef4; text-decoration: none; }
@@ -26,7 +26,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 2px 2px; }	
 	tr.footer { display: none; }
 
-	.footer { position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
+	.footer { min-width: none; position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
 	.bot { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; }
 
 	table .bot:hover { border: none; background-color: #315970; }
@@ -38,13 +38,6 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	.reset {writing-mode: vertical-rl;	text-orientation: sideways-right; background-color: #315970 !important; color: black; font-size: 16px; font-weight: bold;}
 	.reset:hover {background-color: #1e3644 !important;}
 
-/*
-	tr.footer td { color: #111; }
-	.p1 td,.p2 td,.p3 td,.p4 td,
-	.p1,.p2,.p3,.p4 { font-weight: 900 !important; }
-	.p1.current,.p2.current,.p3.current,.p4.current,
-	.p1.current td,.p2.current td,.p3.current td,.p4.current td { color: red; }
-*/
 	#canvas { z-index: 1; display: block; position: absolute; left: 14%; top: 70; background-color: transparent; }
 	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 14%; top: 70; }
 
