@@ -14,7 +14,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	a,a:link { color: #79cef4; text-decoration: none; }
 	table {border: 1px solid transparent;}
     table:hover { border: 1px solid #315970; }   
-	td { padding: 2px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
+	td { padding: 15px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
 	tr:last-child td { border-bottom-width: 0; }
 	
 	tr.header td { font-family: 'Roboto Mono', monospace;  padding: 10px 4px; font-size: 23px; font-weight: 400; color: #287099; }
