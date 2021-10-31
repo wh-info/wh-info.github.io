@@ -22,7 +22,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 
 	li{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
 	.items li { margin: none; padding: 2px 0px; }
-	.items li.current span { text-shadow: 0px 0px 8px #79cef4; }
+	.items li.current span { text-shadow: 0px 0px 8px yellow; }
 	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 2px 2px; }	
 	tr.footer { display: none; }
 
