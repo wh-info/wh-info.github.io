@@ -92,9 +92,6 @@ let tooltips={
     30:{
         data_jbox_content:"&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"
     },
-    31:{
-        data_jbox_content:"<img src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg' width='150' height='150'>"
-    },
 }
 
 let respawn={
@@ -1087,7 +1084,7 @@ let wormholes={
         lifeTime:["16h"],
     },
     94:{
-        name:'⛮', hover:"yellow", color:"#1d4145", tooltip:tooltips[31], showincol:0,
+        name:'⛮', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:[],
         spawnIn:[],
