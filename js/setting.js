@@ -519,7 +519,7 @@ let wormholes={
     37:{
         name:'L005', hover:"yellow", color:"#1d4145",  tooltip:tooltips[1], showincol:0,
         showincol:1,
-        respawn:["static"],
+        respawn:["wandering"],
         spawnIn:["class-1","class-2","class-3","class-4","class-5","class-13---shattered","info-required"],
         leadsTo:["c2"], 
         indMass:["up-to-destroyer"], 
