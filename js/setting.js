@@ -95,8 +95,8 @@ let tooltips={
 }
 
 let respawn={
-    0:{  key:"wandering",      hover:"#79cef4", color:"#1d4145",         title:"Wandering",   tooltip:""  },
-    1:{  key:"static",      hover:"#79cef4", color:"#1d4145",         title:"Static", tooltip:""    }
+    0:{  key:"static",      hover:"#79cef4", color:"#1d4145",         title:"Static", tooltip:""    },
+    1:{  key:"wandering",      hover:"#79cef4", color:"#1d4145",         title:"Wandering",   tooltip:""  },
 }
 
 let spawnIn={
