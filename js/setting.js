@@ -92,8 +92,10 @@ let tooltips={
     30:{
         data_jbox_content:"&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"
     },
+    31:{
+        data_jbox_content:"<img src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg' width='150' height='150'>"
+    },
 }
-
 
 let respawn={
     0:{  key:"wandering",      hover:"#79cef4", color:"#1d4145",         title:"Wandering",   tooltip:""  },
@@ -112,19 +114,18 @@ let spawnIn={
     8:{   key:"nullsec",     hover:"#e81e1e", color:"#1d4145",  title:"NullSec", tooltip:""    },
     9:{   key:"pochven-▲-trig-space",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven ▲ Trig space", tooltip:""    },
     10:{   key:"class-12---thera",     hover:"#f6fc32", color:"#1d4145",  title:"Class 12 - Thera", tooltip:tooltips[14]    },
-   
     11:{   key:"class-13---shattered",     hover:"#ffffff", color:"#1d4145",  title:"Class 13 - Shattered", tooltip:tooltips[15]      },
     12:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },
-    
     13:{   key:"drone-regions",     hover:"#e81e1e", color:"#1d4145",   title:"Drone Regions", tooltip:tooltips[16]    },
- 14:{   key:"drifter-wormholes",     hover:"#79cef4", color:"#1d4145", title:"Drifter wormholes",tooltip:tooltips[17]   },
- 15:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },  
- 16:{   key:"jove-observatories",     hover:"#79cef4", color:"#1d4145", title:"Jove Observatories",tooltip:tooltips[18]    },
+    14:{   key:"drifter-wormholes",     hover:"#79cef4", color:"#1d4145", title:"Drifter wormholes",tooltip:tooltips[17]   },
+    15:{   key:"jove-observatories",     hover:"#79cef4", color:"#1d4145", title:"Jove Observatories",tooltip:tooltips[18]    },
+    16:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },  
     17:{   key:"never-spawn",     hover:"#79cef4", color:"#1d4145", title:"never spawn",tooltip:tooltips[19]    },
     18:{   key:"info-required",     hover:"#79cef4", color:"#1d4145", title:"info required",tooltip:""    },
     19:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },
     20:{  key:"exit",      hover:"#79cef4", color:"#1d4145", title:"EXIT",tooltip:tooltips[20]    },
 }
+
 let leadsTo={
     0:{    key:"c1",    hover:"#42ffec", color:"#1d4145",  title:"C1", tooltip:""    },
     1:{    key:"c2",    hover:"#42b3ff", color:"#1d4145",  title:"C2", tooltip:""    },
@@ -138,9 +139,7 @@ let leadsTo={
     9:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:""    },
     10:{   key:"thera",     hover:"#f6fc32", color:"#1d4145",   title:"Thera", tooltip:""    },
     11:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:""    },
-    12:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },
-   
-   
+    12:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },  
     13:{   key:"drifter-sentinel",     hover:"#79cef4", color:"#1d4145",  title:"Drifter Sentinel", tooltip:tooltips[30]   },
     14:{   key:"drifter-barbican",     hover:"#79cef4", color:"#1d4145", title:"Drifter Barbican",tooltip:tooltips[21]    },
     15:{   key:"drifter-vidette",     hover:"#79cef4", color:"#1d4145", title:"Drifter Vidette",tooltip:tooltips[22]    },
@@ -148,8 +147,7 @@ let leadsTo={
     17:{    key:"drifter-redoubt",    hover:"#79cef4", color:"#1d4145", title:"Drifter Redoubt",tooltip:tooltips[24]    },
     18:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },
     19:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:""    },
-}
- 
+} 
 	
 let indMass={
     0:{   key:"up-to-destroyer", hover:"#1f5eeb", color:"#1d4145",     title:"up to Destroyer",    tooltip:tooltips[25]},
@@ -158,6 +156,7 @@ let indMass={
     3:{  key:"up-to-freighter",  hover:"#d7601b", color:"#1d4145",     title:"up to Freighter",    tooltip:tooltips[28]},
     4:{   key:"up-to-capital", hover:"#d7601b", color:"#1d4145",     title:"up to Capital",    tooltip:tooltips[29]},
 }
+
 let toMass={
     0:{ key:"100-000-000-kg",   hover:"#79cef4", color:"#1d4145",     title:"100 000 000 kg",    tooltip:""},
     1:{  key:"500-000-000-kg",  hover:"#79cef4", color:"#1d4145",     title:"500 000 000 kg",    tooltip:""},
@@ -175,7 +174,6 @@ let lifeTime={
     3:{  key:"48h",  hover:"#79cef4", color:"#1d4145",     title:"48h",    tooltip:""},
 }
 
- 
 let wormholes={
     0:{
         name:'A009', hover:"yellow", color:"#1d4145", tooltip:"",
@@ -1089,7 +1087,7 @@ let wormholes={
         lifeTime:["16h"],
     },
     94:{
-        name:'⛮', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'⛮', hover:"yellow", color:"#1d4145", tooltip:tooltips[31], showincol:0,
         showincol:2,
         respawn:[],
         spawnIn:[],
