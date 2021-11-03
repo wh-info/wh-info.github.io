@@ -46,41 +46,15 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 	#pi { z-index: 2; border-collapse: collapse; position: relative; left: 14%; top: 50; }
 
 	.update {
-		position: fixed;
-		bottom: 20px;
-		left: 28%;
-		right: 28%;
-		width: 44%;
-		height: 25px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		background-color: black;
+		position: fixed; bottom: 20px; left: 28%; right: 28%; width: 44%; height: 25px;	display: flex; align-items: center; justify-content: space-between; background-color: black;
 		border: 1px dotted #315970;
 		color: white;
 		padding-left: 20px;
 		z-index: 99;
 	}
 
-	.update-btn {
-		padding: 10px 10px;
-		margin: 0px 10px;
-		font-weight: bold;
-		background-color: #287099;
-		color: black;
+	.update-btn { padding: 10px 10px; margin: 0px 10px;	font-weight: bold; background-color: #287099; color: black;
 	}
 
-	.close {
-		display: block;
-		height: 25px;
-		width: 25px;
-		background-color: #1e3644;
-		border: 1px solid #315970;
-		color: white;
-		cursor: pointer;
-		margin-left: 20px;
-	}
-
-	.close:hover {
-		background-color: #315970;
-	  }
+	.close { display: block; height: 25px; width: 25px;	background-color: #1e3644; border: 1px solid #315970; color: white;	cursor: pointer; margin-left: 20px;	}
+	.close:hover { background-color: #315970; }
