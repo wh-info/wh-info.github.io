@@ -34,7 +34,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 
 	.numbers{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
 
-	.reset {position: absolute; background-color: #315970 !important; color: black; font-size: 16px; font-weight: bold; font-size: 16px; transform-origin: 40% 0%; transform: rotate(90deg);}
+	.reset {position: absolute; background-color: #315970 !important; box-shadow: 5px 5px 30px 15px rgb(0, 0, 0); color: black; font-size: 16px; font-weight: bold; font-size: 16px; transform-origin: 40% 0%; transform: rotate(90deg);}
 	.reset:hover {background-color: #1e3644 !important;}
 
 	.noborder {border: none; padding-bottom: 15px;}
