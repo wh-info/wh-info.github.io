@@ -16,7 +16,7 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
     table:hover { border: 1px solid #315970; }   
 	td { padding: 2px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
 	tr:last-child td { border-bottom-width: 0; }
-	tr.header td { white-space: nowrap; font-family: 'Roboto Mono', monospace; padding: 10px 4px; font-size: 23px; font-weight: 400; color: #287099; height: 50px;}
+	tr.header td { white-space: nowrap; font-family: 'Roboto Mono', monospace; padding: 15px 4px; font-size: 23px; font-weight: 400; color: #287099; height: 50px;}
 	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
 
 	li{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
