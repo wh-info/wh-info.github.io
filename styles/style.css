@@ -34,12 +34,12 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 
 	.numbers{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
 
-	.reset {position: absolute; background-color: #315970 !important; box-shadow: 5px 5px 30px 15px rgb(0, 0, 0); color: black; font-size: 16px; font-weight: bold; font-size: 16px; transform-origin: 40% 0%; transform: rotate(90deg);}
+	.reset {position: absolute; background-color: #315970 !important; box-shadow: 5px 5px 30px 15px rgb(0, 0, 0); color: black; font-size: 16px; font-weight: bold; font-size: 16px; transform-origin: 30% 0%; transform: rotate(90deg);}
 	.reset:hover {background-color: #1e3644 !important;}
 
 	.noborder {border: none; padding-bottom: 15px;}
 	.wholes {position: absolute; background-color: black; border: 1px dotted #287099; color: #287099; padding: 3px 10px; margin-top: -13px; margin-left: -53px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
-	.attri {position: absolute; background-color: black; border: 1px dotted #287099; color: #287099; padding: 3px 10px; margin-top: -13px; margin-left: -110px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
+	.attri {position: absolute; background-color: black; border: 1px dotted #287099; color: #287099; padding: 3px 10px; margin-top: -13px; margin-left: -100px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
 	
 
 	#canvas { z-index: 1; display: block; position: absolute; left: 14%; top: 50; background-color: transparent; }
