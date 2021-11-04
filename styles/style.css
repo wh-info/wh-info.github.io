@@ -1,4 +1,4 @@
-body { background-color: #000; cursor: context-menu; animation: fadeInAnimation ease 1.5s; animation-iteration-count: 1; animation-fill-mode: forwards;
+body { background-color: #000; cursor: context-menu; animation: fadeInAnimation ease 2s; animation-iteration-count: 1; animation-fill-mode: forwards;
 }
 	@keyframes fadeInAnimation {
     0% {
@@ -27,19 +27,18 @@ body { background-color: #000; cursor: context-menu; animation: fadeInAnimation 
 
 	.footer { min-width: none; position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
 	.bot { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; }
-
-	table .bot:hover { border: none; background-color: #315970; }
-
 	.botime { font-size: 15px; color: black; font-weight: bold;	background-color: #315970; padding: 3px 5px; }
-
-	.numbers{ font-family: 'Roboto Mono', monospace; font-size: 14px;}
-
-	.reset {position: absolute; background-color: #315970 !important; box-shadow: 5px 5px 30px 15px rgb(0, 0, 0); color: black; font-size: 16px; font-weight: bold; font-size: 16px; transform-origin: 30% 0%; transform: rotate(90deg);}
-	.reset:hover {background-color: #1e3644 !important;}
+	table .bot:hover { border: none; background-color: #315970; }
 
 	.noborder {border: none; padding-bottom: 15px;}
 	.wholes {position: absolute; background-color: black; border: 1px dotted #287099; color: #287099; padding: 3px 10px; margin-top: -13px; margin-left: -53px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
 	.attri {position: absolute; background-color: black; border: 1px dotted #287099; color: #287099; padding: 3px 10px; margin-top: -13px; margin-left: -95px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
+
+	.reset {position: absolute; background-color: #1e3644 !important; box-shadow: 0px 5px 15px 30px rgb(0, 0, 0); color: black; font-size: 16px; font-weight: bold; font-size: 16px; border: 1px solid black;  transform-origin: 30% 0%; transform: rotate(90deg); } 
+	.reset:hover {background-color: #315970 !important; box-shadow: 0px 0px 0px 0px;}
+
+	#bob { display: none;}
+	#pi:hover #bob { display: inline-block;}
 	
 	#canvas { z-index: 1; display: block; position: absolute; background-color: transparent; margin-left: auto; margin-right: auto; left: 0; right: 0; top: 50px; }
 	#pi { z-index: 2; width: 72%; height: 30%; border-collapse: collapse; position: absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; top: 50px; }
