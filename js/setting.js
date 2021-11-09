@@ -6,7 +6,7 @@ let tooltips={
         data_jbox_content:"&#8594; Can be <a>static</a> in C13 systems"
     },
     2:{
-        data_jbox_content:"&#8594; Every <i>Pochven</i> system is always connected to this type.<br>&#8594; <i>Ship allowed:</i> Bowhead<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"
+        data_jbox_content:"Every <i>Pochven</i> system is always connected to this type.<br>&#8594; <i>Ships allowed:</i> up to Bowhead<br>&#8594; <i>Excluded:</i> all other Freighters<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"
     },
     3:{
         data_jbox_content:"&#8594; Is <a>static</a> only in one shattered C5 system; J011790"
@@ -75,22 +75,58 @@ let tooltips={
         data_jbox_content:"&#8594; <i>Class:</i> C18<br><i>&#8594; Jcode:</i> J174618<br><i>&#8594; System effect:</i> C2 Wolf-Rayet"
     },
     25:{
-        data_jbox_content:"&#8594; <i>In addition to:</i> Porpoise and Heavy Interdiction Cruiser<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <b>Frigate holes (S)</b>; each have 00 in its type"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Shole.webm'></video>&#8594; <i>In addition to:</i> Porpoise and HIC<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <span class='small'>Frigate holes (S)</span>; 00 in each type"
     },
     26:{
-        data_jbox_content:"&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <b>Medium holes (M)</b>"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Mhole.webm'></video>&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <span class='med'>Medium holes (M)</span>"
     },
     27:{
-        data_jbox_content:"&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <b>Large holes (L)</b>"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Lhole.webm'></video>&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <span class='large'>Large holes (L)</span>"
     },
     28:{
-        data_jbox_content:"&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <b>X-Large holes (XL)</b>"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
     },
     29:{
-        data_jbox_content:"&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <b>X-Large holes (XL)</b>"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
     },
     30:{
         data_jbox_content:"&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"
+    },
+    31:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c1.webm'></video>"
+    },
+    32:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c2.webm'></video>"
+    },
+    33:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c3.webm'></video>"
+    },
+    34:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c42.webm'></video>"
+    },
+    35:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c5.webm'></video>"
+    },
+    36:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c6.webm'></video>"
+    },
+    37:{
+        data_jbox_content:"<div class='tc'>Empire Space</div><br><video width='100' autoplay loop muted><source src='video/caldari.webm'></video><video width='100' autoplay loop muted><source src='video/amarr.webm'></video><br><video width='100' autoplay loop muted><source src='video/minmatar.webm'></video><video width='100' autoplay loop muted><source src='video/gallente.webm'></video>"
+    },
+    38:{
+        data_jbox_content:"Each NS region reflects its own nebula on a wormhole."
+    },
+    39:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/pochven.webm'></video>"
+    },
+    40:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/thera.webm'></video>"
+    },
+    41:{
+        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c13.webm'></video>"
+    },
+    42:{
+        data_jbox_content:"ccp when ?"
     },
 }
 
@@ -124,18 +160,18 @@ let spawnIn={
 }
 
 let leadsTo={
-    0:{    key:"c1",    hover:"#42ffec", color:"#1d4145",  title:"C1", tooltip:""    },
-    1:{    key:"c2",    hover:"#42b3ff", color:"#1d4145",  title:"C2", tooltip:""    },
-    2:{   key:"c3",    hover:"#4265ff", color:"#1d4145",  title:"C3", tooltip:""    },
-    3:{    key:"c4",    hover:"#4230cf", color:"#1d4145",  title:"C4", tooltip:""    },
-    4:{    key:"c5",    hover:"#9c32ed", color:"#1d4145",  title:"C5", tooltip:""    },
-    5:{   key:"c6",     hover:"#f230dc", color:"#1d4145",  title:"C6", tooltip:""    },
-    6:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:""    },
-    7:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:""    },
-    8:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:""    },
-    9:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:""    },
-    10:{   key:"thera",     hover:"#f6fc32", color:"#1d4145",   title:"Thera", tooltip:""    },
-    11:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:""    },
+    0:{    key:"c1",    hover:"#42ffec", color:"#1d4145",  title:"C1", tooltip:tooltips[31]    },
+    1:{    key:"c2",    hover:"#42b3ff", color:"#1d4145",  title:"C2", tooltip:tooltips[32]    },
+    2:{   key:"c3",    hover:"#4265ff", color:"#1d4145",  title:"C3", tooltip:tooltips[33]    },
+    3:{    key:"c4",    hover:"#4230cf", color:"#1d4145",  title:"C4", tooltip:tooltips[34]    },
+    4:{    key:"c5",    hover:"#9c32ed", color:"#1d4145",  title:"C5", tooltip:tooltips[35]    },
+    5:{   key:"c6",     hover:"#f230dc", color:"#1d4145",  title:"C6", tooltip:tooltips[36]    },
+    6:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:tooltips[37]    },
+    7:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:tooltips[37]    },
+    8:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:tooltips[38]    },
+    9:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:tooltips[39]    },
+    10:{   key:"thera",     hover:"#f6fc32", color:"#1d4145",   title:"Thera", tooltip:tooltips[40]    },
+    11:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:tooltips[41]    },
     12:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },  
     13:{   key:"drifter-sentinel",     hover:"#79cef4", color:"#1d4145",  title:"Drifter Sentinel", tooltip:tooltips[30]   },
     14:{   key:"drifter-barbican",     hover:"#79cef4", color:"#1d4145", title:"Drifter Barbican",tooltip:tooltips[21]    },
@@ -143,7 +179,8 @@ let leadsTo={
     16:{    key:"drifter-conflux",     hover:"#79cef4", color:"#1d4145", title:"Drifter Conflux",tooltip:tooltips[23]   },
     17:{    key:"drifter-redoubt",    hover:"#79cef4", color:"#1d4145", title:"Drifter Redoubt",tooltip:tooltips[24]    },
     18:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },
-    19:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:""    },
+    19:{    key:"drifter-blackhole",    hover:"#79cef4", color:"#1d4145", title:"drifter blackhole",tooltip:tooltips[42]    },
+    20:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:""    },
 } 
 	
 let indMass={
@@ -155,7 +192,7 @@ let indMass={
 }
 
 let toMass={
-    0:{ key:"100-000-000-kg",   hover:"#79cef4", color:"#1d4145",     title:"100 000 000 kg",    tooltip:""},
+    0:{ key:"100-000-000-kg",   hover:"#79cef4", color:"#1d4145",     title:"100 000 000 kg",    tooltip:"" },
     1:{  key:"500-000-000-kg",  hover:"#79cef4", color:"#1d4145",     title:"500 000 000 kg",    tooltip:""},
     2:{  key:"750-000-000-kg",  hover:"#79cef4", color:"#1d4145",     title:"750 000 000 kg",    tooltip:""},
     3:{  key:"1-000-000-000-kg",  hover:"#79cef4", color:"#1d4145",     title:"1 000 000 000 kg",    tooltip:""},
@@ -173,8 +210,7 @@ let lifeTime={
 
 let wormholes={
     0:{
-        name:'A009', hover:"yellow", color:"#1d4145", tooltip:"",
-        showincol:0,
+        name:'A009', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["wandering"],
         spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-13---shattered",],
         leadsTo:["c13"], 
@@ -322,7 +358,7 @@ let wormholes={
         respawn:["wandering"],
         spawnIn:["highsec","lowsec","pochven-▲-trig-space",],
         leadsTo:["pochven"], 
-        indMass:["up-to-battleship"], 
+        indMass:["up-to-freighter"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["12h"],
     },
@@ -1084,11 +1120,11 @@ let wormholes={
         lifeTime:["16h"],
     },
     94:{
-        name:'⛮', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'⛮', hover:"black", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:[],
         spawnIn:[],
-        leadsTo:[], 
+        leadsTo:["drifter-blackhole"], 
         indMass:[], 
         toMass:[], 
         lifeTime:[],

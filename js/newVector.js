@@ -5,6 +5,7 @@ alwaysDraw={
    }
    TraceArray=[]
    currentTraces={}
+   var tt=true;;
 $(document).ready(function() {
  
 
@@ -64,11 +65,32 @@ $(document).ready(function() {
      makeColumn(toMass, "toMass")
      makeColumn(lifeTime, "lifeTime")
     
-     new jBox('Mouse', {
+     var tool=new jBox('Mouse', {
         attach: '.tooltip',
         theme: 'TooltipDark',
         getContent: 'data-jbox-content',
     });
+    if(tt){
+        tool.attach($(".tooltip"));
+        $(".toggletooltip").css({backgroundColor:"#315970"})
+    }
+     else {
+       tool.detach($(".tooltip"));
+       $(".toggletooltip").css({backgroundColor:"#1e3644"})
+     }
+    $(".toggletooltip").click(function(){
+
+        tt=!tt;
+     if(tt){
+         tool.attach($(".tooltip"));
+         $(this).css({backgroundColor:"#315970"})
+     }
+      else {
+        tool.detach($(".tooltip"));
+        $(this).css({backgroundColor:"#1e3644"})
+      }
+      })
+    
       canvas();
 	$(window).resize(function() { // todo: get event, only repaint on mouse release
 		canvas();
