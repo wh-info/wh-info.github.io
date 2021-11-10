@@ -437,7 +437,7 @@ let wormholes={
     25:{
         name:'F135', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["wandering"],
-        spawnIn:["class-2","class-3","class-4","class-5"],
+        spawnIn:["class-2","class-3","class-4","class-5","class-6"],
         leadsTo:["thera"], 
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
