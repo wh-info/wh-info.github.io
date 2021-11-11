@@ -87,7 +87,7 @@ let tooltips={
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
     },
     29:{
-        data_jbox_content:"<video class='vs' width='125' autoplay preload='metadata' loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
+        data_jbox_content:"<video class='vs' width='125' autoplay preload='auto' loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
     },
     30:{
         data_jbox_content:"&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"
