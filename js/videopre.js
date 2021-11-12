@@ -1,6 +1,6 @@
-var video = document.getElementById("xlpre")
+var video = document.getElementById("precal")
 
-var url = "video/xhole.webm"
+var url = "video/caldari.webm"
 
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url, true);
@@ -12,12 +12,12 @@ xhr.onload = function(oEvent) {
 
     video.src = URL.createObjectURL(blob);
 
-    //video.play()  if you want it to play on load
+    video.play()
 };
 
-var video = document.getElementById("lpre")
+var video = document.getElementById("preama")
 
-var url = "video/lhole.webm"
+var url = "video/amarr.webm"
 
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url, true);
@@ -29,12 +29,12 @@ xhr.onload = function(oEvent) {
 
     video.src = URL.createObjectURL(blob);
 
-    //video.play()  if you want it to play on load
+    video.play()
 };
 
-var video = document.getElementById("mpre")
+var video = document.getElementById("premin")
 
-var url = "video/mhole.webm"
+var url = "video/minmatar.webm"
 
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url, true);
@@ -46,12 +46,12 @@ xhr.onload = function(oEvent) {
 
     video.src = URL.createObjectURL(blob);
 
-    //video.play()  if you want it to play on load
+    video.play()
 };
 
-var video = document.getElementById("spre")
+var video = document.getElementById("pregall")
 
-var url = "video/shole.webm"
+var url = "video/gallente.webm"
 
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url, true);
@@ -63,7 +63,7 @@ xhr.onload = function(oEvent) {
 
     video.src = URL.createObjectURL(blob);
 
-    //video.play()  if you want it to play on load
+    video.play()
 };
 
 xhr.send();
