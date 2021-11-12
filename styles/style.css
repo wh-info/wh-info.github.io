@@ -1,5 +1,6 @@
 body { background-color: #000; cursor: context-menu;}
 
+.container { margin-top: 100px;display: none;}
 #wrapper { background-color: #000; cursor: context-menu; animation: fadeInAnimation ease 2s; animation-iteration-count: 1; animation-fill-mode: forwards;}
 	@keyframes fadeInAnimation {
     0% {
