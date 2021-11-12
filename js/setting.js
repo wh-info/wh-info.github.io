@@ -111,7 +111,7 @@ let tooltips={
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c6.webm'></video>"
     },
     37:{
-        data_jbox_content:"<div class='tc'>Empire Space</div><br><span class='es'><video id='precal' width='100' autoplay loop muted><source src='video/caldari.webm'></video><video id='preama' width='100' autoplay loop muted><source src='video/amarr.webm'></video><br><video id='premin' width='100' autoplay loop muted><source src='video/minmatar.webm'></video><video id='pregall' width='100' autoplay loop muted><source src='video/gallente.webm'></video></span>"
+        data_jbox_content:"<div class='tc'>Empire Space</div><br><span class='es'><video width='100' autoplay loop muted><source src='video/caldari.webm'></video><video width='100' autoplay loop muted><source src='video/amarr.webm'></video><br><video width='100' autoplay loop muted><source src='video/minmatar.webm'></video><video width='100' autoplay loop muted><source src='video/gallente.webm'></video></span>"
     },
     38:{
         data_jbox_content:"Each NS region reflects its own nebula on a wormhole."
