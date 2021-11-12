@@ -75,19 +75,19 @@ let tooltips={
         data_jbox_content:"&#8594; <i>Class:</i> C18<br><i>&#8594; Jcode:</i> J174618<br><i>&#8594; System effect:</i> C2 Wolf-Rayet"
     },
     25:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Shole.webm'></video>&#8594; <i>In addition to:</i> Porpoise and HIC<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <span class='small'>Frigate holes (S)</span>; 00 in each type"
+        data_jbox_content:"<video id='spre' class='vs' width='125' autoplay loop muted><source src='video/Shole.webm'></video>&#8594; <i>In addition to:</i> Porpoise and HIC<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <span class='small'>Frigate holes (S)</span>; 00 in each type"
     },
     26:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Mhole.webm'></video>&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <span class='med'>Medium holes (M)</span>"
+        data_jbox_content:"<video id='mpre' class='vs' width='125' autoplay loop muted><source src='video/Mhole.webm'></video>&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <span class='med'>Medium holes (M)</span>"
     },
     27:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Lhole.webm'></video>&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <span class='large'>Large holes (L)</span>"
+        data_jbox_content:"<video id='lpre' class='vs' width='125' autoplay loop muted><source src='video/Lhole.webm'></video>&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <span class='large'>Large holes (L)</span>"
     },
     28:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
+        data_jbox_content:"<video id='xlpre' class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
     },
     29:{
-        data_jbox_content:"<video id='testv' class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
+        data_jbox_content:"<video id='xlpre' class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
     },
     30:{
         data_jbox_content:"&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"

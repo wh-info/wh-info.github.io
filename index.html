@@ -33,27 +33,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="js/eveTime.js"></script>
-
-	<script>
-		var video = document.getElementById("testv")
-
-var url = "video/xhole.webm"
-
-var xhr = new XMLHttpRequest();
-xhr.open("GET", url, true);
-xhr.responseType = "arraybuffer";
-
-xhr.onload = function(oEvent) {
-
-    var blob = new Blob([oEvent.target.response], {type: "video/webm"});
-
-    video.src = URL.createObjectURL(blob);
-
-    //video.play()  if you want it to play on load
-};
-
-xhr.send();
-	</script>
+	<script src="js/videopre.js"></script>
 
 
 
