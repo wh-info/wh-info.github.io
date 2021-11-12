@@ -108,7 +108,7 @@ let tooltips={
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c5.webm'></video>"
     },
     36:{
-        data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c6.webm'></video>"
+        data_jbox_content:"<video id='testv' width='125' autoplay loop muted><source src='video/c6.webm'></video>"
     },
     37:{
         data_jbox_content:"<div class='tc'>Empire Space</div><br><span class='es'><video width='100' autoplay loop muted><source src='video/caldari.webm'></video><video width='100' autoplay loop muted><source src='video/amarr.webm'></video><br><video width='100' autoplay loop muted><source src='video/minmatar.webm'></video><video width='100' autoplay loop muted><source src='video/gallente.webm'></video></span>"
