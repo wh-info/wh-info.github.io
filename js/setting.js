@@ -229,7 +229,7 @@ let wormholes={
     },
     2:{
         name:'A641', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["static"],
+        respawn:["wandering"],
         spawnIn:["highsec",],
         leadsTo:["hs"], 
         indMass:["up-to-freighter"], 
