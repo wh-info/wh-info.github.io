@@ -81,13 +81,13 @@ let tooltips={
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Mhole.webm'></video>&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <span class='med'>Medium holes (M)</span>"
     },
     27:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Lhole.webm'></video>&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <span class='large'>Large holes (L)</span>"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Lhole.webm'></video>&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <span class='large'>Larger holes (L)</span>"
     },
     28:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <span class='xlarge'>Very large holes (XL)</span>"
     },
     29:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>X-Large holes (XL)</span>"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>Very large holes (XL)</span>"
     },
     30:{
         data_jbox_content:"&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"
@@ -127,6 +127,9 @@ let tooltips={
     },
     42:{
         data_jbox_content:"ccp when ?"
+    },
+    43:{
+        data_jbox_content:"Make sure to check visual cues and infotab for:<br>&#8594; wormhole size and destination<br>&#8594; wormhole mass and lifetime left"
     },
 }
 
@@ -180,7 +183,7 @@ let leadsTo={
     17:{    key:"drifter-redoubt",    hover:"#79cef4", color:"#1d4145", title:"Drifter Redoubt",tooltip:tooltips[24]    },
     18:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },
     19:{    key:"drifter-blackhole",    hover:"#79cef4", color:"#1d4145", title:"drifter blackhole",tooltip:tooltips[42]    },
-    20:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:""    },
+    20:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:tooltips[43]    },
 } 
 	
 let indMass={
@@ -239,7 +242,7 @@ let wormholes={
     3:{
         name:'A982', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["wandering"],
-        spawnIn:["class-3",],
+        spawnIn:["class-3","class-12---thera"],
         leadsTo:["c6"], 
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
@@ -373,7 +376,7 @@ let wormholes={
     },
     18:{
         name:'D382', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c2"], 
         indMass:["up-to-battleship"], 
@@ -401,7 +404,7 @@ let wormholes={
     21:{
         name:'E004', hover:"yellow", color:"#1d4145",  tooltip:tooltips[1], showincol:0,
         respawn:["wandering"],
-        spawnIn:["class-3","class-5","class-3","class-3","class-13---shattered","info-required"], 
+        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-13---shattered"], 
         leadsTo:["c1"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
@@ -409,7 +412,7 @@ let wormholes={
     },
      22:{
         name:'E175', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-5"],
         leadsTo:["c4"], 
         indMass:["up-to-battleship"], 
@@ -464,7 +467,7 @@ let wormholes={
     28:{
         name:'G008', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
         respawn:["wandering"],
-        spawnIn:["class-1","class-2","class-3","class-4","class-13---shattered","info-required"],
+        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-13---shattered"],
         leadsTo:["c6"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
@@ -490,7 +493,7 @@ let wormholes={
     },
     31:{
         name:'H296', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-5",],
         leadsTo:["c5"], 
         indMass:["up-to-capital"], 
@@ -500,7 +503,7 @@ let wormholes={
     32:{
         name:'H900', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-4",],
         leadsTo:["c5"], 
         indMass:["up-to-battleship"], 
@@ -511,7 +514,7 @@ let wormholes={
         name:'I182', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
-        spawnIn:["class-3",],
+        spawnIn:["class-3","class-12---thera"],
         leadsTo:["c2"], 
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
@@ -551,7 +554,7 @@ let wormholes={
         name:'L005', hover:"yellow", color:"#1d4145",  tooltip:tooltips[1], showincol:0,
         showincol:1,
         respawn:["wandering"],
-        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-13---shattered","info-required"],
+        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-13---shattered"],
         leadsTo:["c2"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
@@ -640,7 +643,7 @@ let wormholes={
     46:{
         name:'N062', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c5"], 
         indMass:["up-to-battleship"], 
@@ -730,7 +733,7 @@ let wormholes={
     55:{
         name:'O477', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c3"], 
         indMass:["up-to-battleship"], 
@@ -820,7 +823,7 @@ let wormholes={
     64:{
         name:'R474', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c6"], 
         indMass:["up-to-battleship"], 
@@ -930,7 +933,7 @@ let wormholes={
     75:{
         name:'U574', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-4"],
         leadsTo:["c6"], 
         indMass:["up-to-battleship"], 
@@ -960,7 +963,7 @@ let wormholes={
     78:{
         name:'V753', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-5"],
         leadsTo:["c6"], 
         indMass:["up-to-capital"], 
@@ -980,7 +983,7 @@ let wormholes={
     80:{
         name:'V911', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-6"],
         leadsTo:["c5"], 
         indMass:["up-to-capital"], 
@@ -1000,7 +1003,7 @@ let wormholes={
     82:{
         name:'W237', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-6"],
         leadsTo:["c6"], 
         indMass:["up-to-capital"], 
@@ -1030,7 +1033,7 @@ let wormholes={
     85:{
         name:'X877', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static", "wandering"],
         spawnIn:["class-4"],
         leadsTo:["c4"], 
         indMass:["up-to-battleship"], 
@@ -1040,7 +1043,7 @@ let wormholes={
     86:{
         name:'Y683', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c4"], 
         indMass:["up-to-battleship"], 
@@ -1090,7 +1093,7 @@ let wormholes={
     91:{
         name:'Z457', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-6"],
         leadsTo:["c4"], 
         indMass:["up-to-battleship"], 
@@ -1100,7 +1103,7 @@ let wormholes={
     92:{
         name:'Z647', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c1"], 
         indMass:["up-to-battlecruiser"], 

@@ -76,7 +76,7 @@ $(document).ready(function() {
     }
      else {
        tool.detach($(".tooltip"));
-       $(".toggletooltip").css({backgroundColor:"#1e3644"})
+       $(".toggletooltip").css({backgroundColor:"#1e3644", boxSadow: "0px 0px 15px 30px rgb(0, 0, 0)"})
      }
     $(".toggletooltip").click(function(){
 
