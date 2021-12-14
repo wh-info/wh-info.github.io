@@ -59,8 +59,9 @@ body { background-color: #000; cursor: context-menu;}
 	#pi { z-index: 2; width: 72%; height: 30%; border-collapse: collapse; position: absolute; margin: auto; left: 0; right: 0; top: 50px; }
 
 	.update {
-		position: fixed; bottom: 20px; left: 28%; right: 28%; width: 44%; height: 25px;	display: flex; align-items: center; justify-content: space-between; background-color: black;
-		border: 1px dotted #315970;	color: white; padding-left: 20px; z-index: 99; white-space: nowrap; }
+		position: fixed; bottom: 20px; left: 33%; right: 33%; width: 33%; height: 25px;	display: flex; align-items: center; justify-content: space-between; background-color: black;
+		border: 1px dotted #315970; color: white; padding-left: 20px; z-index: 99; white-space: nowrap; }
 	.update-btn { padding: 10px 10px; margin: 0px 10px;	font-weight: bold; background-color: #287099; color: black; }
+	.blue { color: #287099; }
 	.close { display: block; height: 25px; width: 25px;	background-color: #1e3644; border: 1px solid #315970; color: white;	cursor: pointer; margin-left: 20px;	}
 	.close:hover { background-color: #315970; }
