@@ -124,21 +124,37 @@
 		<td class="bot"><span class="tooltip" data-jbox-content="Use this tool to identify your <a><i>wormhole connection by type</i></a>.<hr>Initial info pulled from <i>Anoik.is</i>, <i>EVE Ref</i> and several other sources.<br>Updated and verified on grid.">info</span></td>
 		<td class="bot"><span class="tooltip" data-jbox-content="Sothis Ast">ign</span></td>
 		<td class="toggletooltip">tooltips</td>
-		<td class="botime"><span class="tooltip" data-jbox-content="Total wormhole kills last 24h, counting <i>zKillboard</i> data."><span id="whkills">......</span> kills</span></td>
+		<td id="myBtn" class="botime"><span class="tooltip" data-jbox-content="Total wormhole kills last 24h, counting <i>zKillboard</i> data.<br>Click for more stats."><span id="whkills">......</span> kills</span></td>
 		<td class="botime"><span class="tooltip" data-jbox-content="EVE time"><span id="showtime"></span> YC124</span></td>
 		<td class="bot"><span class="tooltip" data-jbox-content="This site uses cookies to count visitors.<hr>All <a>EVE Online</a> related materials are property of <a>CCP Games</a>."><span id="showtime"></span> &#8942;</span></td>
 	</tr>
 	</table>	
 </div>
-<!-- update popup
+
+	<!-- update popup -->
 	<div class="update">
-		<p>1412YC123<div class="update-btn">UPDATE</div>Domain change &#8594; whtype.info</p>
+		<p>0401YC124<div class="update-btn">UPDATE</div>Added daily kills and ISK destroyed chart, access it by clicking on kill counter.</p>
 		  <button class="close">&times;</button>
 	</div>
--->
-</div>
+
+	<!-- chart modal -->
+<div id="myModal" class="modal">
+	<div class="modal-content">
+	  <div class="modal-body">
+	  <span class="cls">&times;</span>
+		<div><iframe width="775" height="362" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrB3XH6eBVMgQG3cdFbN02vy_7ZlAZ2qfndD7imjIMG33MszKxqACJkaZLlOp5oQ7SNGU7gh5RU-ah/pubchart?oid=651257628&amp;format=interactive"></iframe></div>
+		<hr>
+		<div><iframe width="775" height="362" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrB3XH6eBVMgQG3cdFbN02vy_7ZlAZ2qfndD7imjIMG33MszKxqACJkaZLlOp5oQ7SNGU7gh5RU-ah/pubchart?oid=663925203&amp;format=interactive"></iframe></div>
+	  </div>	  
+	</div>  
+  </div>
+
 </div>
 
+
+</div>
+
+<!-- update popup script-->
 	  <script>
 		$(document).ready(function () {
               $(".update").show();
@@ -149,15 +165,17 @@
 		  });
 		</script>
 
+
 	<script src="js/topbar.min.js"></script>
 	<script async src="//static.getclicky.com/101333060.js"></script>
 	<!-- Cloudflare Web Analytics -->
 	<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dea3527863cc47c2a927ef08f7fd3d86"}'></script>
 	<!-- End Cloudflare Web Analytics -->
+	<script src="js/modal.js"></script>
 
 </body>
 	<script src="js/jBox.all.min.js"></script> 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="js/setting.js"></script> 
-	<script src="js/newVector.js"></script> 
+	<script src="js/newVector.js"></script>
 </html>

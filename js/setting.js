@@ -131,6 +131,9 @@ let tooltips={
     43:{
         data_jbox_content:"Make sure to check visual cues and infotab for:<br>&#8594; wormhole size and destination<br>&#8594; wormhole mass and lifetime left"
     },
+    44:{
+        data_jbox_content:"Wormhole that is always connected to same specific destination,<br>but originates outside of it. Known as <i>reverse</i>, <i>pseudo</i> or <i>K162 static</i>."
+    },
 }
 
 let respawn={
@@ -1064,7 +1067,7 @@ let wormholes={
         name:'Z006', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
         showincol:2,
         respawn:["wandering"],
-        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-13---shattered"],
+        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-12---thera","class-13---shattered"],
         leadsTo:["c3"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 

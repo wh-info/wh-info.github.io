@@ -59,9 +59,75 @@ body { background-color: #000; cursor: context-menu;}
 	#pi { z-index: 2; width: 72%; height: 30%; border-collapse: collapse; position: absolute; margin: auto; left: 0; right: 0; top: 50px; }
 
 	.update {
-		position: fixed; bottom: 20px; left: 33%; right: 33%; width: 33%; height: 25px;	display: flex; align-items: center; justify-content: space-between; background-color: black;
+		position: fixed; bottom: 20px; left: 30%; right: 30%; width: 40%; height: 25px;	display: flex; align-items: center; justify-content: space-between; background-color: black;
 		border: 1px dotted #315970; color: white; padding-left: 20px; z-index: 99; white-space: nowrap; }
 	.update-btn { padding: 10px 10px; margin: 0px 10px;	font-weight: bold; background-color: #287099; color: black; }
 	.blue { color: #287099; }
 	.close { display: block; height: 25px; width: 25px;	background-color: #1e3644; border: 1px solid #315970; color: white;	cursor: pointer; margin-left: 20px;	}
 	.close:hover { background-color: #315970; }
+
+	/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 98; /* Sit on top */
+	padding-top: 40px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+	font-family: 'Roboto Mono', monospace; font-size: 14px; font-weight: 400;
+	position: relative;
+	background-color: black;
+	border: 1px solid #315970;
+	margin: auto;
+	padding: 0;
+	width: 80%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+	from {top:-300px; opacity:0} 
+	to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .cls {
+	color: #315970;
+	margin-right: 10px;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .cls:hover,
+  .cls:focus {
+	color: #287099;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  .modal-body {
+	  text-align: center;
+	  background-color: black;
+		color: white;
+	  }
+
+#myBtn {cursor: pointer;}
