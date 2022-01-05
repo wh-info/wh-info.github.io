@@ -127,7 +127,6 @@ body { background-color: #000; cursor: context-menu;}
   .modal-body {
 	  text-align: center;
 	  background-color: black;
-		color: white;
+		color: #315970;
 	  }
-
 #myBtn {cursor: pointer;}
