@@ -83,7 +83,7 @@ body { background-color: #000; cursor: context-menu;}
   
   /* Modal Content */
   .modal-content {
-	font-family: 'Roboto Mono', monospace; font-size: 14px; font-weight: 400;
+	font-family: 'Roboto Mono', monospace; font-size: 13px; font-weight: 400;
 	position: relative;
 	background-color: black;
 	border: 1px solid #315970;
