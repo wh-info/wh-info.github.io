@@ -71,7 +71,7 @@ body { background-color: #000; cursor: context-menu;}
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
 	z-index: 98; /* Sit on top */
-	padding-top: 50px; /* Location of the box */
+	padding-top: 40px; /* Location of the box */
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */
@@ -130,4 +130,4 @@ body { background-color: #000; cursor: context-menu;}
 		color: #315970;
 	  }
 #myBtn {cursor: pointer;}
-.chartfoot {margin: 20px 10px 10px 0px; text-align: right;}
+.chartfoot {margin: 10px 10px 10px 0px; text-align: right;}
