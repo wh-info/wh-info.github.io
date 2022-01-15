@@ -362,7 +362,7 @@ let wormholes={
     16:{
         name:'C729', hover:"yellow", color:"#1d4145", tooltip:tooltips[2], showincol:0,
         respawn:["wandering"],
-        spawnIn:["highsec","lowsec","pochven-▲-trig-space",],
+        spawnIn:["highsec","lowsec","nullsec","pochven-▲-trig-space"],
         leadsTo:["pochven"], 
         indMass:["up-to-freighter"], 
         toMass:["1-000-000-000-kg"], 
