@@ -12,7 +12,6 @@ body { background-color: #000; cursor: context-menu;}
 }
 	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1d4145; padding: 0; margin: 0; }
 	ul {list-style: none none; margin: 0; padding: 0; display: block; }
-	
 	a,a:link { color: #79cef4; text-decoration: none; }
 	table {border: 1px solid transparent;}
     table:hover { border: 1px solid #315970; }   
@@ -31,6 +30,8 @@ body { background-color: #000; cursor: context-menu;}
 
 	.footer { min-width: none; position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
 	.bot { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; }
+	.botmod { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px;}
+	.botmod:hover { cursor: pointer; background-color: #315970; }
 	.botime { font-size: 15px; color: black; font-weight: bold;	background-color: #315970; padding: 3px 5px; }
 	table .bot:hover { border: none; background-color: #315970; }
 	.toggletooltip {cursor: pointer; font-size: 15px; ;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px;	}
@@ -139,4 +140,4 @@ font-weight: bold;}
 	  }
 #myBtn {cursor: pointer;}
 .chartfoot {margin: 10px 10px 10px 0px; text-align: right;};
-.charthead { background-color: #315970; }
+.tooltip a {color: #315970!important; text-decoration: dotted};
