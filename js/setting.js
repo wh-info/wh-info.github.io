@@ -39,22 +39,22 @@ let tooltips={
         data_jbox_content:"&#8594; <i>Regions & constellations:</i> E-"
     },
     13:{
-        data_jbox_content:"&#8594; <i>Regions & constellations:</i> F-"
+        data_jbox_content:"&#8594; <i>Region & constellations:</i> F-"
     },
     14:{
-        data_jbox_content:"Unique shattered wormhole system, and only one with a name. Has 4 NPC stations belonging to Sisters of EVE.<br>&#8594; <i>Constellation:</i> G-C00324<br>&#8594; <i>Region:</i> G-R00031"
+        data_jbox_content:"Unique shattered wormhole system, and only one with a name.<br>Has 4 NPC stations belonging to <i>Sisters of EVE</i>.<br>&#8594; <i>Region & constellation:</i> G-"
     },
     15:{
-        data_jbox_content:"25 shattered wormhole systems accessible only via 'frigate holes'.<br><i>&#8594; Jcode:</i> starts with 000<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Constellations:</i> H-C00331, H-C00332, H-C00333<br><i>&#8594; Region: H-R00032</i>"
+        data_jbox_content:"25 shattered wormhole systems accessible only via 'frigate holes'.<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Jcode:</i> starts with 000<br>&#8594; <i>Region & constellations:</i> H-"
     },
     16:{
         data_jbox_content:"<i>NullSec regions:</i><br>&#8594; Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>&#8594; Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire."
     },
     17:{
-        data_jbox_content:"5 unique shattered wormhole systems, each with its own class and system effect.<br>&#8594; <i>Constellation:</i> K-C00334<br>&#8594; <i>Region: K-R00033"
+        data_jbox_content:"5 unique shattered wormhole systems, each with its own class and system effect.<br>&#8594; <i>Region & constellations:</i> K-"
     },
     18:{
-        data_jbox_content:"&#8594; These observatories are located across <i>known space</i>.<br>&#8594; Referred wormhole types spawn only in systems having them.<br>&#8594; First letter in each type reveals the name of a <i>Drifter</i> system destination."
+        data_jbox_content:"&#8594; These structures are located across <i>known space</i>.<br>&#8594; Referred wormhole types spawn only in systems having them.<br>&#8594; First letter in each type reveals the name of a <i>Drifter</i> system destination."
     },
     19:{
         data_jbox_content:"Bob knows why ..."
@@ -132,13 +132,14 @@ let tooltips={
         data_jbox_content:"Make sure to check visual cues and infotab for:<br>&#8594; wormhole size and destination<br>&#8594; wormhole mass and lifetime left"
     },
     44:{
-        data_jbox_content:"Wormhole that is always connected to same specific destination,<br>but originates outside of it. Known as <i>reverse</i>, <i>pseudo</i> or <i>K162 static</i>."
+        data_jbox_content:"It's exit side is always present in destination system,<br>although it originates outside of it as wandering type.<br>&#8594; Known as <i>pseudo</i>, <i>reverse</i> or <i>K162 static</i>."
     },
 }
 
 let respawn={
     0:{  key:"static",      hover:"#79cef4", color:"#1d4145",         title:"Static", tooltip:""    },
     1:{  key:"wandering",      hover:"#79cef4", color:"#1d4145",         title:"Wandering",   tooltip:""  },
+    2:{  key:"reverse",      hover:"#79cef4", color:"#1d4145",         title:"Reverse",   tooltip:tooltips[44]  },
 }
 
 let spawnIn={
@@ -160,9 +161,8 @@ let spawnIn={
     15:{   key:"jove-observatories",     hover:"#79cef4", color:"#1d4145", title:"Jove Observatories",tooltip:tooltips[18]    },
     16:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },  
     17:{   key:"never-spawn",     hover:"#79cef4", color:"#1d4145", title:"never spawn",tooltip:tooltips[19]    },
-    18:{   key:"info-required",     hover:"#79cef4", color:"#1d4145", title:"info required",tooltip:""    },
-    19:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },
-    20:{  key:"exit",      hover:"#79cef4", color:"#1d4145", title:"EXIT",tooltip:tooltips[20]    },
+    18:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },
+    19:{  key:"exit",      hover:"#79cef4", color:"#1d4145", title:"EXIT",tooltip:tooltips[20]    },
 }
 
 let leadsTo={
@@ -361,7 +361,7 @@ let wormholes={
     },
     16:{
         name:'C729', hover:"yellow", color:"#1d4145", tooltip:tooltips[2], showincol:0,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["highsec","lowsec","nullsec","pochven-▲-trig-space"],
         leadsTo:["pochven"], 
         indMass:["up-to-freighter"], 
@@ -442,7 +442,7 @@ let wormholes={
     },
     25:{
         name:'F135', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["class-2","class-3","class-4","class-5","class-6"],
         leadsTo:["thera"], 
         indMass:["up-to-battleship"], 
@@ -460,7 +460,7 @@ let wormholes={
     },
     27:{
         name:'F353', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["class-1",],
         leadsTo:["thera"], 
         indMass:["up-to-battlecruiser"], 
@@ -646,7 +646,7 @@ let wormholes={
     46:{
         name:'N062', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
-        respawn:["static","wandering"],
+        respawn:["static",],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c5"], 
         indMass:["up-to-battleship"], 
@@ -826,7 +826,7 @@ let wormholes={
     64:{
         name:'R474', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static","wandering"],
+        respawn:["static"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c6"], 
         indMass:["up-to-battleship"], 
