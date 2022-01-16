@@ -45,7 +45,7 @@ let tooltips={
         data_jbox_content:"Unique shattered wormhole system, and only one with a name. Has 4 NPC stations belonging to Sisters of EVE.<br>&#8594; <i>Constellation:</i> G-C00324<br>&#8594; <i>Region:</i> G-R00031"
     },
     15:{
-        data_jbox_content:"25 shattered wormhole systems accessible only via 'frigate holes'. Their Jcode starts with J000.<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Constellations:</i> H-C00331, H-C00332, H-C00333<br><i>&#8594; Region: H-R00032</i>"
+        data_jbox_content:"25 shattered wormhole systems accessible only via 'frigate holes'.<br><i>&#8594; Jcode:</i> starts with 000<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Constellations:</i> H-C00331, H-C00332, H-C00333<br><i>&#8594; Region: H-R00032</i>"
     },
     16:{
         data_jbox_content:"<i>NullSec regions:</i><br>&#8594; Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>&#8594; Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire."
