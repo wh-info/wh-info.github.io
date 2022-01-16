@@ -124,10 +124,19 @@ body { background-color: #000; cursor: context-menu;}
 	cursor: pointer;
   }
   
+  .modal-head { text-align: left;
+	background-color: black;
+	  color: #315970;
+	padding-left: 10px;
+	padding-top: 10px;
+	font-size: 14px;
+font-weight: bold;}
+
   .modal-body {
 	  text-align: center;
 	  background-color: black;
 		color: #315970;
 	  }
 #myBtn {cursor: pointer;}
-.chartfoot {margin: 10px 10px 10px 0px; text-align: right;}
+.chartfoot {margin: 10px 10px 10px 0px; text-align: right;};
+.charthead { background-color: #315970; }
