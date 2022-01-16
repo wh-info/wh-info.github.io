@@ -122,7 +122,8 @@
 	<tr>
 		<td class="bot"><span class="tooltip" data-jbox-content="Use this tool to identify your <a><i>wormhole connection by type</i></a>.<hr>Initial info pulled from <i>Anoik.is</i>, <i>EVE Ref</i> and several other sources.<br>Updated and verified on grid.">info</span></td>
 		<td class="bot"><span class="tooltip" data-jbox-content="Sothis Ast">ign</span></td>
-		<td class="toggletooltip">tooltips</td>
+		<td id="myBtn1"class="botmod"><span class="tooltip" data-jbox-content="spawn mechanics info">K162</span></td>
+		<td class="toggletooltip"><span class="tooltip" data-jbox-content="switch off">tooltips</span></td>
 		<td id="myBtn" class="botime"><span class="tooltip" data-jbox-content="Total wormhole kills last 24h, counting <i>zKillboard</i> data.<br>Click for daily wormhole graph."><span id="whkills">......</span> kills</span></td>
 		<td class="botime"><span class="tooltip" data-jbox-content="EVE time"><span id="showtime"></span> YC124</span></td>
 		<td class="bot"><span class="tooltip" data-jbox-content="This site uses cookies to count visitors.<hr>All <a>EVE Online</a> related materials are property of <a>CCP Games</a>."><span id="showtime"></span> &#8942;</span></td>
@@ -139,7 +140,7 @@
 	<!-- chart modal -->
 <div id="myModal" class="modal">
 	<div class="modal-content">
-		<div class="modal-head"><span class="charthead">Daily wormhole graph</span><span class="cls">&times;</span> </div>
+		<div class="modal-head">Daily wormhole graph<span class="cls">&times;</span> </div>
 	  <div class="modal-body">
 
 	<div><iframe width="775" height="362" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrB3XH6eBVMgQG3cdFbN02vy_7ZlAZ2qfndD7imjIMG33MszKxqACJkaZLlOp5oQ7SNGU7gh5RU-ah/pubchart?oid=651257628&amp;format=interactive"></iframe></div>
@@ -150,9 +151,20 @@
 	</div>  
   </div>
 
+  <!-- k162 modal -->
+  <div id="myModal1" class="modal">
+<div class="modal-content">
+	<span class="cls">&times;</span>
+		
+	<div class="modal-body">
+		<p><img src="img/k162_spawn_flowchart.png"></p>
+		<p><a href="https://www.eveonline.com/news/view/patch-notes-for-hyperion" target="_blank">Hyperion expansion (Aug 2014) patch note:</a><br>> K162 apperance only on first jump (or after first warp and less than 15 hours remaining)</p>
+		<p>More info on this Eve-O <a href="https://forums.eveonline.com/t/k162-spawn-mechanics/8767" target="_blank">forum post.</a></p>   
+	</div>  
+</div>
 </div>
 
-
+</div>
 </div>
 
 <!-- update popup script
