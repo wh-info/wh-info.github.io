@@ -12,7 +12,7 @@ body { background-color: #000; cursor: context-menu;}
 }
 	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1d4145; padding: 0; margin: 0; }
 	ul {list-style: none none; margin: 0; padding: 0; display: block; }
-	a,a:link { color: #79cef4; text-decoration: none; }
+	.jBox-TooltipDark a { color: #79cef4; text-decoration: none; }	
 	table {border: 1px solid transparent;}
     table:hover { border: 1px solid #315970; }   
 	td { padding: 2px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
@@ -138,5 +138,7 @@ font-weight: bold;}
 	  background-color: black;
 		color: #315970;
 	  }
+.modal-body a {color: #315970; text-decoration: none; border-bottom: 1px dotted;}
+.modal-body a:hover {color: #79cef4;}
 #myBtn {cursor: pointer;}
 .chartfoot {margin: 10px 10px 10px 0px; text-align: right;};
