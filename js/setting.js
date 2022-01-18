@@ -451,7 +451,7 @@ let wormholes={
     },
     26:{
         name:'F216', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["class-2","class-3","class-4","class-5","class-6",],
         leadsTo:["pochven"], 
         indMass:["up-to-battleship"], 
@@ -566,7 +566,7 @@ let wormholes={
     38:{
         name:'L031', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["nullsec"],
         leadsTo:["thera"], 
         indMass:["up-to-freighter"], 
@@ -606,7 +606,7 @@ let wormholes={
     42:{
         name:'M164', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["lowsec"],
         leadsTo:["thera"], 
         indMass:["up-to-freighter"], 
@@ -896,7 +896,7 @@ let wormholes={
     71:{
         name:'T458', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["highsec"],
         leadsTo:["thera"], 
         indMass:["up-to-battlecruiser"], 
@@ -926,7 +926,7 @@ let wormholes={
     74:{
         name:'U372', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["wandering"],
+        respawn:["wandering", "reverse"],
         spawnIn:["drone-regions"],
         leadsTo:["pochven"], 
         indMass:["up-to-battleship"], 
