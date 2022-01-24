@@ -134,6 +134,15 @@ let tooltips={
     44:{
         data_jbox_content:"It's exit side is always present in destination system,<br>although it originates outside of it as wandering type.<br>&#8594; Known as <i>pseudo</i>, <i>reverse</i> or <i>K162 static</i>."
     },
+    45:{
+        data_jbox_content:"Class 7"
+    },
+    46:{
+        data_jbox_content:"Class 8"
+    },
+    47:{
+        data_jbox_content:"Class 9"
+    },
 }
 
 let respawn={
@@ -149,9 +158,9 @@ let spawnIn={
     3:{   key:"class-4",     hover:"#4230cf", color:"#1d4145",  title:"Class 4", tooltip:tooltips[11]    },
     4:{   key:"class-5",     hover:"#9c32ed", color:"#1d4145",  title:"Class 5", tooltip:tooltips[12]    },
     5:{   key:"class-6",     hover:"#f230dc", color:"#1d4145",  title:"Class 6", tooltip:tooltips[13]    },
-    6:{   key:"highsec",     hover:"#0dfa05", color:"#1d4145",   title:"HighSec", tooltip:""    },
-    7:{   key:"lowsec",     hover:"#f0a800", color:"#1d4145",  title:"LowSec", tooltip:""    },
-    8:{   key:"nullsec",     hover:"#e81e1e", color:"#1d4145",  title:"NullSec", tooltip:""    },
+    6:{   key:"highsec",     hover:"#0dfa05", color:"#1d4145",   title:"HighSec", tooltip:tooltips[45]    },
+    7:{   key:"lowsec",     hover:"#f0a800", color:"#1d4145",  title:"LowSec", tooltip:tooltips[46]    },
+    8:{   key:"nullsec",     hover:"#e81e1e", color:"#1d4145",  title:"NullSec", tooltip:tooltips[47]    },
     9:{   key:"pochven-▲-trig-space",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven ▲ Trig space", tooltip:""    },
     10:{   key:"class-12---thera",     hover:"#f6fc32", color:"#1d4145",  title:"Class 12 - Thera", tooltip:tooltips[14]    },
     11:{   key:"class-13---shattered",     hover:"#ffffff", color:"#1d4145",  title:"Class 13 - Shattered", tooltip:tooltips[15]      },
