@@ -11,6 +11,7 @@ body { background-color: #000; cursor: context-menu;}
      }
 }
 	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1d4145; padding: 0; margin: 0; }
+	h2 {font-family: 'Roboto Mono', monospace;}
 	ul {list-style: none none; margin: 0; padding: 0; display: block; }
 	.jBox-TooltipDark a { color: #79cef4; text-decoration: none; }	
 	table {border: 1px solid transparent;}
@@ -26,11 +27,11 @@ body { background-color: #000; cursor: context-menu;}
 	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 2px 2px; }	
 	tr.footer { display: none; }
 	hr { border-top: 1px dotted #315970; border-bottom: 0px;}
-	  
+	#cheetah { width: 100px;}
 
 	.footer { min-width: none; position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
 	.bot { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; }
-	.botmod { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px;}
+	.botmod { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; text-align: center;}
 	.botmod:hover { cursor: pointer; background-color: #315970; }
 	.botime { font-size: 15px; color: black; font-weight: bold;	background-color: #315970; padding: 3px 5px; }
 	table .bot:hover { border: none; background-color: #315970; }
@@ -127,18 +128,55 @@ body { background-color: #000; cursor: context-menu;}
   
   .modal-head { text-align: left;
 	background-color: black;
-	  color: #315970;
+	color: #315970;
 	padding-left: 10px;
 	padding-top: 10px;
 	font-size: 14px;
-font-weight: bold;}
+	font-weight: bold;}
 
   .modal-body {
-	  text-align: center;
-	  background-color: black;
-		color: #315970;
-	  }
+	text-align: center;
+	background-color: black;
+	color: #315970;
+	padding-left: 30px;
+	padding-right: 30px;
+	}
 .modal-body a {color: #315970; text-decoration: none; border-bottom: 1px dotted;}
 .modal-body a:hover {color: #79cef4;}
 #myBtn {cursor: pointer;}
-.chartfoot {margin: 10px 10px 10px 0px; text-align: right;};
+.chartfoot {margin: 10px 10px 10px 0px; text-align: right;}
+
+.siden { 
+	min-width: none;
+	position: absolute;
+	left: 12px;
+	top: 1px;
+	font-size: 23px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.siden:hover { color:#287099 }
+
+.sidenav {
+	width: 0;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	background-color: black;
+	overflow: hidden;
+	transition: 0.4s;
+  }
+
+  .sidetab { padding-left: 35px; white-space: nowrap; }
+
+  .sidenav .closebtn {
+	position: absolute;
+	top: 1px;
+	left: 10px;
+	font-size: 23px;
+	text-decoration: none;
+	color: #315970;
+  }
+  .sidenav .closebtn:hover {color: #287099;}
