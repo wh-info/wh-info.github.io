@@ -18,7 +18,7 @@ function startTime() {
   }
 
 // wh kill count:
-const socket = new WebSocket('wss://expressjs-production-04a4.up.railway.app');
+const socket = new WebSocket('wss://api.whtype.info');
 
 socket.addEventListener('message', function (event) {	
 var div = document.getElementById('whkills');
