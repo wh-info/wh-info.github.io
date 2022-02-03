@@ -67,7 +67,7 @@ body { background-color: #000; cursor: context-menu;}
 	.blue { color: #287099; }
 	.close { display: block; height: 25px; width: 25px;	background-color: #1e3644; border: 1px solid #315970; color: white;	cursor: pointer; margin-left: 20px;	}
 	.close:hover { background-color: #315970; }
-	.stats {font-family: 'Roboto Mono', monospace; color: #287099;}
+	.stats {color: #287099;}
 
 	/* The Modal (background) */
 .modal {
