@@ -70,7 +70,6 @@ body { background-color: #000; cursor: context-menu;}
 	.stats {color: #287099; font-size: 16px; background-color: #1a202c; padding-bottom: 10px;}
 	.meTop {z-index: 1; position: absolute; top: 10px; left: 10px; background-color: #315970; font-size: 15px; text-decoration: none; color: white; padding: 5px 5px 5px 5px;}
 	.meTop:hover{background-color: #287099; }
-	.meBot{z-index: 1; position: static; bottom: 10px; right: 10px; background-color: #1a202c; font-size: 15px; text-decoration: none; color: white; padding: 5px 5px 5px 5px; }
 	
 
 	/* The Modal (background) */
