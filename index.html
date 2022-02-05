@@ -16,8 +16,8 @@
 	<link href="styles/jBox.all.min.css" rel="stylesheet">
 
 	<script defer data-domain="whtype.info" data-api="https://wormhole-k162.whtype.workers.dev/k162/event" src="https://wormhole-k162.whtype.workers.dev/k162/script.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="js/eveTime.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -118,7 +118,7 @@
 	<table>
 	<tr>
 		<td id="myBtn2"class="botmod"><span class="tooltip" data-jbox-content="Use this tool to identify your <a><i>wormhole connection by type</i></a>.">info</span></td>
-		<td id="myBtn" class="botime"><span class="tooltip" data-jbox-content="Total wormhole kills last 24h, counting <i>zKillboard</i> data.<br>Click for daily wormhole destruction graph."><span id="whkills">......</span> kills</span></td>
+		<td class="botime"><a href="destruction-graph.html"><span class="tooltip" data-jbox-content="Total wormhole kills last 24h, counting <i>zKillboard</i> data.<br>Click for daily wormhole destruction graph."><span id="whkills">......</span> kills</span></a></td>
 		<td class="botime"><span class="tooltip" data-jbox-content="EVE time"><span id="showtime"></span></span></td>
 		<td id="myBtn4" class="botmod"><span class="tooltip" data-jbox-content="All <a>EVE Online</a> related materials are property of <a>CCP Games</a>."><span id="showtime"></span> &#8942;</span></td>
 	</tr>
@@ -142,9 +142,6 @@
 	<div class="modal-content">
 		<span class="cls">&times;</span>
 	  <div class="modal-body">
-		<div><iframe width="775" height="362" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrB3XH6eBVMgQG3cdFbN02vy_7ZlAZ2qfndD7imjIMG33MszKxqACJkaZLlOp5oQ7SNGU7gh5RU-ah/pubchart?oid=651257628&amp;format=interactive"></iframe></div>
-		<hr>
-	<div><iframe width="775" height="362" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrB3XH6eBVMgQG3cdFbN02vy_7ZlAZ2qfndD7imjIMG33MszKxqACJkaZLlOp5oQ7SNGU7gh5RU-ah/pubchart?oid=663925203&amp;format=interactive"></iframe></div>
 	<p><b>Daily wormhole destruction graph, regions A-K</b><br><a href="https://zkillboard.com/" target="_blank">zKillboard</a> data count. EVE time, YC124 / UTC, 2022.</p> 
 	</div>	  
 	</div>  
