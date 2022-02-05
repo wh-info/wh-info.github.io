@@ -2,8 +2,7 @@ var datamap = new Map([
 	[document.getElementById("myBtn"), document.getElementById("myModal")],
 	[document.getElementById("myBtn1"), document.getElementById("myModal1")],
 	[document.getElementById("myBtn2"), document.getElementById("myModal2")],
-	[document.getElementById("myBtn3"), document.getElementById("myModal3")],
-	[document.getElementById("myBtn4"), document.getElementById("myModal4")]
+	[document.getElementById("myBtn3"), document.getElementById("myModal3")]
 ]);
 
 datamap.forEach((value, key) => {
