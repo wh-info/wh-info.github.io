@@ -14,7 +14,7 @@
 
 body { background-color: #000; cursor: context-menu;}
 
-.container { margin-top: 100px;display: none;}
+.container { margin-top: 100px; display: none;}
 #wrapper { background-color: #000; cursor: context-menu; animation: fadeInAnimation ease 2s; animation-iteration-count: 1; animation-fill-mode: forwards;}
 	@keyframes fadeInAnimation {
     0% {
@@ -48,6 +48,7 @@ body { background-color: #000; cursor: context-menu;}
 	.botmod { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; text-align: center;}
 	.botmod:hover { cursor: pointer; background-color: #315970; }
 	.botime { font-size: 15px; color: black; font-weight: bold;	background-color: #315970; padding: 3px 5px; }
+	.botime a { text-decoration: none; color: black; }
 	table .bot:hover { border: none; background-color: #315970; }
 	.toggletooltip {cursor: pointer; font-size: 15px; ;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px;	}
 
@@ -84,6 +85,9 @@ body { background-color: #000; cursor: context-menu;}
 	.stats {color: #287099; font-size: 16px; background-color: #1a202c; padding-bottom: 10px;}
 	.meTop {z-index: 1; position: absolute; top: 10px; left: 10px; background-color: #315970; font-size: 15px; text-decoration: none; color: white; padding: 5px 5px 5px 5px;}
 	.meTop:hover{background-color: #287099; }
+
+	.chart-divide { border-top: 1px dotted #315970; border-bottom: 0px; margin-top: 50px; margin-bottom: 50px;}
+	.chart-container { width: 80%; margin: auto; text-align: center; font-family: 'Roboto Mono', monospace;}
 	
 
 	/* The Modal (background) */
