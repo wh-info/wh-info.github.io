@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Wormhole destruction graph</title>
+    <link rel="shortcut icon" type="image/jpg" href="icon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script defer data-domain="whtype.info" data-api="https://wormhole-k162.whtype.workers.dev/k162/event" src="https://wormhole-k162.whtype.workers.dev/k162/script.js"></script>
+    <!-- Load jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <!-- Load Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js"></script>
+
+    <!-- Load PapaParse to read csv files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  </head>
+
+  <body style="background-color: black; margin-top: 40px;">
+  
+  <a href="https://whtype.info"><div class="meTop">&#129032; back to whtype.info</div></a>
+
+  <div class="chart-container">
+    <div>
+      <canvas id="chart-kills" style="height: 360px;"></canvas>
+    </div>
+
+    <hr class="chart-divide">
+
+    <div>
+      <canvas id="chart-isk" style="height: 360px;"></canvas>
+    </div>
+    <p class="modal-body" style="margin-top: 20px;"><b>Daily wormhole destruction graph, regions A-K</b><br><a href="https://zkillboard.com/" target="_blank">zKillboard</a> data count. EVE time, YC124 / UTC, 2022.</p>
+  </div>
+    
+
+
+    <script src="js/chartKills.js"></script>
+    <script src="js/chartISK.js"></script>
+
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</html>
