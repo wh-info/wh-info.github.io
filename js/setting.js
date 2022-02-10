@@ -835,7 +835,7 @@ let wormholes={
     64:{
         name:'R474', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c6"], 
         indMass:["up-to-battleship"], 
