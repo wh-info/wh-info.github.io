@@ -64,6 +64,7 @@ $(document).ready(function() {
      makeColumn(indMass, "indMass")
      makeColumn(toMass, "toMass")
      makeColumn(lifeTime, "lifeTime")
+     makeColumn(sigLevel, "sigLevel")
     
      var tool=new jBox('Mouse', {
         attach: '.tooltip',
@@ -170,6 +171,7 @@ $(document).ready(function() {
         get(element,element.indMass,indMass)
         get(element,element.toMass,toMass)
         get(element,element.lifeTime,lifeTime)
+        get(element,element.sigLevel,sigLevel)
         //get(element,element.respawn,respawn).forEach(respawn=>{ line(respawn, element)})
         //get(element.spawnIn,spawnIn).forEach(spawnIn=>{ line(spawnIn, element)})
       //  get(element.leadsTo,leadsTo).forEach(leadsTo=>{ line(leadsTo, element)})
