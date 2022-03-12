@@ -143,6 +143,9 @@ let tooltips={
     47:{
         data_jbox_content:"Class 9"
     },
+    48:{
+        data_jbox_content:"Class 25"
+    },
 }
 
 let respawn={
@@ -161,9 +164,9 @@ let spawnIn={
     6:{   key:"highsec",     hover:"#0dfa05", color:"#1d4145",   title:"HighSec", tooltip:tooltips[45]    },
     7:{   key:"lowsec",     hover:"#f0a800", color:"#1d4145",  title:"LowSec", tooltip:tooltips[46]    },
     8:{   key:"nullsec",     hover:"#e81e1e", color:"#1d4145",  title:"NullSec", tooltip:tooltips[47]    },
-    9:{   key:"pochven-▲-trig-space",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven ▲ Trig space", tooltip:""    },
-    10:{   key:"class-12---thera",     hover:"#f6fc32", color:"#1d4145",  title:"Class 12 - Thera", tooltip:tooltips[14]    },
-    11:{   key:"class-13---shattered",     hover:"#ffffff", color:"#1d4145",  title:"Class 13 - Shattered", tooltip:tooltips[15]      },
+    9:{   key:"class-12---thera",     hover:"#f6fc32", color:"#1d4145",  title:"Class 12 - Thera", tooltip:tooltips[14]    },
+    10:{   key:"class-13---shattered",     hover:"#ffffff", color:"#1d4145",  title:"Class 13 - Shattered", tooltip:tooltips[15]      },
+    11:{   key:"pochven-▲-trig-space",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven ▲ Trig space", tooltip:tooltips[48]    },
     12:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },
     13:{   key:"drone-regions",     hover:"#e81e1e", color:"#1d4145",   title:"Drone Regions", tooltip:tooltips[16]    },
     14:{   key:"drifter-wormholes",     hover:"#79cef4", color:"#1d4145", title:"Drifter wormholes",tooltip:tooltips[17]   },
@@ -184,9 +187,9 @@ let leadsTo={
     6:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:tooltips[37]    },
     7:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:tooltips[37]    },
     8:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:tooltips[38]    },
-    9:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:tooltips[39]    },
-    10:{   key:"thera",     hover:"#f6fc32", color:"#1d4145",   title:"Thera", tooltip:tooltips[40]    },
-    11:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:tooltips[41]    },
+    9:{   key:"thera",     hover:"#f6fc32", color:"#1d4145",   title:"Thera", tooltip:tooltips[40]    },
+    10:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:tooltips[41]    },
+    11:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:tooltips[39]    },
     12:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },  
     13:{   key:"drifter-sentinel",     hover:"#79cef4", color:"#1d4145",  title:"Drifter Sentinel", tooltip:tooltips[30]   },
     14:{   key:"drifter-barbican",     hover:"#79cef4", color:"#1d4145", title:"Drifter Barbican",tooltip:tooltips[21]    },
@@ -223,6 +226,13 @@ let lifeTime={
     3:{  key:"48h",  hover:"#79cef4", color:"#1d4145",     title:"48h",    tooltip:""},
 }
 
+let sigLevel={
+    0:{  key:"i",  hover:"#79cef4", color:"#1d4145",     title:"I",    tooltip:""},
+    1:{  key:"ii",  hover:"#79cef4", color:"#1d4145",     title:"II",    tooltip:""},
+    2:{  key:"iii",  hover:"#79cef4", color:"#1d4145",     title:"III",    tooltip:""},
+    3:{  key:"info-required",  hover:"#79cef4", color:"#1d4145",     title:"info required",    tooltip:""},
+}
+
 let wormholes={
     0:{
         name:'A009', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -232,6 +242,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     1:{
         name:'A239', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -241,6 +252,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["ii"],
     },
     2:{
         name:'A641', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -250,6 +262,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["info-required"],
     },
     3:{
         name:'A982', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -259,6 +272,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["iii"],
     },
     4:{
         name:'B041', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -268,6 +282,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["48h"],
+        sigLevel:["info-required"],
     },
     5:{
         name:'B274', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -277,6 +292,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     6:{
         name:'B449', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -286,6 +302,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     7:{
         name:'B520', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -295,6 +312,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["48h"],
+        sigLevel:["iii"],
     },
     8:{
         name:'B735', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
@@ -304,6 +322,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:[],
     },
     9:{
         name:'C008', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
@@ -313,6 +332,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     10:{
         name:'C125', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -322,6 +342,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     11:{
         name:'C140', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -331,6 +352,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["ii"],
     },
     12:{
         name:'C247', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -340,6 +362,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     13:{
         name:'C248', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -349,6 +372,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     14:{
         name:'C391', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -358,6 +382,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["48h"],
+        sigLevel:["ii"],
     },
     15:{
         name:'C414', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
@@ -367,6 +392,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:[],
     },
     16:{
         name:'C729', hover:"yellow", color:"#1d4145", tooltip:tooltips[2], showincol:0,
@@ -376,6 +402,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["12h"],
+        sigLevel:["ii"],
     },
     17:{
         name:'D364', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -385,6 +412,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     18:{
         name:'D382', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -394,6 +422,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     19:{
         name:'D792', hover:"yellow", color:"#1d4145", tooltip:tooltips[3], showincol:0,
@@ -403,6 +432,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["iii"],
     },
     20:{
         name:'D845', hover:"yellow", color:"#1d4145", tooltip:tooltips[4], showincol:0,
@@ -412,6 +442,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["5-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["ii"],
     },
     21:{
         name:'E004', hover:"yellow", color:"#1d4145",  tooltip:tooltips[1], showincol:0,
@@ -421,6 +452,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
      22:{
         name:'E175', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -430,6 +462,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     23:{
         name:'E545', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -439,6 +472,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     24:{
         name:'E587', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -448,6 +482,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     25:{
         name:'F135', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -457,6 +492,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     26:{
         name:'F216', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -466,6 +502,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     27:{
         name:'F353', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -475,6 +512,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["100-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     28:{
         name:'G008', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
@@ -484,6 +522,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     29:{
         name:'G024', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -493,6 +532,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["info-required"],
     },
     30:{
         name:'H121', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -502,6 +542,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     31:{
         name:'H296', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -511,6 +552,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     32:{
         name:'H900', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -521,6 +563,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["iii"],
     },
     33:{
         name:'I182', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -531,6 +574,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     34:{
         name:'J244', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -541,6 +585,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["ii"],
     },
     35:{
         name:'K329', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -551,6 +596,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["5-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:[],
     },
     36:{
         name:'K346', hover:"yellow", color:"#1d4145", tooltip:tooltips[5], showincol:0,
@@ -561,6 +607,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     37:{
         name:'L005', hover:"yellow", color:"#1d4145",  tooltip:tooltips[1], showincol:0,
@@ -571,6 +618,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     38:{
         name:'L031', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -581,6 +629,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     39:{
         name:'L477', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -591,6 +640,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     40:{
         name:'L614', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -601,6 +651,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["info-required"],
     },
     41:{
         name:'M001', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
@@ -611,6 +662,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     42:{
         name:'M164', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -621,6 +673,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     43:{
         name:'M267', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -631,6 +684,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     44:{
         name:'M555', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -641,6 +695,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["info-required"],
     },
     45:{
         name:'M609', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -651,6 +706,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     46:{
         name:'N062', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -661,6 +717,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["iii"],
     },
     47:{
         name:'N110', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -671,6 +728,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     48:{
         name:'N290', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -681,6 +739,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:[],
     },
     49:{
         name:'N432', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -691,6 +750,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i","iii"],
     },
     50:{
         name:'N766', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -701,6 +761,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     51:{
         name:'N770', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -711,6 +772,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["iii"],
     },
     52:{
         name:'N944', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -721,6 +783,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i","ii"],
     },
     53:{
         name:'N968', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -731,6 +794,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     54:{
         name:'O128', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -741,6 +805,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:[],
     },
     55:{
         name:'O477', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -751,6 +816,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     56:{
         name:'O883', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -761,6 +827,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["info-required"],
     },
     57:{
         name:'P060', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -771,6 +838,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     58:{
         name:'Q003', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
@@ -781,6 +849,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     59:{
         name:'Q063', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -791,6 +860,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     60:{
         name:'Q317', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -801,6 +871,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     61:{
         name:'R051', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -811,6 +882,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["info-required"],
     },
     62:{
         name:'R081', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -821,6 +893,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     63:{
         name:'R259', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
@@ -831,6 +904,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:[],
     },
     64:{
         name:'R474', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -841,6 +915,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["iii"],
     },
     65:{
         name:'R943', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -851,6 +926,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i","iii"],
     },
     66:{
         name:'S047', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -861,6 +937,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:[],
     },
     67:{
         name:'S199', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -871,6 +948,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i","ii"],
     },
     68:{
         name:'S804', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -881,6 +959,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["info-required"],
     },
     69:{
         name:'S877', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
@@ -891,6 +970,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:[],
     },
     70:{
         name:'T405', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -901,6 +981,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     71:{
         name:'T458', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -911,6 +992,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     72:{
         name:'U210', hover:"yellow", color:"#1d4145", tooltip:tooltips[6], showincol:0,
@@ -921,6 +1003,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     73:{
         name:'U319', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -931,6 +1014,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["48h"],
+        sigLevel:["i"],
     },
     74:{
         name:'U372', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -941,6 +1025,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     75:{
         name:'U574', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -951,6 +1036,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["iii"],
     },
     76:{
         name:'V283', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -961,6 +1047,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     77:{
         name:'V301', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -971,6 +1058,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     78:{
         name:'V753', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -981,6 +1069,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     79:{
         name:'V898', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -991,6 +1080,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     80:{
         name:'V911', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1001,6 +1091,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     81:{
         name:'V928', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
@@ -1011,6 +1102,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:[],
     },
     82:{
         name:'W237', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1021,6 +1113,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i"],
     },
     83:{
         name:'X450', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1031,6 +1124,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     84:{
         name:'X702', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1041,6 +1135,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
+        sigLevel:["i","ii"],
     },
     85:{
         name:'X877', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1051,6 +1146,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     86:{
         name:'Y683', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1061,6 +1157,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     87:{
         name:'Y790', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1071,6 +1168,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     88:{
         name:'Z006', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
@@ -1081,6 +1179,7 @@ let wormholes={
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     89:{
         name:'Z060', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1091,6 +1190,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["iii"],
     },
     90:{
         name:'Z142', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1101,6 +1201,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i"],
     },
     91:{
         name:'Z457', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1111,6 +1212,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["ii"],
     },
     92:{
         name:'Z647', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1121,9 +1223,8 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["500-000-000-kg"], 
         lifeTime:["16h"],
-    },
-     
-   
+        sigLevel:["i"],
+    },   
     93:{
         name:'Z971', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
@@ -1133,6 +1234,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["100-000-000-kg"], 
         lifeTime:["16h"],
+        sigLevel:["i","ii","iii"],
     },
     94:{
         name:'⛮', hover:"black", color:"#1d4145", tooltip:"", showincol:0,
@@ -1143,7 +1245,8 @@ let wormholes={
         indMass:[], 
         toMass:[], 
         lifeTime:[],
-        misterBob:['bob']
+        misterBob:['bob'],
+        sigLevel:[],
     },
     
     95:{
@@ -1155,5 +1258,6 @@ let wormholes={
         indMass:[], 
         toMass:[], 
         lifeTime:[],
+        sigLevel:[],
     },
 }

@@ -37,3 +37,75 @@ function openNav() {
   function closeNav() {
 	document.getElementById("mySidenav").style.width = "0";
   }
+
+  $(function() {
+	$('#pi').hover(function() {
+	  $('.wholes, .attri').css('color', '#287099');
+	}, function() {
+	  // on mouseout, reset the background colour
+	  $('.wholes, .attri').css('color', '');
+	});
+  }); 
+ 
+  $(function() {
+	$('.respawn').hover(function() {
+	  $('#reS').css('color', '#79cef4');
+	}, function() {
+	  // on mouseout, reset the background colour
+	  $('#reS').css('color', '');
+	});
+  });  
+
+  		$(function() {
+  $('.spawnIn').hover(function() {
+    $('#sIn').css('color', '#79cef4');
+  }, function() {
+    // on mouseout, reset the background colour
+    $('#sIn').css('color', '');
+  });
+});
+
+$(function() {
+  $('.leadsTo').hover(function() {
+    $('#lTo').css('color', '#79cef4');
+  }, function() {
+    // on mouseout, reset the background colour
+    $('#lTo').css('color', '');
+  });
+});
+
+$(function() {
+  $('.indMass').hover(function() {
+    $('#sjs').css('color', '#79cef4');
+  }, function() {
+    // on mouseout, reset the background colour
+    $('#sjs').css('color', '');
+  });
+});
+
+$(function() {
+  $('.toMass').hover(function() {
+    $('#toM').css('color', '#79cef4');
+  }, function() {
+    // on mouseout, reset the background colour
+    $('#toM').css('color', '');
+  });
+});
+
+$(function() {
+  $('.lifeTime').hover(function() {
+    $('#liT').css('color', '#79cef4');
+  }, function() {
+    // on mouseout, reset the background colour
+    $('#liT').css('color', '');
+  });
+});
+
+$(function() {
+	$('.sigLevel').hover(function() {
+	  $('#sLvl').css('color', '#79cef4');
+	}, function() {
+	  // on mouseout, reset the background colour
+	  $('#sLvl').css('color', '');
+	});
+  });
