@@ -695,7 +695,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
-        sigLevel:["info-required"],
+        sigLevel:["iii"],
     },
     45:{
         name:'M609', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
