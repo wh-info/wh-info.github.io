@@ -262,7 +262,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
-        sigLevel:["info-required"],
+        sigLevel:["i"],
     },
     3:{
         name:'A982', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
