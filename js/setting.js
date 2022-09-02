@@ -651,7 +651,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
-        sigLevel:["info-required"],
+        sigLevel:["ii","iii"],
     },
     41:{
         name:'M001', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
