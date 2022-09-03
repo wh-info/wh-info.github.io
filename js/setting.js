@@ -230,7 +230,6 @@ let sigLevel={
     0:{  key:"i",  hover:"#79cef4", color:"#1d4145",     title:"I",    tooltip:""},
     1:{  key:"ii",  hover:"#79cef4", color:"#1d4145",     title:"II",    tooltip:""},
     2:{  key:"iii",  hover:"#79cef4", color:"#1d4145",     title:"III",    tooltip:""},
-    3:{  key:"info-required",  hover:"#79cef4", color:"#1d4145",     title:"info required",    tooltip:""},
 }
 
 let wormholes={
