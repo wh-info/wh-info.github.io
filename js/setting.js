@@ -959,7 +959,7 @@ let wormholes={
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
         lifeTime:["24h"],
-        sigLevel:["info-required"],
+        sigLevel:["iii"],
     },
     69:{
         name:'S877', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
