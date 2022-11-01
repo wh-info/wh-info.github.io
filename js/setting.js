@@ -820,7 +820,7 @@ let wormholes={
     56:{
         name:'O883', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
-        respawn:["wandering"],
+        respawn:["static","wandering"],
         spawnIn:["class-1"],
         leadsTo:["c3"], 
         indMass:["up-to-battlecruiser"], 
