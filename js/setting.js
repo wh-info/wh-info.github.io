@@ -147,7 +147,7 @@ let tooltips={
         data_jbox_content:"Class 25"
     },
     49:{
-        data_jbox_content:"Insufficient info!"
+        data_jbox_content:"Insufficient info"
     },
 }
 
