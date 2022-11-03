@@ -146,6 +146,9 @@ let tooltips={
     48:{
         data_jbox_content:"Class 25"
     },
+    49:{
+        data_jbox_content:"insufficient info"
+    },
 }
 
 let respawn={
@@ -587,6 +590,17 @@ let wormholes={
         sigLevel:["ii"],
     },
     35:{
+        name:'J377', hover:"yellow", color:"#1d4145", tooltip:"49", showincol:0,
+        showincol:1,
+        respawn:["static","reverse"],
+        spawnIn:["class-1","class-2"],
+        leadsTo:["ls"], 
+        indMass:["up-to-battlecruiser"], 
+        toMass:["1-000-000-000-kg"], 
+        lifeTime:["24h"],
+        sigLevel:["ii"],
+    },
+    36:{
         name:'K329', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -597,7 +611,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:[],
     },
-    36:{
+    37:{
         name:'K346', hover:"yellow", color:"#1d4145", tooltip:tooltips[5], showincol:0,
         showincol:1,
         respawn:["static"],
@@ -608,7 +622,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["iii"],
     },
-    37:{
+    38:{
         name:'L005', hover:"yellow", color:"#1d4145",  tooltip:tooltips[1], showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -619,7 +633,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    38:{
+    39:{
         name:'L031', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering", "reverse"],
@@ -630,7 +644,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    39:{
+    40:{
         name:'L477', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static"],
@@ -641,7 +655,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    40:{
+    41:{
         name:'L614', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -652,7 +666,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["ii","iii"],
     },
-    41:{
+    42:{
         name:'M001', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -663,7 +677,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    42:{
+    43:{
         name:'M164', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering", "reverse"],
@@ -674,7 +688,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    43:{
+    44:{
         name:'M267', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static"],
@@ -685,7 +699,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["iii"],
     },
-    44:{
+    45:{
         name:'M555', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -696,7 +710,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["iii"],
     },
-    45:{
+    46:{
         name:'M609', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -707,7 +721,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    46:{
+    47:{
         name:'N062', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static","wandering"],
@@ -718,7 +732,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["iii"],
     },
-    47:{
+    48:{
         name:'N110', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static"],
@@ -729,7 +743,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i"],
     },
-    48:{
+    49:{
         name:'N290', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -740,7 +754,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:[],
     },
-    49:{
+    50:{
         name:'N432', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -751,7 +765,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i","iii"],
     },
-    50:{
+    51:{
         name:'N766', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static"],
@@ -762,7 +776,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    51:{
+    52:{
         name:'N770', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -773,7 +787,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["iii"],
     },
-    52:{
+    53:{
         name:'N944', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -784,7 +798,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i","ii"],
     },
-    53:{
+    54:{
         name:'N968', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -795,7 +809,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    54:{
+    55:{
         name:'O128', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -806,7 +820,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:[],
     },
-    55:{
+    56:{
         name:'O477', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static","wandering"],
@@ -817,7 +831,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    56:{
+    57:{
         name:'O883', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -828,7 +842,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    57:{
+    58:{
         name:'P060', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static"],
@@ -839,7 +853,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    58:{
+    59:{
         name:'Q003', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -850,7 +864,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    59:{
+    60:{
         name:'Q063', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static"],
@@ -861,7 +875,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    60:{
+    61:{
         name:'Q317', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["static"],
@@ -872,7 +886,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["iii"],
     },
-    61:{
+    62:{
         name:'R051', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -883,7 +897,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    62:{
+    63:{
         name:'R081', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -894,7 +908,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    63:{
+    64:{
         name:'R259', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
         showincol:1,
         respawn:["wandering"],
@@ -905,7 +919,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:[],
     },
-    64:{
+    65:{
         name:'R474', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -916,7 +930,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["iii"],
     },
-    65:{
+    66:{
         name:'R943', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -927,7 +941,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i","iii"],
     },
-    66:{
+    67:{
         name:'S047', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -938,7 +952,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:[],
     },
-    67:{
+    68:{
         name:'S199', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -949,7 +963,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i","ii"],
     },
-    68:{
+    69:{
         name:'S804', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -960,7 +974,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["iii"],
     },
-    69:{
+    70:{
         name:'S877', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -971,7 +985,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:[],
     },
-    70:{
+    71:{
         name:'T405', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -982,7 +996,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    71:{
+    72:{
         name:'T458', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering", "reverse"],
@@ -993,7 +1007,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    72:{
+    73:{
         name:'U210', hover:"yellow", color:"#1d4145", tooltip:tooltips[6], showincol:0,
         showincol:2,
         respawn:["static"],
@@ -1004,7 +1018,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i"],
     },
-    73:{
+    74:{
         name:'U319', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1015,7 +1029,7 @@ let wormholes={
         lifeTime:["48h"],
         sigLevel:["i"],
     },
-    74:{
+    75:{
         name:'U372', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering", "reverse"],
@@ -1026,7 +1040,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    75:{
+    76:{
         name:'U574', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -1037,7 +1051,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["iii"],
     },
-    76:{
+    77:{
         name:'V283', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1048,7 +1062,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["iii"],
     },
-    77:{
+    78:{
         name:'V301', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1059,7 +1073,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    78:{
+    79:{
         name:'V753', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -1070,7 +1084,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i"],
     },
-    79:{
+    80:{
         name:'V898', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static"],
@@ -1081,7 +1095,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    80:{
+    81:{
         name:'V911', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -1092,7 +1106,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i"],
     },
-    81:{
+    82:{
         name:'V928', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1103,7 +1117,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:[],
     },
-    82:{
+    83:{
         name:'W237', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -1114,7 +1128,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i"],
     },
-    83:{
+    84:{
         name:'X450', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1125,7 +1139,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    84:{
+    85:{
         name:'X702', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1136,7 +1150,7 @@ let wormholes={
         lifeTime:["24h"],
         sigLevel:["i","ii"],
     },
-    85:{
+    86:{
         name:'X877', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static", "wandering"],
@@ -1147,7 +1161,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    86:{
+    87:{
         name:'Y683', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -1158,7 +1172,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    87:{
+    88:{
         name:'Y790', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static"],
@@ -1169,7 +1183,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["iii"],
     },
-    88:{
+    89:{
         name:'Z006', hover:"yellow", color:"#1d4145", tooltip:tooltips[1], showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1180,7 +1194,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    89:{
+    90:{
         name:'Z060', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static"],
@@ -1191,7 +1205,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["iii"],
     },
-    90:{
+    91:{
         name:'Z142', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1202,7 +1216,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },
-    91:{
+    92:{
         name:'Z457', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -1213,7 +1227,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["ii"],
     },
-    92:{
+    93:{
         name:'Z647', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["static","wandering"],
@@ -1224,7 +1238,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i"],
     },   
-    93:{
+    94:{
         name:'Z971', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:["wandering"],
@@ -1235,7 +1249,7 @@ let wormholes={
         lifeTime:["16h"],
         sigLevel:["i","ii","iii"],
     },
-    94:{
+    95:{
         name:'⛮', hover:"black", color:"#1d4145", tooltip:"", showincol:0,
         showincol:2,
         respawn:[],
@@ -1248,7 +1262,7 @@ let wormholes={
         sigLevel:[],
     },
     
-    95:{
+    96:{
         name:'K162', hover:"yellow", color:"#1d4145", tooltip:tooltips[7], showincol:0,
         showincol:2,
         respawn:[],
