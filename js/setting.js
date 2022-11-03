@@ -590,7 +590,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     35:{
-        name:'J377', hover:"yellow", color:"#1d4145", tooltip:"49", showincol:0,
+        name:'J377', hover:"yellow", color:"#1d4145", tooltip:tooltips[49], showincol:0,
         showincol:1,
         respawn:["static","reverse"],
         spawnIn:["class-1","class-2"],
