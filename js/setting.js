@@ -592,7 +592,7 @@ let wormholes={
     35:{
         name:'J377', hover:"yellow", color:"#1d4145", tooltip:tooltips[49], showincol:0,
 	showincol:1,
-        respawn:["static","reverse"],
+        respawn:["wandering","reverse"],
         spawnIn:["class-1","class-2"],
         leadsTo:["ls"], 
         indMass:["up-to-battlecruiser"], 
