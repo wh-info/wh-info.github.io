@@ -147,7 +147,7 @@ let tooltips={
         data_jbox_content:"Class 25"
     },
     49:{
-        data_jbox_content:"insufficient info"
+        data_jbox_content:"Insufficient info!"
     },
 }
 
@@ -591,7 +591,7 @@ let wormholes={
     },
     35:{
         name:'J377', hover:"yellow", color:"#1d4145", tooltip:tooltips[49], showincol:0,
-        showincol:1,
+	showincol:1,
         respawn:["static","reverse"],
         spawnIn:["class-1","class-2"],
         leadsTo:["ls"], 
