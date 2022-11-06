@@ -71,7 +71,9 @@ body { background-color: #000; cursor: context-menu;}
 	.large {color: #d6d9cc; font-weight: bold;}
 	.xlarge {color: #f0a800; font-weight: bold;}
 
+	.hs {color: #0dfa05; font-weight: bold;}
 	.ls {color: #f0a800; font-weight: bold;}
+	.ns {color: #e81e1e; font-weight: bold;}
 
 	#bob { display: none;}
 	#pi:hover #bob { display: inline-block;}
