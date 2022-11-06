@@ -9,16 +9,16 @@ let tooltips={
         data_jbox_content:"Every <span class='ns'>Pochven</span> system is always connected to this type.<br>&#8594; <i>Ships allowed:</i> up to Bowhead<br>&#8594; <i>Excluded:</i> all other Freighters<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"
     },
     3:{
-        data_jbox_content:"&#8594; Is <a>static</a> only in one shattered C5 system; J011790"
+        data_jbox_content:"&#8594; Is <a>static</a> only in one shattered <span class='C5'>C5</span> system; J011790"
     },
     4:{
-        data_jbox_content:"&#8594; Can be <a>static</a> in shattered C4 systems"
+        data_jbox_content:"&#8594; Can be <a>static</a> in shattered <span class='C4'>C4</span> systems"
     },
     5:{
-        data_jbox_content:"&#8594; Can be <a>static</a> in shattered C4, C5 and C6 systems"
+        data_jbox_content:"&#8594; Can be <a>static</a> in shattered <span class='C4'>C4</span>, <span class='C5'>C5</span> and <span class='C6'>C6</span> systems"
     },
     6:{
-        data_jbox_content:"&#8594; Can be <a>static</a> in shattered C4 and C5 systems"
+        data_jbox_content:"&#8594; Can be <a>static</a> in shattered <span class='C4'>C4</span> and <span class='C5'>C5</span> systems"
     },
     7:{
         data_jbox_content:"Generic type designating an exit."
