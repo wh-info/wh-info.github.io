@@ -147,7 +147,7 @@ let tooltips={
         data_jbox_content:"Class 25"
     },
     49:{
-        data_jbox_content:"Insufficient info"
+        data_jbox_content:"<i>Insufficient info</i> <br>&#8594; Leads to <span class='xlarge'>Turnur</span> system"
     },
 }
 
@@ -304,7 +304,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
-        sigLevel:["ii","iii"],
+        sigLevel:["iii"],
     },
     7:{
         name:'B520', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
