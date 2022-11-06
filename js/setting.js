@@ -6,7 +6,7 @@ let tooltips={
         data_jbox_content:"&#8594; Can be <a>static</a> in C13 systems"
     },
     2:{
-        data_jbox_content:"Every <i>Pochven</i> system is always connected to this type.<br>&#8594; <i>Ships allowed:</i> up to Bowhead<br>&#8594; <i>Excluded:</i> all other Freighters<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"
+        data_jbox_content:"Every <span class='ns'>Pochven</span> system is always connected to this type.<br>&#8594; <i>Ships allowed:</i> up to Bowhead<br>&#8594; <i>Excluded:</i> all other Freighters<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"
     },
     3:{
         data_jbox_content:"&#8594; Is <a>static</a> only in one shattered C5 system; J011790"
@@ -147,7 +147,7 @@ let tooltips={
         data_jbox_content:"Class 25"
     },
     49:{
-        data_jbox_content:"<i>Insufficient info</i> <br>&#8594; Leads to <span class='xlarge'>Turnur</span> system"
+        data_jbox_content:"<i>Insufficient info</i> <br>&#8594; Leads to <span class='ls'>Turnur</span> system"
     },
 }
 
