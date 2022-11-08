@@ -223,10 +223,11 @@ let toMass={
     7:{  key:"5-000-000-000-kg",  hover:"#79cef4", color:"#1d4145",     title:"5 000 000 000 kg",    tooltip:""},
 }
 let lifeTime={
-    0:{  key:"12h",  hover:"#79cef4", color:"#1d4145",     title:"12h",    tooltip:""},
-    1:{  key:"16h",  hover:"#79cef4", color:"#1d4145",     title:"16h",    tooltip:""},
-    2:{  key:"24h",  hover:"#79cef4", color:"#1d4145",     title:"24h",    tooltip:""},
-    3:{  key:"48h",  hover:"#79cef4", color:"#1d4145",     title:"48h",    tooltip:""},
+    0:{  key:"12h",  hover:"#79cef4", color:"#1d4145",     title:"4.5h",    tooltip:""},	
+    1:{  key:"12h",  hover:"#79cef4", color:"#1d4145",     title:"12h",    tooltip:""},
+    2:{  key:"16h",  hover:"#79cef4", color:"#1d4145",     title:"16h",    tooltip:""},
+    3:{  key:"24h",  hover:"#79cef4", color:"#1d4145",     title:"24h",    tooltip:""},
+    4:{  key:"48h",  hover:"#79cef4", color:"#1d4145",     title:"48h",    tooltip:""},
 }
 
 let sigLevel={
@@ -343,7 +344,7 @@ let wormholes={
         leadsTo:["c2"], 
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
-        lifeTime:["16h"],
+        lifeTime:["4.5h"],
         sigLevel:["i"],
     },
     11:{
@@ -453,7 +454,7 @@ let wormholes={
         leadsTo:["c1"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
-        lifeTime:["16h"],
+        lifeTime:["4.5h"],
         sigLevel:["i"],
     },
      22:{
@@ -523,7 +524,7 @@ let wormholes={
         leadsTo:["c6"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
-        lifeTime:["16h"],
+        lifeTime:["4.5h"],
         sigLevel:["i"],
     },
     29:{
@@ -630,7 +631,7 @@ let wormholes={
         leadsTo:["c2"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
-        lifeTime:["16h"],
+        lifeTime:["4.5h"],
         sigLevel:["i"],
     },
     39:{
@@ -674,7 +675,7 @@ let wormholes={
         leadsTo:["c4"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
-        lifeTime:["16h"],
+        lifeTime:["4.5h"],
         sigLevel:["i"],
     },
     43:{
@@ -861,7 +862,7 @@ let wormholes={
         leadsTo:["ns"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
-        lifeTime:["16h"],
+        lifeTime:["4.5h"],
         sigLevel:["i"],
     },
     60:{
@@ -1191,7 +1192,7 @@ let wormholes={
         leadsTo:["c3"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
-        lifeTime:["16h"],
+        lifeTime:["4.5h"],
         sigLevel:["i"],
     },
     90:{
