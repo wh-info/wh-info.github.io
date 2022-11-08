@@ -223,7 +223,7 @@ let toMass={
     7:{  key:"5-000-000-000-kg",  hover:"#79cef4", color:"#1d4145",     title:"5 000 000 000 kg",    tooltip:""},
 }
 let lifeTime={
-    0:{  key:"12h",  hover:"#79cef4", color:"#1d4145",     title:"4.5h",    tooltip:""},	
+    0:{  key:"4.5h",  hover:"#79cef4", color:"#1d4145",     title:"4.5h",    tooltip:""},	
     1:{  key:"12h",  hover:"#79cef4", color:"#1d4145",     title:"12h",    tooltip:""},
     2:{  key:"16h",  hover:"#79cef4", color:"#1d4145",     title:"16h",    tooltip:""},
     3:{  key:"24h",  hover:"#79cef4", color:"#1d4145",     title:"24h",    tooltip:""},
