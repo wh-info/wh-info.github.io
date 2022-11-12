@@ -555,7 +555,7 @@ let wormholes={
         indMass:["up-to-capital"], 
         toMass:["3-300-000-000-kg"], 
         lifeTime:["24h"],
-        sigLevel:["i"],
+        sigLevel:["i","ii"],
     },
     32:{
         name:'H900', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
