@@ -146,6 +146,9 @@ let tooltips={
     48:{
         data_jbox_content:"Class 25"
     },
+    49:{
+        data_jbox_content:"&#8594; Leads to <span class='ls'>Turnur</span> system"
+    },
 }
 
 let respawn={
@@ -588,7 +591,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     35:{
-        name:'J377', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'J377', hover:"yellow", color:"#1d4145", tooltip:tooltips[49], showincol:0,
 	showincol:1,
         respawn:["wandering","reverse"],
         spawnIn:["class-1","class-2","class-3","class-4"],
