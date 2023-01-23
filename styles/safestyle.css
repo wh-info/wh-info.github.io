@@ -1,0 +1,218 @@
+/* roboto-mono-regular - latin */
+@font-face {
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/roboto-mono-v13-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local(''),
+		 url('../fonts/roboto-mono-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('../fonts/roboto-mono-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+		 url('../fonts/roboto-mono-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+		 url('../fonts/roboto-mono-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		 url('../fonts/roboto-mono-v13-latin-regular.svg#RobotoMono') format('svg'); /* Legacy iOS */
+  }  
+
+body { background-color: #000; cursor: context-menu;}
+
+.container { margin-top: 100px; display: none;}
+#wrapper { background-color: #000; cursor: context-menu; animation: fadeInAnimation ease 2s; animation-iteration-count: 1; animation-fill-mode: forwards;}
+	@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+	body,td { font: 13px Helvetica Neue, Helvetica, Arial Narrow, Arial; font-weight: 400; color: #1d4145; padding: 0; margin: 0; }
+	h2 {font-family: 'Roboto Mono', monospace;}
+	ul {list-style: none none; margin: 0; padding: 0; display: block; }
+	.jBox-TooltipDark a { color: #79cef4; text-decoration: none; }	
+	table {border: 1px solid transparent;}
+    table:hover { border: 1px solid #315970; }   
+	td { padding: 2px 2px; text-align: center; border-bottom: 1px solid #315970; border-width: 1px 0;}
+	tr:last-child td { border-bottom-width: 0; }
+	tr.header td { white-space: nowrap; font-family: 'Roboto Mono', monospace; padding-top: 15px; padding-bottom: 0px; font-size: 23px; font-weight: 400; color: #287099; height: 50px;}
+	tr.header td i { font-size: .4em; font-weight: 200; font-style: normal; }
+
+	li{ font-family: 'Roboto Mono', monospace; font-size: 14px; font-weight: 500;}
+	.items li { margin: none; padding: 2px 0px; }
+	.items li.current span { text-shadow: 0px 0px 8px yellow; }
+	.items li span { white-space: nowrap; cursor: pointer; background-color: rgba(0,0,0,0.60); border-radius: 3px; padding: 2px 2px; }	
+	tr.footer { display: none; }
+	hr { border-top: 1px dotted #315970; border-bottom: 0px;}
+	#cheetah { width: 100px;}
+
+	.footer { min-width: none; position: absolute; right: 0%; top: 0%; font-size: 20px; text-align: center; }
+	.bot { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; }
+	.botmod { font-size: 15px;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px; text-align: center;}
+	.botmod:hover { cursor: pointer; background-color: #315970; }
+	.botime { font-size: 15px; color: black; font-weight: bold;	background-color: #315970; padding: 3px 5px; }
+	.botime a { text-decoration: none; color: black; }
+	table .bot:hover { border: none; background-color: #315970; }
+	.toggletooltip {cursor: pointer; font-size: 15px; ;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px;	}
+
+	.noborder {border: none; padding-bottom: 15px;}
+	.wholes {position: absolute; background-color: black; border: 1px dotted #287099; color: #3c6d8a; padding: 3px 10px; margin-top: -13px; margin-left: -43px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
+	.attri {position: absolute; background-color: black; border: 1px dotted #287099; color: #3c6d8a; padding: 3px 10px; margin-top: -13px; margin-left: -23px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
+
+	.reset {position: absolute; margin-left: -10px; background-color: #1e3644 !important; border-radius: 0px !important; box-shadow: 0px 0px 15px 20px rgb(0, 0, 0); color: black; font-size: 16px; font-weight: bold; font-size: 16px; border: 1px solid black;  transform-origin: 50% 0%; transform: rotate(90deg); transition: box-shadow .1s ease !important; } 
+	.reset:hover {background-color: #315970 !important; box-shadow: 0px 0px 0px 0px; border: 5px solid black;}
+
+	.lscolor {color: #f0a800 !important;}
+
+	video { display: inline-block; margin: 0 auto; padding: 5px; border: 1px dotted rgb(40, 112, 153, 0.3); width: 125px; height: 125px; }
+	.vs { display: block; margin: 0 auto; padding: 5px; border: 1px dotted rgb(40, 112, 153, 0.3); }
+	.tc { display: block; text-align: center; }
+	.es video{ width: 100px; height: 100px; }
+
+	.small {color: #1f5eeb; font-weight: bold;}
+	.med {color: #36cccc; font-weight: bold;}
+	.large {color: #d6d9cc; font-weight: bold;}
+	.xlarge {color: #f0a800; font-weight: bold;}
+
+	.hs {color: #0dfa05; font-weight: bold;}
+	.ls {color: #f0a800; font-weight: bold;}
+	.ns {color: #e81e1e; font-weight: bold;}
+
+	.C1 {color: #42ffec; font-weight: bold;}
+	.C2 {color: #42b3ff; font-weight: bold;}
+	.C3 {color: #4265ff; font-weight: bold;}
+	.C4 {color: #4230cf; font-weight: bold;}
+	.C5 {color: #9c32ed; font-weight: bold;}
+	.C6 {color: #f230dc; font-weight: bold;}
+
+	#bob { display: none;}
+	#pi:hover #bob { display: inline-block;}
+	
+	#canvas { z-index: 1; display: block; position: absolute; background-color: transparent; margin: auto; left: 0; right: 0; top: 50px; }
+	#pi { z-index: 2; width: 75%; height: 30%; border-collapse: collapse; position: absolute; margin: auto; left: 0; right: 0; top: 50px; }
+
+	.update {
+		position: fixed; bottom: 20px; left: 30%; right: 30%; width: 40%; height: 25px;	display: flex; align-items: center; justify-content: space-between; background-color: black;
+		border: 1px dotted #315970; color: white; padding-left: 20px; z-index: 99; white-space: nowrap; }
+	.update-btn { padding: 10px 10px; margin: 0px 10px;	font-weight: bold; background-color: #287099; color: black; }
+	.blue { color: #287099; }
+	.close { display: block; height: 25px; width: 25px;	background-color: #1e3644; border: 1px solid #315970; color: white;	cursor: pointer; margin-left: 20px;	}
+	.close:hover { background-color: #315970; }
+	.stats {color: #287099; font-size: 16px; background-color: #1a202c; padding-bottom: 10px;}
+	.meTop {z-index: 1; position: absolute; top: 10px; left: 10px; background-color: #315970; font-size: 15px; text-decoration: none; color: white; padding: 5px 5px 5px 5px;}
+	.meTop:hover{background-color: #287099; }
+
+	.chart-divide { border-top: 1px dotted #315970; border-bottom: 0px; margin-top: 50px; margin-bottom: 50px;}
+	.chart-container { width: 80%; margin: auto; text-align: center; font-family: 'Roboto Mono', monospace;}
+	
+
+	/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 98; /* Sit on top */
+	padding-top: 40px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+	font-family: 'Roboto Mono', monospace; font-size: 13px; font-weight: 400;
+	position: relative;
+	background-color: black;
+	border: 1px solid #315970;
+	margin: auto;
+	padding: 0;
+	width: 80%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+	from {top:-300px; opacity:0} 
+	to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .cls {
+	color: #315970;
+	margin-right: 10px;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .cls:hover,
+  .cls:focus {
+	color: #287099;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  .modal-head { text-align: left;
+	background-color: black;
+	color: #315970;
+	padding-left: 10px;
+	padding-top: 10px;
+	font-size: 14px;
+	font-weight: bold;}
+
+  .modal-body {
+	text-align: center;
+	background-color: black;
+	color: #315970;
+	padding-left: 30px;
+	padding-right: 30px;
+	}
+.modal-body a {color: #315970; text-decoration: none; border-bottom: 1px dotted;}
+.modal-body a:hover {color: #79cef4;}
+#myBtn {cursor: pointer;}
+.chartfoot {margin: 10px 10px 10px 0px; text-align: right;}
+
+.siden { 
+	min-width: none;
+	position: absolute;
+	left: 12px;
+	top: 1px;
+	font-size: 23px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.siden:hover { color:#287099 }
+
+.sidenav {
+	width: 0;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	background-color: black;
+	overflow: hidden;
+	transition: 0.4s;
+  }
+
+  .sidetab { padding-left: 35px; white-space: nowrap; }
+
+  .sidenav .closebtn {
+	position: absolute;
+	top: 1px;
+	left: 10px;
+	font-size: 23px;
+	text-decoration: none;
+	color: #315970;
+  }
+  .sidenav .closebtn:hover {color: #287099;}
+  
