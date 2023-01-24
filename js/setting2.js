@@ -153,7 +153,7 @@ let tooltips={
 
 
 let respawn={
-    0:{   key:"safe",     hover:"#0dfa05", color:"#1d4145",  title:"SAFE", tooltip:tooltips[16]    },
+    0:{   key:"safe",     hover:"#0dfa05", color:"#1d4145",  title:"SAFE", tooltip:""    },
     1:{   key:"notsafe",     hover:"#e81e1e", color:"#1d4145",  title:"NOT SAFE", tooltip:""   },
 }
 
