@@ -167,7 +167,7 @@ let leadsTo={
     1:{  key:"data",      hover:"#79cef4", color:"#1d4145",         title:"Data",   tooltip:""  },
     2:{  key:"drone",      hover:"#79cef4", color:"#1d4145",         title:"Drone",   tooltip:""  },
     3:{  key:"ghost",      hover:"#79cef4", color:"#1d4145",         title:"Ghost",   tooltip:""  },
-    4:{  key:"sleeper",      hover:"#79cef4", color:"#1d4145",         title:"Sleeper Cache",   tooltip:""  },
+    4:{  key:"sleeper",      hover:"#79cef4", color:"#1d4145",         title:"Sleeper",   tooltip:""  },
 } 
 	
 let indMass={
@@ -177,12 +177,11 @@ let indMass={
     3:{    key:"c4",    hover:"#4230cf", color:"#1d4145",  title:"C4", tooltip:""  },
     4:{    key:"c5",    hover:"#9c32ed", color:"#1d4145",  title:"C5", tooltip:""    },
     5:{   key:"c6",     hover:"#f230dc", color:"#1d4145",  title:"C6", tooltip:""    },
-    6:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:""   },
-    7:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:""   },
-    8:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:""    },
-    9:{   key:"&nbsp;",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },  
-    10:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:""   },
-    11:{   key:"droneregions",    hover:"#e81e1e", color:"#1d4145",  title:"Drone Regions", tooltip:tooltips[16]    },
+    6:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:""   },
+    7:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:""   },
+    8:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:""   },
+    9:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:""    }, 
+    10:{   key:"droneregions",    hover:"#e81e1e", color:"#1d4145",  title:"Drone Regions", tooltip:tooltips[16]    },
 }
 let wormholes={
     0:{
@@ -210,7 +209,7 @@ let wormholes={
         name:'Forgotten', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["notsafe"],
         spawnIn:["relicanalyser"],
-        leadsTo:["relic","C1","C2","C3"], 
+        leadsTo:["sleeper",], 
         indMass:["c1","c2","c3","c4","c5","c6","c13"],
     },
     4:{
@@ -245,7 +244,7 @@ let wormholes={
         name:'Unsecured', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["notsafe"],
         spawnIn:["dataanalyser",],
-        leadsTo:["data"], 
+        leadsTo:["sleeper"], 
         indMass:["c1","c2","c3","c4","c5","c6","c13"],
     },
     9:{
