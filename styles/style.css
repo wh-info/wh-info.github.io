@@ -102,6 +102,8 @@ body { background-color: #000; cursor: context-menu;}
 	.chart-divide { border-top: 1px dotted #315970; border-bottom: 0px; margin-top: 50px; margin-bottom: 50px;}
 	.chart-container { width: 80%; margin: auto; text-align: center; font-family: 'Roboto Mono', monospace;}
 	
+	.hmbtn { min-width: none; position: absolute; left: 0px; top: 1px; font-size: 20px; text-align: center; font-size: 15px;	color: black; font-weight: bold; background-color: #3c6d8a;	padding: 3px 5px;}
+	.hmbtn:hover {color: #000;	background-color:#5790b1 }
 
 	/* The Modal (background) */
 .modal {
@@ -184,7 +186,7 @@ body { background-color: #000; cursor: context-menu;}
 .siden { 
 	min-width: none;
 	position: absolute;
-	left: 12px;
+	left: 109px;
 	top: 1px;
 	font-size: 23px;
 	text-align: center;
@@ -197,8 +199,8 @@ body { background-color: #000; cursor: context-menu;}
 	width: 0;
 	position: absolute;
 	z-index: 2;
-	top: 0;
-	left: 0;
+	top: 0px;
+	left: 97px;
 	background-color: black;
 	overflow: hidden;
 	transition: 0.4s;
