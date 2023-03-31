@@ -187,7 +187,7 @@ let respawn={
 let spawnIn={
     0:{   key:"relicanalyser", hover:"#1f5eeb", color:"#1d4145",     title:"Relic Analyser",    tooltip:""},
     1:{  key:"dataanalyser",  hover:"#36cccc", color:"#1d4145",     title:"Data Analyser",    tooltip:""},
-    2:{  key:"gasscoop/harvester",  hover:"#36cccc", color:"#1d4145",     title:"Gas Scoop / Harvester",    tooltip:""},
+    2:{  key:"gasscoop/harvester",  hover:"#f0a800", color:"#1d4145",     title:"Gas Scoop / Harvester",    tooltip:""},
 }
 
 let leadsTo={
