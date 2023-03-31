@@ -150,31 +150,31 @@ let tooltips={
         data_jbox_content:"&#8594; Leads to <span class='ls'>Turnur</span> system"
     },
     49:{
-        data_jbox_content:"&#8594; Tier: 1<br>&#8594; Rats: 5 sentry towers<br>&#8594; Small cloud: C84<br>&#8594; Big cloud: C72<br>&#8594; avoid warp in with a Venture"
+        data_jbox_content:"&#8594; <i>Tier:</i> 1<br>&#8594; <i>Rats:</i> 5 sentry towers<br>&#8594; <i>Small cloud:</i> C84<br>&#8594; <i>Big cloud:</i> C72<br>&#8594; avoid warp in with a Venture"
     },
     50:{
-        data_jbox_content:"&#8594; Tier: 1<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C72<br>&#8594; Big cloud: C70"
+        data_jbox_content:"&#8594; <i>Tier:</i> 1<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C72<br>&#8594; <i>Big cloud:</i> C70"
     },
     51:{
-        data_jbox_content:"&#8594; Tier: 1<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C70<br>&#8594; Big cloud: C60"
+        data_jbox_content:"&#8594; <i>Tier:</i> 1<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C70<br>&#8594; <i>Big cloud:</i> C60"
     },
     52:{
-        data_jbox_content:"&#8594; Tier: 1<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C60<br>&#8594; Big cloud: C50"
+        data_jbox_content:"&#8594; <i>Tier:</i> 1<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C60<br>&#8594; <i>Big cloud:</i> C50"
     },
     53:{
-        data_jbox_content:"&#8594; Tier: 1<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C50<br>&#8594; Big cloud: C84"
+        data_jbox_content:"&#8594; <i>Tier:</i> 1<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C50<br>&#8594; <i>Big cloud:</i> C84"
     },
     54:{
-        data_jbox_content:"&#8594; Tier: 2<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C32<br>&#8594; Big cloud: C28"
+        data_jbox_content:"&#8594; <i>Tier:</i> 2<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C32<br>&#8594; <i>Big cloud:</i> C28"
     },
     55:{
-        data_jbox_content:"&#8594; Tier: 2<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C28<br>&#8594; Big cloud: C32"
+        data_jbox_content:"&#8594; <i>Tier:</i> 2<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C28<br>&#8594; <i>Big cloud:</i> C32"
     },
     56:{
-        data_jbox_content:"&#8594; Tier: 3<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C540<br>&#8594; Big cloud: C320"
+        data_jbox_content:"&#8594; <i>Tier:</i> 3<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C540<br>&#8594; <i>Big cloud:</i> C320"
     },
     57:{
-        data_jbox_content:"&#8594; Tier: 3<br>&#8594; Rats: 15min timer <br>&#8594; Small cloud: C320<br>&#8594; Big cloud: C540"
+        data_jbox_content:"&#8594; <i>Tier:</i> 3<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C320<br>&#8594; <i>Big cloud:</i> C540"
     },
 }
 
