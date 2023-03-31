@@ -160,6 +160,7 @@ let respawn={
 let spawnIn={
     0:{   key:"relicanalyser", hover:"#1f5eeb", color:"#1d4145",     title:"Relic Analyser",    tooltip:""},
     1:{  key:"dataanalyser",  hover:"#36cccc", color:"#1d4145",     title:"Data Analyser",    tooltip:""},
+    2:{  key:"gasscoop/harvester",  hover:"#36cccc", color:"#1d4145",     title:"Gas Scoop / Harvester",    tooltip:""},
 }
 
 let leadsTo={
@@ -168,6 +169,7 @@ let leadsTo={
     2:{  key:"drone",      hover:"#79cef4", color:"#1d4145",         title:"Drone",   tooltip:""  },
     3:{  key:"ghost",      hover:"#79cef4", color:"#1d4145",         title:"Ghost",   tooltip:""  },
     4:{  key:"sleeper",      hover:"#79cef4", color:"#1d4145",         title:"Sleeper",   tooltip:""  },
+    5:{  key:"gas",      hover:"#79cef4", color:"#1d4145",         title:"Gas",   tooltip:""  },
 } 
 	
 let indMass={
@@ -183,6 +185,17 @@ let indMass={
     9:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:""    }, 
     10:{   key:"droneregions",    hover:"#e81e1e", color:"#1d4145",  title:"Drone Regions", tooltip:tooltips[16]    },
 }
+let indGas={
+    0:{    key:"c50",    hover:"#42ffec", color:"#1d4145",  title:"C50", tooltip:""    },
+    1:{    key:"c60",    hover:"#42b3ff", color:"#1d4145",  title:"C60", tooltip:""   },
+    2:{    key:"c70",    hover:"#42b3ff", color:"#1d4145",  title:"C70", tooltip:""   },
+    3:{    key:"c72",    hover:"#42b3ff", color:"#1d4145",  title:"C72", tooltip:""   },
+    4:{    key:"c84",    hover:"#42b3ff", color:"#1d4145",  title:"C84", tooltip:""   },
+    5:{    key:"c28",    hover:"#42b3ff", color:"#1d4145",  title:"C28", tooltip:""   },
+    6:{    key:"c32",    hover:"#42b3ff", color:"#1d4145",  title:"C32", tooltip:""   },
+    7:{    key:"c320",    hover:"#42b3ff", color:"#1d4145",  title:"C320", tooltip:""   },
+    8:{    key:"c540",    hover:"#42b3ff", color:"#1d4145",  title:"C540", tooltip:""   },
+}
 let wormholes={
     0:{
         name:'Crumbling [pirate faction]', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -190,6 +203,7 @@ let wormholes={
         spawnIn:["relicanalyser"],
         leadsTo:["relic"], 
         indMass:["hs"],
+        indGas:[""],
     },
     1:{
         name:'Decayed [pirate faction]', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -197,6 +211,7 @@ let wormholes={
         spawnIn:["relicanalyser"],
         leadsTo:["relic"], 
         indMass:["ls"],
+        indGas:[""],
     },
     2:{
         name:'Ruined [pirate faction]', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -204,6 +219,7 @@ let wormholes={
         spawnIn:["relicanalyser"],
         leadsTo:["relic"], 
         indMass:["ns","c1","c2","c3","c13"],
+        indGas:[""],
     },
     3:{
         name:'Forgotten', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -211,6 +227,7 @@ let wormholes={
         spawnIn:["relicanalyser"],
         leadsTo:["sleeper",], 
         indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indGas:[""],
     },
     4:{
         name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -218,6 +235,7 @@ let wormholes={
         spawnIn:["",],
         leadsTo:[""], 
         indMass:[""], 
+        indGas:[""],
     },
     5:{
         name:'Local [pirate faction]', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -225,6 +243,7 @@ let wormholes={
         spawnIn:["dataanalyser",],
         leadsTo:["data"], 
         indMass:["hs"], 
+        indGas:[""],
     },
     6:{
         name:'Regional [pirate faction]', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -232,6 +251,7 @@ let wormholes={
         spawnIn:["dataanalyser",],
         leadsTo:["data"], 
         indMass:["ls"], 
+        indGas:[""],
     },
     7:{
         name:'Central [pirate faction]', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -239,6 +259,7 @@ let wormholes={
         spawnIn:["dataanalyser",],
         leadsTo:["data"], 
         indMass:["ns","c1","c2","c3","c13"],
+        indGas:[""],
     },
     8:{
         name:'Unsecured', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -246,6 +267,7 @@ let wormholes={
         spawnIn:["dataanalyser",],
         leadsTo:["sleeper"], 
         indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indGas:[""],
     },
     9:{
         name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -253,6 +275,7 @@ let wormholes={
         spawnIn:["",],
         leadsTo:[""], 
         indMass:[""],
+        indGas:[""],
     },
     10:{
         name:'AEGIS', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -260,6 +283,7 @@ let wormholes={
         spawnIn:["dataanalyser",],
         leadsTo:["data"],
         indMass:["ls"], 
+        indGas:[""],
     },
     11:{
         name:'SCC Secure Key Storage', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -267,6 +291,7 @@ let wormholes={
         spawnIn:["dataanalyser",],
         leadsTo:["data"],
         indMass:["ls"], 
+        indGas:[""],
     },
     12:{
         name:'[empire] Operation Center', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -274,6 +299,7 @@ let wormholes={
         spawnIn:["dataanalyser",],
         leadsTo:["data"],
         indMass:["ls"], 
+        indGas:[""],
     },
     13:{
         name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -281,6 +307,7 @@ let wormholes={
         spawnIn:[""],
         leadsTo:[""], 
         indMass:[""], 
+        indGas:[""],
     },
     14:{
         name:'Abandoned Research Complex', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -288,85 +315,110 @@ let wormholes={
         spawnIn:["dataanalyser"],
         leadsTo:["drone"], 
         indMass:["droneregions"],
+        indGas:[""],
     },
     15:{
-        name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:[""],
-        spawnIn:[""],
-        leadsTo:[""], 
-        indMass:[""], 
-        toMass:[""], 
-        lifeTime:[""],
-        sigLevel:[""],
-    },
-    16:{
-        name:'Lesser Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["notsafe"],
-        spawnIn:["dataanalyser"],
-        leadsTo:["ghost"], 
-        indMass:["hs"],
-    },
-    17:{
-        name:'Standard Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["notsafe"],
-        spawnIn:["dataanalyser"],
-        leadsTo:["ghost"], 
-        indMass:["ls"],
-    },
-    18:{
-        name:'Improved Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["notsafe"],
-        spawnIn:["dataanalyser"],
-        leadsTo:["ghost"], 
-        indMass:["ns"],
-    },
-    19:{
-        name:'Superior Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["notsafe"],
-        spawnIn:["dataanalyser"],
-        leadsTo:["ghost"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
-    },
-    20:{
-        name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:[""],
-        spawnIn:[""],
-        leadsTo:[""], 
-        indMass:[""], 
-    },
-    21:{
-        name:'Limited Sleeper Cache', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["notsafe"],
-        spawnIn:["relicanalyser","dataanalyser"],
-        leadsTo:["sleeper"], 
-        indMass:["hs","ls","ns"],
-    },
-    22:{
-        name:'Standard Sleeper Cache', hover:"yellow", color:"#1d4145",  tooltip:"", showincol:0,
-        respawn:["notsafe"],
-        spawnIn:["relicanalyser","dataanalyser"],
-        leadsTo:["sleeper"], 
-        indMass:["hs","ls","ns"],
-    },
-    23:{
-        name:'Superior Sleeper Cache', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["notsafe"],
-        spawnIn:["relicanalyser","dataanalyser"],
-        leadsTo:["sleeper"], 
-        indMass:["hs","ls","ns"],
-    },
-    24:{
-        name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:[""],
-        spawnIn:[""],
-        leadsTo:[""], 
-        indMass:[""], 
-    },
-    25:{
         name:'Silent Battleground', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["safe"],
         spawnIn:["dataanalyser",],
         leadsTo:["data"],
         indMass:["c13"], 
+        indGas:[""],
+    },
+    16:{
+        name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:[""],
+        spawnIn:[""],
+        leadsTo:[""], 
+        indMass:[""], 
+        indGas:[""],
+    },
+    17:{
+        name:'Lesser Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["dataanalyser"],
+        leadsTo:["ghost"], 
+        indMass:["hs"],
+        indGas:[""],
+    },
+    18:{
+        name:'Standard Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["dataanalyser"],
+        leadsTo:["ghost"], 
+        indMass:["ls"],
+        indGas:[""],
+    },
+    19:{
+        name:'Improved Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["dataanalyser"],
+        leadsTo:["ghost"], 
+        indMass:["ns"],
+        indGas:[""],
+    },
+    20:{
+        name:'Superior Covert Research Facility', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["dataanalyser"],
+        leadsTo:["ghost"], 
+        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indGas:[""],
+    },
+    21:{
+        name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:[""],
+        spawnIn:[""],
+        leadsTo:[""], 
+        indMass:[""], 
+        indGas:[""],
+    },
+    22:{
+        name:'Limited Sleeper Cache', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["relicanalyser","dataanalyser"],
+        leadsTo:["sleeper"], 
+        indMass:["hs","ls","ns"],
+        indGas:[""],
+    },
+    23:{
+        name:'Standard Sleeper Cache', hover:"yellow", color:"#1d4145",  tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["relicanalyser","dataanalyser"],
+        leadsTo:["sleeper"], 
+        indMass:["hs","ls","ns"],
+        indGas:[""],
+    },
+    24:{
+        name:'Superior Sleeper Cache', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["relicanalyser","dataanalyser"],
+        leadsTo:["sleeper"], 
+        indMass:["hs","ls","ns"],
+        indGas:[""],
+    },
+    25:{
+        name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:[""],
+        spawnIn:[""],
+        leadsTo:[""], 
+        indMass:[""], 
+        indGas:[""],
+    },
+    26:{
+        name:'', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:[""],
+        spawnIn:[""],
+        leadsTo:[""], 
+        indMass:[""], 
+        indGas:[""],
+    },
+    27:{
+        name:'Minor Perimeter Reservoir', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        respawn:["notsafe"],
+        spawnIn:["gasscoop/harvester"],
+        leadsTo:["gas"], 
+        indMass:["c1","c2","c3","c4","c5","c6"], 
+        indGas:["c70","c72"],
     },
 }

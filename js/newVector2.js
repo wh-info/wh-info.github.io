@@ -62,6 +62,7 @@ $(document).ready(function() {
      makeColumn(spawnIn, "spawnIn")
      makeColumn(leadsTo, "leadsTo")
      makeColumn(indMass, "indMass")
+     makeColumn(indGas, "indGas")
     
      var tool=new jBox('Mouse', {
         attach: '.tooltip',
@@ -166,6 +167,7 @@ $(document).ready(function() {
         get(element,element.spawnIn,spawnIn)
         get(element,element.leadsTo,leadsTo)
         get(element,element.indMass,indMass)
+        get(element,element.indGas,indGas)
         //get(element,element.respawn,respawn).forEach(respawn=>{ line(respawn, element)})
         //get(element.spawnIn,spawnIn).forEach(spawnIn=>{ line(spawnIn, element)})
       //  get(element.leadsTo,leadsTo).forEach(leadsTo=>{ line(leadsTo, element)})
