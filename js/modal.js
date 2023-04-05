@@ -110,3 +110,12 @@ $(function() {
 	  $('#sLvl').css('color', '');
 	});
   });
+
+$(function() {
+	$('.indGas').hover(function() {
+	  $('#iGs').css('color', '#79cef4');
+	}, function() {
+	  // on mouseout, reset the background colour
+	  $('#iGs').css('color', '');
+	});
+  });
