@@ -251,7 +251,7 @@ let wormholes={
         respawn:["safe"],
         spawnIn:["relicanalyser"],
         leadsTo:["relic"], 
-        indMass:["ns","c1","c2","c3","c13"],
+        indMass:["ns","c1","c2","c3","c13","shattered"],
         indGas:[""],
     },
     3:{
@@ -259,7 +259,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["relicanalyser"],
         leadsTo:["sleeper",], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13","shattered"],
         indGas:[""],
     },
     4:{
@@ -291,7 +291,7 @@ let wormholes={
         respawn:["safe"],
         spawnIn:["dataanalyser",],
         leadsTo:["data"], 
-        indMass:["ns","c1","c2","c3","c13"],
+        indMass:["ns","c1","c2","c3","c13","shattered"],
         indGas:[""],
     },
     8:{
@@ -299,7 +299,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["dataanalyser",],
         leadsTo:["sleeper"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13","shattered"],
         indGas:[""],
     },
     9:{
