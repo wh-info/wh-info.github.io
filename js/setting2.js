@@ -176,6 +176,9 @@ let tooltips={
     57:{
         data_jbox_content:"&#8594; <i>Tier:</i> 3<br>&#8594; <i>Rats:</i> 15min timer <br>&#8594; <i>Small cloud:</i> C320<br>&#8594; <i>Big cloud:</i> C540"
     },
+    58:{
+        data_jbox_content:"&#8594; Wormhole of any class with shattered planets<br>&#8594; Their Jcode starts with 00<br>&#8594; They can spawn signatures and anomalies of one class higher and lower<br>&#8594; High tier gas sites can spawn in low class shattered wormholes"
+    },
 }
 
 
@@ -207,10 +210,11 @@ let indMass={
     4:{    key:"c5",    hover:"#9c32ed", color:"#1d4145",  title:"C5", tooltip:""    },
     5:{   key:"c6",     hover:"#f230dc", color:"#1d4145",  title:"C6", tooltip:""    },
     6:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:""   },
-    7:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:""   },
-    8:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:""   },
-    9:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:""    }, 
-    10:{   key:"droneregions",    hover:"#e81e1e", color:"#1d4145",  title:"Drone Regions", tooltip:tooltips[16]    },
+    7:{   key:"shattered",    hover:"#ffffff", color:"#1d4145",  title:"Shattered", tooltip:tooltips[58]   },
+    8:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:""   },
+    9:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:""   },
+    10:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:""    }, 
+    11:{   key:"droneregions",    hover:"#e81e1e", color:"#1d4145",  title:"Drone Regions", tooltip:tooltips[16]    },
 }
 
 let indGas={
@@ -317,9 +321,9 @@ let wormholes={
     11:{
         name:'Silent Battleground', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["safe"],
-        spawnIn:["dataanalyser",],
-        leadsTo:["data"],
-        indMass:["c13"],
+        spawnIn:["dataanalyser", "relicanalyser"],
+        leadsTo:["data", "relic"],
+        indMass:["c13", "shattered"],
         indGas:[""],
     },
     12:{
@@ -407,7 +411,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13", "shattered"],
         indGas:["c70","c72"],
     },
     23:{
@@ -415,7 +419,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13", "shattered"],
         indGas:["c60","c70"],
         
     },
@@ -424,7 +428,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13", "shattered"],
         indGas:["c50","c60"],
         
     },
@@ -433,7 +437,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13", "shattered"],
         indGas:["c72","c84"],
     },
     26:{
@@ -441,7 +445,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13", "shattered"],
         indGas:["c50","c84"],
     },
     27:{
@@ -449,7 +453,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c3","c4","c5","c6","c13"],
+        indMass:["c3","c4","c5","c6","c13", "shattered"],
         indGas:["c28","c32"],
     },
     28:{
@@ -457,7 +461,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c3","c4","c5","c6","c13"],
+        indMass:["c3","c4","c5","c6","c13", "shattered"],
         indGas:["c28","c32"],
     },
     29:{
@@ -465,7 +469,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c5","c6"],
+        indMass:["c5","c6", "c13", "shattered"],
         indGas:["c320","c540"],
     },
     30:{
@@ -473,7 +477,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["gasscoop/harvester"],
         leadsTo:["gas"], 
-        indMass:["c5","c6"],
+        indMass:["c5","c6", "c13", "shattered"],
         indGas:["c320","c540"],
     },
 }
