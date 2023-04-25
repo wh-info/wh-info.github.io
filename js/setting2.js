@@ -363,7 +363,7 @@ let wormholes={
         respawn:["notsafe"],
         spawnIn:["dataanalyser"],
         leadsTo:["ghost"], 
-        indMass:["c1","c2","c3","c4","c5","c6","c13"],
+        indMass:["c1","c2","c3","c4","c5","c6","c13","shattered"],
         indGas:[""],
     },
     17:{
