@@ -51,7 +51,7 @@ let tooltips={
         data_jbox_content:"<i>NullSec regions:</i><br>&#8594; Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>&#8594; Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire."
     },
     17:{
-        data_jbox_content:"5 unique shattered wormhole systems, each with its own class and system effect.<br>&#8594; <i>Region & constellations:</i> K-"
+        data_jbox_content:"5 unique shattered wormhole systems, each with its own class and system effect.<br>&#8594; <i>Region & constellations:</i> K-<br>&#8594; Class 14-18"
     },
     18:{
         data_jbox_content:"&#8594; These structures are located across <i>known space</i>.<br>&#8594; Referred wormhole types spawn only in systems having them.<br>&#8594; First letter in each type reveals the name of a <i>Drifter</i> system destination."
