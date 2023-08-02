@@ -5,23 +5,27 @@ alwaysDraw={
    }
    TraceArray=[]
    currentTraces={}
-   var tt=true;;
+   var tt=true;
+   var queryString = window.location.search;
+   var urlParams = new URLSearchParams(queryString);
+   const wormtype = urlParams.get('type')
+   console.log(wormtype)
 $(document).ready(function() {
  
+    
 
-
-  function canvas() {
-	$("#canvas").attr({ 
-		"height": $("#pi").outerHeight(),
-		"width": $("#pi").outerWidth() 
-	});
-}
+    function canvas() {
+        $("#canvas").attr({ 
+            "height": $("#pi").outerHeight(),
+            "width": $("#pi").outerWidth() 
+        });
+        }
 	
     Object.values(wormholes).forEach(wormhole => {
-
+ 
         wormhole.dom = document.createElement('li');
         wormholeel=$(wormhole.dom)
-
+        wormholeel.attr("data-text",wormhole.name)
         if(wormhole.showincol==0) wormholeel.appendTo('.items ul.type0')
         if(wormhole.showincol==1) wormholeel.appendTo('.items ul.type1')
         if(wormhole.showincol==2) wormholeel.appendTo('.items ul.type2')
@@ -29,13 +33,16 @@ $(document).ready(function() {
         wormholeel.text(wormhole.name).wrapInner($('<span />')).
         mouseenter(function (){ viewTrace(wormhole, $(this)) }).
         mouseleave(function (){ removeTrace(wormhole, $(this)) }).
-        click(function (){ drawTrace(wormhole,$(this)) })
+        click(function (){ drawTrace(wormhole,$(this)) 
+            
+        })
         if( wormhole.tooltip!="")
         wormholeel.children("span").attr("class", "tooltip").attr("data-jbox-content", wormhole.tooltip.data_jbox_content);
        ;
 
        
       });
+  
       $(".reset").click(function(){
         savedTraces=[];
         alwaysDraw.flag=false;
@@ -52,7 +59,9 @@ $(document).ready(function() {
             this_el.text(el.title).wrapInner($('<span />')).find("span").
             mouseenter(function (){ viewFilterTrace(el, $(this), key) }).
             mouseleave(function (){ removeFilterTrace(el, $(this)) }).
-            click(function (){ FilterTrace(el,$(this),key)})
+            click(function (){ FilterTrace(el,$(this),key)
+           
+            })
             if( el.tooltip!="")
              this_el.children("span").attr("class", "tooltip").attr("data-jbox-content", el.tooltip.data_jbox_content);
             ;
@@ -93,6 +102,7 @@ $(document).ready(function() {
       })
     
       canvas();
+     
 	$(window).resize(function() { // todo: get event, only repaint on mouse release
 		canvas();
 	});
@@ -153,7 +163,7 @@ $(document).ready(function() {
      }
      function get(element,keys, array){
         keys.forEach(el=>{
-            console.log(el)
+           
             Object.values(array).filter(e=>{return e.key==el}).forEach(array=>{ line(array, element)})
         })
        // return Object.values(array).filter(e=>{return e.key==key})
@@ -258,4 +268,14 @@ $(document).ready(function() {
             savedTraces.forEach(el=>drawFilteresTraces(currentTraces, el.element))
         }
     } 
+      if(wormtype){
+         
+        var wormhole = Object.values(wormholes).find(wormhole => {
+            return wormhole.name === wormtype
+            })
+        cwh=$("[data-text='"+wormtype+"']" ).first()
+         
+            drawTrace(wormhole,cwh)
+        
+      } 
 });
