@@ -274,8 +274,13 @@ $(document).ready(function() {
             return wormhole.name === wormtype
             })
         cwh=$("[data-text='"+wormtype+"']" ).first()
-         
-            drawTrace(wormhole,cwh)
-        
+        console.log(cwh)
+            setTimeout(function(){
+                drawTrace(wormhole,cwh)
+                viewTrace(wormhole,cwh)
+
+            },3000)
+           
+           
       } 
 });
