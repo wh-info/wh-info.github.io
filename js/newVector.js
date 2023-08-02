@@ -279,7 +279,7 @@ $(document).ready(function() {
                 drawTrace(wormhole,cwh)
                 viewTrace(wormhole,cwh)
 
-            },3000)
+            },1000)
            
            
       } 
