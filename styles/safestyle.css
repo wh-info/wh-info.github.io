@@ -179,8 +179,8 @@ body { background-color: #000; cursor: context-menu;}
 	padding-left: 30px;
 	padding-right: 30px;
 	}
-.modal-body a {color: #315970; text-decoration: none; border-bottom: 1px dotted;}
-.modal-body a:hover {color: #79cef4;}
+  .modal-body a {color: #315970; text-decoration: none; border-bottom: 1px dotted; border-color: #79cef4;}
+  .modal-body a:hover {color: #79cef4; border-color: #315970;}
 #myBtn {cursor: pointer;}
 .chartfoot {margin: 10px 10px 10px 0px; text-align: right;}
 

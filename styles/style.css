@@ -51,6 +51,7 @@ body { background-color: #000; cursor: context-menu;}
 	.botime a { text-decoration: none; color: black; }
 	table .bot:hover { border: none; background-color: #315970; }
 	.toggletooltip {cursor: pointer; font-size: 15px; ;	color: black; font-weight: bold; background-color: #1e3644;	padding: 3px 5px;	}
+	.latest { width: 50%; border: 1px; margin: auto; border: #315970; border-width: 1px; }
 
 	.noborder {border: none; padding-bottom: 15px;}
 	.wholes {position: absolute; background-color: black; border: 1px dotted #287099; color: #3c6d8a; padding: 3px 10px; margin-top: -13px; margin-left: -53px; font-size: 11px; font-weight: bold; letter-spacing: 2px; white-space: nowrap; overflow: hidden;}
@@ -178,8 +179,8 @@ body { background-color: #000; cursor: context-menu;}
 	padding-left: 30px;
 	padding-right: 30px;
 	}
-.modal-body a {color: #315970; text-decoration: none; border-bottom: 1px dotted;}
-.modal-body a:hover {color: #79cef4;}
+.modal-body a {color: #315970; text-decoration: none; border-bottom: 1px dotted; border-color: #79cef4;}
+.modal-body a:hover {color: #79cef4; border-color: #315970;}
 #myBtn {cursor: pointer;}
 .chartfoot {margin: 10px 10px 10px 0px; text-align: right;}
 
