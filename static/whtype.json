@@ -1,0 +1,27 @@
+[
+
+    { 
+        "whType": "A009",
+        "spawnType": "wandering",
+        "spawnIn": ["C1", "C2", "C3", "C4", "C5", "C6", "Thera", "C13"],
+        "leadsTo": "C13",
+        "jumpMass": 500000,
+        "maxMass": 3000000000,
+        "massRegen": 3000000000,
+        "lifeTime": 16,
+        "sigLevel": "I"
+    },
+
+    { 
+        "whType": "A239",
+        "spawnType": "static",
+        "spawnIn": "C2",
+        "leadsTo": "LS",
+        "jumpMass": 375000000,
+        "maxMass": 2000000000,
+        "massRegen": false,
+        "lifeTime": 24,
+        "sigLevel": "II"
+    }
+
+]
