@@ -132,7 +132,7 @@ let tooltips={
         data_jbox_content:"Make sure to check visual cues and infotab for:<br>&#8594; wormhole size and destination<br>&#8594; wormhole mass and lifetime left"
     },
     44:{
-        data_jbox_content:"It's exit side is always present in destination system,<br>although it originates outside of it as wandering type.<br>&#8594; Known as <i>pseudo</i>, <i>reverse</i> or <i>K162 static</i>."
+        data_jbox_content:"K162 side behave as static, reappearing in its destination,<br>although it originates outside of it as wandering type.<br>&#8594; Known as <i>pseudo</i>, <i>reverse</i> or <i>K162 static</i>."
     },
     45:{
         data_jbox_content:"Class 7"
@@ -305,7 +305,7 @@ let wormholes={
         indMass:["up-to-freighter"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
-        sigLevel:["iii"],
+        sigLevel:["ii","iii"],
     },
     7:{
         name:'B520', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
