@@ -594,7 +594,7 @@ let wormholes={
         name:'J377', hover:"yellow", color:"#1d4145", tooltip:tooltips[49], showincol:0,
 	showincol:1,
         respawn:["wandering","reverse"],
-        spawnIn:["class-1","class-2","class-3","class-4"],
+        spawnIn:["class-1","class-2","class-3","class-4","class-12---thera"],
         leadsTo:["ls"], 
         indMass:["up-to-battlecruiser"], 
         toMass:["1-000-000-000-kg"], 
