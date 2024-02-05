@@ -149,6 +149,9 @@ let tooltips={
     49:{
         data_jbox_content:"&#8594; Leads to <span class='ls'>Turnur</span> system"
     },
+    50:{
+        data_jbox_content:"&#8594; Rarely spawn in <span class='ns'>NullSec</span>"
+    },
 }
 
 let respawn={
@@ -238,9 +241,9 @@ let sigLevel={
 
 let wormholes={
     0:{
-        name:'A009', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'A009', hover:"yellow", color:"#1d4145", tooltip:tooltips[50], showincol:0,
         respawn:["wandering"],
-        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-12---thera","class-13---shattered"],
+        spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-12---thera","class-13---shattered","nullsec"],
         leadsTo:["c13"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
