@@ -247,7 +247,7 @@ let wormholes={
         leadsTo:["c13"], 
         indMass:["up-to-destroyer"], 
         toMass:["3-000-000-000-kg"], 
-        lifeTime:["4.5h"],
+        lifeTime:["16h"],
         sigLevel:["i"],
     },
     1:{
