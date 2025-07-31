@@ -18,9 +18,9 @@ function startTime() {
   }
 
 // wh kill count:
-const socket = new WebSocket('wss://api.whtype.info');
+// const socket = new WebSocket('wss://api.whtype.info');
 
-socket.addEventListener('message', function (event) {	
-var div = document.getElementById('whkills');
-div.innerHTML = event.data;
-});
+// socket.addEventListener('message', function (event) {	
+// var div = document.getElementById('whkills');
+// div.innerHTML = event.data;
+// });
