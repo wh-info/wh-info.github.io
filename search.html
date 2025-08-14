@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVE Online Wormhole Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1a26;
+            color: #c6d4df;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .search-container {
+            position: relative;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #1c2b3a;
+            border: 2px solid #2e6d8e;
+            border-radius: 8px;
+            color: #c6d4df;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-bar:focus {
+            border-color: #00b7eb;
+            box-shadow: 0 0 10px #00b7eb;
+        }
+
+        .search-bar::placeholder {
+            color: #5e8299;
+        }
+
+        .results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #1c2b3a;
+            border: 2px solid #2e6d8e;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 5px;
+            z-index: 10;
+            display: none;
+        }
+
+        .result-item {
+            padding: 10px 20px;
+            border-bottom: 1px solid #2e6d8e;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .result-item:hover {
+            background-color: #2e6d8e;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-system {
+            font-weight: 700;
+            color: #00b7eb;
+        }
+
+        .result-statics {
+            font-size: 14px;
+            color: #8ba6b6;
+        }
+
+        /* Scrollbar styling for results */
+        .results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .results::-webkit-scrollbar-track {
+            background: #1c2b3a;
+        }
+
+        .results::-webkit-scrollbar-thumb {
+            background: #2e6d8e;
+            border-radius: 4px;
+        }
+
+        .results::-webkit-scrollbar-thumb:hover {
+            background: #00b7eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-bar" placeholder="Search Wormhole Systems (e.g., J123456)">
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        // Sample JSON data (replace with fetch from static.json in production)
+        /*
+        const wormholeData = {
+            "J000102": ["Q003", "Z006"],
+            "J000186": ["Q003", "L005", "C008"],
+            "J000214": ["Q003", "C008"],
+            "J000304": ["Q003", "M001", "C008"],
+            "J055520": ["Z647", "D382", "O477", "Y683", "N062", "R474"],
+            "Thera": ["Q063", "V898", "E587"],
+            "Turnur": ["B449", "N944", "S199"]
+            // ... (rest of the JSON data from static.json)
+        };
+        */
+        // Alternatively, fetch the JSON file (uncomment in production)
+        
+        fetch('static.json')
+            .then(response => response.json())
+            .then(data => {
+                wormholeData = data;
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+        
+
+        const searchInput = document.getElementById('searchInput');
+        const resultsContainer = document.getElementById('results');
+
+        searchInput.addEventListener('input', function () {
+            const query = this.value.trim().toUpperCase();
+            resultsContainer.innerHTML = '';
+            resultsContainer.style.display = 'none';
+
+            if (query.length < 1) return;
+
+            const matches = Object.keys(wormholeData).filter(system => 
+                system.toUpperCase().startsWith(query)
+            );
+
+            if (matches.length > 0) {
+                resultsContainer.style.display = 'block';
+                matches.forEach(system => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'result-item';
+                    resultItem.innerHTML = `
+                        <div class="result-system">${system}</div>
+                        <div class="result-statics">Statics: ${wormholeData[system].join(', ')}</div>
+                    `;
+                    resultsContainer.appendChild(resultItem);
+                });
+            }
+        });
+
+        // Hide results when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!searchContainer.contains(event.target)) {
+                resultsContainer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
