@@ -574,7 +574,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["3-000-000-000-kg"], 
         lifeTime:["24h"],
-        sigLevel:["iii"],
+        sigLevel:["ii","iii"],
     },
     33:{
         name:'I182', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
@@ -1179,7 +1179,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
-        sigLevel:["i"],
+        sigLevel:["i","ii"],
     },
     88:{
         name:'Y683', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
