@@ -374,7 +374,7 @@ let wormholes={
         indMass:["up-to-battleship"], 
         toMass:["2-000-000-000-kg"], 
         lifeTime:["16h"],
-        sigLevel:["i"],
+        sigLevel:["i","ii"],
     },
     13:{
         name:'C248', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
