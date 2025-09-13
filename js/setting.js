@@ -368,7 +368,7 @@ let wormholes={
     },
     12:{
         name:'C247', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
-        respawn:["static"],
+        respawn:["static","wandering"],
         spawnIn:["class-4"],
         leadsTo:["c3"], 
         indMass:["up-to-battleship"], 
