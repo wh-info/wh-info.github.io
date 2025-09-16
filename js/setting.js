@@ -63,16 +63,16 @@ let tooltips={
         data_jbox_content:"It's type originated on the other side."
     },
     21:{
-        data_jbox_content:"&#8594; <i>Class:</i> C15<br><i>&#8594; Jcode:</i> J110145<br><i>&#8594; System effect:</i> C2 Cataclysmic Variable"
+        data_jbox_content:"&#8594; <i>Class:</i> C15<br>&#8594; NPC Faction: Minmatar<br>&#8594; <i>System effect:</i> C2 Cataclysmic Variable<br>&#8594; <i>Former Jcode:</i> J110145"
     },
     22:{
-        data_jbox_content:"&#8594; <i>Class:</i> C16<br><i>&#8594; Jcode:</i> J164710<br><i>&#8594; System effect:</i> C2 Magnetar"
+        data_jbox_content:"&#8594; <i>Class:</i> C16<br>&#8594; NPC Faction: Amarr<br><i>&#8594; System effect:</i> C2 Magnetar<br>&#8594; <i>Former Jcode:</i> J164710"
     },
     23:{
-        data_jbox_content:"&#8594; <i>Class:</i> C17<br><i>&#8594; Jcode:</i> J200727<br><i>&#8594; System effect:</i> C2 Pulsar"
+        data_jbox_content:"&#8594; <i>Class:</i> C17<br>&#8594; NPC Faction: Caldari<br><i>&#8594; System effect:</i> C2 Pulsar<br>&#8594; <i>Former Jcode:</i> J200727"
     },
     24:{
-        data_jbox_content:"&#8594; <i>Class:</i> C18<br><i>&#8594; Jcode:</i> J174618<br><i>&#8594; System effect:</i> C2 Wolf-Rayet"
+        data_jbox_content:"&#8594; <i>Class:</i> C18<br>&#8594; NPC Faction: Triglavian<br><i>&#8594; System effect:</i> C2 Wolf-Rayet<br>&#8594; <i>Former Jcode:</i> J174618"
     },
     25:{
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Shole.webm'></video>&#8594; <i>In addition to:</i> Porpoise and HIC<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <span class='small'>Frigate holes (S)</span>; 00 in each type"
@@ -90,7 +90,7 @@ let tooltips={
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>Extra Large holes (XL)</span>"
     },
     30:{
-        data_jbox_content:"&#8594; <i>Class:</i> C14<br><i>&#8594; Jcode:</i> J055520<br><i>&#8594; System effect:</i> C2 Red Giant"
+        data_jbox_content:"&#8594; <i>Class:</i> C14<br>&#8594; NPC Faction: EDENCOM<br><i>&#8594; System effect:</i> C2 Red Giant<br>&#8594; <i>Former Jcode:</i> J055520"
     },
     31:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c1.webm'></video>"
@@ -203,11 +203,11 @@ let leadsTo={
     10:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:tooltips[41]    },
     11:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:tooltips[39]    },
     12:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },  
-    13:{   key:"drifter-sentinel",     hover:"#79cef4", color:"#1d4145",  title:"Drifter Sentinel", tooltip:tooltips[30]   },
-    14:{   key:"drifter-barbican",     hover:"#79cef4", color:"#1d4145", title:"Drifter Barbican",tooltip:tooltips[21]    },
-    15:{   key:"drifter-vidette",     hover:"#79cef4", color:"#1d4145", title:"Drifter Vidette",tooltip:tooltips[22]    },
-    16:{    key:"drifter-conflux",     hover:"#79cef4", color:"#1d4145", title:"Drifter Conflux",tooltip:tooltips[23]   },
-    17:{    key:"drifter-redoubt",    hover:"#79cef4", color:"#1d4145", title:"Drifter Redoubt",tooltip:tooltips[24]    },
+    13:{   key:"sentinel-mz",     hover:"#79cef4", color:"#1d4145",  title:"Sentinel MZ", tooltip:tooltips[30]   },
+    14:{   key:"liberated-barbican",     hover:"#79cef4", color:"#1d4145", title:"Liberated Barbican",tooltip:tooltips[21]    },
+    15:{   key:"sanctified-vidette",     hover:"#79cef4", color:"#1d4145", title:"Sanctified Vidette",tooltip:tooltips[22]    },
+    16:{    key:"conflux-eyrie",     hover:"#79cef4", color:"#1d4145", title:"Conflux Eyrie",tooltip:tooltips[23]   },
+    17:{    key:"azdaja-redoubt",    hover:"#79cef4", color:"#1d4145", title:"Azdaja Redoubt",tooltip:tooltips[24]    },
     18:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },
     19:{    key:"drifter-blackhole",    hover:"#79cef4", color:"#1d4145", title:"drifter blackhole",tooltip:tooltips[42]    },
     20:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:tooltips[43]    },
@@ -330,7 +330,7 @@ let wormholes={
         name:'B735', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
         respawn:["wandering"],
         spawnIn:["highsec","lowsec","nullsec","jove-observatories",],
-        leadsTo:["drifter-barbican"], 
+        leadsTo:["liberated-barbican"], 
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
@@ -400,7 +400,7 @@ let wormholes={
         name:'C414', hover:"yellow", color:"#1d4145", tooltip:tooltips[0], showincol:0,
         respawn:["wandering"],
         spawnIn:["highsec","lowsec","nullsec","jove-observatories",],
-        leadsTo:["drifter-conflux"], 
+        leadsTo:["conflux-eyrie"], 
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
@@ -933,7 +933,7 @@ let wormholes={
         showincol:1,
         respawn:["wandering"],
         spawnIn:["highsec","lowsec","nullsec","jove-observatories"],
-        leadsTo:["drifter-redoubt"], 
+        leadsTo:["azdaja-redoubt"], 
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
@@ -999,7 +999,7 @@ let wormholes={
         showincol:2,
         respawn:["wandering"],
         spawnIn:["highsec","lowsec","nullsec","jove-observatories"],
-        leadsTo:["drifter-sentinel"], 
+        leadsTo:["sentinel-mz"], 
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
@@ -1131,7 +1131,7 @@ let wormholes={
         showincol:2,
         respawn:["wandering"],
         spawnIn:["highsec","lowsec","nullsec","jove-observatories"],
-        leadsTo:["drifter-vidette"], 
+        leadsTo:["sanctified-vidette"], 
         indMass:["up-to-battleship"], 
         toMass:["750-000-000-kg"], 
         lifeTime:["16h"],
