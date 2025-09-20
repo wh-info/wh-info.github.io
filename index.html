@@ -28,9 +28,9 @@
 <div id="wrapper">
 <table id="pi">
 	<tr class="header">	
-		<td valign="top" colspan="4" style="background-color:#287099; color: black; font-size: 22px;"> <span class="tooltip" data-jbox-content="Wormhole type can be found on the <i>Overview.</i>"><b>wh</b>type.info</span></td>
+		<td id="whtypeH" valign="top" colspan="4" style="background-color:#287099; color: black; font-size: 22px;"> <span class="tooltip" data-jbox-content="Wormhole type can be found on the <i>Overview.</i>"><b>wh</b>type.info</span></td>
 		<td id="reS" valign="top" colspan="3" style="text-align: center;"><span class="tooltip" data-jbox-content="Some wormholes are both static and wandering.">&#9903;</span></td>
-		<td id="sIn" valign="top" colspan="3" style="text-align: center;">SPAWN IN</td>
+		<td id="sIn" valign="top" colspan="3" style="text-align: center;"><span class="tooltip" data-jbox-content="Same wormhole type can appear in multiple classes.">SPAWN IN</span></td>
 		<td id="lTo" valign="top" colspan="3" style="text-align: center;"><span class="tooltip" data-jbox-content="Wormhole inner sphere reflects destination nebula/skybox.">LEADS TO</span></td>
 		<td id="sjs" valign="top" colspan="5"><span class="tooltip" data-jbox-content="Wormhole outer color shows jump size limit.">SHIP JUMP SIZE</span></td>
 		<td id="toM" valign="top" colspan="3"><span class="tooltip" data-jbox-content="Total mass may vary ± 10%.">TOTAL MASS</span></td>
@@ -45,31 +45,33 @@
 	</tr>
 
 	<tr>
-	<td colspan="1" class="items" style="width: 50px;">
+	<td id="rowOne" colspan="1" class="items" style="width: 50px;">
 	<ul class="type0" style="width: 50px;">
 		
 	</ul> 
 	</td>
-	<td class="items" style="width: 50px;">
+	<td id="rowTwo" class="items" style="width: 50px;">
 	<ul class="type1" style="width: 50px;">	
 
 	</ul>
 	</td>
-	<td class="items" style="width: 50px;">
+	<td id="rowThree" class="items" style="width: 50px;">
 	<ul class="type2" style="width: 50px;">		
 	
 	</ul>
 	</td>
 
+
 <td class="items"></td>
-<td colspan="3" class="items">
+
+
+<td id="brightRepawn" colspan="3" class="items">
 <ul class="respawn" style="text-align: center;">
 
 </ul>
 </td>
 
-
-<td colspan="3" class="items">
+<td id="brightSpawn" colspan="3" class="items">
 <ul class="spawnIn">
 	
 
@@ -77,39 +79,41 @@
 </td>
 
 
-<td colspan="3" class="items" style="text-align: center;">
+<td id="brightLeadsTo" colspan="3" class="items" style="text-align: center;">
 <ul class="leadsTo">
 	
 </ul>
 </td>
 
-<td class="items"></td>
-<td colspan="3" class="items">
+<td id="brightindMassB" class="items"></td>
+<td id="brightindMass" colspan="3" class="items">
 <ul class="indMass">
 	
 </ul>
 </td>
 
-<td class="items"></td>
-<td colspan="3" class="items">
+<td id="brightToMassB" class="items"></td>
+<td id="brightToMass" colspan="3" class="items">
 <ul class="toMass">
 	
 </ul>
 </td>
 
-<td class="items"></td>
-<td colspan="3" class="items">
+<td id="brightlifeTimeB" class="items"></td>
+<td id="brightlifeTime" colspan="3" class="items">
 <ul class="lifeTime">
 	
 </ul>
 </td>
 
-<td class="items"></td>
-<td colspan="" class="items">
+<td id="brightSigLevelB" class="items"></td>
+<td id="brightSigLevel" colspan="" class="items">
 <ul class="sigLevel">
-	
+
+
 </ul>
 </td>
+
 
 <td class="items"></td>
 <td colspan="3" class="items">
