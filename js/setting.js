@@ -167,6 +167,9 @@ let tooltips={
     55:{
         data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> III<br>&#8594; <i>Wandering:</i> II"
     },
+    56:{
+        data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> III<br>&#8594; <i>Wandering:</i> ???"
+    },
 }
 
 let respawn={
@@ -751,7 +754,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     48:{
-        name:'N062', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'N062', hover:"yellow", color:"#1d4145", tooltip:tooltips[56], showincol:0,
         showincol:1,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
