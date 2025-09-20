@@ -48,7 +48,7 @@ let tooltips={
         data_jbox_content:"25 shattered wormhole systems accessible only via 'frigate holes'.<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Jcode:</i> starts with 000<br>&#8594; <i>Region & constellations:</i> H-"
     },
     16:{
-        data_jbox_content:"<i>NullSec regions:</i><br>&#8594; Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>&#8594; Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire."
+        data_jbox_content:"<i>NullSec regions:</i><br>&#8594; Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>&#8594; Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire"
     },
     17:{
         data_jbox_content:"5 unique shattered wormhole systems, each with its own class and system effect.<br>&#8594; <i>Region & constellations:</i> K-<br>&#8594; Class 14-18"
@@ -157,6 +157,15 @@ let tooltips={
     },
     52:{
         data_jbox_content:"&#8594; Is static in <span class='ls'>Turnur</span> and <span class='ls'>Tabbetzur</span> systems"
+    },
+    53:{
+        data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> I<br>&#8594; <i>Wandering:</i> II"
+    },
+    54:{
+        data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> II<br>&#8594; <i>Wandering:</i> I"
+    },
+    55:{
+        data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> III<br>&#8594; <i>Wandering:</i> II"
     },
 }
 
@@ -297,7 +306,7 @@ let wormholes={
         sigLevel:["iii"],
     },
     5:{
-        name:'B274', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'B274', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-2",],
         leadsTo:["hs"], 
@@ -367,7 +376,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     12:{
-        name:'C247', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'C247', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-4"],
         leadsTo:["c3"], 
@@ -427,7 +436,7 @@ let wormholes={
         sigLevel:["iii"],
     },
     18:{
-        name:'D382', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'D382', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c2"], 
@@ -467,7 +476,7 @@ let wormholes={
         sigLevel:["i"],
     },
      22:{
-        name:'E175', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'E175', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-5"],
         leadsTo:["c4"], 
@@ -557,7 +566,7 @@ let wormholes={
         sigLevel:["i"],
     },
     31:{
-        name:'H296', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'H296', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-5",],
         leadsTo:["c5"], 
@@ -567,7 +576,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     32:{
-        name:'H900', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'H900', hover:"yellow", color:"#1d4145", tooltip:tooltips[55], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-4",],
         leadsTo:["c5"], 
@@ -841,7 +850,7 @@ let wormholes={
         sigLevel:[],
     },
     57:{
-        name:'O477', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'O477', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
         showincol:1,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -940,7 +949,7 @@ let wormholes={
         sigLevel:[],
     },
     66:{
-        name:'R474', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'R474', hover:"yellow", color:"#1d4145", tooltip:tooltips[55], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -1061,7 +1070,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     77:{
-        name:'U574', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'U574', hover:"yellow", color:"#1d4145", tooltip:tooltips[55], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-4"],
@@ -1094,7 +1103,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     80:{
-        name:'V753', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'V753', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-5"],
@@ -1116,7 +1125,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     82:{
-        name:'V911', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'V911', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-6"],
@@ -1138,7 +1147,7 @@ let wormholes={
         sigLevel:[],
     },
     84:{
-        name:'W237', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'W237', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-6"],
@@ -1171,7 +1180,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     87:{
-        name:'X877', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'X877', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:2,
         respawn:["static", "wandering"],
         spawnIn:["class-4"],
@@ -1182,7 +1191,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     88:{
-        name:'Y683', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'Y683', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -1237,7 +1246,7 @@ let wormholes={
         sigLevel:["i"],
     },
     93:{
-        name:'Z457', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'Z457', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-6"],
@@ -1248,7 +1257,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     94:{
-        name:'Z647', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
+        name:'Z647', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
