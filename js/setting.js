@@ -75,7 +75,7 @@ let tooltips={
         data_jbox_content:"&#8594; <i>Class:</i> C18<br>&#8594; NPC Faction: Triglavian<br><i>&#8594; System effect:</i> C2 Wolf-Rayet<br>&#8594; <i>Former Jcode:</i> J174618"
     },
     25:{
-        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Shole.webm'></video>&#8594; <i>In addition to:</i> Porpoise and HIC<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <span class='small'>Frigate holes (S)</span>; 00 in each type"
+        data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Shole.webm'></video>&#8594; <i>In addition to:</i> Porpoise, HIC and Odysseus<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <span class='small'>Frigate holes (S)</span>; 00 in each type"
     },
     26:{
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Mhole.webm'></video>&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <span class='med'>Medium holes (M)</span>"
@@ -1316,3 +1316,4 @@ let wormholes={
         sigLevel:[],
     },
 }
+
