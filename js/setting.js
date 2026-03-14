@@ -8,166 +8,164 @@ let tooltips={
     2:{
         data_jbox_content:"Every <span class='ns'>Pochven</span> system is always connected to this type.<br>&#8594; <i>Ships allowed:</i> up to Bowhead<br>&#8594; <i>Excluded:</i> all other Freighters<br>&#8594; <i>Unique jump size mass:</i> 410 000 000 kg"
     },
+
     3:{
-        data_jbox_content:"&#8594; Is <a>static</a> only in one shattered <span class='C5'>C5</span> system; J011790"
-    },
-    4:{
         data_jbox_content:"&#8594; Can be <a>static</a> in shattered <span class='C4'>C4</span> systems"
     },
-    5:{
+    4:{
         data_jbox_content:"&#8594; Can be <a>static</a> in shattered <span class='C4'>C4</span>, <span class='C5'>C5</span> and <span class='C6'>C6</span> systems"
     },
-    6:{
+    5:{
         data_jbox_content:"&#8594; Can be <a>static</a> in shattered <span class='C4'>C4</span> and <span class='C5'>C5</span> systems"
     },
-    7:{
+    6:{
         data_jbox_content:"Generic type designating an exit."
     },
-    8:{
+    7:{
         data_jbox_content:"&#8594; <i>Regions & constellations:</i> A-"
     },
-    9:{
+    8:{
         data_jbox_content:"&#8594; <i>Regions & constellations:</i> B-"
     },
-    10:{
+    9:{
         data_jbox_content:"&#8594; <i>Regions & constellations:</i> C-"
     },
-    11:{
+    10:{
         data_jbox_content:"&#8594; <i>Regions & constellations:</i> D-"
     },
-    12:{
+    11:{
         data_jbox_content:"&#8594; <i>Regions & constellations:</i> E-"
     },
-    13:{
+    12:{
         data_jbox_content:"&#8594; <i>Region & constellations:</i> F-"
     },
-    14:{
+    13:{
         data_jbox_content:"Unique shattered wormhole system, and only one with a name.<br>Has 4 NPC stations belonging to <i>Sisters of EVE</i>.<br>&#8594; <i>Region & constellation:</i> G-"
     },
-    15:{
-        data_jbox_content:"25 shattered wormhole systems accessible only via 'frigate holes'.<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Jcode:</i> starts with 000<br>&#8594; <i>Region & constellations:</i> H-"
+    14:{
+        data_jbox_content:"25 shattered wormhole systems accessible only via <span class='small'>frigate holes</span>.<br>&#8594; <i>System effect:</i> C6 Wolf Rayet<br>&#8594; <i>Anomalies:</i> C1-C3<br><i>&#8594; Jcode:</i> starts with 000 (known as Tripnulls)<br>&#8594; <i>Region & constellations:</i> H-"
     },
-    16:{
+    15:{
         data_jbox_content:"<i>NullSec regions:</i><br>&#8594; Cobalt Edge, Etherium Reach, Kalevala Expanse,<br>&#8594; Malpais, Oasa, Outer Passage, Perrigen Falls, The Spire"
     },
-    17:{
+    16:{
         data_jbox_content:"5 unique shattered wormhole systems, each with its own class and system effect.<br>&#8594; <i>Region & constellations:</i> K-<br>&#8594; Class 14-18"
     },
-    18:{
+    17:{
         data_jbox_content:"&#8594; These structures are located across <i>known space</i>.<br>&#8594; Referred wormhole types spawn only in systems having them.<br>&#8594; First letter in each type reveals the name of a <i>Drifter</i> system destination."
     },
-    19:{
+    18:{
         data_jbox_content:"Bob knows why ..."
     },
-    20:{
+    19:{
         data_jbox_content:"It's type originated on the other side."
     },
-    21:{
+    20:{
         data_jbox_content:"&#8594; <i>Class:</i> C15<br>&#8594; NPC Faction: Minmatar<br>&#8594; <i>System effect:</i> C2 Cataclysmic Variable<br>&#8594; <i>Former Jcode:</i> J110145"
     },
-    22:{
+    21:{
         data_jbox_content:"&#8594; <i>Class:</i> C16<br>&#8594; NPC Faction: Amarr<br><i>&#8594; System effect:</i> C2 Magnetar<br>&#8594; <i>Former Jcode:</i> J164710"
     },
-    23:{
+    22:{
         data_jbox_content:"&#8594; <i>Class:</i> C17<br>&#8594; NPC Faction: Caldari<br><i>&#8594; System effect:</i> C2 Pulsar<br>&#8594; <i>Former Jcode:</i> J200727"
     },
-    24:{
+    23:{
         data_jbox_content:"&#8594; <i>Class:</i> C18<br>&#8594; NPC Faction: Triglavian<br><i>&#8594; System effect:</i> C2 Wolf-Rayet<br>&#8594; <i>Former Jcode:</i> J174618"
     },
-    25:{
+    24:{
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Shole.webm'></video>&#8594; <i>In addition to:</i> Porpoise, HIC and Odysseus<br>&#8594; <i>Jump size mass:</i> 5 000 000 kg<br>&#8594; <i>Regen per hour:</i> 3 000 000 000 kg<br>&#8594; <span class='small'>Frigate holes (S)</span>; 00 in each type"
     },
-    26:{
+    25:{
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Mhole.webm'></video>&#8594; <i>In addition to:</i> DST and Nestor<br>&#8594; <i>Jump size mass:</i> 62 000 000 kg<br>&#8594; <span class='med'>Medium holes (M)</span>"
     },
-    27:{
+    26:{
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/Lhole.webm'></video>&#8594; <i>In addition to:</i> Orca<br>&#8594; <i>Jump size mass:</i> 375 000 000 kg<br>&#8594; <span class='large'>Large holes (L)</span>"
     },
-    28:{
+    27:{
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Jump size mass:</i> 1 000 000 000 kg<br>&#8594; <span class='xlarge'>Extra Large holes (XL)</span>"
     },
-    29:{
+    28:{
         data_jbox_content:"<video class='vs' width='125' autoplay loop muted><source src='video/xlhole.webm'></video>&#8594; <i>Excluded:</i> Supercarrier and Titan<br>&#8594; <i>Jump size mass:</i> 2 000 000 000 kg<br>&#8594; <span class='xlarge'>Extra Large holes (XL)</span>"
     },
-    30:{
+    29:{
         data_jbox_content:"&#8594; <i>Class:</i> C14<br>&#8594; NPC Faction: EDENCOM<br><i>&#8594; System effect:</i> C2 Red Giant<br>&#8594; <i>Former Jcode:</i> J055520"
     },
-    31:{
+    30:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c1.webm'></video>"
     },
-    32:{
+    31:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c2.webm'></video>"
     },
-    33:{
+    32:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c3.webm'></video>"
     },
-    34:{
+    33:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c4.webm'></video>"
     },
-    35:{
+    34:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c5.webm'></video>"
     },
-    36:{
+    35:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c6.webm'></video>"
     },
-    37:{
+    36:{
         data_jbox_content:"<div class='tc'>Empire Space</div><br><span class='es'><video width='100' autoplay loop muted><source src='video/caldari.webm'></video><video width='100' autoplay loop muted><source src='video/amarr.webm'></video><br><video width='100' autoplay loop muted><source src='video/minmatar.webm'></video><video width='100' autoplay loop muted><source src='video/gallente.webm'></video></span>"
     },
-    38:{
+    37:{
         data_jbox_content:"Each NS region reflects its own nebula on a wormhole."
     },
-    39:{
+    38:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/pochven.webm'></video>"
     },
-    40:{
+    39:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/thera.webm'></video>"
     },
-    41:{
+    40:{
         data_jbox_content:"<video width='125' autoplay loop muted><source src='video/c13.webm'></video>"
     },
-    42:{
+    41:{
         data_jbox_content:"ccp when ?"
     },
-    43:{
+    42:{
         data_jbox_content:"Make sure to check visual cues and infotab for:<br>&#8594; wormhole size and destination<br>&#8594; wormhole mass and lifetime left"
     },
-    44:{
+    43:{
         data_jbox_content:"K162 side behave as static, reappearing in its destination,<br>although it originates outside of it as wandering type.<br>&#8594; Known as <i>pseudo</i>, <i>reverse</i> or <i>K162 static</i>."
     },
-    45:{
+    44:{
         data_jbox_content:"Class 7"
     },
-    46:{
+    45:{
         data_jbox_content:"Class 8"
     },
-    47:{
+    46:{
         data_jbox_content:"Class 9"
     },
-    48:{
+    47:{
         data_jbox_content:"Class 25"
     },
-    49:{
+    48:{
         data_jbox_content:"&#8594; Leads to <span class='ls'>Turnur</span> system"
     },
-    50:{
+    49:{
         data_jbox_content:"&#8594; Rarely spawn in <span class='ns'>NullSec</span>"
     },
-    51:{
+    50:{
         data_jbox_content:"&#8594; Leads to <span class='ls'>Tabbetzur</span> system"
     },
-    52:{
+    51:{
         data_jbox_content:"&#8594; Is static in <span class='ls'>Turnur</span> and <span class='ls'>Tabbetzur</span> systems"
     },
-    53:{
+    52:{
         data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> I<br>&#8594; <i>Wandering:</i> II"
     },
-    54:{
+    53:{
         data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> II<br>&#8594; <i>Wandering:</i> I"
     },
-    55:{
+    54:{
         data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> III<br>&#8594; <i>Wandering:</i> II"
     },
-    56:{
+    55:{
         data_jbox_content:"Sig level difference<br>&#8594; <i>Static:</i> III<br>&#8594; <i>Wandering:</i> ???"
     },
 }
@@ -175,62 +173,62 @@ let tooltips={
 let respawn={
     0:{  key:"static",      hover:"#79cef4", color:"#1d4145",         title:"Static", tooltip:""    },
     1:{  key:"wandering",      hover:"#79cef4", color:"#1d4145",         title:"Wandering",   tooltip:""  },
-    2:{  key:"reverse",      hover:"#79cef4", color:"#1d4145",         title:"Reverse",   tooltip:tooltips[44]  },
+    2:{  key:"reverse",      hover:"#79cef4", color:"#1d4145",         title:"Reverse",   tooltip:tooltips[43]  },
 }
 
 let spawnIn={
-    0:{   key:"class-1",     hover:"#42ffec", color:"#1d4145",  title:"Class 1", tooltip:tooltips[8]    },
-    1:{   key:"class-2",     hover:"#42b3ff", color:"#1d4145",  title:"Class 2", tooltip:tooltips[9]    },
-    2:{   key:"class-3",     hover:"#4265ff", color:"#1d4145",  title:"Class 3", tooltip:tooltips[10]    },
-    3:{   key:"class-4",     hover:"#4230cf", color:"#1d4145",  title:"Class 4", tooltip:tooltips[11]    },
-    4:{   key:"class-5",     hover:"#9c32ed", color:"#1d4145",  title:"Class 5", tooltip:tooltips[12]    },
-    5:{   key:"class-6",     hover:"#f230dc", color:"#1d4145",  title:"Class 6", tooltip:tooltips[13]    },
-    6:{   key:"highsec",     hover:"#0dfa05", color:"#1d4145",   title:"HighSec", tooltip:tooltips[45]    },
-    7:{   key:"lowsec",     hover:"#f0a800", color:"#1d4145",  title:"LowSec", tooltip:tooltips[46]    },
-    8:{   key:"nullsec",     hover:"#e81e1e", color:"#1d4145",  title:"NullSec", tooltip:tooltips[47]    },
-    9:{   key:"class-12---thera",     hover:"#f6fc32", color:"#1d4145",  title:"Class 12 - Thera", tooltip:tooltips[14]    },
-    10:{   key:"class-13---shattered",     hover:"#ffffff", color:"#1d4145",  title:"Class 13 - Shattered", tooltip:tooltips[15]      },
-    11:{   key:"pochven-▲-trig-space",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven ▲ Trig space", tooltip:tooltips[48]    },
+    0:{   key:"class-1",     hover:"#42ffec", color:"#1d4145",  title:"Class 1", tooltip:tooltips[7]    },
+    1:{   key:"class-2",     hover:"#42b3ff", color:"#1d4145",  title:"Class 2", tooltip:tooltips[8]    },
+    2:{   key:"class-3",     hover:"#4265ff", color:"#1d4145",  title:"Class 3", tooltip:tooltips[9]    },
+    3:{   key:"class-4",     hover:"#4230cf", color:"#1d4145",  title:"Class 4", tooltip:tooltips[10]    },
+    4:{   key:"class-5",     hover:"#9c32ed", color:"#1d4145",  title:"Class 5", tooltip:tooltips[11]    },
+    5:{   key:"class-6",     hover:"#f230dc", color:"#1d4145",  title:"Class 6", tooltip:tooltips[12]    },
+    6:{   key:"highsec",     hover:"#0dfa05", color:"#1d4145",   title:"HighSec", tooltip:tooltips[44]    },
+    7:{   key:"lowsec",     hover:"#f0a800", color:"#1d4145",  title:"LowSec", tooltip:tooltips[45]    },
+    8:{   key:"nullsec",     hover:"#e81e1e", color:"#1d4145",  title:"NullSec", tooltip:tooltips[46]    },
+    9:{   key:"class-12---thera",     hover:"#f6fc32", color:"#1d4145",  title:"Class 12 - Thera", tooltip:tooltips[13]    },
+    10:{   key:"class-13---shattered",     hover:"#ffffff", color:"#1d4145",  title:"Class 13 - Shattered", tooltip:tooltips[14]      },
+    11:{   key:"pochven-▲-trig-space",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven ▲ Trig space", tooltip:tooltips[47]    },
     12:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },
-    13:{   key:"drone-regions",     hover:"#e81e1e", color:"#1d4145",   title:"Drone Regions", tooltip:tooltips[16]    },
-    14:{   key:"drifter-wormholes",     hover:"#79cef4", color:"#1d4145", title:"Drifter wormholes",tooltip:tooltips[17]   },
-    15:{   key:"jove-observatories",     hover:"#79cef4", color:"#1d4145", title:"Jove Observatories",tooltip:tooltips[18]    },
+    13:{   key:"drone-regions",     hover:"#e81e1e", color:"#1d4145",   title:"Drone Regions", tooltip:tooltips[15]    },
+    14:{   key:"drifter-wormholes",     hover:"#79cef4", color:"#1d4145", title:"Drifter wormholes",tooltip:tooltips[16]   },
+    15:{   key:"jove-observatories",     hover:"#79cef4", color:"#1d4145", title:"Jove Observatories",tooltip:tooltips[17]    },
     16:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },  
-    17:{   key:"never-spawn",     hover:"#79cef4", color:"#1d4145", title:"never spawn",tooltip:tooltips[19]    },
+    17:{   key:"never-spawn",     hover:"#79cef4", color:"#1d4145", title:"never spawn",tooltip:tooltips[18]    },
     18:{   key:"",     hover:"#0dfa05", color:"#1d4145",   title:"", tooltip:""    },
-    19:{  key:"exit",      hover:"#79cef4", color:"#1d4145", title:"EXIT",tooltip:tooltips[20]    },
+    19:{  key:"exit",      hover:"#79cef4", color:"#1d4145", title:"EXIT",tooltip:tooltips[19]    },
 }
 
 let leadsTo={
-    0:{    key:"c1",    hover:"#42ffec", color:"#1d4145",  title:"C1", tooltip:tooltips[31]    },
-    1:{    key:"c2",    hover:"#42b3ff", color:"#1d4145",  title:"C2", tooltip:tooltips[32]    },
-    2:{   key:"c3",    hover:"#4265ff", color:"#1d4145",  title:"C3", tooltip:tooltips[33]    },
-    3:{    key:"c4",    hover:"#4230cf", color:"#1d4145",  title:"C4", tooltip:tooltips[34]    },
-    4:{    key:"c5",    hover:"#9c32ed", color:"#1d4145",  title:"C5", tooltip:tooltips[35]    },
-    5:{   key:"c6",     hover:"#f230dc", color:"#1d4145",  title:"C6", tooltip:tooltips[36]    },
-    6:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:tooltips[37]    },
-    7:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:tooltips[37]    },
-    8:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:tooltips[38]    },
-    9:{   key:"thera",     hover:"#f6fc32", color:"#1d4145",   title:"Thera", tooltip:tooltips[40]    },
-    10:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:tooltips[41]    },
-    11:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:tooltips[39]    },
+    0:{    key:"c1",    hover:"#42ffec", color:"#1d4145",  title:"C1", tooltip:tooltips[30]    },
+    1:{    key:"c2",    hover:"#42b3ff", color:"#1d4145",  title:"C2", tooltip:tooltips[31]    },
+    2:{   key:"c3",    hover:"#4265ff", color:"#1d4145",  title:"C3", tooltip:tooltips[32]    },
+    3:{    key:"c4",    hover:"#4230cf", color:"#1d4145",  title:"C4", tooltip:tooltips[33]    },
+    4:{    key:"c5",    hover:"#9c32ed", color:"#1d4145",  title:"C5", tooltip:tooltips[34]    },
+    5:{   key:"c6",     hover:"#f230dc", color:"#1d4145",  title:"C6", tooltip:tooltips[35]    },
+    6:{   key:"hs",     hover:"#0dfa05", color:"#1d4145",   title:"HS", tooltip:tooltips[36]    },
+    7:{   key:"ls",     hover:"#f0a800", color:"#1d4145",  title:"LS", tooltip:tooltips[36]    },
+    8:{   key:"ns",     hover:"#e81e1e", color:"#1d4145",  title:"NS", tooltip:tooltips[37]    },
+    9:{   key:"thera",     hover:"#f6fc32", color:"#1d4145",   title:"Thera", tooltip:tooltips[39]    },
+    10:{   key:"c13",    hover:"#ffffff", color:"#1d4145",  title:"C13", tooltip:tooltips[40]    },
+    11:{   key:"pochven",     hover:"#e81e1e", color:"#1d4145",  title:"Pochven", tooltip:tooltips[38]    },
     12:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },  
-    13:{   key:"sentinel-mz",     hover:"#79cef4", color:"#1d4145",  title:"Sentinel MZ", tooltip:tooltips[30]   },
-    14:{   key:"liberated-barbican",     hover:"#79cef4", color:"#1d4145", title:"Liberated Barbican",tooltip:tooltips[21]    },
-    15:{   key:"sanctified-vidette",     hover:"#79cef4", color:"#1d4145", title:"Sanctified Vidette",tooltip:tooltips[22]    },
-    16:{    key:"conflux-eyrie",     hover:"#79cef4", color:"#1d4145", title:"Conflux Eyrie",tooltip:tooltips[23]   },
-    17:{    key:"azdaja-redoubt",    hover:"#79cef4", color:"#1d4145", title:"Azdaja Redoubt",tooltip:tooltips[24]    },
+    13:{   key:"sentinel-mz",     hover:"#79cef4", color:"#1d4145",  title:"Sentinel MZ", tooltip:tooltips[29]   },
+    14:{   key:"liberated-barbican",     hover:"#79cef4", color:"#1d4145", title:"Liberated Barbican",tooltip:tooltips[20]    },
+    15:{   key:"sanctified-vidette",     hover:"#79cef4", color:"#1d4145", title:"Sanctified Vidette",tooltip:tooltips[21]    },
+    16:{    key:"conflux-eyrie",     hover:"#79cef4", color:"#1d4145", title:"Conflux Eyrie",tooltip:tooltips[22]   },
+    17:{    key:"azdaja-redoubt",    hover:"#79cef4", color:"#1d4145", title:"Azdaja Redoubt",tooltip:tooltips[23]    },
     18:{   key:"",    hover:"#ffffff", color:"#1d4145",  title:"", tooltip:""    },
-    19:{    key:"drifter-blackhole",    hover:"#79cef4", color:"#1d4145", title:"drifter blackhole",tooltip:tooltips[42]    },
-    20:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:tooltips[43]    },
+    19:{    key:"drifter-blackhole",    hover:"#79cef4", color:"#1d4145", title:"drifter blackhole",tooltip:tooltips[41]    },
+    20:{    key:"jump-to-identify",    hover:"#79cef4", color:"#1d4145", title:"jump to identify",tooltip:tooltips[42]    },
 } 
 	
 let indMass={
-    0:{   key:"up-to-destroyer", hover:"#1f5eeb", color:"#1d4145",     title:"up to Destroyer",    tooltip:tooltips[25]},
-    1:{  key:"up-to-battlecruiser",  hover:"#36cccc", color:"#1d4145",     title:"up to Battlecruiser",    tooltip:tooltips[26]},
-    2:{  key:"up-to-battleship",  hover:"#d6d9cc", color:"#1d4145",     title:"up to Battleship",    tooltip:tooltips[27]},
-    3:{  key:"up-to-freighter",  hover:"#d7601b", color:"#1d4145",     title:"up to Freighter",    tooltip:tooltips[28]},
-    4:{   key:"up-to-capital", hover:"#d7601b", color:"#1d4145",     title:"up to Capital",    tooltip:tooltips[29]},
+    0:{   key:"up-to-destroyer", hover:"#1f5eeb", color:"#1d4145",     title:"up to Destroyer",    tooltip:tooltips[24]},
+    1:{  key:"up-to-battlecruiser",  hover:"#36cccc", color:"#1d4145",     title:"up to Battlecruiser",    tooltip:tooltips[25]},
+    2:{  key:"up-to-battleship",  hover:"#d6d9cc", color:"#1d4145",     title:"up to Battleship",    tooltip:tooltips[26]},
+    3:{  key:"up-to-freighter",  hover:"#d7601b", color:"#1d4145",     title:"up to Freighter",    tooltip:tooltips[27]},
+    4:{   key:"up-to-capital", hover:"#d7601b", color:"#1d4145",     title:"up to Capital",    tooltip:tooltips[28]},
 }
 
 let toMass={
@@ -259,7 +257,7 @@ let sigLevel={
 
 let wormholes={
     0:{
-        name:'A009', hover:"yellow", color:"#1d4145", tooltip:tooltips[50], showincol:0,
+        name:'A009', hover:"yellow", color:"#1d4145", tooltip:tooltips[49], showincol:0,
         respawn:["wandering"],
         spawnIn:["class-1","class-2","class-3","class-4","class-5","class-6","class-12---thera","class-13---shattered","nullsec"],
         leadsTo:["c13"], 
@@ -309,7 +307,7 @@ let wormholes={
         sigLevel:["iii"],
     },
     5:{
-        name:'B274', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'B274', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-2",],
         leadsTo:["hs"], 
@@ -319,7 +317,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     6:{
-        name:'B449', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
+        name:'B449', hover:"yellow", color:"#1d4145", tooltip:tooltips[51], showincol:0,
         respawn:["wandering"],
         spawnIn:["lowsec","nullsec",],
         leadsTo:["hs"], 
@@ -379,7 +377,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     12:{
-        name:'C247', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'C247', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-4"],
         leadsTo:["c3"], 
@@ -439,7 +437,7 @@ let wormholes={
         sigLevel:["iii"],
     },
     18:{
-        name:'D382', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'D382', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
         leadsTo:["c2"], 
@@ -449,7 +447,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     19:{
-        name:'D792', hover:"yellow", color:"#1d4145", tooltip:tooltips[3], showincol:0,
+        name:'D792', hover:"yellow", color:"#1d4145", tooltip:"", showincol:0,
         respawn:["wandering"],
         spawnIn:["class-5","class-6"],
         leadsTo:["hs"], 
@@ -459,7 +457,7 @@ let wormholes={
         sigLevel:["iii"],
     },
     20:{
-        name:'D845', hover:"yellow", color:"#1d4145", tooltip:tooltips[4], showincol:0,
+        name:'D845', hover:"yellow", color:"#1d4145", tooltip:tooltips[3], showincol:0,
         respawn:["static"],
         spawnIn:["class-3"],
         leadsTo:["hs"], 
@@ -479,7 +477,7 @@ let wormholes={
         sigLevel:["i"],
     },
      22:{
-        name:'E175', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
+        name:'E175', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-5"],
         leadsTo:["c4"], 
@@ -569,7 +567,7 @@ let wormholes={
         sigLevel:["i"],
     },
     31:{
-        name:'H296', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'H296', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-5",],
         leadsTo:["c5"], 
@@ -579,7 +577,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     32:{
-        name:'H900', hover:"yellow", color:"#1d4145", tooltip:tooltips[55], showincol:0,
+        name:'H900', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
         respawn:["static","wandering"],
         spawnIn:["class-4",],
         leadsTo:["c5"], 
@@ -611,7 +609,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     35:{
-        name:'J377', hover:"yellow", color:"#1d4145", tooltip:tooltips[49], showincol:0,
+        name:'J377', hover:"yellow", color:"#1d4145", tooltip:tooltips[48], showincol:0,
 	    showincol:1,
         respawn:["wandering","reverse"],
         spawnIn:["class-1","class-2","class-3","class-4","class-12---thera"],
@@ -622,7 +620,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     36:{
-        name:'J492', hover:"yellow", color:"#1d4145", tooltip:tooltips[51], showincol:0,
+        name:'J492', hover:"yellow", color:"#1d4145", tooltip:tooltips[50], showincol:0,
 	    showincol:1,
         respawn:["wandering","reverse"],
         spawnIn:["class-1","class-2","class-3","class-4"],
@@ -644,7 +642,7 @@ let wormholes={
         sigLevel:["iii"],
     },
     38:{
-        name:'K346', hover:"yellow", color:"#1d4145", tooltip:tooltips[5], showincol:0,
+        name:'K346', hover:"yellow", color:"#1d4145", tooltip:tooltips[4], showincol:0,
         showincol:1,
         respawn:["static"],
         spawnIn:["class-3"],
@@ -754,7 +752,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     48:{
-        name:'N062', hover:"yellow", color:"#1d4145", tooltip:tooltips[56], showincol:0,
+        name:'N062', hover:"yellow", color:"#1d4145", tooltip:tooltips[55], showincol:0,
         showincol:1,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -820,7 +818,7 @@ let wormholes={
         sigLevel:["iii"],
     },
     54:{
-        name:'N944', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
+        name:'N944', hover:"yellow", color:"#1d4145", tooltip:tooltips[51], showincol:0,
         showincol:1,
         respawn:["wandering"],
         spawnIn:["lowsec","nullsec"],
@@ -853,7 +851,7 @@ let wormholes={
         sigLevel:[],
     },
     57:{
-        name:'O477', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
+        name:'O477', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:1,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -952,7 +950,7 @@ let wormholes={
         sigLevel:[],
     },
     66:{
-        name:'R474', hover:"yellow", color:"#1d4145", tooltip:tooltips[55], showincol:0,
+        name:'R474', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -985,7 +983,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     69:{
-        name:'S199', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
+        name:'S199', hover:"yellow", color:"#1d4145", tooltip:tooltips[51], showincol:0,
         showincol:2,
         respawn:["wandering"],
         spawnIn:["lowsec","nullsec"],
@@ -1040,7 +1038,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     74:{
-        name:'U210', hover:"yellow", color:"#1d4145", tooltip:tooltips[6], showincol:0,
+        name:'U210', hover:"yellow", color:"#1d4145", tooltip:tooltips[5], showincol:0,
         showincol:2,
         respawn:["static"],
         spawnIn:["class-3"],
@@ -1073,7 +1071,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     77:{
-        name:'U574', hover:"yellow", color:"#1d4145", tooltip:tooltips[55], showincol:0,
+        name:'U574', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-4"],
@@ -1106,7 +1104,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     80:{
-        name:'V753', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'V753', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-5"],
@@ -1128,7 +1126,7 @@ let wormholes={
         sigLevel:["ii"],
     },
     82:{
-        name:'V911', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'V911', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-6"],
@@ -1150,7 +1148,7 @@ let wormholes={
         sigLevel:[],
     },
     84:{
-        name:'W237', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'W237', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-6"],
@@ -1183,7 +1181,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     87:{
-        name:'X877', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'X877', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         showincol:2,
         respawn:["static", "wandering"],
         spawnIn:["class-4"],
@@ -1194,7 +1192,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     88:{
-        name:'Y683', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
+        name:'Y683', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -1249,7 +1247,7 @@ let wormholes={
         sigLevel:["i"],
     },
     93:{
-        name:'Z457', hover:"yellow", color:"#1d4145", tooltip:tooltips[54], showincol:0,
+        name:'Z457', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-6"],
@@ -1260,7 +1258,7 @@ let wormholes={
         sigLevel:["i","ii"],
     },
     94:{
-        name:'Z647', hover:"yellow", color:"#1d4145", tooltip:tooltips[53], showincol:0,
+        name:'Z647', hover:"yellow", color:"#1d4145", tooltip:tooltips[52], showincol:0,
         showincol:2,
         respawn:["static","wandering"],
         spawnIn:["class-2","drifter-wormholes"],
@@ -1305,7 +1303,7 @@ let wormholes={
         sigLevel:[],
     },
     98:{
-        name:'K162', hover:"yellow", color:"#1d4145", tooltip:tooltips[7], showincol:0,
+        name:'K162', hover:"yellow", color:"#1d4145", tooltip:tooltips[6], showincol:0,
         showincol:2,
         respawn:[],
         spawnIn:["exit"],
@@ -1316,4 +1314,3 @@ let wormholes={
         sigLevel:[],
     },
 }
-
