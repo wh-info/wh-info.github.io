@@ -605,15 +605,31 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
   wireInteractions();
 
   // ?type= deep link (works locally and on server, case-insensitive)
-  const search = window.location.search || (window.location.href.split('?')[1] ? '?' + window.location.href.split('?')[1] : '');
-  const typeParam = new URLSearchParams(search).get('type');
+  const href = window.location.href;
+  const qIdx = href.indexOf('?');
+  const typeMatch = qIdx !== -1 ? href.slice(qIdx).match(/[?&]type=([^&#]+)/i) : null;
+  const typeParam = typeMatch ? decodeURIComponent(typeMatch[1]) : null;
   if(typeParam && typeParam.toUpperCase() !== 'GEAR'){
-    requestAnimationFrame(()=>{
+    setTimeout(()=>{
       const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
       const el = key ? whMap[key] : null;
       if(el && WH_DATA[key] && WH_DATA[key].length>0) activateLock(el);
-    });
+    }, 100);
   }
+})();
+
+// ── Preload tooltip videos ───────────────────────────────────────────────────
+(function preloadVideos(){
+  if(typeof TOOLTIP_CONTENT==='undefined') return;
+  const srcs=new Set();
+  Object.values(TOOLTIP_CONTENT).forEach(html=>{
+    const matches=html.match(/src="([^"]+\.webm)"/g);
+    if(matches) matches.forEach(m=>{ srcs.add(m.slice(5,-1)); });
+  });
+  srcs.forEach(src=>{
+    const v=document.createElement('video');
+    v.preload='auto'; v.muted=true; v.src=src;
+  });
 })();
 
 // ── Viewport-fit scaling removed — table keeps full size, page scrolls ────────
