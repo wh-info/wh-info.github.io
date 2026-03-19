@@ -1,0 +1,619 @@
+// =============================================================================
+// app.js — Core wormhole table engine
+// =============================================================================
+
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║  TIMING                                                                   ║
+// ║  HOVER_COLOR_MS  — text color transition speed (ms)                       ║
+// ║  LINE_DRAW_MS    — line draw animation duration (ms)                      ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+const HOVER_COLOR_MS      = 40;
+const HOVER_LINE_DRAW_MS  = 0;    // line draw speed on hover  (0 = instant)
+const CLICK_LINE_DRAW_MS  = 300;  // line draw speed on click
+const COLOR_FADE_START    = 0.95; // 0 = highlight with line from start, 0.95 = highlight in last 5%
+
+const FILTER_COLORS = {
+  'spawn-c1':        '#42ffec', 'spawn-c2':        '#42b3ff',
+  'spawn-c3':        '#4265ff', 'spawn-c4':        '#4230cf',
+  'spawn-c5':        '#9c32ed', 'spawn-c6':        '#f230dc',
+  'spawn-hs':        '#0dfa05', 'spawn-ls':        '#f0a800',
+  'spawn-ns':        '#e81e1e', 'spawn-thera':     '#f6fc32',
+  'spawn-shattered': '#ededed', 'spawn-pochven':   '#e81e1e',
+  'spawn-drone':     '#e81e1e',
+  'leads-c1':        '#42ffec', 'leads-c2':        '#42b3ff',
+  'leads-c3':        '#4265ff', 'leads-c4':        '#4230cf',
+  'leads-c5':        '#9c32ed', 'leads-c6':        '#f230dc',
+  'leads-hs':        '#0dfa05', 'leads-ls':        '#f0a800',
+  'leads-ns':        '#e81e1e', 'leads-thera':     '#f6fc32',
+  'leads-c13':       '#ededed', 'leads-pochven':   '#e81e1e',
+  'jump-destroyer':  '#1f5eeb', 'jump-bc':         '#36cccc',
+  'jump-bs':         '#d6d9cc', 'jump-freighter':  '#f0a800',
+  'jump-capital':    '#f0a800',
+};
+const WH_COLOR = '#e8d44d';
+const filterColor = fid => FILTER_COLORS[fid] || WH_COLOR;
+
+const SPAWN_MAP = {
+  'Class 1':'spawn-c1','Class 2':'spawn-c2','Class 3':'spawn-c3',
+  'Class 4':'spawn-c4','Class 5':'spawn-c5','Class 6':'spawn-c6',
+  'HighSec':'spawn-hs','LowSec':'spawn-ls','NullSec':'spawn-ns',
+  'Class 12 - Thera':'spawn-thera','Class 13 - Shattered':'spawn-shattered',
+  'Pochven ▲ Trig space':'spawn-pochven','Drone Regions':'spawn-drone',
+  'Drifter wormholes':'spawn-drifter','Jove Observatories':'spawn-jove',
+  'never spawn':'spawn-never',
+  'EXIT':'spawn-exit',
+};
+const LEADS_MAP = {
+  'C1':'leads-c1','C2':'leads-c2','C3':'leads-c3','C4':'leads-c4',
+  'C5':'leads-c5','C6':'leads-c6','HS':'leads-hs','LS':'leads-ls',
+  'NS':'leads-ns','Thera':'leads-thera','C13':'leads-c13','Pochven':'leads-pochven',
+  'Sentinel MZ':'leads-sentinel','Liberated Barbican':'leads-barbican',
+  'Sanctified Vidette':'leads-vidette','Conflux Eyrie':'leads-eyrie',
+  'Azdaja Redoubt':'leads-redoubt',
+  'drifter blackhole':'leads-drifter','jump to identify':'leads-jump',
+};
+const JUMP_MAP = {
+  'up to Destroyer':'jump-destroyer','up to Battlecruiser':'jump-bc',
+  'up to Battleship':'jump-bs','up to Freighter':'jump-freighter','up to Capital':'jump-capital',
+};
+const MASS_MAP = {
+  '100 000 000 kg':'mass-100m','500 000 000 kg':'mass-500m','750 000 000 kg':'mass-750m',
+  '1 000 000 000 kg':'mass-1b','2 000 000 000 kg':'mass-2b','3 000 000 000 kg':'mass-3b',
+  '3 300 000 000 kg':'mass-3b3','5 000 000 000 kg':'mass-5b',
+};
+const LIFE_MAP    = { '4.5h':'life-4h5','12h':'life-12h','16h':'life-16h','24h':'life-24h','48h':'life-48h' };
+const SIG_MAP     = { 'I':'sig-I','II':'sig-II','III':'sig-III' };
+const RESPAWN_MAP = { 'Static':'respawn-static','Wandering':'respawn-wandering','Reverse':'respawn-reverse' };
+
+function entryToFilterIds(entry) {
+  const ids = [];
+  const add    = (map, v)   => { if (v && map[v]) ids.push(map[v]); };
+  const addArr = (map, arr) => { if (arr) arr.forEach(v => { if (map[v]) ids.push(map[v]); }); };
+  addArr(RESPAWN_MAP, entry.respawn);
+  addArr(SPAWN_MAP, entry.spawn_in);
+  addArr(LEADS_MAP, entry.leads_to);
+  add(JUMP_MAP, entry.ship_size);
+  add(MASS_MAP, entry.total_mass);
+  add(LIFE_MAP, entry.life_time);
+  addArr(SIG_MAP, entry.sig_level);
+  return ids;
+}
+
+(function applyTransitionSpeed() {
+  const s = document.createElement('style');
+  s.textContent = `
+    .content-row .wh-row a,
+    .content-row .wh-row [data-wh],
+    .content-row .filter-btn {
+      transition: color ${HOVER_COLOR_MS}ms, opacity 200ms !important;
+    }
+    .col-header { transition: color ${HOVER_COLOR_MS}ms !important; }
+    .wh-row [data-wh] { cursor: default; }
+  `;
+  document.head.appendChild(s);
+})();
+
+const canvas = document.getElementById('lineCanvas');
+const ctx    = canvas.getContext('2d');
+function resizeCanvas() { canvas.width = innerWidth; canvas.height = innerHeight; }
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const tableWrap = document.getElementById('tableWrap');
+const filterMap = {};
+document.querySelectorAll('[data-filter-id]').forEach(el => { filterMap[el.dataset.filterId] = el; });
+const whMap = {};
+document.querySelectorAll('[data-wh]').forEach(el => { whMap[el.dataset.wh] = el; });
+const allContentEls = [
+  ...document.querySelectorAll('.wh-row a'),
+  ...document.querySelectorAll('.wh-row [data-wh]:not(a)'),
+  ...document.querySelectorAll('.filter-btn:not(.invis)'),
+];
+
+const colHeaderMap = {
+  'c-list':  document.querySelector('.header-row .c-list'),
+  'c-respawn':  document.querySelector('.header-row .c-respawn'),
+  'c-spawn': document.querySelector('.header-row .c-spawn'),
+  'c-leads': document.querySelector('.header-row .c-leads'),
+  'c-jump':  document.querySelector('.header-row .c-jump'),
+  'c-mass':  document.querySelector('.header-row .c-mass'),
+  'c-life':  document.querySelector('.header-row .c-life'),
+  'c-sig':   document.querySelector('.header-row .c-sig'),
+};
+function getColClass(el) {
+  for (const cls of Object.keys(colHeaderMap)) { if (el.closest('.'+cls)) return cls; }
+  return null;
+}
+let litHeaderCell = null;
+function lightHeader(el) {
+  darkHeader();
+  const cls = getColClass(el);
+  if (cls && colHeaderMap[cls]) { colHeaderMap[cls].classList.add('col-lit'); litHeaderCell = colHeaderMap[cls]; }
+}
+function darkHeader() {
+  if (litHeaderCell) { litHeaderCell.classList.remove('col-lit'); litHeaderCell = null; }
+}
+
+tableWrap.addEventListener('mouseenter', () => tableWrap.classList.add('table-hovered'));
+tableWrap.addEventListener('mouseleave', () => {
+  tableWrap.classList.remove('table-hovered', 'content-hovered', 'wh-hovered', 'attr-hovered');
+  darkHeader();
+});
+const contentRow = document.querySelector('.content-row');
+contentRow.addEventListener('mouseenter', () => tableWrap.classList.add('content-hovered'));
+contentRow.addEventListener('mouseleave', () => {
+  tableWrap.classList.remove('content-hovered', 'wh-hovered', 'attr-hovered');
+  darkHeader();
+});
+const whListCell = document.querySelector('.wh-list');
+whListCell.addEventListener('mouseenter', () => { tableWrap.classList.add('wh-hovered'); tableWrap.classList.remove('attr-hovered'); });
+whListCell.addEventListener('mouseleave', () => tableWrap.classList.remove('wh-hovered'));
+document.querySelectorAll('.content-row > .cell:not(.wh-list)').forEach(cell => {
+  cell.addEventListener('mouseenter', () => { tableWrap.classList.add('attr-hovered'); tableWrap.classList.remove('wh-hovered'); });
+  cell.addEventListener('mouseleave', () => tableWrap.classList.remove('attr-hovered'));
+});
+
+let WH_DATA       = {};
+let REVERSE       = {};
+let activeColored = [];
+let lockedEl      = null;
+let lockedStack   = [];   // array of locked filter elements (multi-lock)
+let lockedWHKeys  = null; // current intersection of wormhole keys across all locked filters
+let lineGeneration = 0;
+
+const tooltip  = document.getElementById('wh-tooltip');
+let tooltipKey = null;
+function positionTooltip(e) {
+  const pad=16, tw=tooltip.offsetWidth, th=tooltip.offsetHeight;
+  let x=e.clientX+pad, y=e.clientY+pad;
+  if(x+tw>innerWidth)  x=e.clientX-tw-pad;
+  if(y+th>innerHeight) y=e.clientY-th-pad;
+  tooltip.style.left=x+'px'; tooltip.style.top=y+'px';
+}
+function showTooltip(key,e,directHtml) {
+  const html=directHtml||(typeof TOOLTIP_CONTENT!=='undefined'?TOOLTIP_CONTENT[key]:null);
+  if(!html) return;
+  tooltip.innerHTML=html; tooltip.style.display='block';
+  tooltipKey=key; positionTooltip(e);
+}
+function hideTooltip() {
+  tooltip.style.display='none';
+  const vid=tooltip.querySelector('video'); if(vid) vid.pause();
+  tooltipKey=null;
+}
+document.addEventListener('mousemove', e=>{ if(tooltipKey) positionTooltip(e); });
+
+function getTextBounds(el) {
+  const range=document.createRange();
+  range.selectNodeContents(el);
+  const rects=range.getClientRects();
+  if(!rects.length) return el.getBoundingClientRect();
+  let l=Infinity,r=-Infinity,t=Infinity,b=-Infinity;
+  for(const rc of rects){
+    if(rc.left<l)l=rc.left; if(rc.right>r)r=rc.right;
+    if(rc.top<t)t=rc.top;   if(rc.bottom>b)b=rc.bottom;
+  }
+  return{left:l,right:r,top:t,bottom:b};
+}
+const midY = b => (b.top+b.bottom)/2;
+function hexAlpha(hex,a){
+  return `rgba(${parseInt(hex.slice(1,3),16)},${parseInt(hex.slice(3,5),16)},${parseInt(hex.slice(5,7),16)},${a})`;
+}
+
+function drawSegment(x0,y0,c0,x1,y1,c1,t) {
+  const ex=x0+(x1-x0)*t, ey=y0+(y1-y0)*t;
+  const g=ctx.createLinearGradient(x0,y0,x1,y1);
+  g.addColorStop(0,hexAlpha(c0,0.75)); g.addColorStop(1,hexAlpha(c1,0.75));
+  ctx.save();
+  ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(ex,ey);
+  ctx.strokeStyle=g; ctx.lineWidth=1; ctx.stroke();
+  ctx.restore();
+}
+
+function buildSegments(srcBounds, srcColor, targetPairs) {
+  const x0=srcBounds.right, y0=midY(srcBounds);
+  return targetPairs.map(({el,color})=>{
+    const tb=getTextBounds(el);
+    return{x0,y0,c0:srcColor,x1:tb.left,y1:midY(tb),c1:color};
+  }).filter(s=>s.x1!==undefined);
+}
+function buildSegmentsReverse(srcBounds, srcColor, targetPairs) {
+  const x0=srcBounds.left, y0=midY(srcBounds);
+  return targetPairs.map(({el,color})=>{
+    const wb=getTextBounds(el);
+    return{x0,y0,c0:srcColor,x1:wb.right,y1:midY(wb),c1:color};
+  }).filter(s=>s.x1!==undefined);
+}
+
+function lerpColor(targetHex, t) {
+  const r=parseInt(targetHex.slice(1,3),16), g=parseInt(targetHex.slice(3,5),16), b=parseInt(targetHex.slice(5,7),16);
+  // Start from near-black (matches dimmed/dark elements)
+  const br=10, bg=14, bb=16;
+  const cr=Math.round(br+(r-br)*t), cg=Math.round(bg+(g-bg)*t), cb=Math.round(bb+(b-bb)*t);
+  return `rgb(${cr},${cg},${cb})`;
+}
+
+function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourceEl, sourceColor) {
+  if(!segments.length && !(colorTargets && colorTargets.length)) return;
+  // Immediately highlight the source element (the one clicked)
+  if(sourceEl && sourceColor) applyColor(sourceEl, sourceColor);
+  if(durationMs<=0) {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    segments.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    if(colorTargets) colorTargets.forEach(({el,color})=>applyColor(el,color));
+    if(dimTargets) dimTargets.forEach(el=>el.classList.add('dimmed'));
+    return;
+  }
+  if(colorTargets) colorTargets.forEach(({el})=>{
+    activeColored.push({el,origColor:el.style.color,origTextShadow:el.style.textShadow});
+  });
+  if(dimTargets) dimTargets.forEach(el=>el.classList.add('dimmed'));
+  const startTime=performance.now();
+  function frame(now) {
+    if(lineGeneration!==gen) return;
+    const t=Math.min((now-startTime)/durationMs,1);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    segments.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,t));
+    if(colorTargets) {
+      const ct=COLOR_FADE_START>=1?1:Math.max(0,(t-COLOR_FADE_START)/(1-COLOR_FADE_START));
+      colorTargets.forEach(({el,color})=>{
+        const c=lerpColor(color,ct);
+        el.style.setProperty('color',c,'important');
+        if(el.hasAttribute('data-wh')) {
+          const r=parseInt(color.slice(1,3),16),g=parseInt(color.slice(3,5),16),b=parseInt(color.slice(5,7),16);
+          el.style.textShadow=`0 0 ${4*ct}px rgba(${r},${g},${b},${(ct*0.53).toFixed(2)}), 0 0 ${8*ct}px rgba(${r},${g},${b},${(ct*0.2).toFixed(2)})`;
+        }
+      });
+    }
+    if(t<1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function whGlow(color) {
+  return `0 0 4px ${color}88, 0 0 8px ${color}33`;
+}
+function applyColor(el,color) {
+  activeColored.push({el,origColor:el.style.color,origTextShadow:el.style.textShadow});
+  el.style.setProperty('color',color,'important');
+  if(el.hasAttribute('data-wh')) el.style.textShadow=whGlow(color);
+}
+function clearHoverColors() {
+  activeColored.forEach(({el,origColor,origTextShadow})=>{
+    el.style.removeProperty('color');
+    if(origColor) el.style.color=origColor;
+    el.style.textShadow=origTextShadow||'';
+  });
+  activeColored=[];
+}
+function applyDim(connectedEls) {
+  allContentEls.forEach(el=>{ if(!connectedEls.has(el)) el.classList.add('dimmed'); });
+}
+function clearDim() { allContentEls.forEach(el=>{ el.classList.remove('dimmed'); el.style.opacity=''; }); }
+
+function connectedSetForWH(whEl) {
+  const s=new Set([whEl]);
+  (WH_DATA[whEl.dataset.wh]||[]).forEach(fid=>{ const el=filterMap[fid]; if(el) s.add(el); });
+  return s;
+}
+function connectedSetForFilter(filterEl) {
+  const s=new Set([filterEl]);
+  (REVERSE[filterEl.dataset.filterId]||[]).forEach(k=>{ const el=whMap[k]; if(el) s.add(el); });
+  return s;
+}
+
+function startLinesFromWH(whEl, filterIds, durationMs, animateColors, dimTargets) {
+  lineGeneration++;
+  const gen=lineGeneration;
+  const sb=getTextBounds(whEl);
+  const pairs=filterIds.map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
+  const colorTargets=animateColors ? pairs : null;
+  animateLines(buildSegments(sb,WH_COLOR,pairs), gen, durationMs, colorTargets, dimTargets, whEl, WH_COLOR);
+}
+function startLinesFromFilter(filterEl, whKeys, durationMs, animateColors, dimTargets) {
+  lineGeneration++;
+  const gen=lineGeneration;
+  const fid=filterEl.dataset.filterId;
+  const fb=getTextBounds(filterEl);
+  const pairs=whKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+  const colorTargets=animateColors ? pairs : null;
+  animateLines(buildSegmentsReverse(fb,filterColor(fid),pairs), gen, durationMs, colorTargets, dimTargets, filterEl, filterColor(fid));
+}
+function stopLines() {
+  lineGeneration++;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+function resetAll() {
+  stopLines(); clearHoverColors(); clearDim(); hideTooltip();
+  // Force-clear any leftover inline styles from animations
+  allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
+  lockedEl=null; lockedStack=[]; lockedWHKeys=null; lockedSharedFilters=new Set();
+}
+
+let lockedSharedFilters = new Set();
+
+// Get wormhole keys connected to an element (wh or filter)
+function getConnectedWHKeys(el) {
+  if(el.hasAttribute('data-wh')) {
+    return WH_DATA[el.dataset.wh] ? [el.dataset.wh] : [];
+  } else if(el.hasAttribute('data-filter-id')) {
+    return REVERSE[el.dataset.filterId] || [];
+  }
+  return [];
+}
+
+// Compute the current wormhole key intersection across all locked stack elements
+function computeStackWHKeys() {
+  if(!lockedStack.length) return [];
+  let keys=new Set(getConnectedWHKeys(lockedStack[0]));
+  for(let i=1;i<lockedStack.length;i++){
+    const elKeys=new Set(getConnectedWHKeys(lockedStack[i]));
+    keys=new Set([...keys].filter(k=>elKeys.has(k)));
+  }
+  return [...keys];
+}
+
+// Build segments from a single element to a set of wormhole keys
+function buildSegsForElement(el, whKeys) {
+  const bounds=getTextBounds(el);
+  if(el.hasAttribute('data-filter-id')) {
+    const fid=el.dataset.filterId;
+    const pairs=whKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+    return buildSegmentsReverse(bounds,filterColor(fid),pairs);
+  } else {
+    const pairs=whKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+    return buildSegments(bounds,WH_COLOR,pairs);
+  }
+}
+
+// Find filters that share wormholes with the current locked WH keys (excluding already-locked ones)
+function computeSharedFilters() {
+  lockedSharedFilters=new Set();
+  if(!lockedWHKeys||!lockedWHKeys.length) return;
+  const lockedSet=new Set(lockedWHKeys);
+  const stackSet=new Set(lockedStack);
+  document.querySelectorAll('[data-filter-id]').forEach(fel=>{
+    if(stackSet.has(fel)) return;
+    const fkeys=REVERSE[fel.dataset.filterId]||[];
+    if(fkeys.some(k=>lockedSet.has(k))) lockedSharedFilters.add(fel);
+  });
+}
+
+// Draw the full locked state: lines from all stack elements to current WH keys, colors, dimming
+function restoreLockedState() {
+  if(!lockedStack.length) return;
+  clearHoverColors(); clearDim();
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // Draw lines from each locked element to the current WH intersection
+  lockedStack.forEach(el=>{
+    const segs=buildSegsForElement(el,lockedWHKeys);
+    segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+  });
+  // Color locked elements
+  lockedStack.forEach(el=>{
+    if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
+    else applyColor(el,WH_COLOR);
+  });
+  // Color connected wormholes
+  lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
+  // Dim: everything except locked elements, connected WHs, and shared filters
+  const visibleEls=new Set();
+  lockedStack.forEach(el=>visibleEls.add(el));
+  lockedWHKeys.forEach(k=>{ if(whMap[k]) visibleEls.add(whMap[k]); });
+  lockedSharedFilters.forEach(fel=>visibleEls.add(fel));
+  allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
+  // Soft-dim shared filters (only when a filter is locked, not a wormhole)
+  const hasFilterLock=lockedStack.some(el=>el.hasAttribute('data-filter-id'));
+  if(hasFilterLock) lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.35'; });
+}
+
+// First lock (single element, animated)
+function activateLock(el) {
+  if(lockedStack.includes(el)){
+    if(lockedStack.length===1){
+      // Last element — full reset
+      resetAll(); return;
+    }
+    // Remove from stack, keep the rest
+    lockedStack=lockedStack.filter(e=>e!==el);
+    lockedWHKeys=computeStackWHKeys();
+    computeSharedFilters();
+    restoreLockedState();
+    return;
+  }
+  if(!lockedStack.length){
+    // First lock — full reset and animate
+    resetAll();
+    lockedEl=el;
+    lockedStack=[el];
+    lockedWHKeys=getConnectedWHKeys(el);
+    computeSharedFilters();
+    // Determine connected set for dimming
+    const connected=new Set();
+    connected.add(el);
+    lockedWHKeys.forEach(k=>{ if(whMap[k]) connected.add(whMap[k]); });
+    if(el.hasAttribute('data-wh')){
+      (WH_DATA[el.dataset.wh]||[]).forEach(fid=>{ if(filterMap[fid]) connected.add(filterMap[fid]); });
+    }
+    const dimEls=allContentEls.filter(e=>!connected.has(e) && !lockedSharedFilters.has(e));
+    if(el.hasAttribute('data-wh')){
+      startLinesFromWH(el,WH_DATA[el.dataset.wh],CLICK_LINE_DRAW_MS,true,dimEls);
+    } else {
+      startLinesFromFilter(el,REVERSE[el.dataset.filterId],CLICK_LINE_DRAW_MS,true,dimEls);
+    }
+    // Soft-dim shared filters after animation starts (only for filter locks)
+    if(el.hasAttribute('data-filter-id')){
+      setTimeout(()=>{ lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.35'; }); },0);
+    }
+  } else {
+    // Additional lock — stack on top, narrow intersection
+    lockedStack.push(el);
+    lockedWHKeys=computeStackWHKeys();
+    computeSharedFilters();
+    // Instant redraw with new narrowed state
+    restoreLockedState();
+  }
+}
+
+function wireInteractions() {
+  document.querySelectorAll('[data-wh]').forEach(whEl => {
+    const key=whEl.dataset.wh;
+    whEl.addEventListener('mouseenter', e=>{
+      lightHeader(whEl);
+      showTooltip(key,e);
+      if(lockedStack.length) return;
+      clearHoverColors(); stopLines();
+      if(WH_DATA[key]){
+        startLinesFromWH(whEl,WH_DATA[key],HOVER_LINE_DRAW_MS,true);
+      }
+    });
+    whEl.addEventListener('mousemove', e=>{ if(tooltipKey===key) positionTooltip(e); });
+    whEl.addEventListener('mouseleave', ()=>{
+      darkHeader();
+      if(!lockedStack.length){ clearHoverColors(); stopLines(); }
+      hideTooltip();
+    });
+    whEl.addEventListener('click', e=>{
+      e.preventDefault(); e.stopPropagation();
+      if(!WH_DATA[key]) return;
+      activateLock(whEl);
+    });
+  });
+
+  document.querySelectorAll('[data-filter-id]').forEach(filterEl=>{
+    const fid=filterEl.dataset.filterId;
+    filterEl.addEventListener('mouseenter', e=>{
+      lightHeader(filterEl);
+      showTooltip(fid,e);
+      if(lockedStack.length) {
+        // If a wormhole is locked, don't interact with attributes on hover
+        const hasWHLock=lockedStack.some(el=>el.hasAttribute('data-wh'));
+        if(hasWHLock) return;
+        // Only allow hover on shared filters
+        if(!lockedSharedFilters.has(filterEl)) return;
+        // Compute intersection: current locked WHs ∩ hovered filter's WHs
+        const lockedSet=new Set(lockedWHKeys);
+        const hoveredKeys=REVERSE[fid]||[];
+        const sharedKeys=hoveredKeys.filter(k=>lockedSet.has(k));
+        if(!sharedKeys.length) return;
+        clearHoverColors();
+        clearDim();
+        // Visible: shared wormholes + all locked stack elements + hovered filter
+        const visibleEls=new Set(sharedKeys.map(k=>whMap[k]).filter(Boolean));
+        lockedStack.forEach(el=>visibleEls.add(el));
+        visibleEls.add(filterEl);
+        allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
+        // Color everything visible
+        sharedKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
+        applyColor(filterEl,filterColor(fid));
+        lockedStack.forEach(el=>{
+          if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
+          else applyColor(el,WH_COLOR);
+        });
+        // Draw lines from all locked elements + hovered filter to shared WHs
+        lineGeneration++;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        lockedStack.forEach(el=>{
+          buildSegsForElement(el,sharedKeys).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+        });
+        buildSegsForElement(filterEl,sharedKeys).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+        return;
+      }
+      clearHoverColors(); stopLines();
+      if(REVERSE[fid]){
+        startLinesFromFilter(filterEl,REVERSE[fid],HOVER_LINE_DRAW_MS,true);
+      }
+    });
+    filterEl.addEventListener('mousemove', e=>{ if(tooltipKey===fid) positionTooltip(e); });
+    filterEl.addEventListener('mouseleave', ()=>{
+      darkHeader();
+      if(lockedStack.length){
+        const hasWHLock=lockedStack.some(el=>el.hasAttribute('data-wh'));
+        if(!hasWHLock) restoreLockedState();
+      } else {
+        clearHoverColors(); stopLines();
+      }
+      hideTooltip();
+    });
+    filterEl.addEventListener('click', e=>{
+      e.stopPropagation();
+      if(!REVERSE[fid]) return;
+      activateLock(filterEl);
+    });
+  });
+
+  document.addEventListener('click', e=>{
+    if(lockedStack.length && !e.target.closest('.content-row')) resetAll();
+  });
+}
+
+function redrawIfActive() {
+  if(lockedStack.length){ restoreLockedState(); }
+}
+window.addEventListener('scroll', redrawIfActive, {passive:true});
+window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
+
+(function initClock(){
+  const clockEl=document.getElementById('eve-clock');
+  if(!clockEl) return;
+  function tick(){
+    const now=new Date();
+    const h=String(now.getUTCHours()).padStart(2,'0');
+    const m=String(now.getUTCMinutes()).padStart(2,'0');
+    const s=String(now.getUTCSeconds()).padStart(2,'0');
+    const mo=String(now.getUTCMonth()+1).padStart(2,'0');
+    const d=String(now.getUTCDate()).padStart(2,'0');
+    const yc=now.getUTCFullYear()-1898;
+    clockEl.querySelector('.clock-time').textContent=`${h}:${m}:${s}`;
+    clockEl.querySelector('.clock-date').textContent=`${mo}/${d}/${yc} YC`;
+  }
+  clockEl.innerHTML=`<span class="clock-time"></span><span class="clock-date"></span>`;
+  tick(); setInterval(tick,1000);
+  clockEl.addEventListener('mouseenter', e=>showTooltip('eve-clock',e));
+  clockEl.addEventListener('mousemove',  e=>{ if(tooltipKey==='eve-clock') positionTooltip(e); });
+  clockEl.addEventListener('mouseleave', ()=>hideTooltip());
+})();
+
+(function initHeaderTooltips(){
+  const headerTips = {
+    'c-list':    'Wormhole type can be found on the <em>Overview</em>.',
+    'c-respawn': 'Some wormholes are both static and wandering.',
+    'c-spawn':   'Same wormhole type can appear in multiple classes.',
+    'c-leads':   'Wormhole inner sphere reflects destination nebula/skybox.',
+    'c-jump':    'Wormhole outer color shows jump size limit.',
+    'c-mass':    'Total mass may vary &pm; 10%.',
+    'c-life':    'Lifetime may increase for several hours relative to situational spawn mechanics.',
+    'c-sig':     'Scanning difficulty level is revealed when your signal strength is &ge; 25%.',
+  };
+  document.querySelectorAll('.header-row .cell').forEach(cell=>{
+    const cls=Object.keys(headerTips).find(c=>cell.classList.contains(c));
+    if(!cls) return;
+    const key='header-'+cls;
+    cell.addEventListener('mouseenter', e=>showTooltip(key,e,headerTips[cls]));
+    cell.addEventListener('mousemove',  e=>{ if(tooltipKey===key) positionTooltip(e); });
+    cell.addEventListener('mouseleave', ()=>hideTooltip());
+  });
+})();
+
+(function boot(){
+  if(typeof WH_ENTRIES==='undefined'){ console.warn('wormholes.js not loaded.'); wireInteractions(); return; }
+  WH_ENTRIES.forEach(entry=>{ WH_DATA[entry.wormhole]=entryToFilterIds(entry); });
+  REVERSE={};
+  Object.entries(WH_DATA).forEach(([k,fids])=>{
+    fids.forEach(fid=>{ (REVERSE[fid]=REVERSE[fid]||[]).push(k); });
+  });
+  wireInteractions();
+
+  // ?type= deep link (works locally and on server, case-insensitive)
+  const search = window.location.search || (window.location.href.split('?')[1] ? '?' + window.location.href.split('?')[1] : '');
+  const typeParam = new URLSearchParams(search).get('type');
+  if(typeParam && typeParam.toUpperCase() !== 'GEAR'){
+    requestAnimationFrame(()=>{
+      const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
+      const el = key ? whMap[key] : null;
+      if(el && WH_DATA[key] && WH_DATA[key].length>0) activateLock(el);
+    });
+  }
+})();
+
+// ── Viewport-fit scaling removed — table keeps full size, page scrolls ────────

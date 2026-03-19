@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>whtype.info</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="lineCanvas"></canvas>
+<div id="wh-tooltip"></div>
+<div id="eve-clock"></div>
+
+<div class="table-wrap" id="tableWrap">
+
+  <!-- HEADER ROW -->
+  <div class="row header-row">
+    <div class="cell c-list logo"><strong>wh</strong>type.info</div>
+    <span class="header-sub-label logo-sub">WORMHOLES</span>
+    <div class="cell c-respawn col-header">⟲</div>
+    <div class="cell c-spawn col-header">SPAWN IN</div>
+    <div class="cell c-leads col-header">LEADS TO</div>
+    <div class="cell c-jump col-header">SHIP JUMP SIZE</div>
+    <div class="cell c-mass col-header">TOTAL MASS</div>
+    <div class="cell c-life col-header">LIFETIME</div>
+    <div class="cell c-sig col-header">SIG LEVEL</div>
+    <span class="header-sub-label attr-sub">ATTRIBUTES</span>
+  </div>
+
+  <!-- CONTENT ROW -->
+  <div class="row content-row">
+
+    <!-- Col 1: WH type
+         Each row = [col1 item] [col2 item] [col3 item]
+         Col1: A-I078  |  Col2: I182-R259 (incl. L687, O546)  |  Col3: R474-Z971 + K162/GEAR at end
+    -->
+    <div class="cell c-list wh-list">
+      <div class="wh-row"><a href="#" data-wh="A009">A009</a><a href="#" data-wh="I182">I182</a><a href="#" data-wh="R259">R259</a></div>
+      <div class="wh-row"><a href="#" data-wh="A239">A239</a><a href="#" data-wh="J244">J244</a><a href="#" data-wh="R474">R474</a></div>
+      <div class="wh-row"><a href="#" data-wh="A641">A641</a><a href="#" data-wh="J377">J377</a><a href="#" data-wh="R943">R943</a></div>
+      <div class="wh-row"><a href="#" data-wh="A982">A982</a><a href="#" data-wh="J492">J492</a><a href="#" data-wh="S047">S047</a></div>
+      <div class="wh-row"><a href="#" data-wh="B041">B041</a><a href="#" data-wh="K329">K329</a><a href="#" data-wh="S199">S199</a></div>
+      <div class="wh-row"><a href="#" data-wh="B274">B274</a><a href="#" data-wh="K346">K346</a><a href="#" data-wh="S804">S804</a></div>
+      <div class="wh-row"><a href="#" data-wh="B449">B449</a><a href="#" data-wh="L005">L005</a><a href="#" data-wh="S877">S877</a></div>
+      <div class="wh-row"><a href="#" data-wh="B520">B520</a><a href="#" data-wh="L031">L031</a><a href="#" data-wh="T405">T405</a></div>
+      <div class="wh-row"><a href="#" data-wh="B735">B735</a><a href="#" data-wh="L477">L477</a><a href="#" data-wh="T458">T458</a></div>
+      <div class="wh-row"><a href="#" data-wh="C008">C008</a><a href="#" data-wh="L614">L614</a><a href="#" data-wh="U210">U210</a></div>
+      <div class="wh-row"><a href="#" data-wh="C125">C125</a><a href="#" data-wh="L687">L687</a><a href="#" data-wh="U319">U319</a></div>
+      <div class="wh-row"><a href="#" data-wh="C140">C140</a><a href="#" data-wh="M001">M001</a><a href="#" data-wh="U372">U372</a></div>
+      <div class="wh-row"><a href="#" data-wh="C247">C247</a><a href="#" data-wh="M164">M164</a><a href="#" data-wh="U574">U574</a></div>
+      <div class="wh-row"><a href="#" data-wh="C248">C248</a><a href="#" data-wh="M267">M267</a><a href="#" data-wh="V283">V283</a></div>
+      <div class="wh-row"><a href="#" data-wh="C391">C391</a><a href="#" data-wh="M555">M555</a><a href="#" data-wh="V301">V301</a></div>
+      <div class="wh-row"><a href="#" data-wh="C414">C414</a><a href="#" data-wh="M609">M609</a><a href="#" data-wh="V753">V753</a></div>
+      <div class="wh-row"><a href="#" data-wh="C729">C729</a><a href="#" data-wh="N062">N062</a><a href="#" data-wh="V898">V898</a></div>
+      <div class="wh-row"><a href="#" data-wh="D364">D364</a><a href="#" data-wh="N110">N110</a><a href="#" data-wh="V911">V911</a></div>
+      <div class="wh-row"><a href="#" data-wh="D382">D382</a><a href="#" data-wh="N290">N290</a><a href="#" data-wh="V928">V928</a></div>
+      <div class="wh-row"><a href="#" data-wh="D792">D792</a><a href="#" data-wh="N432">N432</a><a href="#" data-wh="W237">W237</a></div>
+      <div class="wh-row"><a href="#" data-wh="D845">D845</a><a href="#" data-wh="N766">N766</a><a href="#" data-wh="X450">X450</a></div>
+      <div class="wh-row"><a href="#" data-wh="E004">E004</a><a href="#" data-wh="N770">N770</a><a href="#" data-wh="X702">X702</a></div>
+      <div class="wh-row"><a href="#" data-wh="E175">E175</a><a href="#" data-wh="N944">N944</a><a href="#" data-wh="X877">X877</a></div>
+      <div class="wh-row"><a href="#" data-wh="E545">E545</a><a href="#" data-wh="N968">N968</a><a href="#" data-wh="Y683">Y683</a></div>
+      <div class="wh-row"><a href="#" data-wh="E587">E587</a><a href="#" data-wh="O128">O128</a><a href="#" data-wh="Y790">Y790</a></div>
+      <div class="wh-row"><a href="#" data-wh="F135">F135</a><a href="#" data-wh="O477">O477</a><a href="#" data-wh="Z006">Z006</a></div>
+      <div class="wh-row"><a href="#" data-wh="F216">F216</a><a href="#" data-wh="O546">O546</a><a href="#" data-wh="Z060">Z060</a></div>
+      <div class="wh-row"><a href="#" data-wh="F353">F353</a><a href="#" data-wh="O883">O883</a><a href="#" data-wh="Z142">Z142</a></div>
+      <div class="wh-row"><a href="#" data-wh="G008">G008</a><a href="#" data-wh="P060">P060</a><a href="#" data-wh="Z457">Z457</a></div>
+      <div class="wh-row"><a href="#" data-wh="G024">G024</a><a href="#" data-wh="Q003">Q003</a><a href="#" data-wh="Z647">Z647</a></div>
+      <div class="wh-row"><a href="#" data-wh="H121">H121</a><a href="#" data-wh="Q063">Q063</a><a href="#" data-wh="Z971">Z971</a></div>
+      <div class="wh-row"><a href="#" data-wh="H296">H296</a><a href="#" data-wh="Q317">Q317</a><span></span></div>
+      <div class="wh-row"><a href="#" data-wh="H900">H900</a><a href="#" data-wh="R051">R051</a><span class="gear" data-wh="GEAR">⚙</span></div>
+      <div class="wh-row"><a href="#" data-wh="I078">I078</a><a href="#">R081</a><a href="#" data-wh="K162">K162</a></div>
+    </div>
+
+    <!-- Col 2: Respawn type -->
+    <div class="cell c-respawn filter-col">
+      <button class="filter-btn" data-filter-id="respawn-static">Static</button>
+      <button class="filter-btn" data-filter-id="respawn-wandering">Wandering</button>
+      <button class="filter-btn" data-filter-id="respawn-reverse">Reverse</button>
+    </div>
+
+    <!-- Col 3: Spawn In -->
+    <div class="cell c-spawn filter-col">
+      <button class="filter-btn" data-filter-id="spawn-c1">Class 1</button>
+      <button class="filter-btn" data-filter-id="spawn-c2">Class 2</button>
+      <button class="filter-btn" data-filter-id="spawn-c3">Class 3</button>
+      <button class="filter-btn" data-filter-id="spawn-c4">Class 4</button>
+      <button class="filter-btn" data-filter-id="spawn-c5">Class 5</button>
+      <button class="filter-btn" data-filter-id="spawn-c6">Class 6</button>
+      <button class="filter-btn" data-filter-id="spawn-hs">HighSec</button>
+      <button class="filter-btn" data-filter-id="spawn-ls">LowSec</button>
+      <button class="filter-btn" data-filter-id="spawn-ns">NullSec</button>
+      <button class="filter-btn" data-filter-id="spawn-thera">Class 12 – Thera</button>
+      <button class="filter-btn" data-filter-id="spawn-shattered">Class 13 – Shattered</button>
+      <button class="filter-btn" data-filter-id="spawn-pochven">Pochven ▲ Trig space</button>
+      <div class="sep"></div>
+      <button class="filter-btn" data-filter-id="spawn-drone">Drone Regions</button>
+      <button class="filter-btn" data-filter-id="spawn-drifter">Drifter wormholes</button>
+      <button class="filter-btn" data-filter-id="spawn-jove">Jove Observatories</button>
+      <div class="sep"></div>
+      <button class="filter-btn" data-filter-id="spawn-never">never spawn</button>
+      <div class="sep"></div>
+      <button class="filter-btn" data-filter-id="spawn-exit">EXIT</button>
+    </div>
+
+    <!-- Col 4: Leads To -->
+    <div class="cell c-leads filter-col">
+      <button class="filter-btn" data-filter-id="leads-c1">C1</button>
+      <button class="filter-btn" data-filter-id="leads-c2">C2</button>
+      <button class="filter-btn" data-filter-id="leads-c3">C3</button>
+      <button class="filter-btn" data-filter-id="leads-c4">C4</button>
+      <button class="filter-btn" data-filter-id="leads-c5">C5</button>
+      <button class="filter-btn" data-filter-id="leads-c6">C6</button>
+      <button class="filter-btn" data-filter-id="leads-hs">HS</button>
+      <button class="filter-btn" data-filter-id="leads-ls">LS</button>
+      <button class="filter-btn" data-filter-id="leads-ns">NS</button>
+      <button class="filter-btn" data-filter-id="leads-thera">Thera</button>
+      <button class="filter-btn" data-filter-id="leads-c13">C13</button>
+      <button class="filter-btn" data-filter-id="leads-pochven">Pochven</button>
+      <div class="sep"></div>
+      <button class="filter-btn" data-filter-id="leads-sentinel">Sentinel MZ</button>
+      <button class="filter-btn" data-filter-id="leads-barbican">Liberated Barbican</button>
+      <button class="filter-btn" data-filter-id="leads-vidette">Sanctified Vidette</button>
+      <button class="filter-btn" data-filter-id="leads-eyrie">Conflux Eyrie</button>
+      <button class="filter-btn" data-filter-id="leads-redoubt">Azdaja Redoubt</button>
+      <div class="sep"></div>
+      <button class="filter-btn" data-filter-id="leads-drifter">drifter blackhole</button>
+      <button class="filter-btn" data-filter-id="leads-jump">jump to identify</button>
+    </div>
+
+    <!-- Col 5: Ship Jump Size -->
+    <div class="cell c-jump filter-col">
+      <button class="filter-btn" data-filter-id="jump-destroyer">up to Destroyer</button>
+      <button class="filter-btn" data-filter-id="jump-bc">up to Battlecruiser</button>
+      <button class="filter-btn" data-filter-id="jump-bs">up to Battleship</button>
+      <button class="filter-btn" data-filter-id="jump-freighter">up to Freighter</button>
+      <button class="filter-btn" data-filter-id="jump-capital">up to Capital</button>
+    </div>
+
+    <!-- Col 6: Total Mass -->
+    <div class="cell c-mass filter-col">
+      <button class="filter-btn" data-filter-id="mass-100m">100 000 000 kg</button>
+      <button class="filter-btn" data-filter-id="mass-500m">500 000 000 kg</button>
+      <button class="filter-btn" data-filter-id="mass-750m">750 000 000 kg</button>
+      <button class="filter-btn" data-filter-id="mass-1b">1 000 000 000 kg</button>
+      <button class="filter-btn" data-filter-id="mass-2b">2 000 000 000 kg</button>
+      <button class="filter-btn" data-filter-id="mass-3b">3 000 000 000 kg</button>
+      <button class="filter-btn" data-filter-id="mass-3b3">3 300 000 000 kg</button>
+      <button class="filter-btn" data-filter-id="mass-5b">5 000 000 000 kg</button>
+    </div>
+
+    <!-- Col 7: Lifetime -->
+    <div class="cell c-life filter-col">
+      <button class="filter-btn invis" data-filter-id="life-x">–</button>
+      <button class="filter-btn" data-filter-id="life-4h5">4.5h</button>
+      <button class="filter-btn" data-filter-id="life-12h">12h</button>
+      <button class="filter-btn" data-filter-id="life-16h">16h</button>
+      <button class="filter-btn" data-filter-id="life-24h">24h</button>
+      <button class="filter-btn" data-filter-id="life-48h">48h</button>
+    </div>
+
+    <!-- Col 8: Sig Level -->
+    <div class="cell c-sig filter-col">
+      <button class="filter-btn invis" data-filter-id="sig-x1">–</button>
+      <button class="filter-btn invis" data-filter-id="sig-x2">–</button>
+      <button class="filter-btn" data-filter-id="sig-I">I</button>
+      <button class="filter-btn" data-filter-id="sig-II">II</button>
+      <button class="filter-btn" data-filter-id="sig-III">III</button>
+    </div>
+
+  </div><!-- content-row -->
+</div><!-- table-wrap -->
+
+<script src="wormholes.js"></script>
+<script src="tooltips.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
