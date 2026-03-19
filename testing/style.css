@@ -272,7 +272,7 @@ body {
   width: max-content;
   max-width: 340px;
   opacity: 0;
-  transition: opacity 80ms;
+  transition: opacity 200ms;
 }
 #wh-tooltip video,
 #wh-tooltip img {

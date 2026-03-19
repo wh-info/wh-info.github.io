@@ -183,7 +183,7 @@ function hideTooltip() {
   tooltip.style.opacity='0';
   const vid=tooltip.querySelector('video'); if(vid) vid.pause();
   tooltipKey=null;
-  setTimeout(()=>{ if(!tooltipKey) tooltip.style.display='none'; }, 80);
+  setTimeout(()=>{ if(!tooltipKey) tooltip.style.display='none'; }, 200);
 }
 document.addEventListener('mousemove', e=>{ if(tooltipKey) positionTooltip(e); });
 
@@ -327,8 +327,9 @@ function stopLines() {
   lineGeneration++;
   ctx.clearRect(0,0,canvas.width,canvas.height);
 }
-function resetAll() {
-  stopLines(); clearHoverColors(); clearDim(); hideTooltip();
+function resetAll(keepTooltip) {
+  stopLines(); clearHoverColors(); clearDim();
+  if(!keepTooltip) hideTooltip();
   // Force-clear any leftover inline styles from animations
   allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
   lockedEl=null; lockedStack=[]; lockedWHKeys=null; lockedSharedFilters=new Set();
@@ -415,8 +416,8 @@ function restoreLockedState() {
 function activateLock(el) {
   if(lockedStack.includes(el)){
     if(lockedStack.length===1){
-      // Last element — full reset
-      resetAll(); return;
+      // Last element — full reset, keep tooltip
+      resetAll(true); return;
     }
     // Remove from stack, keep the rest
     lockedStack=lockedStack.filter(e=>e!==el);
@@ -426,8 +427,8 @@ function activateLock(el) {
     return;
   }
   if(!lockedStack.length){
-    // First lock — full reset and animate
-    resetAll();
+    // First lock — full reset, keep tooltip
+    resetAll(true);
     lockedEl=el;
     lockedStack=[el];
     lockedWHKeys=getConnectedWHKeys(el);
@@ -609,11 +610,13 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
   wireInteractions();
 
   // ?type= or #type= deep link (case-insensitive, works locally and on server)
-  (function deepLink(){
-    const raw = window.location.search + window.location.hash;
-    const fromHref = window.location.href.match(/[?&#]type=([^&#]+)/i);
-    const fromRaw = raw.match(/[?&#]type=([^&#]+)/i);
-    const match = fromHref || fromRaw;
+  function tryDeepLink(){
+    const s = window.location.search || '';
+    const h = window.location.hash || '';
+    const full = window.location.href || '';
+    const match = s.match(/[?&]type=([^&#]+)/i)
+              || h.match(/[#&]type=([^&#]+)/i)
+              || full.match(/[?&#]type=([^&#]+)/i);
     if(!match) return;
     const typeParam = decodeURIComponent(match[1]).trim();
     if(typeParam.toUpperCase() === 'GEAR') return;
@@ -621,8 +624,11 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
     if(!key) return;
     const el = whMap[key];
     if(!el || !WH_DATA[key] || !WH_DATA[key].length) return;
-    setTimeout(()=>activateLock(el), 150);
-  })();
+    activateLock(el);
+  }
+  // Try immediately and again after full load in case of delayed URL parsing
+  setTimeout(tryDeepLink, 50);
+  window.addEventListener('load', ()=>{ if(!lockedStack.length) tryDeepLink(); });
 })();
 
 // ── Preload tooltip videos ───────────────────────────────────────────────────
