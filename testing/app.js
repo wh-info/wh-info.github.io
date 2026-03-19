@@ -174,12 +174,16 @@ function showTooltip(key,e,directHtml) {
   const html=directHtml||(typeof TOOLTIP_CONTENT!=='undefined'?TOOLTIP_CONTENT[key]:null);
   if(!html) return;
   tooltip.innerHTML=html; tooltip.style.display='block';
+  // Force reflow then fade in
+  tooltip.offsetHeight;
+  tooltip.style.opacity='1';
   tooltipKey=key; positionTooltip(e);
 }
 function hideTooltip() {
-  tooltip.style.display='none';
+  tooltip.style.opacity='0';
   const vid=tooltip.querySelector('video'); if(vid) vid.pause();
   tooltipKey=null;
+  setTimeout(()=>{ if(!tooltipKey) tooltip.style.display='none'; }, 80);
 }
 document.addEventListener('mousemove', e=>{ if(tooltipKey) positionTooltip(e); });
 
@@ -604,18 +608,21 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
   });
   wireInteractions();
 
-  // ?type= deep link (works locally and on server, case-insensitive)
-  const href = window.location.href;
-  const qIdx = href.indexOf('?');
-  const typeMatch = qIdx !== -1 ? href.slice(qIdx).match(/[?&]type=([^&#]+)/i) : null;
-  const typeParam = typeMatch ? decodeURIComponent(typeMatch[1]) : null;
-  if(typeParam && typeParam.toUpperCase() !== 'GEAR'){
-    setTimeout(()=>{
-      const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
-      const el = key ? whMap[key] : null;
-      if(el && WH_DATA[key] && WH_DATA[key].length>0) activateLock(el);
-    }, 100);
-  }
+  // ?type= or #type= deep link (case-insensitive, works locally and on server)
+  (function deepLink(){
+    const raw = window.location.search + window.location.hash;
+    const fromHref = window.location.href.match(/[?&#]type=([^&#]+)/i);
+    const fromRaw = raw.match(/[?&#]type=([^&#]+)/i);
+    const match = fromHref || fromRaw;
+    if(!match) return;
+    const typeParam = decodeURIComponent(match[1]).trim();
+    if(typeParam.toUpperCase() === 'GEAR') return;
+    const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
+    if(!key) return;
+    const el = whMap[key];
+    if(!el || !WH_DATA[key] || !WH_DATA[key].length) return;
+    setTimeout(()=>activateLock(el), 150);
+  })();
 })();
 
 // ── Preload tooltip videos ───────────────────────────────────────────────────

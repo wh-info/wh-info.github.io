@@ -271,6 +271,8 @@ body {
   line-height: 1.6;
   width: max-content;
   max-width: 340px;
+  opacity: 0;
+  transition: opacity 80ms;
 }
 #wh-tooltip video,
 #wh-tooltip img {
