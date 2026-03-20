@@ -30,8 +30,10 @@ const FILTER_COLORS = {
   'jump-bs':         '#d6d9cc', 'jump-freighter':  '#f0a800',
   'jump-capital':    '#f0a800',
 };
-const WH_COLOR = '#e8d44d';
-const filterColor = fid => FILTER_COLORS[fid] || WH_COLOR;
+let WH_COLOR = '#e8d44d';
+let monoMode = false;
+let themeAccent = '#00c8c8';
+const filterColor = fid => monoMode ? themeAccent : (FILTER_COLORS[fid] || WH_COLOR);
 
 const SPAWN_MAP = {
   'Class 1':'spawn-c1','Class 2':'spawn-c2','Class 3':'spawn-c3',
@@ -160,9 +162,13 @@ let lockedEl      = null;
 let lockedStack   = [];   // array of locked filter elements (multi-lock)
 let lockedWHKeys  = null; // current intersection of wormhole keys across all locked filters
 let lineGeneration = 0;
+let lockAnimating = false;
 
 const tooltip  = document.getElementById('wh-tooltip');
 let tooltipKey = null;
+let tooltipsEnabled = true;
+let tooltipFadeTimer = null;
+let pendingTooltip = null;
 function positionTooltip(e) {
   const pad=16, tw=tooltip.offsetWidth, th=tooltip.offsetHeight;
   let x=e.clientX+pad, y=e.clientY+pad;
@@ -170,20 +176,38 @@ function positionTooltip(e) {
   if(y+th>innerHeight) y=e.clientY-th-pad;
   tooltip.style.left=x+'px'; tooltip.style.top=y+'px';
 }
-function showTooltip(key,e,directHtml) {
-  const html=directHtml||(typeof TOOLTIP_CONTENT!=='undefined'?TOOLTIP_CONTENT[key]:null);
-  if(!html) return;
+function revealTooltip(key,e,html) {
   tooltip.innerHTML=html; tooltip.style.display='block';
-  // Force reflow then fade in
+  tooltip.style.opacity='0';
+  tooltipKey=key;
   tooltip.offsetHeight;
   tooltip.style.opacity='1';
-  tooltipKey=key; positionTooltip(e);
+  positionTooltip(e);
+}
+function showTooltip(key,e,directHtml) {
+  if(!tooltipsEnabled) return;
+  const html=directHtml||(typeof TOOLTIP_CONTENT!=='undefined'?TOOLTIP_CONTENT[key]:null);
+  if(!html) return;
+  // If a tooltip is currently visible, fade it out first then show new one
+  if(tooltipKey && tooltip.style.opacity!=='0') {
+    tooltip.style.opacity='0';
+    const vid=tooltip.querySelector('video'); if(vid) vid.pause();
+    tooltipKey=null;
+    pendingTooltip={key,e,html};
+    if(tooltipFadeTimer) clearTimeout(tooltipFadeTimer);
+    tooltipFadeTimer=setTimeout(()=>{ tooltipFadeTimer=null; if(pendingTooltip){ revealTooltip(pendingTooltip.key,pendingTooltip.e,pendingTooltip.html); pendingTooltip=null; } }, 80);
+    return;
+  }
+  if(pendingTooltip) { pendingTooltip={key,e,html}; return; }
+  revealTooltip(key,e,html);
 }
 function hideTooltip() {
   tooltip.style.opacity='0';
   const vid=tooltip.querySelector('video'); if(vid) vid.pause();
   tooltipKey=null;
-  setTimeout(()=>{ if(!tooltipKey) tooltip.style.display='none'; }, 200);
+  pendingTooltip=null;
+  if(tooltipFadeTimer) clearTimeout(tooltipFadeTimer);
+  tooltipFadeTimer=setTimeout(()=>{ tooltipFadeTimer=null; if(!tooltipKey) tooltip.style.display='none'; }, 80);
 }
 document.addEventListener('mousemove', e=>{ if(tooltipKey) positionTooltip(e); });
 
@@ -229,16 +253,20 @@ function buildSegmentsReverse(srcBounds, srcColor, targetPairs) {
   }).filter(s=>s.x1!==undefined);
 }
 
+function lerpBase() {
+  const v=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+  if(v&&v[0]==='#'&&v.length===7) return [parseInt(v.slice(1,3),16),parseInt(v.slice(3,5),16),parseInt(v.slice(5,7),16)];
+  return [10,14,16];
+}
 function lerpColor(targetHex, t) {
   const r=parseInt(targetHex.slice(1,3),16), g=parseInt(targetHex.slice(3,5),16), b=parseInt(targetHex.slice(5,7),16);
-  // Start from near-black (matches dimmed/dark elements)
-  const br=10, bg=14, bb=16;
+  const [br,bg,bb]=lerpBase();
   const cr=Math.round(br+(r-br)*t), cg=Math.round(bg+(g-bg)*t), cb=Math.round(bb+(b-bb)*t);
   return `rgb(${cr},${cg},${cb})`;
 }
 
-function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourceEl, sourceColor) {
-  if(!segments.length && !(colorTargets && colorTargets.length)) return;
+function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourceEl, sourceColor, onDone) {
+  if(!segments.length && !(colorTargets && colorTargets.length)) { if(onDone) onDone(); return; }
   // Immediately highlight the source element (the one clicked)
   if(sourceEl && sourceColor) applyColor(sourceEl, sourceColor);
   if(durationMs<=0) {
@@ -246,8 +274,12 @@ function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourc
     segments.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
     if(colorTargets) colorTargets.forEach(({el,color})=>applyColor(el,color));
     if(dimTargets) dimTargets.forEach(el=>el.classList.add('dimmed'));
+    if(onDone) onDone();
     return;
   }
+  // Random speed per segment: 0.6× to 1.4× of base duration
+  const segDurations=segments.map(()=>durationMs*(0.6+Math.random()*0.8));
+  const maxDuration=Math.max(...segDurations);
   if(colorTargets) colorTargets.forEach(({el})=>{
     activeColored.push({el,origColor:el.style.color,origTextShadow:el.style.textShadow});
   });
@@ -255,27 +287,38 @@ function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourc
   const startTime=performance.now();
   function frame(now) {
     if(lineGeneration!==gen) return;
-    const t=Math.min((now-startTime)/durationMs,1);
+    const elapsed=now-startTime;
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    segments.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,t));
+    segments.forEach((s,i)=>{
+      const t=Math.min(elapsed/segDurations[i],1);
+      drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,t);
+    });
     if(colorTargets) {
-      const ct=COLOR_FADE_START>=1?1:Math.max(0,(t-COLOR_FADE_START)/(1-COLOR_FADE_START));
-      colorTargets.forEach(({el,color})=>{
+      colorTargets.forEach(({el,color},i)=>{
+        const t=Math.min(elapsed/segDurations[i],1);
+        const ct=COLOR_FADE_START>=1?1:Math.max(0,(t-COLOR_FADE_START)/(1-COLOR_FADE_START));
         const c=lerpColor(color,ct);
         el.style.setProperty('color',c,'important');
         if(el.hasAttribute('data-wh')) {
           const r=parseInt(color.slice(1,3),16),g=parseInt(color.slice(3,5),16),b=parseInt(color.slice(5,7),16);
-          el.style.textShadow=`0 0 ${4*ct}px rgba(${r},${g},${b},${(ct*0.53).toFixed(2)}), 0 0 ${8*ct}px rgba(${r},${g},${b},${(ct*0.2).toFixed(2)})`;
+          const bwl=isBwLight();
+          const a1=bwl?(ct*0.2).toFixed(2):(ct*0.53).toFixed(2);
+          const a2=bwl?(ct*0.08).toFixed(2):(ct*0.2).toFixed(2);
+          const s1=bwl?3*ct:4*ct, s2=bwl?6*ct:8*ct;
+          el.style.textShadow=`0 0 ${s1}px rgba(${r},${g},${b},${a1}), 0 0 ${s2}px rgba(${r},${g},${b},${a2})`;
         }
       });
     }
-    if(t<1) requestAnimationFrame(frame);
+    if(elapsed<maxDuration) requestAnimationFrame(frame);
+    else if(onDone) onDone();
   }
   requestAnimationFrame(frame);
 }
 
+function isBwLight(){ return document.documentElement.classList.contains('bw-light'); }
 function whGlow(color) {
-  return `0 0 4px ${color}88, 0 0 8px ${color}33`;
+  if(isBwLight()) return `0 0 3px ${color}33, 0 0 6px ${color}15`;
+  return `0 0 5px ${color}aa, 0 0 10px ${color}55`;
 }
 function applyColor(el,color) {
   activeColored.push({el,origColor:el.style.color,origTextShadow:el.style.textShadow});
@@ -314,14 +357,14 @@ function startLinesFromWH(whEl, filterIds, durationMs, animateColors, dimTargets
   const colorTargets=animateColors ? pairs : null;
   animateLines(buildSegments(sb,WH_COLOR,pairs), gen, durationMs, colorTargets, dimTargets, whEl, WH_COLOR);
 }
-function startLinesFromFilter(filterEl, whKeys, durationMs, animateColors, dimTargets) {
+function startLinesFromFilter(filterEl, whKeys, durationMs, animateColors, dimTargets, onDone) {
   lineGeneration++;
   const gen=lineGeneration;
   const fid=filterEl.dataset.filterId;
   const fb=getTextBounds(filterEl);
   const pairs=whKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
   const colorTargets=animateColors ? pairs : null;
-  animateLines(buildSegmentsReverse(fb,filterColor(fid),pairs), gen, durationMs, colorTargets, dimTargets, filterEl, filterColor(fid));
+  animateLines(buildSegmentsReverse(fb,filterColor(fid),pairs), gen, durationMs, colorTargets, dimTargets, filterEl, filterColor(fid), onDone);
 }
 function stopLines() {
   lineGeneration++;
@@ -333,6 +376,8 @@ function resetAll(keepTooltip) {
   // Force-clear any leftover inline styles from animations
   allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
   lockedEl=null; lockedStack=[]; lockedWHKeys=null; lockedSharedFilters=new Set();
+  tableWrap.classList.remove('filter-locked');
+  lockAnimating=false;
 }
 
 let lockedSharedFilters = new Set();
@@ -409,7 +454,7 @@ function restoreLockedState() {
   allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
   // Soft-dim shared filters (only when a filter is locked, not a wormhole)
   const hasFilterLock=lockedStack.some(el=>el.hasAttribute('data-filter-id'));
-  if(hasFilterLock) lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.35'; });
+  if(hasFilterLock) lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.5'; });
 }
 
 // First lock (single element, animated)
@@ -444,11 +489,13 @@ function activateLock(el) {
     if(el.hasAttribute('data-wh')){
       startLinesFromWH(el,WH_DATA[el.dataset.wh],CLICK_LINE_DRAW_MS,true,dimEls);
     } else {
-      startLinesFromFilter(el,REVERSE[el.dataset.filterId],CLICK_LINE_DRAW_MS,true,dimEls);
+      lockAnimating=true;
+      startLinesFromFilter(el,REVERSE[el.dataset.filterId],CLICK_LINE_DRAW_MS,true,dimEls,()=>{ lockAnimating=false; });
     }
     // Soft-dim shared filters after animation starts (only for filter locks)
     if(el.hasAttribute('data-filter-id')){
-      setTimeout(()=>{ lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.35'; }); },0);
+      tableWrap.classList.add('filter-locked');
+      setTimeout(()=>{ lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.5'; }); },0);
     }
   } else {
     // Additional lock — stack on top, narrow intersection
@@ -466,7 +513,47 @@ function wireInteractions() {
     whEl.addEventListener('mouseenter', e=>{
       lightHeader(whEl);
       showTooltip(key,e);
-      if(lockedStack.length) return;
+      if(lockedStack.length) {
+        const hasFilterLock=lockedStack.every(el=>el.hasAttribute('data-filter-id'));
+        if(!hasFilterLock || !WH_DATA[key]) return;
+        // Show hovered wormhole's connections ON TOP of locked state
+        clearHoverColors(); clearDim();
+        // Rebuild visible set: locked elements + locked WHs + shared filters + hovered WH + hovered WH's filters
+        const visibleEls=new Set();
+        lockedStack.forEach(el=>visibleEls.add(el));
+        lockedWHKeys.forEach(k=>{ if(whMap[k]) visibleEls.add(whMap[k]); });
+        lockedSharedFilters.forEach(fel=>visibleEls.add(fel));
+        visibleEls.add(whEl);
+        const whFids=WH_DATA[key];
+        whFids.forEach(fid=>{ if(filterMap[fid]) visibleEls.add(filterMap[fid]); });
+        // Dim everything not visible
+        allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
+        // Soft-dim shared filters (except those connected to hovered WH)
+        const whFidSet=new Set(whFids);
+        lockedSharedFilters.forEach(fel=>{
+          if(!whFidSet.has(fel.dataset.filterId)) fel.style.opacity='0.5';
+        });
+        // Color locked elements
+        lockedStack.forEach(el=>{
+          if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
+        });
+        lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
+        // Color hovered wormhole + its filters
+        applyColor(whEl,WH_COLOR);
+        whFids.forEach(fid=>{ const el=filterMap[fid]; if(el) applyColor(el,filterColor(fid)); });
+        // Draw both sets of lines
+        lineGeneration++;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        // Locked filter lines
+        lockedStack.forEach(el=>{
+          buildSegsForElement(el,lockedWHKeys).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+        });
+        // Hovered wormhole lines
+        const sb=getTextBounds(whEl);
+        const pairs=whFids.map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
+        buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+        return;
+      }
       clearHoverColors(); stopLines();
       if(WH_DATA[key]){
         startLinesFromWH(whEl,WH_DATA[key],HOVER_LINE_DRAW_MS,true);
@@ -475,12 +562,24 @@ function wireInteractions() {
     whEl.addEventListener('mousemove', e=>{ if(tooltipKey===key) positionTooltip(e); });
     whEl.addEventListener('mouseleave', ()=>{
       darkHeader();
-      if(!lockedStack.length){ clearHoverColors(); stopLines(); }
+      if(lockedStack.length) {
+        const hasFilterLock=lockedStack.every(el=>el.hasAttribute('data-filter-id'));
+        if(hasFilterLock) {
+          clearHoverColors(); clearDim(); stopLines();
+          allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
+          restoreLockedState();
+        }
+      } else {
+        clearHoverColors(); stopLines();
+      }
       hideTooltip();
     });
     whEl.addEventListener('click', e=>{
       e.preventDefault(); e.stopPropagation();
       if(!WH_DATA[key]) return;
+      if(lockedStack.length && lockedStack.every(el=>el.hasAttribute('data-filter-id'))) {
+        resetAll(true);
+      }
       activateLock(whEl);
     });
   });
@@ -543,6 +642,9 @@ function wireInteractions() {
     filterEl.addEventListener('click', e=>{
       e.stopPropagation();
       if(!REVERSE[fid]) return;
+      if(lockedStack.length && lockedStack.some(el=>el.hasAttribute('data-wh'))) {
+        resetAll(true);
+      }
       activateLock(filterEl);
     });
   });
@@ -646,3 +748,4 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
 })();
 
 // ── Viewport-fit scaling removed — table keeps full size, page scrolls ────────
+
