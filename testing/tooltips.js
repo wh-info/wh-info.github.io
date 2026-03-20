@@ -13,7 +13,173 @@
 const TOOLTIP_CONTENT = {
 
   'A009': `
-    <p>This is a wormhole</p>
+    <p>&rarr; Rarely spawn in <span style="color:#e81e1e;">NullSec</span></p>
+  `,
+
+  'B274': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'B449': `
+    <p>&rarr; Is static in <span style="color:#f0a800;">Turnur</span> and <span style="color:#f0a800;">Tabbetzur</span> systems</p>
+  `,
+
+  'C008': `
+    <p>&rarr; Can be static in C13 systems</p>
+  `,
+
+  'C247': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'D382': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'D845': `
+    <p>&rarr; Can be static in shattered <span style="color:#4230cf;">C4</span> systems</p>
+  `,
+
+  'E004': `
+    <p>&rarr; Can be static in C13 systems</p>
+  `,
+
+  'E175': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: II</p>
+    <p>&rarr; Wandering: I</p>
+  `,
+
+  'G008': `
+    <p>&rarr; Can be static in C13 systems</p>
+  `,
+
+  'H296': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'H900': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: III</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'J377': `
+    <p>&rarr; Leads to <span style="color:#f0a800;">Turnur</span> system</p>
+  `,
+
+  'J492': `
+    <p>&rarr; Leads to <span style="color:#f0a800;">Tabbetzur</span> system</p>
+  `,
+
+  'K346': `
+    <p>&rarr; Can be static in shattered <span style="color:#4230cf;">C4</span>, <span style="color:#9c32ed;">C5</span> and <span style="color:#f230dc;">C6</span> systems</p>
+  `,
+
+  'L005': `
+    <p>&rarr; Can be static in C13 systems</p>
+  `,
+
+  'M001': `
+    <p>&rarr; Can be static in C13 systems</p>
+  `,
+
+  'N062': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: III</p>
+    <p>&rarr; Wandering: ??</p>
+  `,
+
+  'N944': `
+    <p>&rarr; Is static in <span style="color:#f0a800;">Turnur</span> and <span style="color:#f0a800;">Tabbetzur</span> systems</p>
+  `,
+
+  'O477': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: II</p>
+    <p>&rarr; Wandering: I</p>
+  `,
+
+  'Q003': `
+    <p>&rarr; Can be static in C13 systems</p>
+  `,
+
+  'R474': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: III</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'S199': `
+    <p>&rarr; Is static in <span style="color:#f0a800;">Turnur</span> and <span style="color:#f0a800;">Tabbetzur</span> systems</p>
+  `,
+
+  'U210': `
+    <p>Can be static in shattered <span style="color:#4230cf;">C4</span> and <span style="color:#9c32ed;">C5</span> systems</p>
+  `,
+
+  'U574': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: III</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'V753': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'V911': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'W237': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'X877': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'Y683': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: II</p>
+    <p>&rarr; Wandering: I</p>
+  `,
+
+  'Z006': `
+    <p>&rarr; Can be static in C13 systems</p>
+  `,
+
+  'Z457': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: II</p>
+    <p>&rarr; Wandering: I</p>
+  `,
+
+  'Z647': `
+    <p>Sig level difference:</p>
+    <p>&rarr; Static: I</p>
+    <p>&rarr; Wandering: II</p>
+  `,
+
+  'K162': `
+    <p>&rarr; Generic type designating an exit</p>
   `,
 
   'spawn-c1': `

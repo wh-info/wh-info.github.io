@@ -1,5 +1,5 @@
 // =============================================================================
-// app.js — Core wormhole table engine
+// sites-app.js — Core table engine for safe-explo page
 // =============================================================================
 
 // ╔═══════════════════════════════════════════════════════════════════════════╗
@@ -13,22 +13,23 @@ const CLICK_LINE_DRAW_MS  = 300;  // line draw speed on click
 const COLOR_FADE_START    = 0.95; // 0 = highlight with line from start, 0.95 = highlight in last 5%
 
 const FILTER_COLORS = {
-  'spawn-c1':        '#42ffec', 'spawn-c2':        '#42b3ff',
-  'spawn-c3':        '#4265ff', 'spawn-c4':        '#4230cf',
-  'spawn-c5':        '#9c32ed', 'spawn-c6':        '#f230dc',
-  'spawn-hs':        '#0dfa05', 'spawn-ls':        '#f0a800',
-  'spawn-ns':        '#e81e1e', 'spawn-thera':     '#f6fc32',
-  'spawn-shattered': '#ededed', 'spawn-pochven':   '#e81e1e',
-  'spawn-drone':     '#e81e1e',
-  'leads-c1':        '#42ffec', 'leads-c2':        '#42b3ff',
-  'leads-c3':        '#4265ff', 'leads-c4':        '#4230cf',
-  'leads-c5':        '#9c32ed', 'leads-c6':        '#f230dc',
-  'leads-hs':        '#0dfa05', 'leads-ls':        '#f0a800',
-  'leads-ns':        '#e81e1e', 'leads-thera':     '#f6fc32',
-  'leads-c13':       '#ededed', 'leads-pochven':   '#e81e1e',
-  'jump-destroyer':  '#1f5eeb', 'jump-bc':         '#36cccc',
-  'jump-bs':         '#d6d9cc', 'jump-freighter':  '#f0a800',
-  'jump-capital':    '#f0a800',
+  'safe-yes':       '#0dfa05',
+  'safe-no':        '#e81e1e',
+  'mod-relic':      '#1f5eeb',
+  'mod-data':       '#36cccc',
+  'mod-gas':        '#f0a800',
+  'appear-c1':      '#42ffec',
+  'appear-c2':      '#42b3ff',
+  'appear-c3':      '#4265ff',
+  'appear-c4':      '#4230cf',
+  'appear-c5':      '#9c32ed',
+  'appear-c6':      '#f230dc',
+  'appear-c13':     '#ededed',
+  'appear-shattered':'#ededed',
+  'appear-hs':      '#0dfa05',
+  'appear-ls':      '#f0a800',
+  'appear-ns':      '#e81e1e',
+  'appear-drone':   '#e81e1e',
 };
 let WH_COLOR = '#e8d44d';
 let monoMode = false;
@@ -36,49 +37,28 @@ let themeAccent = '#00c8c8';
 let attrFallback = '#00c8c8';
 const filterColor = fid => monoMode ? themeAccent : (FILTER_COLORS[fid] || attrFallback);
 
-const SPAWN_MAP = {
-  'Class 1':'spawn-c1','Class 2':'spawn-c2','Class 3':'spawn-c3',
-  'Class 4':'spawn-c4','Class 5':'spawn-c5','Class 6':'spawn-c6',
-  'HighSec':'spawn-hs','LowSec':'spawn-ls','NullSec':'spawn-ns',
-  'Class 12 - Thera':'spawn-thera','Class 13 - Shattered':'spawn-shattered',
-  'Pochven ▲ Trig space':'spawn-pochven','Drone Regions':'spawn-drone',
-  'Drifter wormholes':'spawn-drifter','Jove Observatories':'spawn-jove',
-  'never spawn':'spawn-never',
-  'EXIT':'spawn-exit',
+const SAFE_MAP    = { 'SAFE':'safe-yes', 'NOT SAFE':'safe-no' };
+const MODULE_MAP  = { 'Relic Analyser':'mod-relic', 'Data Analyser':'mod-data', 'Gas Scoop / Harvester':'mod-gas' };
+const TYPE_MAP    = { 'Relic':'type-relic', 'Data':'type-data', 'Drone':'type-drone', 'Ghost':'type-ghost', 'Gas':'type-gas' };
+const APPEAR_MAP  = {
+  'C1':'appear-c1','C2':'appear-c2','C3':'appear-c3','C4':'appear-c4',
+  'C5':'appear-c5','C6':'appear-c6','C13':'appear-c13','Shattered':'appear-shattered',
+  'HS':'appear-hs','LS':'appear-ls','NS':'appear-ns','Drone Regions':'appear-drone',
 };
-const LEADS_MAP = {
-  'C1':'leads-c1','C2':'leads-c2','C3':'leads-c3','C4':'leads-c4',
-  'C5':'leads-c5','C6':'leads-c6','HS':'leads-hs','LS':'leads-ls',
-  'NS':'leads-ns','Thera':'leads-thera','C13':'leads-c13','Pochven':'leads-pochven',
-  'Sentinel MZ':'leads-sentinel','Liberated Barbican':'leads-barbican',
-  'Sanctified Vidette':'leads-vidette','Conflux Eyrie':'leads-eyrie',
-  'Azdaja Redoubt':'leads-redoubt',
-  'drifter blackhole':'leads-drifter','jump to identify':'leads-jump',
+const GAS_MAP     = {
+  'C50':'gas-c50','C60':'gas-c60','C70':'gas-c70','C72':'gas-c72',
+  'C84':'gas-c84','C28':'gas-c28','C32':'gas-c32','C320':'gas-c320','C540':'gas-c540',
 };
-const JUMP_MAP = {
-  'up to Destroyer':'jump-destroyer','up to Battlecruiser':'jump-bc',
-  'up to Battleship':'jump-bs','up to Freighter':'jump-freighter','up to Capital':'jump-capital',
-};
-const MASS_MAP = {
-  '100 000 000 kg':'mass-100m','500 000 000 kg':'mass-500m','750 000 000 kg':'mass-750m',
-  '1 000 000 000 kg':'mass-1b','2 000 000 000 kg':'mass-2b','3 000 000 000 kg':'mass-3b',
-  '3 300 000 000 kg':'mass-3b3','5 000 000 000 kg':'mass-5b',
-};
-const LIFE_MAP    = { '4.5h':'life-4h5','12h':'life-12h','16h':'life-16h','24h':'life-24h','48h':'life-48h' };
-const SIG_MAP     = { 'I':'sig-I','II':'sig-II','III':'sig-III' };
-const RESPAWN_MAP = { 'Static':'respawn-static','Wandering':'respawn-wandering','Reverse':'respawn-reverse' };
 
 function entryToFilterIds(entry) {
   const ids = [];
   const add    = (map, v)   => { if (v && map[v]) ids.push(map[v]); };
   const addArr = (map, arr) => { if (arr) arr.forEach(v => { if (map[v]) ids.push(map[v]); }); };
-  addArr(RESPAWN_MAP, entry.respawn);
-  addArr(SPAWN_MAP, entry.spawn_in);
-  addArr(LEADS_MAP, entry.leads_to);
-  add(JUMP_MAP, entry.ship_size);
-  add(MASS_MAP, entry.total_mass);
-  add(LIFE_MAP, entry.life_time);
-  addArr(SIG_MAP, entry.sig_level);
+  addArr(SAFE_MAP, entry.safe);
+  addArr(MODULE_MAP, entry.module);
+  addArr(TYPE_MAP, entry.type);
+  addArr(APPEAR_MAP, entry.appear_in);
+  addArr(GAS_MAP, entry.gas);
   return ids;
 }
 
@@ -113,16 +93,12 @@ const allContentEls = [
   ...document.querySelectorAll('.filter-btn:not(.invis)'),
 ];
 
-const colHeaderMap = {
-  'c-list':  document.querySelector('.header-row .c-list'),
-  'c-respawn':  document.querySelector('.header-row .c-respawn'),
-  'c-spawn': document.querySelector('.header-row .c-spawn'),
-  'c-leads': document.querySelector('.header-row .c-leads'),
-  'c-jump':  document.querySelector('.header-row .c-jump'),
-  'c-mass':  document.querySelector('.header-row .c-mass'),
-  'c-life':  document.querySelector('.header-row .c-life'),
-  'c-sig':   document.querySelector('.header-row .c-sig'),
-};
+const colHeaderMap = {};
+document.querySelectorAll('.header-row .cell').forEach(cell => {
+  cell.classList.forEach(cls => {
+    if(cls.startsWith('c-')) colHeaderMap[cls] = cell;
+  });
+});
 function getColClass(el) {
   for (const cls of Object.keys(colHeaderMap)) { if (el.closest('.'+cls)) return cls; }
   return null;
@@ -160,8 +136,8 @@ let WH_DATA       = {};
 let REVERSE       = {};
 let activeColored = [];
 let lockedEl      = null;
-let lockedStack   = [];   // array of locked filter elements (multi-lock)
-let lockedWHKeys  = null; // current intersection of wormhole keys across all locked filters
+let lockedStack   = [];
+let lockedWHKeys  = null;
 let lineGeneration = 0;
 let lockAnimating = false;
 
@@ -193,7 +169,6 @@ function showTooltip(key,e,directHtml) {
   if(!tooltipsEnabled) return;
   const html=directHtml||(typeof TOOLTIP_CONTENT!=='undefined'?TOOLTIP_CONTENT[key]:null);
   if(!html) return;
-  // If a tooltip is currently visible, fade it out first then show new one
   if(tooltipKey && tooltip.style.opacity!=='0') {
     tooltip.style.opacity='0';
     const vid=tooltip.querySelector('video'); if(vid) vid.pause();
@@ -272,7 +247,6 @@ function lerpColor(targetHex, t) {
 
 function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourceEl, sourceColor, onDone) {
   if(!segments.length && !(colorTargets && colorTargets.length)) { if(onDone) onDone(); return; }
-  // Immediately highlight the source element (the one clicked)
   if(sourceEl && sourceColor) applyColor(sourceEl, sourceColor);
   if(durationMs<=0) {
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -282,7 +256,6 @@ function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourc
     if(onDone) onDone();
     return;
   }
-  // Random speed per segment: 0.6× to 1.4× of base duration
   const segDurations=segments.map(()=>durationMs*(0.6+Math.random()*0.8));
   const maxDuration=Math.max(...segDurations);
   if(colorTargets) colorTargets.forEach(({el})=>{
@@ -378,7 +351,6 @@ function stopLines() {
 function resetAll(keepTooltip) {
   stopLines(); clearHoverColors(); clearDim();
   if(!keepTooltip) hideTooltip();
-  // Force-clear any leftover inline styles from animations
   allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
   lockedEl=null; lockedStack=[]; lockedWHKeys=null; lockedSharedFilters=new Set();
   tableWrap.classList.remove('filter-locked');
@@ -387,7 +359,6 @@ function resetAll(keepTooltip) {
 
 let lockedSharedFilters = new Set();
 
-// Get wormhole keys connected to an element (wh or filter)
 function getConnectedWHKeys(el) {
   if(el.hasAttribute('data-wh')) {
     return WH_DATA[el.dataset.wh] ? [el.dataset.wh] : [];
@@ -397,7 +368,6 @@ function getConnectedWHKeys(el) {
   return [];
 }
 
-// Compute the current wormhole key intersection across all locked stack elements
 function computeStackWHKeys() {
   if(!lockedStack.length) return [];
   let keys=new Set(getConnectedWHKeys(lockedStack[0]));
@@ -408,7 +378,6 @@ function computeStackWHKeys() {
   return [...keys];
 }
 
-// Build segments from a single element to a set of wormhole keys
 function buildSegsForElement(el, whKeys) {
   const bounds=getTextBounds(el);
   if(el.hasAttribute('data-filter-id')) {
@@ -421,7 +390,6 @@ function buildSegsForElement(el, whKeys) {
   }
 }
 
-// Find filters that share wormholes with the current locked WH keys (excluding already-locked ones)
 function computeSharedFilters() {
   lockedSharedFilters=new Set();
   if(!lockedWHKeys||!lockedWHKeys.length) return;
@@ -434,42 +402,33 @@ function computeSharedFilters() {
   });
 }
 
-// Draw the full locked state: lines from all stack elements to current WH keys, colors, dimming
 function restoreLockedState() {
   if(!lockedStack.length) return;
   clearHoverColors(); clearDim();
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  // Draw lines from each locked element to the current WH intersection
   lockedStack.forEach(el=>{
     const segs=buildSegsForElement(el,lockedWHKeys);
     segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
   });
-  // Color locked elements
   lockedStack.forEach(el=>{
     if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
     else applyColor(el,WH_COLOR);
   });
-  // Color connected wormholes
   lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
-  // Dim: everything except locked elements, connected WHs, and shared filters
   const visibleEls=new Set();
   lockedStack.forEach(el=>visibleEls.add(el));
   lockedWHKeys.forEach(k=>{ if(whMap[k]) visibleEls.add(whMap[k]); });
   lockedSharedFilters.forEach(fel=>visibleEls.add(fel));
   allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
-  // Soft-dim shared filters (only when a filter is locked, not a wormhole)
   const hasFilterLock=lockedStack.some(el=>el.hasAttribute('data-filter-id'));
   if(hasFilterLock) lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.5'; });
 }
 
-// First lock (single element, animated)
 function activateLock(el) {
   if(lockedStack.includes(el)){
     if(lockedStack.length===1){
-      // Last element — full reset, keep tooltip
       resetAll(true); return;
     }
-    // Remove from stack, keep the rest
     lockedStack=lockedStack.filter(e=>e!==el);
     lockedWHKeys=computeStackWHKeys();
     computeSharedFilters();
@@ -477,13 +436,11 @@ function activateLock(el) {
     return;
   }
   if(!lockedStack.length){
-    // First lock — full reset, keep tooltip
     resetAll(true);
     lockedEl=el;
     lockedStack=[el];
     lockedWHKeys=getConnectedWHKeys(el);
     computeSharedFilters();
-    // Determine connected set for dimming
     const connected=new Set();
     connected.add(el);
     lockedWHKeys.forEach(k=>{ if(whMap[k]) connected.add(whMap[k]); });
@@ -497,17 +454,14 @@ function activateLock(el) {
       lockAnimating=true;
       startLinesFromFilter(el,REVERSE[el.dataset.filterId],CLICK_LINE_DRAW_MS,true,dimEls,()=>{ lockAnimating=false; });
     }
-    // Soft-dim shared filters after animation starts (only for filter locks)
     if(el.hasAttribute('data-filter-id')){
       tableWrap.classList.add('filter-locked');
       setTimeout(()=>{ lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.5'; }); },0);
     }
   } else {
-    // Additional lock — stack on top, narrow intersection
     lockedStack.push(el);
     lockedWHKeys=computeStackWHKeys();
     computeSharedFilters();
-    // Instant redraw with new narrowed state
     restoreLockedState();
   }
 }
@@ -521,9 +475,7 @@ function wireInteractions() {
       if(lockedStack.length) {
         const hasFilterLock=lockedStack.every(el=>el.hasAttribute('data-filter-id'));
         if(!hasFilterLock || !WH_DATA[key]) return;
-        // Show hovered wormhole's connections ON TOP of locked state
         clearHoverColors(); clearDim();
-        // Rebuild visible set: locked elements + locked WHs + shared filters + hovered WH + hovered WH's filters
         const visibleEls=new Set();
         lockedStack.forEach(el=>visibleEls.add(el));
         lockedWHKeys.forEach(k=>{ if(whMap[k]) visibleEls.add(whMap[k]); });
@@ -531,29 +483,22 @@ function wireInteractions() {
         visibleEls.add(whEl);
         const whFids=WH_DATA[key];
         whFids.forEach(fid=>{ if(filterMap[fid]) visibleEls.add(filterMap[fid]); });
-        // Dim everything not visible
         allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
-        // Soft-dim shared filters (except those connected to hovered WH)
         const whFidSet=new Set(whFids);
         lockedSharedFilters.forEach(fel=>{
           if(!whFidSet.has(fel.dataset.filterId)) fel.style.opacity='0.5';
         });
-        // Color locked elements
         lockedStack.forEach(el=>{
           if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
         });
         lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
-        // Color hovered wormhole + its filters
         applyColor(whEl,WH_COLOR);
         whFids.forEach(fid=>{ const el=filterMap[fid]; if(el) applyColor(el,filterColor(fid)); });
-        // Draw both sets of lines
         lineGeneration++;
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        // Locked filter lines
         lockedStack.forEach(el=>{
           buildSegsForElement(el,lockedWHKeys).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
         });
-        // Hovered wormhole lines
         const sb=getTextBounds(whEl);
         const pairs=whFids.map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
         buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
@@ -595,31 +540,25 @@ function wireInteractions() {
       lightHeader(filterEl);
       showTooltip(fid,e);
       if(lockedStack.length) {
-        // If a wormhole is locked, don't interact with attributes on hover
         const hasWHLock=lockedStack.some(el=>el.hasAttribute('data-wh'));
         if(hasWHLock) return;
-        // Only allow hover on shared filters
         if(!lockedSharedFilters.has(filterEl)) return;
-        // Compute intersection: current locked WHs ∩ hovered filter's WHs
         const lockedSet=new Set(lockedWHKeys);
         const hoveredKeys=REVERSE[fid]||[];
         const sharedKeys=hoveredKeys.filter(k=>lockedSet.has(k));
         if(!sharedKeys.length) return;
         clearHoverColors();
         clearDim();
-        // Visible: shared wormholes + all locked stack elements + hovered filter
         const visibleEls=new Set(sharedKeys.map(k=>whMap[k]).filter(Boolean));
         lockedStack.forEach(el=>visibleEls.add(el));
         visibleEls.add(filterEl);
         allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
-        // Color everything visible
         sharedKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
         applyColor(filterEl,filterColor(fid));
         lockedStack.forEach(el=>{
           if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
           else applyColor(el,WH_COLOR);
         });
-        // Draw lines from all locked elements + hovered filter to shared WHs
         lineGeneration++;
         ctx.clearRect(0,0,canvas.width,canvas.height);
         lockedStack.forEach(el=>{
@@ -687,16 +626,7 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
 })();
 
 (function initHeaderTooltips(){
-  const headerTips = {
-    'c-list':    'Wormhole type can be found on the <em>Overview</em>.',
-    'c-respawn': 'Some wormholes are both static and wandering.',
-    'c-spawn':   'Same wormhole type can appear in multiple classes.',
-    'c-leads':   'Wormhole inner sphere reflects destination nebula/skybox.',
-    'c-jump':    'Wormhole outer color shows jump size limit.',
-    'c-mass':    'Total mass may vary &pm; 10%.',
-    'c-life':    'Lifetime may increase for several hours relative to situational spawn mechanics.',
-    'c-sig':     'Scanning difficulty level is revealed when your signal strength is &ge; 25%.',
-  };
+  const headerTips = {};
   document.querySelectorAll('.header-row .cell').forEach(cell=>{
     const cls=Object.keys(headerTips).find(c=>cell.classList.contains(c));
     if(!cls) return;
@@ -709,34 +639,13 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
 })();
 
 (function boot(){
-  if(typeof WH_ENTRIES==='undefined'){ console.warn('wormholes.js not loaded.'); wireInteractions(); return; }
-  WH_ENTRIES.forEach(entry=>{ WH_DATA[entry.wormhole]=entryToFilterIds(entry); });
+  if(typeof SITE_ENTRIES==='undefined'){ console.warn('sites.js not loaded.'); wireInteractions(); return; }
+  SITE_ENTRIES.forEach(entry=>{ WH_DATA[entry.wormhole]=entryToFilterIds(entry); });
   REVERSE={};
   Object.entries(WH_DATA).forEach(([k,fids])=>{
     fids.forEach(fid=>{ (REVERSE[fid]=REVERSE[fid]||[]).push(k); });
   });
   wireInteractions();
-
-  // ?type= or #type= deep link (case-insensitive, works locally and on server)
-  function tryDeepLink(){
-    const s = window.location.search || '';
-    const h = window.location.hash || '';
-    const full = window.location.href || '';
-    const match = s.match(/[?&]type=([^&#]+)/i)
-              || h.match(/[#&]type=([^&#]+)/i)
-              || full.match(/[?&#]type=([^&#]+)/i);
-    if(!match) return;
-    const typeParam = decodeURIComponent(match[1]).trim();
-    if(typeParam.toUpperCase() === 'GEAR') return;
-    const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
-    if(!key) return;
-    const el = whMap[key];
-    if(!el || !WH_DATA[key] || !WH_DATA[key].length) return;
-    activateLock(el);
-  }
-  // Try immediately and again after full load in case of delayed URL parsing
-  setTimeout(tryDeepLink, 50);
-  window.addEventListener('load', ()=>{ if(!lockedStack.length) tryDeepLink(); });
 })();
 
 // ── Preload tooltip videos ───────────────────────────────────────────────────
@@ -752,6 +661,3 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
     v.preload='auto'; v.muted=true; v.src=src;
   });
 })();
-
-// ── Viewport-fit scaling removed — table keeps full size, page scrolls ────────
-

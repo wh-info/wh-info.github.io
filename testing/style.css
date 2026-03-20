@@ -155,7 +155,7 @@ body {
   font-family: 'Roboto Mono', 'Courier New', monospace;
   font-size: 22px;
   font-weight: 400;
-  letter-spacing: .04em;
+  letter-spacing: .02em;
   text-align: center;
   white-space: nowrap;
   transition: color .18s;
@@ -255,6 +255,10 @@ body {
   opacity: 0.08 !important;
   pointer-events: none;
 }
+.filter-locked .wh-row a,
+.filter-locked .filter-btn {
+  transition: color .18s, opacity 30ms;
+}
 .filter-locked .wh-row a.dimmed,
 .filter-locked .wh-row [data-wh].dimmed {
   pointer-events: auto;
@@ -289,7 +293,7 @@ body {
   margin: 0 auto 8px;
   border: 1px dotted var(--border);
 }
-#wh-tooltip video.vid-xs, #wh-tooltip img.vid-xs { width: 120px; }
+#wh-tooltip video.vid-xs, #wh-tooltip img.vid-xs { width: 135px; }
 #wh-tooltip video.vid-sm, #wh-tooltip img.vid-sm { width: 160px; }
 #wh-tooltip video.vid-md, #wh-tooltip img.vid-md { width: 240px; }
 #wh-tooltip video.vid-lg, #wh-tooltip img.vid-lg { width: 300px; }
@@ -460,6 +464,137 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   NAV BUTTON (top-left page switcher)
+   ═══════════════════════════════════════════════════════════════════════════ */
+#nav-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-hover);
+  font-size: 13px;
+  padding: 4px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color .3s, border-color .3s;
+  user-select: none;
+  text-decoration: none;
+}
+#nav-btn strong {
+  font-weight: 900;
+  background: color-mix(in srgb, currentColor 15%, transparent);
+  padding: 1px 4px;
+  margin-right: 3px;
+  border-radius: 2px;
+}
+#nav-btn:hover { border-color: var(--text); }
+.table-hovered ~ #nav-btn { color: var(--text); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LOADING SCREEN
+   ═══════════════════════════════════════════════════════════════════════════ */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity .4s ease;
+}
+#loading-screen.done { opacity: 0; pointer-events: none; }
+#loading-screen svg {
+  position: absolute;
+  height: 40px;
+  width: auto;
+  fill: var(--loading-color, #00c8c8);
+  z-index: 2;
+  animation: cheetah-run 1.16s linear forwards;
+}
+#loading-trail {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 1px;
+  background: color-mix(in srgb, var(--loading-color, #00c8c8) 60%, black);
+  background-size: 100vw 1px;
+  -webkit-mask-image: repeating-linear-gradient(to right, black 0px, black 4px, transparent 4px, transparent 8px);
+  mask-image: repeating-linear-gradient(to right, black 0px, black 4px, transparent 4px, transparent 8px);
+  transform: translateY(-50%);
+  width: 0;
+  animation: trail-grow 2s linear forwards;
+}
+@keyframes cheetah-run {
+  0%    { left: -200px; }
+  17%   { left: 0px; }
+  86%   { left: 50vw; }
+  100%  { left: calc(100vw + 200px); }
+}
+@keyframes trail-grow {
+  0%   { width: 0; }
+  10%  { width: 0; }
+  50%  { width: calc(50vw - 60px); }
+  58%  { width: 100vw; }
+  100% { width: 100vw; }
+}
+.page-loading #tableWrap,
+.page-loading #lineCanvas,
+.page-loading #wh-tooltip,
+.page-loading #nav-btn,
+.page-loading #eve-clock,
+.page-loading #settings-btn,
+.page-loading #info-btn,
+.page-loading #settings-panel,
+.page-loading #settings-overlay,
+.page-loading #info-menu,
+.page-loading #info-panel,
+.page-loading #info-overlay,
+.page-loading #modal-overlay,
+.page-loading .content-modal {
+  opacity: 0 !important;
+}
+
+/* Page fade transition — persistent: eve-clock, settings-btn, info-btn */
+.page-entering #tableWrap,
+.page-entering #lineCanvas,
+.page-entering #wh-tooltip,
+.page-entering #nav-btn,
+.page-entering #settings-panel,
+.page-entering #settings-overlay,
+.page-entering #info-menu,
+.page-entering #info-panel,
+.page-entering #info-overlay,
+.page-entering #modal-overlay,
+.page-entering .content-modal {
+  opacity: 0 !important;
+}
+#tableWrap, #lineCanvas, #wh-tooltip, #nav-btn,
+#settings-panel, #settings-overlay, #info-menu, #info-panel,
+#info-overlay, #modal-overlay, .content-modal {
+  transition: opacity .3s ease;
+}
+body.fade-out #tableWrap,
+body.fade-out #lineCanvas,
+body.fade-out #wh-tooltip,
+body.fade-out #nav-btn,
+body.fade-out #settings-panel,
+body.fade-out #settings-overlay,
+body.fade-out #info-menu,
+body.fade-out #info-panel,
+body.fade-out #info-overlay,
+body.fade-out #modal-overlay,
+body.fade-out .content-modal {
+  opacity: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    INFO PANEL
    ═══════════════════════════════════════════════════════════════════════════ */
 #info-btn {
@@ -473,7 +608,7 @@ body {
   border-radius: 4px;
   background: var(--bg);
   color: var(--text-hover);
-  font-size: 18px;
+  font-size: 22px;
   cursor: default;
   display: flex;
   align-items: center;
@@ -584,7 +719,7 @@ body {
   border-radius: 4px;
   background: var(--bg);
   color: var(--text-hover);
-  font-size: 18px;
+  font-size: 22px;
   cursor: default;
   display: flex;
   align-items: center;
@@ -813,46 +948,11 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   MENU PANEL
+   INFO MENU
    ═══════════════════════════════════════════════════════════════════════════ */
-#menu-btn {
+#info-menu {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 10000;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--bg);
-  color: var(--text-hover);
-  font-size: 18px;
-  cursor: default;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color .3s, border-color .3s;
-  user-select: none;
-}
-#menu-btn:hover { border-color: var(--text); }
-.table-hovered ~ #menu-btn { color: var(--text); }
-
-#menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0);
-  z-index: 10001;
-  pointer-events: none;
-  transition: background .3s;
-}
-#menu-overlay.open {
-  background: rgba(0,0,0,0.6);
-  pointer-events: auto;
-}
-
-#menu-panel {
-  position: fixed;
-  top: 66px;
+  bottom: 66px;
   left: 20px;
   z-index: 10002;
   width: 200px;
@@ -864,11 +964,11 @@ body {
   flex-direction: column;
   gap: 4px;
   opacity: 0;
-  transform: translateY(-10px) scale(0.97);
+  transform: translateY(10px) scale(0.97);
   pointer-events: none;
   transition: opacity .25s, transform .25s;
 }
-#menu-panel.open {
+#info-menu.open {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
@@ -888,6 +988,16 @@ body {
   transition: color .15s, border-color .15s;
 }
 .menu-item:hover { border-color: var(--text); }
+.menu-about {
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  text-align: center;
+}
+.menu-sep {
+  border: none;
+  border-top: 1px dotted var(--text);
+  margin: 2px 0;
+}
+.bw-light #info-menu { background: #f5f5f5; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    CONTENT MODALS (Investigations, Terminology, K162 Spawn)
@@ -1029,4 +1139,3 @@ body {
 }
 
 .bw-light .content-modal { background: #f5f5f5; }
-.bw-light #menu-panel { background: #f5f5f5; }

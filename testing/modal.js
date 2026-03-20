@@ -16,16 +16,16 @@
   if(!btn||!panel||!overlay) return;
 
   const THEME_ACCENTS = {
-    'wormholer_btw': { accent:'#00c8c8', wh:'#e8d44d' },
-    'bw':            { accent:'#ffffff', wh:'#ffffff' },
-    'amarr':         { accent:'#e7b815', wh:'#e7b815' },
-    'minmatar':      { accent:'#fe3743', wh:'#fe3743' },
-    'gallente':      { accent:'#00c8a0', wh:'#e8d44d' },
-    'legacy':        { accent:'#287099', wh:'#e8d44d' },
-    'caldari':       { accent:'#00acd1', wh:'#00acd1' },
+    'wormholer_btw': { accent:'#00c8c8', wh:'#e8d44d', attr:'#00c8c8' },
+    'bw':            { accent:'#ffffff', wh:'#ffffff', attr:'#ffffff' },
+    'amarr':         { accent:'#e7b815', wh:'#e7b815', attr:'#e7b815' },
+    'minmatar':      { accent:'#fe3743', wh:'#fe3743', attr:'#fe3743' },
+    'gallente':      { accent:'#00c8a0', wh:'#e8d44d', attr:'#00c8a0' },
+    'legacy':        { accent:'#287099', wh:'#e8d44d', attr:'#6bb7d8' },
+    'caldari':       { accent:'#00acd1', wh:'#00acd1', attr:'#00acd1' },
   };
   // bw light mode uses inverted accents
-  const BW_LIGHT_ACCENTS = { accent:'#000000', wh:'#000000' };
+  const BW_LIGHT_ACCENTS = { accent:'#000000', wh:'#000000', attr:'#000000' };
 
   let currentTheme  = 'wormholer_btw';
   let fontOffset    = 0;
@@ -116,6 +116,7 @@
 
     const t = (name === 'bw' && bwLight) ? BW_LIGHT_ACCENTS : (THEME_ACCENTS[name] || THEME_ACCENTS['wormholer_btw']);
     themeAccent = t.accent;
+    attrFallback = t.attr || t.accent;
     WH_COLOR = monoMode ? t.accent : t.wh;
 
     document.querySelectorAll('.theme-opt').forEach(b=>{
@@ -286,66 +287,70 @@
   });
 
   // ═════════════════════════════════════════════════════════════════════════
-  // INFO PANEL
+  // INFO MENU + INFO PANEL + CONTENT MODALS
   // ═════════════════════════════════════════════════════════════════════════
   const infoBtn     = document.getElementById('info-btn');
+  const infoMenu    = document.getElementById('info-menu');
   const infoPanel   = document.getElementById('info-panel');
   const infoOverlay = document.getElementById('info-overlay');
-  if(infoBtn && infoPanel && infoOverlay){
-    infoBtn.addEventListener('click', ()=>{
-      const open = infoPanel.classList.toggle('open');
-      infoOverlay.classList.toggle('open', open);
-    });
-    infoOverlay.addEventListener('click', ()=>{
-      infoPanel.classList.remove('open');
-      infoOverlay.classList.remove('open');
-    });
-  }
-
-  // ═════════════════════════════════════════════════════════════════════════
-  // MENU PANEL + CONTENT MODALS
-  // ═════════════════════════════════════════════════════════════════════════
-  const menuBtn     = document.getElementById('menu-btn');
-  const menuPanel   = document.getElementById('menu-panel');
-  const menuOverlay = document.getElementById('menu-overlay');
   const modalOverlay= document.getElementById('modal-overlay');
   const contentModals = document.querySelectorAll('.content-modal');
 
-  function closeMenu(){
-    if(menuPanel) menuPanel.classList.remove('open');
-    if(menuOverlay) menuOverlay.classList.remove('open');
+  function closeInfoMenu(){
+    if(infoMenu) infoMenu.classList.remove('open');
+  }
+  function closeInfoPanel(){
+    if(infoPanel) infoPanel.classList.remove('open');
+    if(infoOverlay) infoOverlay.classList.remove('open');
   }
   function closeAllModals(){
     contentModals.forEach(m=>m.classList.remove('open'));
     if(modalOverlay) modalOverlay.classList.remove('open');
   }
 
-  if(menuBtn && menuPanel && menuOverlay){
-    menuBtn.addEventListener('click', ()=>{
-      const open = menuPanel.classList.toggle('open');
-      menuOverlay.classList.toggle('open', open);
-    });
-    menuOverlay.addEventListener('click', ()=>{
-      closeMenu();
+  if(infoBtn && infoMenu){
+    infoBtn.addEventListener('click', ()=>{
+      infoMenu.classList.toggle('open');
     });
   }
 
-  document.querySelectorAll('.menu-item').forEach(item=>{
+  document.querySelectorAll('#info-menu .menu-item').forEach(item=>{
     item.addEventListener('click', ()=>{
-      closeMenu();
-      const modalId = 'modal-' + item.dataset.modal;
-      const modal = document.getElementById(modalId);
-      if(modal && modalOverlay){
-        closeAllModals();
-        modal.classList.add('open');
-        modalOverlay.classList.add('open');
+      closeInfoMenu();
+      const target = item.dataset.modal;
+      if(target === 'about'){
+        if(infoPanel && infoOverlay){
+          const open = infoPanel.classList.toggle('open');
+          infoOverlay.classList.toggle('open', open);
+        }
+      } else {
+        const modalId = 'modal-' + target;
+        const modal = document.getElementById(modalId);
+        if(modal && modalOverlay){
+          closeAllModals();
+          modal.classList.add('open');
+          modalOverlay.classList.add('open');
+        }
       }
     });
   });
 
+  if(infoOverlay){
+    infoOverlay.addEventListener('click', ()=>{
+      closeInfoPanel();
+    });
+  }
   if(modalOverlay){
     modalOverlay.addEventListener('click', ()=>{
       closeAllModals();
     });
   }
+
+  // Close info menu when clicking outside
+  document.addEventListener('click', e=>{
+    if(infoMenu && infoMenu.classList.contains('open') &&
+       !infoMenu.contains(e.target) && e.target !== infoBtn){
+      closeInfoMenu();
+    }
+  });
 })();
