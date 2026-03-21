@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>404 — whtype.info</title>
+  <meta property="og:title" content="whtype.info">
+  <meta property="og:description" content="Identify your EVE wormholes connection by type, attributes and visual cues.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://whtype.info">
+  <meta property="og:image" content="https://whtype.info/img/og-image.jpg">
+  <meta name="description" content="Identify your EVE wormholes connection by type, attributes and visual cues.">
+  <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+  (function(){
+    var themeMap={
+      wormholer_btw:'',bw:'theme-bw',amarr:'theme-amarr',
+      minmatar:'theme-minmatar',gallente:'theme-gallente',
+      caldari:'theme-caldari',legacy:'theme-legacy'
+    };
+    var theme='wormholer_btw';
+    try{var st=JSON.parse(localStorage.getItem('whtype-settings'));if(st&&st.theme&&themeMap.hasOwnProperty(st.theme))theme=st.theme;}catch(e){}
+    if(themeMap[theme]) document.documentElement.classList.add(themeMap[theme]);
+    if(theme!=='bw'){
+      try{var st2=JSON.parse(localStorage.getItem('whtype-settings'));if(st2&&st2.bgBlack)document.documentElement.classList.add('bg-black');}catch(e){}
+    }
+  })();
+  </script>
+  <style>
+    .error-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      gap: 0;
+    }
+    .error-code {
+      font-family: 'Exo 2', 'Roboto Mono', monospace;
+      font-size: clamp(80px, 15vw, 180px);
+      font-weight: 700;
+      color: var(--text-hover);
+      letter-spacing: .08em;
+      line-height: 1;
+    }
+    .error-label {
+      font-family: 'Exo 2', 'Roboto Mono', monospace;
+      font-size: clamp(18px, 3vw, 36px);
+      font-weight: 600;
+      color: var(--text-hover);
+      letter-spacing: .06em;
+      margin-top: -4px;
+    }
+    .error-msg {
+      font-size: clamp(20px, 3vw, 32px);
+      color: var(--text);
+      margin-top: 28px;
+      line-height: 1.6;
+      letter-spacing: .02em;
+    }
+    .error-nav {
+      margin-top: 36px;
+      display: inline-block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-hover);
+      font-family: 'Roboto Mono', 'Courier New', monospace;
+      font-size: 16px;
+      padding: 8px 18px;
+      text-decoration: none;
+      letter-spacing: .04em;
+      cursor: default;
+      transition: border-color .3s;
+    }
+    .error-nav strong {
+      font-weight: 900;
+      background: color-mix(in srgb, currentColor 15%, transparent);
+      padding: 1px 5px;
+      margin-right: 4px;
+      border-radius: 2px;
+    }
+    .error-nav:hover { border-color: var(--text); }
+  </style>
+</head>
+<body>
+
+<div id="eve-clock"></div>
+
+<div class="error-wrap">
+  <div class="error-code">404 ERROR</div>
+  <p class="error-msg">It seems that your mass is too large for this wormhole!</p>
+  <a class="error-nav" href="https://whtype.info"><strong>wh</strong>type</a>
+</div>
+
+<script>
+(function(){
+  var clockEl=document.getElementById('eve-clock');
+  if(!clockEl) return;
+  clockEl.innerHTML='<span class="clock-time"></span><span class="clock-date"></span>';
+  function tick(){
+    var now=new Date();
+    var h=String(now.getUTCHours()).padStart(2,'0');
+    var m=String(now.getUTCMinutes()).padStart(2,'0');
+    var s=String(now.getUTCSeconds()).padStart(2,'0');
+    var mo=String(now.getUTCMonth()+1).padStart(2,'0');
+    var d=String(now.getUTCDate()).padStart(2,'0');
+    var yc=now.getUTCFullYear()-1898;
+    clockEl.querySelector('.clock-time').textContent=h+':'+m+':'+s;
+    clockEl.querySelector('.clock-date').textContent=mo+'/'+d+'/'+yc+' YC';
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+
+</body>
+</html>
