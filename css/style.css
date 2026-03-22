@@ -903,6 +903,13 @@ body.fade-out #update-overlay {
   opacity: 1;
   transform: translate(-50%, -50%);
   pointer-events: auto;
+  cursor: default;
+}
+.wrong-hole-type {
+  font-size: clamp(16px, 3vw, 32px);
+  font-weight: 400;
+  opacity: 0.6;
+  margin-top: 8px;
 }
 
 .info-cheetah {

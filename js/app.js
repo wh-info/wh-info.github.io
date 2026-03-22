@@ -775,21 +775,29 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
   wireInteractions();
 
   // ?type= or #type= deep link (case-insensitive, works locally and on server)
-  function showWrongHole(){
+  function showWrongHole(invalidType){
     const overlay = document.getElementById('update-overlay');
     let panel = document.getElementById('wrong-hole');
     if(!panel){
       panel = document.createElement('div');
       panel.id = 'wrong-hole';
-      panel.textContent = 'Wrong hole!';
       document.body.appendChild(panel);
+    }
+    panel.innerHTML = 'Wrong hole!';
+    if(invalidType){
+      const sub = document.createElement('div');
+      sub.className = 'wrong-hole-type';
+      sub.textContent = '#type=' + invalidType;
+      panel.appendChild(sub);
+    }
+    function closeWrongHole(){
+      panel.classList.remove('open');
+      if(overlay) overlay.classList.remove('open');
     }
     if(overlay) overlay.classList.add('open');
     requestAnimationFrame(()=> panel.classList.add('open'));
-    if(overlay) overlay.addEventListener('click', ()=>{
-      panel.classList.remove('open');
-      overlay.classList.remove('open');
-    }, {once:true});
+    if(overlay) overlay.addEventListener('click', closeWrongHole, {once:true});
+    panel.addEventListener('click', closeWrongHole, {once:true});
   }
 
   function tryDeepLink(){
@@ -804,7 +812,7 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
     if(typeParam.toUpperCase() === 'GEAR') return;
     const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
     if(!key || !whMap[key] || !WH_DATA[key] || !WH_DATA[key].length){
-      showWrongHole();
+      showWrongHole(typeParam);
       return;
     }
     activateLock(whMap[key]);
