@@ -18,15 +18,16 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="a62cdb4a-dd4c-4f23-b8a0-4cacebccfd32"></script>
   <script>
   (function(){
+    var themeBgs={wormholer_btw:'#0a0e10',bw:'#000000',amarr:'#0a0904',minmatar:'#0a0404',gallente:'#0a0e0c',caldari:'#040a0c',legacy:'#060a0e'};
+    var themeColors={wormholer_btw:'#00c8c8',bw:'#ffffff',amarr:'#e7b815',minmatar:'#fe3743',gallente:'#00c8a0',legacy:'#287099',caldari:'#00acd1'};
+    var color='#00c8c8';var bg='#0a0e10';
+    try{var st=JSON.parse(localStorage.getItem('whtype-settings'));if(st){if(st.theme&&themeColors[st.theme])color=themeColors[st.theme];if(st.bgBlack)bg='#000000';else if(st.theme&&themeBgs[st.theme])bg=themeBgs[st.theme];if(st.theme==='bw'&&!st.bgBlack&&st.bwLight)bg='#f0f0f0';}}catch(e){}
     if(sessionStorage.getItem('whtype-nav')){
       document.documentElement.classList.add('page-entering');
-      document.documentElement.style.setProperty('--loading-display','none');
+      document.documentElement.style.setProperty('--loading-bg',bg);
     } else {
       document.documentElement.classList.add('page-loading');
     }
-    var themeColors={wormholer_btw:'#00c8c8',bw:'#ffffff',amarr:'#e7b815',minmatar:'#fe3743',gallente:'#00c8a0',legacy:'#287099',caldari:'#00acd1'};
-    var color='#00c8c8';
-    try{var st=JSON.parse(localStorage.getItem('whtype-settings'));if(st&&st.theme&&themeColors[st.theme])color=themeColors[st.theme];}catch(e){}
     document.documentElement.style.setProperty('--loading-color',color);
   })();
   </script>
@@ -430,11 +431,14 @@
   if(navDir){
     sessionStorage.removeItem('whtype-nav');
     var ls=document.getElementById('loading-screen');
-    if(ls) ls.style.display='none';
     document.documentElement.classList.remove('page-loading');
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
-        document.documentElement.classList.remove('page-entering');
+        if(ls) ls.classList.add('done');
+        setTimeout(function(){
+          if(ls) ls.style.display='none';
+          document.documentElement.classList.remove('page-entering');
+        }, 300);
       });
     });
   } else {

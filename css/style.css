@@ -593,7 +593,6 @@ body {
    LOADING SCREEN
    ═══════════════════════════════════════════════════════════════════════════ */
 #loading-screen {
-  display: var(--loading-display, block);
   position: fixed;
   inset: 0;
   z-index: 99999;
@@ -605,6 +604,13 @@ body {
   transition: opacity .4s ease;
 }
 #loading-screen.done { opacity: 0; pointer-events: none; }
+.page-entering #loading-screen {
+  background: var(--loading-bg, #0a0e10);
+  transition: opacity .3s ease;
+}
+.page-entering #loading-screen svg,
+.page-entering #loading-screen #loading-trail { display: none; }
+.page-entering #loading-screen.done { opacity: 0; pointer-events: none; }
 #loading-screen svg {
   position: absolute;
   height: 40px;
