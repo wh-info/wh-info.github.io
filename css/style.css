@@ -211,11 +211,12 @@ body {
   justify-content: center;
 }
 
-.wh-row a {
+.wh-row a, .wh-row [data-wh] {
   color: var(--text);
   text-decoration: none;
   font-size: 13px;
   letter-spacing: .04em;
+  cursor: pointer !important;
   width: fit-content;
   position: relative;
   z-index: 2;
@@ -249,7 +250,7 @@ body {
   font-family: inherit;
   font-size: 13px;
   letter-spacing: .04em;
-
+  cursor: pointer;
   padding: 2px 5px;
   display: inline-block;
   width: fit-content;
@@ -725,7 +726,7 @@ body.fade-out #update-overlay {
   background: var(--bg);
   color: var(--text-hover);
   font-size: 22px;
-
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -960,7 +961,7 @@ body.fade-out #update-overlay {
   background: var(--bg);
   color: var(--text-hover);
   font-size: 22px;
-
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
