@@ -391,18 +391,18 @@
 
     const updateSeen = localStorage.getItem('whtype-update-seen');
     if(!updateSeen){
-      // Wait for page-loading / page-entering classes to be removed
+      // Wait for page-loading class to be removed
       const observer = new MutationObserver(()=>{
         const cl = document.documentElement.classList;
-        if(!cl.contains('page-loading') && !cl.contains('page-entering')){
+        if(!cl.contains('page-loading')){
           observer.disconnect();
           setTimeout(openUpdate, 300);
         }
       });
       observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-      // Fallback if classes are already gone
+      // Fallback if class is already gone
       const cl = document.documentElement.classList;
-      if(!cl.contains('page-loading') && !cl.contains('page-entering')){
+      if(!cl.contains('page-loading')){
         observer.disconnect();
         setTimeout(openUpdate, 300);
       }

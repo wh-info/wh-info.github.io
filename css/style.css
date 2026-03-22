@@ -604,13 +604,6 @@ body {
   transition: opacity .4s ease;
 }
 #loading-screen.done { opacity: 0; pointer-events: none; }
-.page-entering #loading-screen {
-  background: var(--loading-bg, #0a0e10);
-  transition: opacity .3s ease;
-}
-.page-entering #loading-screen svg,
-.page-entering #loading-screen #loading-trail { display: none; animation: none !important; }
-.page-entering #loading-screen.done { opacity: 0; pointer-events: none; }
 #loading-screen svg {
   position: absolute;
   height: 40px;
@@ -689,22 +682,6 @@ body {
   opacity: 0 !important;
 }
 
-/* Page fade transition — persistent: eve-clock, settings-btn, info-btn */
-.page-entering #tableWrap,
-.page-entering #lineCanvas,
-.page-entering #wh-tooltip,
-.page-entering #nav-btn,
-.page-entering #settings-panel,
-.page-entering #settings-overlay,
-.page-entering #info-menu,
-.page-entering #info-panel,
-.page-entering #info-overlay,
-.page-entering #modal-overlay,
-.page-entering .content-modal,
-.page-entering #update-panel,
-.page-entering #update-overlay {
-  opacity: 0 !important;
-}
 #tableWrap, #lineCanvas, #wh-tooltip, #nav-btn,
 #settings-panel, #settings-overlay, #info-menu, #info-panel,
 #info-overlay, #modal-overlay, .content-modal,
