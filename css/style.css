@@ -609,7 +609,7 @@ body {
   transition: opacity .3s ease;
 }
 .page-entering #loading-screen svg,
-.page-entering #loading-screen #loading-trail { display: none; }
+.page-entering #loading-screen #loading-trail { display: none; animation: none !important; }
 .page-entering #loading-screen.done { opacity: 0; pointer-events: none; }
 #loading-screen svg {
   position: absolute;

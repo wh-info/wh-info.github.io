@@ -180,12 +180,6 @@
     const bSans = bf.includes('Helvetica');
     b.style.fontFamily = bf + (bSans ? ', sans-serif' : ", 'Courier New', monospace");
     b.addEventListener('click', ()=>{ applyFont(bf); saveSettings(); });
-    const fname = b.dataset.fontname;
-    if(fname){
-      b.addEventListener('mouseenter', e=>showTooltip('font-'+fname, e, fname));
-      b.addEventListener('mousemove', e=>{ if(tooltipKey==='font-'+fname) positionTooltip(e); });
-      b.addEventListener('mouseleave', ()=>hideTooltip());
-    }
   });
 
   // ── Monochromatic toggle ──────────────────────────────────────────────────
