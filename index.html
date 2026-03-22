@@ -20,6 +20,7 @@
   (function(){
     if(sessionStorage.getItem('whtype-nav')){
       document.documentElement.classList.add('page-entering');
+      document.documentElement.style.setProperty('--loading-display','none');
     } else {
       document.documentElement.classList.add('page-loading');
     }
