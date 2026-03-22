@@ -408,7 +408,7 @@ function setCopyMode(whKey) {
 }
 if(logoSub) logoSub.addEventListener('click', ()=>{
   if(!copyModeWH) return;
-  const url = 'whtype.info#type=' + copyModeWH;
+  const url = 'https://whtype.info#type=' + copyModeWH;
   navigator.clipboard.writeText(url).then(()=>{
     logoSub.textContent = 'COPIED!';
     copiedTimer = setTimeout(()=>{
