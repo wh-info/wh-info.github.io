@@ -596,7 +596,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: #000;
+  background: var(--loading-bg, #0a0e10);
   display: flex;
   align-items: center;
   overflow: hidden;
