@@ -398,7 +398,9 @@ body {
 .bw-light #wh-tooltip { background: var(--bg-glass); color: #000; }
 .bw-light #wh-tooltip h3 { color: #000; }
 .bw-light #settings-panel,
-.bw-light #info-panel { background: #f5f5f5; }
+.bw-light #info-panel,
+.bw-light #update-panel,
+.bw-light #wrong-hole { background: #f5f5f5; }
 .bw-light #info-panel { color: #444444; }
 .bw-light .wh-row a:hover { text-shadow: 0 0 3px color-mix(in srgb, var(--wh-hover) 20%, transparent), 0 0 6px color-mix(in srgb, var(--wh-hover) 8%, transparent); }
 
@@ -889,6 +891,10 @@ body.fade-out #update-overlay {
   left: 50%;
   transform: translate(-50%, -60%);
   z-index: 10004;
+  background: color-mix(in srgb, var(--header-bg) 66%, black);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 36px 50px;
   font-family: 'Roboto Mono', 'Courier New', monospace;
   font-size: clamp(40px, 7vw, 80px);
   font-weight: 900;

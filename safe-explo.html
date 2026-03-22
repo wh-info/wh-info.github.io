@@ -21,7 +21,7 @@
     var themeBgs={wormholer_btw:'#0a0e10',bw:'#000000',amarr:'#0a0904',minmatar:'#0a0404',gallente:'#0a0e0c',caldari:'#040a0c',legacy:'#060a0e'};
     var themeColors={wormholer_btw:'#00c8c8',bw:'#ffffff',amarr:'#e7b815',minmatar:'#fe3743',gallente:'#00c8a0',legacy:'#287099',caldari:'#00acd1'};
     var color='#00c8c8';var bg='#0a0e10';
-    try{var st=JSON.parse(localStorage.getItem('whtype-settings'));if(st){if(st.theme&&themeColors[st.theme])color=themeColors[st.theme];if(st.bgBlack)bg='#000000';else if(st.theme&&themeBgs[st.theme])bg=themeBgs[st.theme];if(st.theme==='bw'&&!st.bgBlack&&st.bwLight)bg='#f0f0f0';}}catch(e){}
+    try{var st=JSON.parse(localStorage.getItem('whtype-settings'));if(st){if(st.theme&&themeColors[st.theme])color=themeColors[st.theme];if(st.bgBlack)bg='#000000';else if(st.theme&&themeBgs[st.theme])bg=themeBgs[st.theme];if(st.theme==='bw'&&!st.bgBlack&&st.bwLight){bg='#f0f0f0';color='#000000';}}}catch(e){}
     document.documentElement.style.setProperty('--loading-bg',bg);
     document.documentElement.style.setProperty('--loading-color',color);
     document.documentElement.classList.add('page-loading');
