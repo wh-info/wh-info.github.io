@@ -658,12 +658,14 @@ body {
   58%  { width: 100vw; }
   100% { width: 100vw; }
 }
-#loading-screen.rtl svg {
+#loading-screen.rtl svg,
+.loading-rtl #loading-screen svg {
   left: auto;
   transform: scaleX(-1);
   animation: cheetah-run-rtl 1.16s linear forwards;
 }
-#loading-screen.rtl #loading-trail {
+#loading-screen.rtl #loading-trail,
+.loading-rtl #loading-screen #loading-trail {
   left: auto;
   right: 0;
   animation: trail-grow-rtl 2s linear forwards;

@@ -28,6 +28,7 @@
       document.documentElement.classList.add('page-entering');
     } else {
       document.documentElement.classList.add('page-loading');
+      if(Math.random()<0.5) document.documentElement.classList.add('loading-rtl');
     }
   })();
   </script>
@@ -399,7 +400,7 @@
   nav.addEventListener('click', function(e){
     e.preventDefault();
     var href=nav.getAttribute('href');
-    sessionStorage.setItem('whtype-nav','rtl');
+    sessionStorage.setItem('whtype-nav','1');
     // Update loading color to current theme
     var themeColors={wormholer_btw:'#00c8c8',bw:'#ffffff',amarr:'#e7b815',minmatar:'#fe3743',gallente:'#00c8a0',legacy:'#287099',caldari:'#00acd1'};
     var color='#00c8c8';
@@ -408,8 +409,8 @@
     var ls=document.getElementById('loading-screen');
     if(ls){
       ls.style.display='';
-      ls.classList.remove('done');
-      ls.classList.add('rtl');
+      ls.classList.remove('done','rtl');
+      if(Math.random()<0.5) ls.classList.add('rtl');
       ls.style.opacity='1';
       // Reset animations
       var svgEl=ls.querySelector('svg');
