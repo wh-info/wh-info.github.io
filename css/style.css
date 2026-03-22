@@ -683,6 +683,7 @@ body {
 }
 
 #tableWrap, #lineCanvas, #wh-tooltip, #nav-btn,
+#eve-clock, #settings-btn, #info-btn,
 #settings-panel, #settings-overlay, #info-menu, #info-panel,
 #info-overlay, #modal-overlay, .content-modal,
 #update-panel, #update-overlay {
@@ -692,6 +693,9 @@ body.fade-out #tableWrap,
 body.fade-out #lineCanvas,
 body.fade-out #wh-tooltip,
 body.fade-out #nav-btn,
+body.fade-out #eve-clock,
+body.fade-out #settings-btn,
+body.fade-out #info-btn,
 body.fade-out #settings-panel,
 body.fade-out #settings-overlay,
 body.fade-out #info-menu,
