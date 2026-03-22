@@ -890,7 +890,7 @@ body.fade-out #update-overlay {
   transform: translate(-50%, -60%);
   z-index: 10004;
   font-family: 'Roboto Mono', 'Courier New', monospace;
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(40px, 7vw, 80px);
   font-weight: 900;
   color: var(--text-hover);
   text-align: center;
@@ -906,10 +906,14 @@ body.fade-out #update-overlay {
   cursor: default;
 }
 .wrong-hole-type {
-  font-size: clamp(16px, 3vw, 32px);
+  font-size: clamp(14px, 2.5vw, 24px);
   font-weight: 400;
   opacity: 0.6;
   margin-top: 8px;
+}
+.wrong-hole-value {
+  text-decoration: underline dotted 1px;
+  text-underline-offset: 4px;
 }
 
 .info-cheetah {

@@ -783,19 +783,23 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
       panel.id = 'wrong-hole';
       document.body.appendChild(panel);
     }
+    panel.classList.remove('open');
     panel.innerHTML = 'Wrong hole!';
     if(invalidType){
       const sub = document.createElement('div');
       sub.className = 'wrong-hole-type';
-      sub.textContent = '#type=' + invalidType;
+      sub.innerHTML = 'Invalid wormhole <span class="wrong-hole-value">#type=' + invalidType + '</span>';
       panel.appendChild(sub);
     }
     function closeWrongHole(){
       panel.classList.remove('open');
       if(overlay) overlay.classList.remove('open');
     }
-    if(overlay) overlay.classList.add('open');
-    requestAnimationFrame(()=> panel.classList.add('open'));
+    if(overlay){ overlay.classList.remove('open'); }
+    requestAnimationFrame(()=>{
+      if(overlay) overlay.classList.add('open');
+      panel.classList.add('open');
+    });
     if(overlay) overlay.addEventListener('click', closeWrongHole, {once:true});
     panel.addEventListener('click', closeWrongHole, {once:true});
   }
