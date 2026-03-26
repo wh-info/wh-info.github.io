@@ -100,7 +100,6 @@ const canvas = document.getElementById('lineCanvas');
 const ctx    = canvas.getContext('2d');
 function resizeCanvas() { canvas.width = innerWidth; canvas.height = innerHeight; }
 resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
 
 const tableWrap = document.getElementById('tableWrap');
 const filterMap = {};
@@ -139,7 +138,9 @@ function darkHeader() {
 
 tableWrap.addEventListener('mouseenter', () => tableWrap.classList.add('table-hovered'));
 tableWrap.addEventListener('mouseleave', () => {
-  tableWrap.classList.remove('table-hovered', 'content-hovered', 'wh-hovered', 'attr-hovered');
+  var si = document.getElementById('logo-search-input');
+  if(!si || !si.value && !lockedStack.length) tableWrap.classList.remove('table-hovered');
+  tableWrap.classList.remove('content-hovered', 'wh-hovered', 'attr-hovered');
   darkHeader();
 });
 const contentRow = document.querySelector('.content-row');
@@ -164,6 +165,7 @@ let lockedStack   = [];   // array of locked filter elements (multi-lock)
 let lockedWHKeys  = null; // current intersection of wormhole keys across all locked filters
 let lineGeneration = 0;
 let lockAnimating = false;
+let autofitReady = false;
 
 const tooltip  = document.getElementById('wh-tooltip');
 let tooltipKey = null;
@@ -171,16 +173,24 @@ let tooltipsEnabled = true;
 let tooltipFadeTimer = null;
 let pendingTooltip = null;
 function positionTooltip(e) {
+  const z=parseFloat(document.documentElement.style.zoom)||1;
   const pad=16, tw=tooltip.offsetWidth, th=tooltip.offsetHeight;
-  let x=e.clientX+pad, y=e.clientY+pad;
-  if(x+tw>innerWidth)  x=e.clientX-tw-pad;
-  if(y+th>innerHeight) y=e.clientY-th-pad;
+  const cx=e.clientX/z, cy=e.clientY/z;
+  const vw=innerWidth/z, vh=innerHeight/z;
+  let x=cx+pad, y=cy+pad;
+  if(x+tw>vw) x=cx-tw-pad;
+  if(y<0) y=0;
+  if(y+th>vh) y=vh-th;
   tooltip.style.left=x+'px'; tooltip.style.top=y+'px';
 }
 function revealTooltip(key,e,html) {
   tooltip.innerHTML=html;
   if(monoMode) tooltip.querySelectorAll('[style]').forEach(el=>{
+    const hadColor = el.style.color;
     el.style.removeProperty('color');
+    if(hadColor && document.documentElement.classList.contains('bw-light')){
+      el.style.fontWeight = '700';
+    }
   });
   tooltip.style.display='block';
   tooltip.style.opacity='0';
@@ -382,9 +392,12 @@ function resetAll(keepTooltip) {
   allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
   lockedEl=null; lockedStack=[]; lockedWHKeys=null; lockedSharedFilters=new Set();
   tableWrap.classList.remove('filter-locked');
+  if(!tableWrap.matches(':hover')) tableWrap.classList.remove('table-hovered');
   lockAnimating=false;
+  window.searchSingleMatch=false;
   setCopyMode(null);
-  var rl=document.getElementById('reset-lock'); if(rl){ rl.style.opacity='0'; rl.style.pointerEvents='none'; }
+  if(window.clearLockedWH) window.clearLockedWH();
+  if(window.updateResetBtn) window.updateResetBtn();
 }
 
 let lockedSharedFilters = new Set();
@@ -398,7 +411,7 @@ function setCopyMode(whKey) {
   if(copiedTimer){ clearTimeout(copiedTimer); copiedTimer=null; }
   if(whKey) {
     copyModeWH = whKey;
-    logoSub.textContent = 'COPY';
+    logoSub.textContent = 'LINK';
     logoSub.classList.add('copy-mode');
   } else {
     copyModeWH = null;
@@ -408,11 +421,27 @@ function setCopyMode(whKey) {
 }
 if(logoSub) logoSub.addEventListener('click', ()=>{
   if(!copyModeWH) return;
-  const url = 'https://whtype.info#type=' + copyModeWH;
+  if(window.searchSingleMatch && whMap[copyModeWH] && !lockedStack.includes(whMap[copyModeWH])){
+    const whKey = copyModeWH;
+    const el = whMap[whKey];
+    const url = 'https://whtype.info?type=' + whKey;
+    navigator.clipboard.writeText(url).then(()=>{
+      stopLines(); clearHoverColors(); clearDim();
+      window.searchSingleMatch = false;
+      if(window.deactivateSearch) window.deactivateSearch();
+      activateLock(el);
+      logoSub.textContent = 'COPIED!';
+      copiedTimer = setTimeout(()=>{
+        logoSub.textContent = copyModeWH ? 'LINK' : 'WORMHOLES';
+      }, 1000);
+    });
+    return;
+  }
+  const url = 'https://whtype.info?type=' + copyModeWH;
   navigator.clipboard.writeText(url).then(()=>{
     logoSub.textContent = 'COPIED!';
     copiedTimer = setTimeout(()=>{
-      if(copyModeWH) logoSub.textContent = 'COPY';
+      if(copyModeWH) logoSub.textContent = 'LINK';
     }, 1000);
   });
 });
@@ -468,11 +497,24 @@ function computeSharedFilters() {
 function restoreLockedState() {
   if(!lockedStack.length) return;
   clearHoverColors(); clearDim();
+  allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  // Draw lines from each locked element to the current WH intersection
+  const visibleEls=new Set();
+  lockedStack.forEach(el=>visibleEls.add(el));
+  // Draw lines from each locked element
   lockedStack.forEach(el=>{
-    const segs=buildSegsForElement(el,lockedWHKeys);
-    segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    if(el.hasAttribute('data-wh')){
+      // Wormhole lock: draw lines to connected filters
+      const filterIds=WH_DATA[el.dataset.wh]||[];
+      const sb=getTextBounds(el);
+      const pairs=filterIds.map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
+      buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+      filterIds.forEach(fid=>{ if(filterMap[fid]) visibleEls.add(filterMap[fid]); });
+    } else {
+      // Filter lock: draw lines to wormholes
+      const segs=buildSegsForElement(el,lockedWHKeys);
+      segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    }
   });
   // Color locked elements
   lockedStack.forEach(el=>{
@@ -480,12 +522,9 @@ function restoreLockedState() {
     else applyColor(el,WH_COLOR);
   });
   // Color connected wormholes
-  lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
-  // Dim: everything except locked elements, connected WHs, and shared filters
-  const visibleEls=new Set();
-  lockedStack.forEach(el=>visibleEls.add(el));
-  lockedWHKeys.forEach(k=>{ if(whMap[k]) visibleEls.add(whMap[k]); });
+  lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el){ applyColor(el,WH_COLOR); visibleEls.add(el); }});
   lockedSharedFilters.forEach(fel=>visibleEls.add(fel));
+  // Dim everything not visible
   allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
   // Soft-dim shared filters (only when a filter is locked, not a wormhole)
   const hasFilterLock=lockedStack.some(el=>el.hasAttribute('data-filter-id'));
@@ -497,7 +536,9 @@ function activateLock(el) {
   if(lockedStack.includes(el)){
     if(lockedStack.length===1){
       // Last element — full reset, keep tooltip
-      resetAll(true); return;
+      resetAll(true);
+      if(window.location.hash || window.location.search) history.pushState(null, '', window.location.pathname);
+      return;
     }
     // Remove from stack, keep the rest
     lockedStack=lockedStack.filter(e=>e!==el);
@@ -514,6 +555,7 @@ function activateLock(el) {
   if(!lockedStack.length){
     // First lock — full reset, keep tooltip
     resetAll(true);
+    tableWrap.classList.add('table-hovered');
     lockedEl=el;
     lockedStack=[el];
     lockedWHKeys=getConnectedWHKeys(el);
@@ -547,17 +589,21 @@ function activateLock(el) {
   }
   // Copy mode: only when exactly one WH is locked
   if(lockedStack.length===1 && lockedStack[0].hasAttribute('data-wh')){
-    setCopyMode(lockedStack[0].dataset.wh);
+    const whKey = lockedStack[0].dataset.wh;
+    setCopyMode(whKey);
+    if(window.showLockedWH) window.showLockedWH(whKey);
   } else {
     setCopyMode(null);
+    if(window.clearLockedWH) window.clearLockedWH();
   }
-  var rl=document.getElementById('reset-lock'); if(rl){ rl.style.opacity='1'; rl.style.pointerEvents='auto'; }
+  if(window.updateResetBtn) window.updateResetBtn();
 }
 
 function wireInteractions() {
   document.querySelectorAll('[data-wh]').forEach(whEl => {
     const key=whEl.dataset.wh;
     whEl.addEventListener('mouseenter', e=>{
+      if(!autofitReady) return;
       lightHeader(whEl);
       showTooltip(key,e);
       if(lockedStack.length) {
@@ -602,15 +648,45 @@ function wireInteractions() {
         buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
         return;
       }
-      clearHoverColors(); stopLines();
-      if(WH_DATA[key]){
-        startLinesFromWH(whEl,WH_DATA[key],HOVER_LINE_DRAW_MS,true);
+      if(window.searchSingleMatch) return;
+      const logoCell = document.getElementById('logo-cell');
+      const isSearch = logoCell && logoCell.classList.contains('search-mode') && !lockedStack.length;
+      if(isSearch){
+        clearHoverColors(); clearDim(); stopLines();
+        // Rebuild: highlight hovered WH + its connected attributes, dim the rest
+        const connected = connectedSetForWH(whEl);
+        applyColor(whEl, WH_COLOR);
+        (WH_DATA[key]||[]).forEach(fid=>{ const fe=filterMap[fid]; if(fe) applyColor(fe, filterColor(fid)); });
+        applyDim(connected);
+        startLinesFromWH(whEl, WH_DATA[key], HOVER_LINE_DRAW_MS, false);
+      } else {
+        clearHoverColors(); stopLines();
+        if(WH_DATA[key]){
+          startLinesFromWH(whEl,WH_DATA[key],HOVER_LINE_DRAW_MS,true);
+        }
       }
     });
     whEl.addEventListener('mousemove', e=>{ if(tooltipKey===key) positionTooltip(e); });
     whEl.addEventListener('mouseleave', ()=>{
       darkHeader();
-      if(lockedStack.length) {
+      if(window.searchSingleMatch){ hideTooltip(); return; }
+      const logoCell = document.getElementById('logo-cell');
+      const isSearch = logoCell && logoCell.classList.contains('search-mode') && !lockedStack.length;
+      if(isSearch){
+        // Restore search highlight state
+        clearHoverColors(); clearDim(); stopLines();
+        const val = document.getElementById('logo-search-input');
+        if(val && val.value){
+          const prefix = val.value.toUpperCase();
+          const matchEls = [];
+          Object.keys(whMap).forEach(k=>{
+            if(k.toUpperCase() !== 'GEAR' && k.toUpperCase().startsWith(prefix)) matchEls.push(whMap[k]);
+          });
+          matchEls.forEach(el=> applyColor(el, WH_COLOR));
+          const matchSet = new Set(matchEls);
+          allContentEls.forEach(el=>{ if(!matchSet.has(el)) el.classList.add('dimmed'); });
+        }
+      } else if(lockedStack.length) {
         const hasFilterLock=lockedStack.every(el=>el.hasAttribute('data-filter-id'));
         if(hasFilterLock) {
           clearHoverColors(); clearDim(); stopLines();
@@ -625,6 +701,8 @@ function wireInteractions() {
     });
     whEl.addEventListener('click', e=>{
       e.preventDefault(); e.stopPropagation();
+      var im = document.getElementById('info-menu'); if(im) im.classList.remove('open');
+      var ib = document.getElementById('info-btn'); if(ib) ib.classList.remove('menu-open');
       if(!WH_DATA[key]) return;
       if(lockedStack.length && lockedStack.every(el=>el.hasAttribute('data-filter-id'))) {
         resetAll(true);
@@ -636,6 +714,8 @@ function wireInteractions() {
   document.querySelectorAll('[data-filter-id]').forEach(filterEl=>{
     const fid=filterEl.dataset.filterId;
     filterEl.addEventListener('mouseenter', e=>{
+      if(!autofitReady) return;
+      if(window.searchSingleMatch) return;
       lightHeader(filterEl);
       showTooltip(fid,e);
       if(lockedStack.length) {
@@ -679,6 +759,7 @@ function wireInteractions() {
     });
     filterEl.addEventListener('mousemove', e=>{ if(tooltipKey===fid) positionTooltip(e); });
     filterEl.addEventListener('mouseleave', ()=>{
+      if(window.searchSingleMatch) return;
       darkHeader();
       if(lockedStack.length){
         const hasWHLock=lockedStack.some(el=>el.hasAttribute('data-wh'));
@@ -690,6 +771,8 @@ function wireInteractions() {
     });
     filterEl.addEventListener('click', e=>{
       e.stopPropagation();
+      var im = document.getElementById('info-menu'); if(im) im.classList.remove('open');
+      var ib = document.getElementById('info-btn'); if(ib) ib.classList.remove('menu-open');
       if(!REVERSE[fid]) return;
       if(lockedStack.length && lockedStack.some(el=>el.hasAttribute('data-wh'))) {
         resetAll(true);
@@ -698,11 +781,53 @@ function wireInteractions() {
     });
   });
 
+  function clearHash(){
+    if(window.location.hash || window.location.search) history.pushState(null, '', window.location.pathname);
+  }
   document.addEventListener('click', e=>{
-    if(lockedStack.length && !e.target.closest('.content-row') && !e.target.closest('.header-row') && !e.target.closest('#reset-lock')) resetAll();
+    if(e.target.closest('.content-row') || e.target.closest('.header-row')){
+      if(window.refocusSearch) window.refocusSearch();
+      return;
+    }
+    if(e.target.closest('#settings-panel') || e.target.closest('#settings-btn')) return;
+    if(lockedStack.length){ resetAll(); clearHash(); }
+    if(window.deactivateSearch) window.deactivateSearch();
   });
-  var rlBtn=document.getElementById('reset-lock');
-  if(rlBtn) rlBtn.addEventListener('click', function(e){ e.stopPropagation(); resetAll(); });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape'){
+      if(lockedStack.length){ resetAll(); clearHash(); }
+      if(window.deactivateSearch) window.deactivateSearch();
+    }
+  });
+
+  // ── Reset button ────────────────────────────────────────────────────────
+  const resetBtn = document.getElementById('reset-btn');
+  function updateResetBtn(){
+    if(!resetBtn) return;
+    const logoCell = document.getElementById('logo-cell');
+    const searchActive = logoCell && logoCell.classList.contains('search-mode');
+    if(lockedStack.length || searchActive){
+      resetBtn.classList.add('visible');
+      var zoom = parseFloat(document.documentElement.style.zoom) || 1;
+      var tableRect = tableWrap.getBoundingClientRect();
+      var headerRow = tableWrap.querySelector('.header-row');
+      var headerBottom = headerRow ? headerRow.getBoundingClientRect().bottom : tableRect.top;
+      var contentMid = (headerBottom + tableRect.bottom) / 2;
+      resetBtn.style.left = ((tableRect.right / zoom) - 14) + 'px';
+      resetBtn.style.top = ((contentMid / zoom) - 14) + 'px';
+    } else {
+      resetBtn.classList.remove('visible');
+    }
+  }
+  if(resetBtn){
+    resetBtn.addEventListener('click', e=>{
+      e.stopPropagation();
+      if(lockedStack.length){ resetAll(); clearHash(); }
+      if(window.deactivateSearch) window.deactivateSearch();
+      updateResetBtn();
+    });
+  }
+  window.updateResetBtn = updateResetBtn;
 
   const whListEl = document.querySelector('.wh-list');
   if(whListEl){
@@ -720,7 +845,8 @@ function redrawIfActive() {
   if(lockedStack.length){ restoreLockedState(); }
 }
 window.addEventListener('scroll', redrawIfActive, {passive:true});
-window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
+document.addEventListener('fullscreenchange', ()=>{ resetAll(); resizeCanvas(); });
+window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas(); redrawIfActive(); if(window.updateResetBtn) window.updateResetBtn(); });
 
 (function initClock(){
   const clockEl=document.getElementById('eve-clock');
@@ -745,7 +871,7 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
 
 (function initHeaderTooltips(){
   const headerTips = {
-    'c-list':    'Wormhole type can be found on the <em>Overview</em>.',
+    'c-list':    '&rarr; Input a wormhole type<br>&rarr; <em>Enter</em> to lock on it; <em>Esc</em> to reset the search',
     'c-respawn': 'Some wormholes are both static and wandering.',
     'c-spawn':   'Same wormhole type can appear in multiple classes.',
     'c-leads':   'Wormhole inner sphere reflects destination nebula/skybox.',
@@ -774,6 +900,181 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
   });
   wireInteractions();
 
+  // ── Logo search bar ──────────────────────────────────────────────────────
+  (function(){
+    const logoCell = document.getElementById('logo-cell');
+    const searchInput = document.getElementById('logo-search-input');
+    const searchDisplay = document.getElementById('logo-search-display');
+    if(!logoCell || !searchInput || !searchDisplay) return;
+    let searchActive = false;
+    window.searchSingleMatch = false;
+
+    function updateDisplay(){
+      const val = searchInput.value;
+      searchDisplay.innerHTML = val + '<span class="search-cursor">_</span>';
+    }
+
+    function activateSearch(firstChar){
+      if(lockedStack.length) resetAll();
+      searchActive = true;
+      logoCell.classList.add('search-mode');
+      searchInput.value = firstChar || '';
+      updateDisplay();
+      if(window.updateResetBtn) window.updateResetBtn();
+      searchInput.focus();
+      if(firstChar){
+        tableWrap.classList.add('table-hovered');
+        highlightMatches(firstChar);
+      }
+    }
+
+    function deactivateSearch(){
+      if(!searchActive) return;
+      searchActive = false;
+      window.searchSingleMatch = false;
+      logoCell.classList.remove('search-mode');
+      searchInput.blur();
+      searchInput.value = '';
+      stopLines(); clearHoverColors(); clearDim();
+      allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
+      if(!tableWrap.matches(':hover')) tableWrap.classList.remove('table-hovered');
+      if(window.updateResetBtn) window.updateResetBtn();
+    }
+    window.deactivateSearch = deactivateSearch;
+    window.refocusSearch = function(){ if(searchActive) searchInput.focus(); };
+
+    window.showLockedWH = function(whKey){
+      if(!whKey){
+        logoCell.classList.remove('search-mode');
+        return;
+      }
+      searchActive = false;
+      logoCell.classList.add('search-mode');
+      searchDisplay.innerHTML = whKey + '<span class="search-cursor">_</span>';
+    };
+    window.clearLockedWH = function(){
+      logoCell.classList.remove('search-mode');
+    };
+
+    function highlightMatches(val){
+      stopLines(); clearHoverColors(); clearDim();
+      allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
+      if(!val){ window.searchSingleMatch = false; return; }
+      const prefix = val.toUpperCase();
+      const matchEls = [];
+      Object.keys(whMap).forEach(k=>{
+        if(k.toUpperCase() !== 'GEAR' && k.toUpperCase().startsWith(prefix)) matchEls.push(whMap[k]);
+      });
+      if(!matchEls.length){ window.searchSingleMatch = false; setCopyMode(null); return; }
+      if(matchEls.length === 1){
+        window.searchSingleMatch = true;
+        const el = matchEls[0];
+        const whKey = el.dataset.wh;
+        setCopyMode(whKey);
+        const filterIds = WH_DATA[whKey] || [];
+        const connected = connectedSetForWH(el);
+        applyColor(el, WH_COLOR);
+        filterIds.forEach(fid=>{ const fe=filterMap[fid]; if(fe) applyColor(fe, filterColor(fid)); });
+        applyDim(connected);
+        startLinesFromWH(el, filterIds, HOVER_LINE_DRAW_MS, false);
+      } else {
+        window.searchSingleMatch = false;
+        setCopyMode(null);
+        matchEls.forEach(el=> applyColor(el, WH_COLOR));
+        const matchSet = new Set(matchEls);
+        allContentEls.forEach(el=>{
+          if(!matchSet.has(el)) el.classList.add('dimmed');
+        });
+      }
+    }
+
+    const whKeys = Object.keys(whMap).filter(k => k.toUpperCase() !== 'GEAR').map(k => k.toUpperCase());
+
+    searchInput.addEventListener('input', ()=>{
+      let val = searchInput.value.toUpperCase();
+      let filtered = '';
+      for(let i = 0; i < val.length && filtered.length < 4; i++){
+        const ch = val[i];
+        if(filtered.length === 0 && /[A-Z]/.test(ch)){
+          if(whKeys.some(k => k.startsWith(ch))) filtered += ch;
+        } else if(filtered.length > 0 && filtered.length < 4 && /[0-9]/.test(ch)){
+          const candidate = filtered + ch;
+          if(whKeys.some(k => k.startsWith(candidate))) filtered += ch;
+        }
+      }
+      searchInput.value = filtered;
+      updateDisplay();
+      if(!filtered && searchActive){
+        deactivateSearch();
+        return;
+      }
+      if(filtered && !searchActive){
+        searchActive = true;
+        hoverReveal = false;
+        if(lockedStack.length) resetAll();
+      }
+      if(filtered) tableWrap.classList.add('table-hovered');
+      highlightMatches(filtered);
+    });
+
+    searchInput.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        const val = searchInput.value.trim().toUpperCase();
+        if(!val) return;
+        const matches = Object.keys(whMap).filter(k => k.toUpperCase() !== 'GEAR' && k.toUpperCase().startsWith(val));
+        if(matches.length === 1){
+          const key = matches[0];
+          stopLines(); clearHoverColors(); clearDim();
+          resetAll();
+          searchActive = false;
+          activateLock(whMap[key]);
+          searchInput.blur();
+          searchInput.value = '';
+        }
+      }
+      if(e.key === 'Escape'){
+        deactivateSearch();
+      }
+    });
+
+    // Global search — start typing anywhere
+    document.addEventListener('keydown', (e)=>{
+      if(searchActive) return;
+      if(lockedStack.length && e.key === 'Backspace'){ return; }
+      if(e.ctrlKey || e.altKey || e.metaKey) return;
+      if(!/^[a-zA-Z]$/.test(e.key)) return;
+      if(document.querySelector('.open')) return;
+      const ch = e.key.toUpperCase();
+      if(!whKeys.some(k => k.startsWith(ch))) return;
+      e.preventDefault();
+      activateSearch(ch);
+    });
+
+    let hoverReveal = false;
+
+    logoCell.addEventListener('mouseenter', ()=>{
+      const whLocked = lockedStack.length === 1 && lockedStack[0].hasAttribute('data-wh');
+      if(!searchActive && !whLocked){
+        hoverReveal = true;
+        logoCell.classList.add('search-mode');
+        searchInput.value = '';
+        updateDisplay();
+        searchInput.focus();
+      }
+    });
+
+    logoCell.addEventListener('mouseleave', ()=>{
+      if(hoverReveal && !searchActive){
+        hoverReveal = false;
+        logoCell.classList.remove('search-mode');
+        searchInput.blur();
+        searchInput.value = '';
+      }
+    });
+
+  })();
+
   // ?type= or #type= deep link (case-insensitive, works locally and on server)
   function showWrongHole(invalidType){
     const overlay = document.getElementById('update-overlay');
@@ -784,16 +1085,20 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
       document.body.appendChild(panel);
     }
     panel.classList.remove('open');
-    panel.innerHTML = 'Wrong hole!';
+    panel.innerHTML = '';
     if(invalidType){
       const sub = document.createElement('div');
       sub.className = 'wrong-hole-type';
-      sub.innerHTML = 'Invalid wormhole <span class="wrong-hole-value">#type=' + invalidType + '</span>';
+      sub.innerHTML = 'Invalid wormhole <span class="wrong-hole-value">?type=<strong>' + invalidType + '<span class="blink-cursor">_</span></strong></span>';
       panel.appendChild(sub);
     }
     function closeWrongHole(){
       panel.classList.remove('open');
       if(overlay) overlay.classList.remove('open');
+      // remove ?type= from URL
+      var url = new URL(window.location);
+      url.searchParams.delete('type');
+      window.history.replaceState({}, '', url.pathname + url.search + url.hash);
     }
     if(overlay){ overlay.classList.remove('open'); }
     requestAnimationFrame(()=>{
@@ -802,6 +1107,13 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
     });
     if(overlay) overlay.addEventListener('click', closeWrongHole, {once:true});
     panel.addEventListener('click', closeWrongHole, {once:true});
+    function escClose(e){
+      if(e.key === 'Escape'){
+        closeWrongHole();
+        document.removeEventListener('keydown', escClose);
+      }
+    }
+    document.addEventListener('keydown', escClose);
   }
 
   function tryDeepLink(){
@@ -813,7 +1125,7 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
               || full.match(/[?&#]type=([^&#]+)/i);
     if(!match) return;
     const typeParam = decodeURIComponent(match[1]).trim();
-    if(typeParam.toUpperCase() === 'GEAR') return;
+    if(typeParam.toUpperCase() === 'GEAR' || typeParam === '⚙') return;
     const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
     if(!key || !whMap[key] || !WH_DATA[key] || !WH_DATA[key].length){
       showWrongHole(typeParam);
@@ -830,6 +1142,10 @@ window.addEventListener('resize', ()=>{ resizeCanvas(); redrawIfActive(); });
   });
   // Re-trigger on hash change (pressing Enter on same hash URL doesn't reload)
   window.addEventListener('hashchange', ()=>{
+    resetAll();
+    tryDeepLink();
+  });
+  window.addEventListener('popstate', ()=>{
     resetAll();
     tryDeepLink();
   });

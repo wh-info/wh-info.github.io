@@ -80,7 +80,6 @@ const canvas = document.getElementById('lineCanvas');
 const ctx    = canvas.getContext('2d');
 function resizeCanvas() { canvas.width = innerWidth; canvas.height = innerHeight; }
 resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
 
 const tableWrap = document.getElementById('tableWrap');
 const filterMap = {};
@@ -407,19 +406,32 @@ function restoreLockedState() {
   if(!lockedStack.length) return;
   clearHoverColors(); clearDim();
   ctx.clearRect(0,0,canvas.width,canvas.height);
+  const visibleEls=new Set();
+  lockedStack.forEach(el=>visibleEls.add(el));
+  // Draw lines from each locked element
   lockedStack.forEach(el=>{
-    const segs=buildSegsForElement(el,lockedWHKeys);
-    segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    if(el.hasAttribute('data-wh')){
+      // Site lock: draw lines to connected filters
+      const filterIds=WH_DATA[el.dataset.wh]||[];
+      const sb=getTextBounds(el);
+      const pairs=filterIds.map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
+      buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+      filterIds.forEach(fid=>{ if(filterMap[fid]) visibleEls.add(filterMap[fid]); });
+    } else {
+      // Filter lock: draw lines to sites
+      const segs=buildSegsForElement(el,lockedWHKeys);
+      segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    }
   });
+  // Color locked elements
   lockedStack.forEach(el=>{
     if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
     else applyColor(el,WH_COLOR);
   });
-  lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el) applyColor(el,WH_COLOR); });
-  const visibleEls=new Set();
-  lockedStack.forEach(el=>visibleEls.add(el));
-  lockedWHKeys.forEach(k=>{ if(whMap[k]) visibleEls.add(whMap[k]); });
+  // Color connected sites
+  lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el){ applyColor(el,WH_COLOR); visibleEls.add(el); }});
   lockedSharedFilters.forEach(fel=>visibleEls.add(fel));
+  // Dim everything not visible
   allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
   const hasFilterLock=lockedStack.some(el=>el.hasAttribute('data-filter-id'));
   if(hasFilterLock) lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.5'; });
@@ -599,6 +611,9 @@ function wireInteractions() {
 
   document.addEventListener('click', e=>{
     if(lockedStack.length && !e.target.closest('.content-row') && !e.target.closest('.header-row') && !e.target.closest('#reset-lock')) resetAll();
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape' && lockedStack.length) resetAll();
   });
   var rlBtn=document.getElementById('reset-lock');
   if(rlBtn) rlBtn.addEventListener('click', function(e){ e.stopPropagation(); resetAll(); });

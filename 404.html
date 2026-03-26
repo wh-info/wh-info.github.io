@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
-  <title>404 — whtype.info</title>
+  <title>404 - Wormhole Collapsed</title>
   <meta property="og:title" content="whtype.info">
   <meta property="og:description" content="Identify your EVE wormholes connection by type, attributes and visual cues.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://whtype.info">
   <meta property="og:image" content="https://whtype.info/img/og-image.jpg">
   <meta name="description" content="Identify your EVE wormholes connection by type, attributes and visual cues.">
+  <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
   <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
   <link rel="stylesheet" href="css/style.css">
   <script>
   (function(){
@@ -22,12 +21,12 @@
       minmatar:'theme-minmatar',gallente:'theme-gallente',
       caldari:'theme-caldari',legacy:'theme-legacy'
     };
-    var theme='wormholer_btw';
-    try{var st=JSON.parse(localStorage.getItem('whtype-settings'));if(st&&st.theme&&themeMap.hasOwnProperty(st.theme))theme=st.theme;}catch(e){}
+    var theme='wormholer_btw';var st=null;
+    try{st=JSON.parse(localStorage.getItem('whtype-settings'));}catch(e){}
+    if(st&&st.theme&&themeMap.hasOwnProperty(st.theme))theme=st.theme;
     if(themeMap[theme]) document.documentElement.classList.add(themeMap[theme]);
-    if(theme!=='bw'){
-      try{var st2=JSON.parse(localStorage.getItem('whtype-settings'));if(st2&&st2.bgBlack)document.documentElement.classList.add('bg-black');}catch(e){}
-    }
+    if(st&&st.bgBlack&&theme!=='bw') document.documentElement.classList.add('bg-black');
+    if(st&&st.bwLight&&theme==='bw') document.documentElement.classList.add('bw-light');
   })();
   </script>
   <style>
@@ -48,6 +47,9 @@
       letter-spacing: .08em;
       line-height: 1;
       cursor: default;
+      border: 1px dotted var(--text-dim, #3a5a5a);
+      border-radius: 4px;
+      padding: 10px 30px;
     }
     .error-label {
       font-family: 'Exo 2', 'Roboto Mono', monospace;
@@ -96,7 +98,7 @@
 
 <div class="error-wrap">
   <div class="error-code">404 ERROR</div>
-  <p class="error-msg">It seems that your mass is too large for this wormhole!</p>
+  <p class="error-msg">Wormhole collapsed! There's nothing here.</p>
   <a class="error-nav" href="https://whtype.info"><strong>wh</strong>type</a>
 </div>
 

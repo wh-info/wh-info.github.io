@@ -77,7 +77,7 @@ const WH_ENTRIES = [
   { wormhole:'N770', respawn:['Wandering'], spawn_in:['Class 3','Class 12 - Thera'], leads_to:['C5'], ship_size:'up to Battleship', total_mass:'3 000 000 000 kg', life_time:'24h', sig_level:['III'] },
   { wormhole:'N944', respawn:['Wandering'], spawn_in:['LowSec','NullSec'], leads_to:['LS'], ship_size:'up to Capital', total_mass:'3 300 000 000 kg', life_time:'24h', sig_level:['I','II'] },
   { wormhole:'N968', respawn:['Wandering'], spawn_in:['Class 3','Class 12 - Thera'], leads_to:['C3'], ship_size:'up to Battleship', total_mass:'2 000 000 000 kg', life_time:'16h', sig_level:['I'] },
-  { wormhole:'O128', respawn:[], spawn_in:['never spawn'], leads_to:[], ship_size:null, total_mass:null, life_time:null, sig_level:[] },
+  { wormhole:'O128', respawn:['Wandering'], spawn_in:['HighSec','LowSec','NullSec','never spawn'], leads_to:['C4'], ship_size:'up to Battleship', total_mass:'1 000 000 000 kg', life_time:'24h', sig_level:[] },
   { wormhole:'O477', respawn:['Static','Wandering'], spawn_in:['Class 2','Drifter wormholes'], leads_to:['C3'], ship_size:'up to Battleship', total_mass:'2 000 000 000 kg', life_time:'16h', sig_level:['I','II'] },
   { wormhole:'O546', respawn:[], spawn_in:['Pochven ▲ Trig space'], leads_to:['Pochven'], ship_size:'up to Battlecruiser', total_mass:null, life_time:'4.5h', sig_level:[] },
   { wormhole:'O883', respawn:['Wandering'], spawn_in:['Class 1','NullSec'], leads_to:['C3'], ship_size:'up to Battlecruiser', total_mass:'1 000 000 000 kg', life_time:'16h', sig_level:['II'] },
