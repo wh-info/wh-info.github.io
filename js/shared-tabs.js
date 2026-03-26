@@ -96,10 +96,10 @@
       '<hr class="info-sep">' +
       '<p class="update-date">Searching</p>' +
       '<p>You can search for a specific wormhole type just by typing, which will reveal the search bar. The search field accepts valid wormhole types only. As you type, matching wormholes are highlighted, and you can hover over them to inspect their attributes. When a single matching wormhole remains, its attributes are displayed automatically, as if you were hovering over it.</p>' +
-      '<p style="margin-top:14px;">Press Enter to lock onto the selected wormhole type.</p>' +
+      '<p style="margin-top:14px;">Press <strong>Enter</strong> to lock onto the selected wormhole type.</p>' +
       '<hr class="info-sep">' +
       '<p class="update-date">Linking</p>' +
-      '<p>Whenever you select (lock onto) a wormhole, or when a search results in a single matching type, a LINK button appears. Clicking this button copies a direct URL for that wormhole type to your clipboard, which you can share anywhere.</p>' +
+      '<p>Whenever you select (lock onto) a wormhole, or when a search results in a single matching type, a <strong>LINK</strong> button appears. Clicking this button copies a direct URL for that wormhole type to your clipboard, which you can share anywhere.</p>' +
       '<p style="margin-top:14px;">Opening the link will load the site with that specific wormhole type already highlighted.</p>' +
       '<p style="margin-top:14px;">query string looks like this: <span class="info-fake-link">?type=WHTYPE</span></p>' +
       '<p>full URL example: <a href="https://whtype.info?type=A009" target="_blank" rel="noopener">whtype.info?type=A009</a></p>' +
@@ -127,7 +127,7 @@
         '<p>&rarr; Improved visual consistency</p>' +
         '<p>&rarr; Bugs booshed</p>' +
         '<hr class="info-sep">' +
-        '<p>Details on EVE Online <a href="#" target="_blank" rel="noopener">forum post</a>.</p>' +
+        '<p>Details on EVE Online <a href="https://forums.eveonline.com/t/wormholes-by-type-tool/327596/88?u=sothis_ast" target="_blank" rel="noopener">forum post</a>.</p>' +
       '</div>' +
       '<hr class="info-sep">' +
       '<div class="update-entry update-old">' +

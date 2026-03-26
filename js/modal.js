@@ -161,7 +161,7 @@
   // ── Font family selector ────────────────────────────────────────────────────
   const FONT_SIZE_BONUS = {
     "'Roboto Mono'": 0,
-    "'IBM Plex Mono'": 1,
+    "'IBM Plex Mono'": 0,
     "'Helvetica Neue', Helvetica, Arial": 1,
     "'Exo 2'": 1,
     "'Departure Mono'": 0,
