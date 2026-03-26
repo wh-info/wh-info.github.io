@@ -871,7 +871,7 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
 
 (function initHeaderTooltips(){
   const headerTips = {
-    'c-list':    '&rarr; Input a wormhole type<br>&rarr; <em>Enter</em> to lock on it; <em>Esc</em> to reset the search',
+    'c-list':    '&rarr; Just start typing!<br>&rarr; Input a wormhole type<br>&rarr; <em>Enter</em> to lock on it; <em>Esc</em> to reset the search',
     'c-respawn': 'Some wormholes are both static and wandering.',
     'c-spawn':   'Same wormhole type can appear in multiple classes.',
     'c-leads':   'Wormhole inner sphere reflects destination nebula/skybox.',
