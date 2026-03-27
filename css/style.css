@@ -1101,6 +1101,7 @@ body.fade-out #update-overlay {
   right: 10px;
   z-index: 10002;
   width: 310px;
+  cursor: default;
   background: color-mix(in srgb, var(--header-bg) 66%, black);
   border: 1px solid var(--border);
   border-radius: 4px;
