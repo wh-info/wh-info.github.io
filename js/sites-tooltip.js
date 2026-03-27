@@ -42,10 +42,9 @@ const TOOLTIP_CONTENT = {
 
   'ordinary-perimeter': `
     <p>&rarr; <i>Tier:</i> 1</p>
-    <p>&rarr; <i>Rats:</i> 5 sentry towers</p>
+    <p>&rarr; <i>Rats:</i> 15min timer</p>
     <p>&rarr; <i>Small cloud:</i> C84</p>
     <p>&rarr; <i>Big cloud:</i> C72</p>
-    <p>&rarr; avoid warp in with a Venture</p>
   `,
 
   'sizeable-perimeter': `
