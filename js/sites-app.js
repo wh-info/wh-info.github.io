@@ -148,7 +148,7 @@ let tooltipFadeTimer = null;
 let pendingTooltip = null;
 function positionTooltip(e) {
   const pad=16, tw=tooltip.offsetWidth, th=tooltip.offsetHeight;
-  let x=e.clientX+pad, y=e.clientY+pad;
+  let x=e.clientX+pad, y=e.clientY+4;
   if(x+tw>innerWidth)  x=e.clientX-tw-pad;
   if(y+th>innerHeight) y=e.clientY-th-pad;
   tooltip.style.left=x+'px'; tooltip.style.top=y+'px';

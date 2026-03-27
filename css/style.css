@@ -1445,7 +1445,7 @@ body.fade-out #update-overlay {
 }
 
 .terminology-list {
-  text-align: left;
+  text-align: center;
 }
 #intel-panel .terminology-list p {
   margin-bottom: 10px;
@@ -1530,7 +1530,15 @@ body.fade-out #update-overlay {
   padding: 1px 4px;
   border-radius: 2px;
   display: inline-block;
-  margin: 0 0 12px 0 !important;
+  margin: 0 !important;
+}
+.update-sub { padding-left: 18px; }
+.update-inset {
+  border: 1px dotted var(--text-dim, #3a5a5a);
+  border-radius: 3px;
+  padding: 6px 14px;
+  margin: 6px auto;
+  width: fit-content;
 }
 
 /* ── compact layout (applied via JS when table doesn't fit viewport) ── */

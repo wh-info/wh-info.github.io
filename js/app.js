@@ -177,7 +177,7 @@ function positionTooltip(e) {
   const pad=16, tw=tooltip.offsetWidth, th=tooltip.offsetHeight;
   const cx=e.clientX/z, cy=e.clientY/z;
   const vw=innerWidth/z, vh=innerHeight/z;
-  let x=cx+pad, y=cy+pad;
+  let x=cx+pad, y=cy+4;
   if(x+tw>vw) x=cx-tw-pad;
   if(y<0) y=0;
   if(y+th>vh) y=vh-th;
