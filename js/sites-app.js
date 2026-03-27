@@ -619,7 +619,10 @@ function wireInteractions() {
     if(lockedStack.length && !e.target.closest('.content-row') && !e.target.closest('.header-row') && !e.target.closest('#reset-lock')) resetAll();
   });
   document.addEventListener('keydown', e=>{
-    if(e.key === 'Escape' && lockedStack.length) resetAll();
+    if(e.key === 'Escape'){
+      if(lockedStack.length) resetAll();
+      if(document.activeElement) document.activeElement.blur();
+    }
   });
   var rlBtn=document.getElementById('reset-lock');
   if(rlBtn) rlBtn.addEventListener('click', function(e){ e.stopPropagation(); resetAll(); });

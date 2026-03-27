@@ -797,6 +797,7 @@ function wireInteractions() {
     if(e.key === 'Escape'){
       if(lockedStack.length){ resetAll(); clearHash(); }
       if(window.deactivateSearch) window.deactivateSearch();
+      if(document.activeElement) document.activeElement.blur();
     }
   });
 

@@ -240,6 +240,8 @@ body {
   z-index: 2;
 }
 .content-row .cell { border-right: none; }
+.content-row .cell:focus,
+.content-row .cell:focus-visible { outline: none; }
 
 .wh-list {
   flex-direction: column;
