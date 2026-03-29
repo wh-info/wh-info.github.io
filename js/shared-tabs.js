@@ -101,16 +101,16 @@
       '<p class="update-date">Linking</p>' +
       '<p>Whenever you select (lock onto) a wormhole, or when a search results in a single matching type, a <strong>LINK</strong> button appears. Clicking this button copies a direct URL for that wormhole type to your clipboard, which you can share anywhere.</p>' +
       '<p>Opening the link will load the site with that specific wormhole type already highlighted.</p>' +
-      '<div class="update-inset"><p>- query string looks like this: <span class="info-fake-link">?type=WHTYPE</span></p>' +
-      '<p>- full URL example: <a href="https://whtype.info?type=A009" target="_blank" rel="noopener">whtype.info?type=A009</a></p></div>' +
+      '<div class="update-inset"><p><strong>-</strong> query string looks like this: <span class="info-fake-link">?type=WHTYPE</span></p>' +
+      '<p><strong>-</strong> full URL example: <a href="https://whtype.info?type=A009" target="_blank" rel="noopener">whtype.info?type=A009</a></p></div>' +
       '<hr class="info-sep">' +
       '<p class="update-date">Reseting</p>' +
       '<p>To clear the search and/or remove all active filters, <strong>click outside the table</strong>, press <strong>Esc</strong>, or click the <strong>Reset</strong> button on the right side of the table.</p>',
 
     'info-tab-legal':
       '<div class="info-tip">' +
-        '<p>This website does not use cookies.</p>' +
-        '<p>Your settings are stored in localStorage; clearing it will reset the site to its default settings.</p>' +
+        '<p>This site uses cookie-free analytics to count visits; feel free to block it.</p>' +
+        '<p>Your settings are stored in localStorage; clearing your browser data will reset the site to its default settings.</p>' +
       '</div>' +
       '<div class="info-tip" style="margin-top:14px;">' +
         '<p>All <a href="https://www.eveonline.com/" target="_blank" rel="noopener">EVE Online</a> related materials are property of <a href="https://www.ccpgames.com/" target="_blank" rel="noopener">CCP Games</a>.</p>' +
@@ -123,48 +123,48 @@
         '<p style="text-align:right;margin-bottom:4px !important;"><span class="update-date">03/26/128 YC</span></p>' +
         '<p style="margin-bottom:8px;">Added a <strong>search bar</strong></p>' +
         '<p>Just start typing!</p>' +
-        '<p style="margin-top:6px;">- You can now search for your wormhole type</p>' +
-        '<p>- It accepts only valid wormhole types</p>' +
-        '<p>- Typing automatically activates the search bar in the logo section</p>' +
-        '<p>- While typing, matching wormholes are highlighted</p>' +
-        '<p>- When a matching wormhole is found, its attributes are shown</p>' +
-        '<p>- Pressing <strong>Enter</strong> on a matching wormhole locks onto it, as if you clicked it</p>' +
-        '<p style="margin-bottom:12px;">- Pressing <strong>Esc</strong> completely resets the search and any active filter lock (this also works if you click outside the table or use the <strong>Reset</strong> button on the right side of the table)</p>' +
+        '<p style="margin-top:6px;"><strong>-</strong> You can now search for your wormhole type</p>' +
+        '<p><strong>-</strong> It accepts only valid wormhole types</p>' +
+        '<p><strong>-</strong> Typing automatically activates the search bar in the logo section</p>' +
+        '<p><strong>-</strong> While typing, matching wormholes are highlighted</p>' +
+        '<p><strong>-</strong> When a matching wormhole is found, its attributes are shown</p>' +
+        '<p><strong>-</strong> Pressing <strong>Enter</strong> on a matching wormhole locks onto it, as if you clicked it</p>' +
+        '<p style="margin-bottom:12px;"><strong>-</strong> Pressing <strong>Esc</strong> completely resets the search and any active filter lock (this also works if you click outside the table or use the <strong>Reset</strong> button on the right side of the table)</p>' +
         '<p style="margin-top:18px;margin-bottom:8px;"><strong>QoL</strong></p>' +
-        '<p>- Settings no longer lock the table. You can now freely see how they affect the table\'s style.</p>' +
-        '<p>- Added an Enhanced Highlights toggle to Settings.</p>' +
-        '<p>- To clear any locked filters and/or search bar input, click outside the table, press <strong>Esc</strong>, or click the <strong>Reset</strong> button on the right side of the table</p>' +
-        '<p style="margin-bottom:12px;">- The <strong>Reset</strong> button (<strong>X</strong>) appears only when a filter is locked and/or there is text in the search bar</p>' +
+        '<p><strong>-</strong> Settings no longer lock the table. You can now freely see how they affect the table\'s style.</p>' +
+        '<p><strong>-</strong> Added an Enhanced Highlights toggle to Settings.</p>' +
+        '<p><strong>-</strong> To clear any locked filters and/or search bar input, click outside the table, press <strong>Esc</strong>, or click the <strong>Reset</strong> button on the right side of the table</p>' +
+        '<p style="margin-bottom:12px;"><strong>-</strong> The <strong>Reset</strong> button (<strong>X</strong>) appears only when a filter is locked and/or there is text in the search bar</p>' +
         '<p style="margin-top:18px;margin-bottom:8px;"><strong>Misc</strong></p>' +
-        '<p>- Improved visual consistency</p>' +
-        '<p>- Bugs booshed</p>' +
+        '<p><strong>-</strong> Improved visual consistency</p>' +
+        '<p><strong>-</strong> Bugs booshed</p>' +
       '</div>' +
       '<hr class="info-sep">' +
       '<div class="update-entry update-old">' +
         '<p style="text-align:right;margin-bottom:4px !important;"><span class="update-date">03/21/128 YC</span></p>' +
         '<p style="margin-bottom:8px;">Added <strong>settings menu</strong></p>' +
         '<p>You can now customize the look and feel of the tool to your liking!</p>' +
-        '<p style="margin-top:6px;">- Change themes (legacy theme preserved)</p>' +
-        '<p>- Monochromatic toggle (respects theme color)</p>' +
-        '<p>- Black background toggle (higher contrast)</p>' +
-        '<p>- Hidden black-and-white light mode (monochromatic &ldquo;eye-bleed&rdquo; theme)</p>' +
-        '<p>- Change fonts and font size</p>' +
-        '<p>- Tooltips on/off toggle</p>' +
-        '<p style="margin-bottom:12px;">- Control table zoom</p>' +
+        '<p style="margin-top:6px;"><strong>-</strong> Change themes (legacy theme preserved)</p>' +
+        '<p><strong>-</strong> Monochromatic toggle (respects theme color)</p>' +
+        '<p><strong>-</strong> Black background toggle (higher contrast)</p>' +
+        '<p><strong>-</strong> Hidden black-and-white light mode (monochromatic &ldquo;eye-bleed&rdquo; theme)</p>' +
+        '<p><strong>-</strong> Change fonts and font size</p>' +
+        '<p><strong>-</strong> Tooltips on/off toggle</p>' +
+        '<p style="margin-bottom:12px;"><strong>-</strong> Control table zoom</p>' +
         '<p style="margin-top:18px;margin-bottom:8px;">Improved <strong>filtering logic</strong></p>' +
-        '<p>- When locking an attribute element, elements that share wormhole types with it are slightly dimmed; those that do not are fully dimmed</p>' +
-        '<p>- When an attribute element is locked, hovering over the wormhole type area slightly reduces dimming</p>' +
-        '<p>- You can now lock multiple attribute elements in the same column if they share wormhole types</p>' +
-        '<p>- Clicking outside the table resets filtering (also via the button on the right that appears after locking)</p>' +
+        '<p><strong>-</strong> When locking an attribute element, elements that share wormhole types with it are slightly dimmed; those that do not are fully dimmed</p>' +
+        '<p><strong>-</strong> When an attribute element is locked, hovering over the wormhole type area slightly reduces dimming</p>' +
+        '<p><strong>-</strong> You can now lock multiple attribute elements in the same column if they share wormhole types</p>' +
+        '<p><strong>-</strong> Clicking outside the table resets filtering (also via the button on the right that appears after locking)</p>' +
         '<p style="margin-bottom:12px;">- Improved overall consistency</p>' +
         '<p style="margin-top:18px;margin-bottom:8px;"><strong>QoL</strong></p>' +
-        '<p>- When you lock a wormhole type, a copy button appears. Clicking it copies a direct link to that specific type and its attributes</p>' +
-        '<div class="update-inset"><p>- query string looks like this: <span class="info-fake-link">?type=WHTYPE</span></p>' +
-        '<p>- full URL example: <a href="https://whtype.info?type=A009" target="_blank" rel="noopener">whtype.info?type=A009</a></p></div>' +
-        '<p style="margin-bottom:12px;">- Added a Praise Bob button in the bottom-right corner of the table (you have been warned)</p>' +
+        '<p><strong>-</strong> When you lock a wormhole type, a copy button appears. Clicking it copies a direct link to that specific type and its attributes</p>' +
+        '<div class="update-inset"><p><strong>-</strong> query string looks like this: <span class="info-fake-link">?type=WHTYPE</span></p>' +
+        '<p><strong>-</strong> full URL example: <a href="https://whtype.info?type=A009" target="_blank" rel="noopener">whtype.info?type=A009</a></p></div>' +
+        '<p style="margin-bottom:12px;"><strong>-</strong> Added a Praise Bob button in the bottom-right corner of the table (you have been warned)</p>' +
         '<p style="margin-top:18px;margin-bottom:8px;">Latest <strong>EVE patch</strong></p>' +
-        '<p>- Added basic information for the latest wormhole type changes</p>' +
-        '<p class="update-sub">- Additional details will be updated after on-grid inspections</p>' +
+        '<p><strong>-</strong> Added basic information for the latest wormhole type changes</p>' +
+        '<p class="update-sub"><strong>-</strong> Additional details will be updated after on-grid inspections</p>' +
       '</div>'
   };
 

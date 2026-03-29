@@ -155,6 +155,7 @@
     });
     if(fontVal) fontVal.textContent = (offset > 0 ? '+' : '') + offset;
     if(slider) slider.value = offset;
+    requestAnimationFrame(()=>{ if(typeof redrawIfActive==='function') redrawIfActive(); });
   }
   if(slider) slider.addEventListener('input', ()=>{ applyFontSize(parseInt(slider.value,10)); saveSettings(); });
 

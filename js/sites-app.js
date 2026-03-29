@@ -364,12 +364,64 @@ function startLinesFromFilter(filterEl, whKeys, durationMs, animateColors, dimTa
   const colorTargets=animateColors ? pairs : null;
   animateLines(buildSegmentsReverse(fb,filterColor(fid),pairs), gen, durationMs, colorTargets, dimTargets, filterEl, filterColor(fid), onDone);
 }
+let pulseGlowAnimId = null;
+let pulseInterval = null;
+function firePulseGlow(durationMs) {
+  if(pulseGlowAnimId){ cancelAnimationFrame(pulseGlowAnimId); pulseGlowAnimId=null; }
+  const segs=[];
+  lockedStack.forEach(el=>{
+    if(el.hasAttribute('data-wh')){
+      const sb=getTextBounds(el);
+      const pairs=(WH_DATA[el.dataset.wh]||[]).map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
+      segs.push(...buildSegments(sb,WH_COLOR,pairs));
+    }
+  });
+  if(!segs.length) return;
+  const startTime=performance.now();
+  function frame(now) {
+    const t=Math.min((now-startTime)/durationMs,1);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    ctx.save();
+    ctx.globalCompositeOperation='lighter';
+    segs.forEach(s=>{
+      const px=s.x0+(s.x1-s.x0)*t, py=s.y0+(s.y1-s.y0)*t;
+      const r0=parseInt(s.c0.slice(1,3),16),g0=parseInt(s.c0.slice(3,5),16),b0=parseInt(s.c0.slice(5,7),16);
+      const r1=parseInt(s.c1.slice(1,3),16),g1=parseInt(s.c1.slice(3,5),16),b1=parseInt(s.c1.slice(5,7),16);
+      const r=Math.round(r0+(r1-r0)*t),g=Math.round(g0+(g1-g0)*t),b=Math.round(b0+(b1-b0)*t);
+      const gr=10;
+      const grad=ctx.createRadialGradient(px,py,0,px,py,gr);
+      grad.addColorStop(0,`rgba(${r},${g},${b},0.35)`);
+      grad.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.fillStyle=grad;
+      ctx.fillRect(px-gr,py-gr,gr*2,gr*2);
+    });
+    ctx.restore();
+    if(t<1) pulseGlowAnimId=requestAnimationFrame(frame);
+    else { pulseGlowAnimId=null; restoreLockedState(); }
+  }
+  pulseGlowAnimId=requestAnimationFrame(frame);
+}
+function startPulse() {
+  stopPulse();
+  pulseInterval=setInterval(()=>{
+    if(lockedStack.length && !lockAnimating && !pulseGlowAnimId){
+      const hasWH=lockedStack.some(el=>el.hasAttribute('data-wh'));
+      if(hasWH) firePulseGlow(500);
+    }
+  }, 5000);
+}
+function stopPulse() {
+  if(pulseInterval){ clearInterval(pulseInterval); pulseInterval=null; }
+  if(pulseGlowAnimId){ cancelAnimationFrame(pulseGlowAnimId); pulseGlowAnimId=null; }
+}
 function stopLines() {
   lineGeneration++;
+  if(pulseGlowAnimId){ cancelAnimationFrame(pulseGlowAnimId); pulseGlowAnimId=null; }
   ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 function resetAll(keepTooltip) {
-  stopLines(); clearHoverColors(); clearDim();
+  stopPulse(); stopLines(); clearHoverColors(); clearDim();
   if(!keepTooltip) hideTooltip();
   allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
   lockedEl=null; lockedStack=[]; lockedWHKeys=null; lockedSharedFilters=new Set();
@@ -503,6 +555,8 @@ function activateLock(el) {
   }
   var rl=document.getElementById('reset-lock'); if(rl){ rl.style.opacity='1'; rl.style.pointerEvents='auto'; }
   if(window.updateResetBtn) window.updateResetBtn();
+  const hasWH=lockedStack.some(e=>e.hasAttribute('data-wh'));
+  if(hasWH) startPulse(); else stopPulse();
 }
 
 function wireInteractions() {
