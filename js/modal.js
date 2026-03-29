@@ -251,6 +251,7 @@
     if(tableWrap) tableWrap.style.transform = val === 100 ? '' : 'scale(' + (val/100) + ')';
     if(zoomVal) zoomVal.textContent = val + '%';
     if(zoomSlider) zoomSlider.value = val;
+    requestAnimationFrame(()=>{ if(typeof redrawIfActive==='function') redrawIfActive(); });
   }
   if(zoomSlider) zoomSlider.addEventListener('input', ()=>{ applyZoom(parseInt(zoomSlider.value,10)); saveSettings(); });
 

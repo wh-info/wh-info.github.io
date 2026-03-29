@@ -165,6 +165,7 @@ let lockedStack   = [];   // array of locked filter elements (multi-lock)
 let lockedWHKeys  = null; // current intersection of wormhole keys across all locked filters
 let lineGeneration = 0;
 let lockAnimating = false;
+let glowAnimId = null;
 let autofitReady = false;
 
 const tooltip  = document.getElementById('wh-tooltip');
@@ -304,10 +305,30 @@ function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourc
     if(lineGeneration!==gen) return;
     const elapsed=now-startTime;
     ctx.clearRect(0,0,canvas.width,canvas.height);
+    const isLock=!!dimTargets;
     segments.forEach((s,i)=>{
       const t=Math.min(elapsed/segDurations[i],1);
       drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,t);
     });
+    if(isLock){
+      ctx.save();
+      ctx.globalCompositeOperation='lighter';
+      segments.forEach((s,i)=>{
+        const t=Math.min(elapsed/segDurations[i],1);
+        if(t>=1) return;
+        const px=s.x0+(s.x1-s.x0)*t, py=s.y0+(s.y1-s.y0)*t;
+        const r0=parseInt(s.c0.slice(1,3),16),g0=parseInt(s.c0.slice(3,5),16),b0=parseInt(s.c0.slice(5,7),16);
+        const r1=parseInt(s.c1.slice(1,3),16),g1=parseInt(s.c1.slice(3,5),16),b1=parseInt(s.c1.slice(5,7),16);
+        const r=Math.round(r0+(r1-r0)*t),g=Math.round(g0+(g1-g0)*t),b=Math.round(b0+(b1-b0)*t);
+        const gr=7;
+        const grad=ctx.createRadialGradient(px,py,0,px,py,gr);
+        grad.addColorStop(0,`rgba(${r},${g},${b},0.3)`);
+        grad.addColorStop(1,`rgba(${r},${g},${b},0)`);
+        ctx.fillStyle=grad;
+        ctx.fillRect(px-gr,py-gr,gr*2,gr*2);
+      });
+      ctx.restore();
+    }
     if(colorTargets) {
       colorTargets.forEach(({el,color},i)=>{
         const t=Math.min(elapsed/segDurations[i],1);
@@ -325,7 +346,7 @@ function animateLines(segments, gen, durationMs, colorTargets, dimTargets, sourc
       });
     }
     if(elapsed<maxDuration) requestAnimationFrame(frame);
-    else if(onDone) onDone();
+    else { if(onDone) onDone(); }
   }
   requestAnimationFrame(frame);
 }
@@ -383,7 +404,50 @@ function startLinesFromFilter(filterEl, whKeys, durationMs, animateColors, dimTa
 }
 function stopLines() {
   lineGeneration++;
+  if(glowAnimId){ cancelAnimationFrame(glowAnimId); glowAnimId=null; }
   ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+function fireCopyGlow(durationMs) {
+  if(glowAnimId){ cancelAnimationFrame(glowAnimId); glowAnimId=null; }
+  // Collect current locked segments
+  const segs=[];
+  lockedStack.forEach(el=>{
+    if(el.hasAttribute('data-wh')){
+      const sb=getTextBounds(el);
+      const pairs=(WH_DATA[el.dataset.wh]||[]).map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
+      segs.push(...buildSegments(sb,WH_COLOR,pairs));
+    } else {
+      const fb=getTextBounds(el);
+      const fid=el.dataset.filterId;
+      const pairs=lockedWHKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+      segs.push(...buildSegmentsReverse(fb,filterColor(fid),pairs));
+    }
+  });
+  if(!segs.length) return;
+  const startTime=performance.now();
+  function frame(now) {
+    const t=Math.min((now-startTime)/durationMs,1);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    ctx.save();
+    ctx.globalCompositeOperation='lighter';
+    segs.forEach(s=>{
+      const px=s.x0+(s.x1-s.x0)*t, py=s.y0+(s.y1-s.y0)*t;
+      const r0=parseInt(s.c0.slice(1,3),16),g0=parseInt(s.c0.slice(3,5),16),b0=parseInt(s.c0.slice(5,7),16);
+      const r1=parseInt(s.c1.slice(1,3),16),g1=parseInt(s.c1.slice(3,5),16),b1=parseInt(s.c1.slice(5,7),16);
+      const r=Math.round(r0+(r1-r0)*t),g=Math.round(g0+(g1-g0)*t),b=Math.round(b0+(b1-b0)*t);
+      const gr=7;
+      const grad=ctx.createRadialGradient(px,py,0,px,py,gr);
+      grad.addColorStop(0,`rgba(${r},${g},${b},0.3)`);
+      grad.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.fillStyle=grad;
+      ctx.fillRect(px-gr,py-gr,gr*2,gr*2);
+    });
+    ctx.restore();
+    if(t<1) glowAnimId=requestAnimationFrame(frame);
+    else { glowAnimId=null; restoreLockedState(); }
+  }
+  glowAnimId=requestAnimationFrame(frame);
 }
 function resetAll(keepTooltip) {
   stopLines(); clearHoverColors(); clearDim();
@@ -421,6 +485,7 @@ function setCopyMode(whKey) {
 }
 if(logoSub) logoSub.addEventListener('click', ()=>{
   if(!copyModeWH) return;
+  if(logoSub.textContent === 'COPIED!') return;
   if(window.searchSingleMatch && whMap[copyModeWH] && !lockedStack.includes(whMap[copyModeWH])){
     const whKey = copyModeWH;
     const el = whMap[whKey];
@@ -439,6 +504,7 @@ if(logoSub) logoSub.addEventListener('click', ()=>{
   }
   const url = 'https://whtype.info?type=' + copyModeWH;
   navigator.clipboard.writeText(url).then(()=>{
+    fireCopyGlow(500);
     logoSub.textContent = 'COPIED!';
     copiedTimer = setTimeout(()=>{
       if(copyModeWH) logoSub.textContent = 'LINK';
@@ -467,18 +533,6 @@ function computeStackWHKeys() {
   return [...keys];
 }
 
-// Build segments from a single element to a set of wormhole keys
-function buildSegsForElement(el, whKeys) {
-  const bounds=getTextBounds(el);
-  if(el.hasAttribute('data-filter-id')) {
-    const fid=el.dataset.filterId;
-    const pairs=whKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
-    return buildSegmentsReverse(bounds,filterColor(fid),pairs);
-  } else {
-    const pairs=whKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
-    return buildSegments(bounds,WH_COLOR,pairs);
-  }
-}
 
 // Find filters that share wormholes with the current locked WH keys (excluding already-locked ones)
 function computeSharedFilters() {
@@ -493,27 +547,17 @@ function computeSharedFilters() {
   });
 }
 
-// Draw the full locked state: lines from all stack elements to current WH keys, colors, dimming
+// Restore the full locked state: DOM colors/dimming + redraw locked lines
 function restoreLockedState() {
   if(!lockedStack.length) return;
   clearHoverColors(); clearDim();
   allContentEls.forEach(el=>{ el.style.removeProperty('color'); el.style.textShadow=''; });
-  ctx.clearRect(0,0,canvas.width,canvas.height);
   const visibleEls=new Set();
   lockedStack.forEach(el=>visibleEls.add(el));
-  // Draw lines from each locked element
   lockedStack.forEach(el=>{
     if(el.hasAttribute('data-wh')){
-      // Wormhole lock: draw lines to connected filters
       const filterIds=WH_DATA[el.dataset.wh]||[];
-      const sb=getTextBounds(el);
-      const pairs=filterIds.map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
-      buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
       filterIds.forEach(fid=>{ if(filterMap[fid]) visibleEls.add(filterMap[fid]); });
-    } else {
-      // Filter lock: draw lines to wormholes
-      const segs=buildSegsForElement(el,lockedWHKeys);
-      segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
     }
   });
   // Color locked elements
@@ -523,12 +567,33 @@ function restoreLockedState() {
   });
   // Color connected wormholes
   lockedWHKeys.forEach(k=>{ const el=whMap[k]; if(el){ applyColor(el,WH_COLOR); visibleEls.add(el); }});
+  // Color connected filters when a WH is locked
+  lockedStack.forEach(el=>{
+    if(el.hasAttribute('data-wh')){
+      const filterIds=WH_DATA[el.dataset.wh]||[];
+      filterIds.forEach(fid=>{ const fel=filterMap[fid]; if(fel){ applyColor(fel,filterColor(fid)); visibleEls.add(fel); }});
+    }
+  });
   lockedSharedFilters.forEach(fel=>visibleEls.add(fel));
   // Dim everything not visible
   allContentEls.forEach(el=>{ if(!visibleEls.has(el)) el.classList.add('dimmed'); });
   // Soft-dim shared filters (only when a filter is locked, not a wormhole)
   const hasFilterLock=lockedStack.some(el=>el.hasAttribute('data-filter-id'));
   if(hasFilterLock) lockedSharedFilters.forEach(fel=>{ fel.style.opacity='0.5'; });
+  // Redraw locked lines on canvas
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  lockedStack.forEach(el=>{
+    if(el.hasAttribute('data-wh')){
+      const sb=getTextBounds(el);
+      const pairs=(WH_DATA[el.dataset.wh]||[]).map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
+      buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    } else {
+      const fb=getTextBounds(el);
+      const fid=el.dataset.filterId;
+      const pairs=lockedWHKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+      buildSegmentsReverse(fb,filterColor(fid),pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+    }
+  });
 }
 
 // First lock (single element, animated)
@@ -635,14 +700,17 @@ function wireInteractions() {
         // Color hovered wormhole + its filters
         applyColor(whEl,WH_COLOR);
         whFids.forEach(fid=>{ const el=filterMap[fid]; if(el) applyColor(el,filterColor(fid)); });
-        // Draw both sets of lines
+        // Draw locked lines + hovered WH lines on canvas
         lineGeneration++;
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        // Locked filter lines
         lockedStack.forEach(el=>{
-          buildSegsForElement(el,lockedWHKeys).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+          if(el.hasAttribute('data-filter-id')){
+            const fb=getTextBounds(el);
+            const fid2=el.dataset.filterId;
+            const p2=lockedWHKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+            buildSegmentsReverse(fb,filterColor(fid2),p2).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+          }
         });
-        // Hovered wormhole lines
         const sb=getTextBounds(whEl);
         const pairs=whFids.map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
         buildSegments(sb,WH_COLOR,pairs).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
@@ -743,13 +811,20 @@ function wireInteractions() {
           if(el.hasAttribute('data-filter-id')) applyColor(el,filterColor(el.dataset.filterId));
           else applyColor(el,WH_COLOR);
         });
-        // Draw lines from all locked elements + hovered filter to shared WHs
+        // Draw locked lines (narrowed to shared WHs) + hovered filter lines on canvas
         lineGeneration++;
         ctx.clearRect(0,0,canvas.width,canvas.height);
         lockedStack.forEach(el=>{
-          buildSegsForElement(el,sharedKeys).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+          if(el.hasAttribute('data-filter-id')){
+            const fb=getTextBounds(el);
+            const fid2=el.dataset.filterId;
+            const p2=sharedKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+            buildSegmentsReverse(fb,filterColor(fid2),p2).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+          }
         });
-        buildSegsForElement(filterEl,sharedKeys).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
+        const fb=getTextBounds(filterEl);
+        const fp=sharedKeys.map(k=>({el:whMap[k],color:WH_COLOR})).filter(p=>p.el);
+        buildSegmentsReverse(fb,filterColor(fid),fp).forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
         return;
       }
       clearHoverColors(); stopLines();
