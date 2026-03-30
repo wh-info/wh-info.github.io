@@ -366,14 +366,33 @@ function startLinesFromFilter(filterEl, whKeys, durationMs, animateColors, dimTa
 }
 let pulseGlowAnimId = null;
 let pulseInterval = null;
+function drawGlowDot(px,py,c0,c1,tLocal,boost,go,aO,gm,aM,gc2,aC) {
+  const r0=parseInt(c0.slice(1,3),16),g0=parseInt(c0.slice(3,5),16),b0=parseInt(c0.slice(5,7),16);
+  const r1=parseInt(c1.slice(1,3),16),g1=parseInt(c1.slice(3,5),16),b1=parseInt(c1.slice(5,7),16);
+  const r=Math.round(r0+(r1-r0)*tLocal),g=Math.round(g0+(g1-g0)*tLocal),b=Math.round(b0+(b1-b0)*tLocal);
+  const rc=Math.min(255,r+boost),gc_=Math.min(255,g+boost),bc=Math.min(255,b+boost);
+  const gradO=ctx.createRadialGradient(px,py,0,px,py,go);
+  gradO.addColorStop(0,`rgba(${r},${g},${b},${aO})`); gradO.addColorStop(1,`rgba(${r},${g},${b},0)`);
+  ctx.fillStyle=gradO; ctx.fillRect(px-go,py-go,go*2,go*2);
+  const gradM=ctx.createRadialGradient(px,py,0,px,py,gm);
+  gradM.addColorStop(0,`rgba(${r},${g},${b},${aM})`); gradM.addColorStop(1,`rgba(${r},${g},${b},0)`);
+  ctx.fillStyle=gradM; ctx.fillRect(px-gm,py-gm,gm*2,gm*2);
+  const gradC=ctx.createRadialGradient(px,py,0,px,py,gc2);
+  gradC.addColorStop(0,`rgba(${rc},${gc_},${bc},${aC})`); gradC.addColorStop(1,`rgba(${r},${g},${b},0)`);
+  ctx.fillStyle=gradC; ctx.fillRect(px-gc2,py-gc2,gc2*2,gc2*2);
+}
 function firePulseGlow(durationMs) {
   if(pulseGlowAnimId){ cancelAnimationFrame(pulseGlowAnimId); pulseGlowAnimId=null; }
   const segs=[];
   lockedStack.forEach(el=>{
     if(el.hasAttribute('data-wh')){
       const sb=getTextBounds(el);
-      const pairs=(WH_DATA[el.dataset.wh]||[]).map(fid=>({el:filterMap[fid],color:filterColor(fid)})).filter(p=>p.el);
-      segs.push(...buildSegments(sb,WH_COLOR,pairs));
+      (WH_DATA[el.dataset.wh]||[]).forEach(fid=>{
+        const fe=filterMap[fid]; if(!fe) return;
+        const tb=getTextBounds(fe);
+        if(tb.left===undefined) return;
+        segs.push({x0:sb.right,y0:midY(sb),x1:tb.left,y1:midY(tb),fid});
+      });
     }
   });
   if(!segs.length) return;
@@ -381,20 +400,11 @@ function firePulseGlow(durationMs) {
   function frame(now) {
     const t=Math.min((now-startTime)/durationMs,1);
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    segs.forEach(s=>drawSegment(s.x0,s.y0,s.c0,s.x1,s.y1,s.c1,1));
-    ctx.save();
-    ctx.globalCompositeOperation='lighter';
+    segs.forEach(s=>{ drawSegment(s.x0,s.y0,WH_COLOR,s.x1,s.y1,filterColor(s.fid),1); });
+    ctx.save(); ctx.globalCompositeOperation='lighter';
     segs.forEach(s=>{
       const px=s.x0+(s.x1-s.x0)*t, py=s.y0+(s.y1-s.y0)*t;
-      const r0=parseInt(s.c0.slice(1,3),16),g0=parseInt(s.c0.slice(3,5),16),b0=parseInt(s.c0.slice(5,7),16);
-      const r1=parseInt(s.c1.slice(1,3),16),g1=parseInt(s.c1.slice(3,5),16),b1=parseInt(s.c1.slice(5,7),16);
-      const r=Math.round(r0+(r1-r0)*t),g=Math.round(g0+(g1-g0)*t),b=Math.round(b0+(b1-b0)*t);
-      const gr=10;
-      const grad=ctx.createRadialGradient(px,py,0,px,py,gr);
-      grad.addColorStop(0,`rgba(${r},${g},${b},0.35)`);
-      grad.addColorStop(1,`rgba(${r},${g},${b},0)`);
-      ctx.fillStyle=grad;
-      ctx.fillRect(px-gr,py-gr,gr*2,gr*2);
+      drawGlowDot(px,py,WH_COLOR,filterColor(s.fid),t,70,16,0.12,7,0.4,3,0.75);
     });
     ctx.restore();
     if(t<1) pulseGlowAnimId=requestAnimationFrame(frame);
