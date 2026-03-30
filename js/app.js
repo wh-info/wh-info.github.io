@@ -1269,7 +1269,8 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
     if(invalidType){
       const sub = document.createElement('div');
       sub.className = 'wrong-hole-type';
-      sub.innerHTML = 'Invalid wormhole <span class="wrong-hole-value">?type=<strong>' + invalidType + '<span class="blink-cursor">_</span></strong></span>';
+      const displayType = invalidType.charAt(0).toUpperCase() + invalidType.slice(1);
+      sub.innerHTML = 'Invalid wormhole <span class="wrong-hole-value">?type=<s>' + displayType + '</s><span class="blink-cursor">_</span></span>';
       panel.appendChild(sub);
     }
     function closeWrongHole(){

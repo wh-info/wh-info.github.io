@@ -566,7 +566,8 @@ body {
   background: var(--header-bg);
   border: 1px solid var(--border);
   border-radius: 4px;
-  color: var(--text);
+  color: var(--text-hover);
+  border: 1px solid var(--text);
   width: 28px;
   height: 28px;
   display: none;
@@ -574,10 +575,8 @@ body {
   justify-content: center;
   cursor: pointer;
   padding: 0;
-  transition: color .2s, border-color .2s;
 }
 #reset-btn.visible { display: flex; }
-#reset-btn:hover { color: var(--text-hover); border-color: var(--text); }
 #reset-btn:hover svg { transform: rotate(90deg); }
 #reset-btn svg { transition: transform .3s ease; }
 
@@ -1333,13 +1332,13 @@ body.fade-out #update-overlay {
   flex-direction: column;
   gap: 4px;
   opacity: 0;
-  transform: translateY(10px) scale(0.97);
+  transform: translateX(-20px) scale(0.97);
   pointer-events: none;
   transition: opacity .25s, transform .25s;
 }
 #info-menu.open {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateX(0) scale(1);
   pointer-events: auto;
 }
 

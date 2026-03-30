@@ -248,6 +248,7 @@
   // ── Zoom slider ─────────────────────────────────────────────────────────
   let zoomLevel = 100;
   function applyZoom(val){
+    val = Math.max(75, Math.min(125, val));
     zoomLevel = val;
     if(tableWrap) tableWrap.style.transform = val === 100 ? '' : 'scale(' + (val/100) + ')';
     if(zoomVal) zoomVal.textContent = val + '%';
