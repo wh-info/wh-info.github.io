@@ -404,7 +404,8 @@ function firePulseGlow(durationMs) {
     ctx.save(); ctx.globalCompositeOperation='lighter';
     segs.forEach(s=>{
       const px=s.x0+(s.x1-s.x0)*t, py=s.y0+(s.y1-s.y0)*t;
-      drawGlowDot(px,py,WH_COLOR,filterColor(s.fid),t,70,16,0.12,7,0.4,3,0.75);
+      const gp=isBwLight()?{boost:50,go:12,aO:0.08,gm:5,aM:0.30,gc2:2,aC:0.60}:{boost:70,go:16,aO:0.12,gm:7,aM:0.4,gc2:3,aC:0.75};
+      drawGlowDot(px,py,WH_COLOR,filterColor(s.fid),t,gp.boost,gp.go,gp.aO,gp.gm,gp.aM,gp.gc2,gp.aC);
     });
     ctx.restore();
     if(t<1) pulseGlowAnimId=requestAnimationFrame(frame);

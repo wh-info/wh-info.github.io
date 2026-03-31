@@ -451,6 +451,23 @@ function drawGlowDot(px,py,c0,c1,tLocal,boost,go,aO,gm,aM,gc2,aC) {
   gradC.addColorStop(0,`rgba(${rc},${gc_},${bc},${aC})`); gradC.addColorStop(1,`rgba(${r},${g},${b},0)`);
   ctx.fillStyle=gradC; ctx.fillRect(px-gc2,py-gc2,gc2*2,gc2*2);
 }
+const GLOW_LINK={boost:100,go:20,aO:0.18,gm:8,aM:0.55,gc2:3,aC:0.95};
+const GLOW_PULSE={boost:70,go:16,aO:0.12,gm:7,aM:0.4,gc2:3,aC:0.75};
+const GLOW_LINK_LIGHT={boost:70,go:15,aO:0.12,gm:6,aM:0.40,gc2:2.5,aC:0.75};
+const GLOW_PULSE_LIGHT={boost:50,go:12,aO:0.08,gm:5,aM:0.30,gc2:2,aC:0.60};
+function glowParams(type) {
+  const lt=isBwLight();
+  if(type==='link') return lt?GLOW_LINK_LIGHT:GLOW_LINK;
+  return lt?GLOW_PULSE_LIGHT:GLOW_PULSE;
+}
+function lerpGlow(a,b,sT) {
+  return {boost:a.boost+(b.boost-a.boost)*sT,go:a.go+(b.go-a.go)*sT,aO:a.aO+(b.aO-a.aO)*sT,gm:a.gm+(b.gm-a.gm)*sT,aM:a.aM+(b.aM-a.aM)*sT,gc2:a.gc2+(b.gc2-a.gc2)*sT,aC:a.aC+(b.aC-a.aC)*sT};
+}
+function glowShrink(tLocal,returning) {
+  const link=glowParams('link'), pulse=glowParams('pulse');
+  if(!returning || tLocal>=0.3) return link;
+  return lerpGlow(link,pulse,1-tLocal/0.3);
+}
 function fireCopyGlow(durationMs) {
   if(copyGlowAnimId){ cancelAnimationFrame(copyGlowAnimId); copyGlowAnimId=null; }
   const segs=buildGlowSegs(true);
@@ -460,13 +477,15 @@ function fireCopyGlow(durationMs) {
     const elapsed=Math.min((now-startTime)/durationMs,1);
     // Asymmetric round-trip: 300ms out, 700ms back
     const tLocal=elapsed<0.3 ? elapsed/0.3 : 1-(elapsed-0.3)/0.7;
+    const returning=elapsed>=0.3;
+    const g=glowShrink(tLocal,returning);
     ctx.clearRect(0,0,canvas.width,canvas.height);
     segs.forEach(s=>{ const c0=s.rev?filterColor(s.fid):WH_COLOR,c1=s.rev?WH_COLOR:filterColor(s.fid); drawSegment(s.x0,s.y0,c0,s.x1,s.y1,c1,1); });
     ctx.save(); ctx.globalCompositeOperation='lighter';
     segs.forEach(s=>{
       const c0=s.rev?filterColor(s.fid):WH_COLOR, c1=s.rev?WH_COLOR:filterColor(s.fid);
       const px=s.x0+(s.x1-s.x0)*tLocal, py=s.y0+(s.y1-s.y0)*tLocal;
-      drawGlowDot(px,py,c0,c1,tLocal,100,20,0.18,8,0.55,3,0.95);
+      drawGlowDot(px,py,c0,c1,tLocal,g.boost,g.go,g.aO,g.gm,g.aM,g.gc2,g.aC);
     });
     ctx.restore();
     if(elapsed<1) copyGlowAnimId=requestAnimationFrame(frame);
@@ -482,13 +501,14 @@ function fireReturnGlow(durationMs) {
   function frame(now) {
     const t=Math.min((now-startTime)/durationMs,1);
     const tLocal=1-t;
+    const g=glowShrink(tLocal,true);
     ctx.clearRect(0,0,canvas.width,canvas.height);
     segs.forEach(s=>{ const c0=s.rev?filterColor(s.fid):WH_COLOR,c1=s.rev?WH_COLOR:filterColor(s.fid); drawSegment(s.x0,s.y0,c0,s.x1,s.y1,c1,1); });
     ctx.save(); ctx.globalCompositeOperation='lighter';
     segs.forEach(s=>{
       const c0=s.rev?filterColor(s.fid):WH_COLOR, c1=s.rev?WH_COLOR:filterColor(s.fid);
       const px=s.x0+(s.x1-s.x0)*tLocal, py=s.y0+(s.y1-s.y0)*tLocal;
-      drawGlowDot(px,py,c0,c1,tLocal,100,20,0.18,8,0.55,3,0.95);
+      drawGlowDot(px,py,c0,c1,tLocal,g.boost,g.go,g.aO,g.gm,g.aM,g.gc2,g.aC);
     });
     ctx.restore();
     if(t<1) copyGlowAnimId=requestAnimationFrame(frame);
@@ -509,7 +529,8 @@ function firePulseGlow(durationMs) {
     segs.forEach(s=>{
       const c0=WH_COLOR, c1=filterColor(s.fid);
       const px=s.x0+(s.x1-s.x0)*t, py=s.y0+(s.y1-s.y0)*t;
-      drawGlowDot(px,py,c0,c1,t,70,16,0.12,7,0.4,3,0.75);
+      const gp=glowParams('pulse');
+      drawGlowDot(px,py,c0,c1,t,gp.boost,gp.go,gp.aO,gp.gm,gp.aM,gp.gc2,gp.aC);
     });
     ctx.restore();
     if(t<1) pulseGlowAnimId=requestAnimationFrame(frame);
@@ -869,7 +890,7 @@ function wireInteractions() {
     const fid=filterEl.dataset.filterId;
     filterEl.addEventListener('mouseenter', e=>{
       if(!autofitReady) return;
-      if(window.searchSingleMatch) return;
+      if(window.searchSingleMatch){ showTooltip(fid,e); return; }
       lightHeader(filterEl);
       showTooltip(fid,e);
       if(lockedStack.length) {

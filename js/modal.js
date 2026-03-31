@@ -37,6 +37,7 @@
   let bgBlackBefore = false;
   let bwLight       = false;
   let boldHighlights= false;
+  let boldBefore    = false;
   const BASE_FONT   = 13;
 
   // ── Settings Open / Close ─────────────────────────────────────────────────
@@ -71,8 +72,8 @@
     document.documentElement.classList.toggle('bw-light', on);
     if(bwLightTog) bwLightTog.classList.toggle('on', on);
     // Light mode: force-enable enhanced highlights and lock toggle
-    if(on){ applyBold(true); if(boldTog) boldTog.classList.add('disabled'); }
-    else { if(boldTog) boldTog.classList.remove('disabled'); }
+    if(on){ boldBefore=boldHighlights; applyBold(true); if(boldTog) boldTog.classList.add('disabled'); }
+    else { applyBold(boldBefore); if(boldTog) boldTog.classList.remove('disabled'); }
     // Light mode: turn off black background; dark mode: restore it
     if(currentTheme === 'bw'){
       applyBgBlack(!on);
@@ -114,15 +115,18 @@
       applyBgBlack(true);
       bgTog.classList.add('disabled');
       if(prevTheme === 'bw'){
-        bwLight = false;
+        if(bwLight){ applyBold(boldBefore); bwLight=false; }
         if(bwLightTog) bwLightTog.classList.remove('on');
+        if(boldTog) boldTog.classList.remove('disabled');
       }
     } else {
       monoTog.classList.remove('disabled');
       bgTog.classList.remove('disabled');
+      if(boldTog) boldTog.classList.remove('disabled');
       if(prevTheme === 'bw' || prevTheme === 'legacy'){
         applyMono(false);
         applyBgBlack(bgBlackBefore);
+        if(prevTheme === 'bw' && bwLight){ applyBold(boldBefore); }
         bwLight = false;
         if(bwLightTog) bwLightTog.classList.remove('on');
       } else if(prevTheme === 'legacy'){
