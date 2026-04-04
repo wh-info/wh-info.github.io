@@ -478,24 +478,23 @@
       updateOverlay.classList.add('open');
     }
 
-    const updateSeen = localStorage.getItem('whtype-update-v2');
-    if(!updateSeen){
-      // Wait for page-loading class to be removed
-      const observer = new MutationObserver(()=>{
-        const cl = document.documentElement.classList;
-        if(!cl.contains('page-loading')){
-          observer.disconnect();
-          setTimeout(openUpdate, 300);
-        }
-      });
-      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-      // Fallback if class is already gone
-      const cl = document.documentElement.classList;
-      if(!cl.contains('page-loading')){
-        observer.disconnect();
-        setTimeout(openUpdate, 300);
-      }
-    }
+    // UPDATE TRIGGER DISABLED — re-enable and set new localStorage key when pushing next update
+    // const updateSeen = localStorage.getItem('whtype-update-v2');
+    // if(!updateSeen){
+    //   const observer = new MutationObserver(()=>{
+    //     const cl = document.documentElement.classList;
+    //     if(!cl.contains('page-loading')){
+    //       observer.disconnect();
+    //       setTimeout(openUpdate, 300);
+    //     }
+    //   });
+    //   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    //   const cl = document.documentElement.classList;
+    //   if(!cl.contains('page-loading')){
+    //     observer.disconnect();
+    //     setTimeout(openUpdate, 300);
+    //   }
+    // }
 
     updateOverlay.addEventListener('click', ()=>{
       closeUpdatePanel();
