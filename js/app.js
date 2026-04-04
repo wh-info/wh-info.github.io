@@ -577,7 +577,7 @@ function setCopyMode(whKey) {
   if(copiedTimer){ clearTimeout(copiedTimer); copiedTimer=null; }
   if(whKey) {
     copyModeWH = whKey;
-    logoSub.textContent = 'LINK';
+    logoSub.textContent = whKey === 'GEAR' ? 'CCP?' : 'LINK';
     logoSub.classList.add('copy-mode');
   } else {
     copyModeWH = null;
@@ -587,7 +587,13 @@ function setCopyMode(whKey) {
 }
 if(logoSub) logoSub.addEventListener('click', ()=>{
   if(!copyModeWH) return;
-  if(logoSub.textContent === 'COPIED!') return;
+  if(logoSub.textContent === 'COPIED!' || logoSub.textContent === 'WHEN?') return;
+  if(copyModeWH === 'GEAR'){
+    fireCopyGlow(1000);
+    logoSub.textContent = 'WHEN?';
+    copiedTimer = setTimeout(()=>{ logoSub.textContent = 'CCP?'; }, 1000);
+    return;
+  }
   if(window.searchSingleMatch && whMap[copyModeWH] && !lockedStack.includes(whMap[copyModeWH])){
     const whKey = copyModeWH;
     const el = whMap[whKey];
@@ -1133,7 +1139,8 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
       }
       searchActive = false;
       logoCell.classList.add('search-mode');
-      searchDisplay.innerHTML = whKey + '<span class="search-cursor">_</span>';
+      const displayKey = whKey === 'GEAR' ? '#???' : whKey;
+      searchDisplay.innerHTML = displayKey + '<span class="search-cursor">_</span>';
     };
     window.clearLockedWH = function(){
       logoCell.classList.remove('search-mode');
@@ -1176,13 +1183,17 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
     searchInput.addEventListener('input', ()=>{
       let val = searchInput.value.toUpperCase();
       let filtered = '';
-      for(let i = 0; i < val.length && filtered.length < 4; i++){
-        const ch = val[i];
-        if(filtered.length === 0 && /[A-Z]/.test(ch)){
-          if(whKeys.some(k => k.startsWith(ch))) filtered += ch;
-        } else if(filtered.length > 0 && filtered.length < 4 && /[0-9]/.test(ch)){
-          const candidate = filtered + ch;
-          if(whKeys.some(k => k.startsWith(candidate))) filtered += ch;
+      if('BOB'.startsWith(val) && val.length > 0){
+        filtered = val;
+      } else {
+        for(let i = 0; i < val.length && filtered.length < 4; i++){
+          const ch = val[i];
+          if(filtered.length === 0 && /[A-Z]/.test(ch)){
+            if(whKeys.some(k => k.startsWith(ch))) filtered += ch;
+          } else if(filtered.length > 0 && filtered.length < 4 && /[0-9]/.test(ch)){
+            const candidate = filtered + ch;
+            if(whKeys.some(k => k.startsWith(candidate))) filtered += ch;
+          }
         }
       }
       searchInput.value = filtered;
@@ -1203,6 +1214,12 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
     searchInput.addEventListener('keydown', (e)=>{
       if(e.key === 'Enter'){
         e.preventDefault();
+        if(searchInput.value.toUpperCase() === 'BOB'){
+          deactivateSearch();
+          const audio = document.getElementById('praise-audio');
+          if(audio){ audio.currentTime = 0; audio.play().catch(function(){}); }
+          return;
+        }
         const val = searchInput.value.trim().toUpperCase();
         if(!val) return;
         const matches = Object.keys(whMap).filter(k => k.toUpperCase() !== 'GEAR' && k.toUpperCase().startsWith(val));
@@ -1309,7 +1326,7 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
               || full.match(/[?&#]type=([^&#]+)/i);
     if(!match) return;
     const typeParam = decodeURIComponent(match[1]).trim();
-    if(typeParam.toUpperCase() === 'GEAR' || typeParam === '⚙') return;
+    if(typeParam.toUpperCase() === 'GEAR' || typeParam === '⚙'){ history.replaceState(null,'',window.location.pathname); return; }
     const key = Object.keys(whMap).find(k => k.toLowerCase() === typeParam.toLowerCase());
     if(!key || !whMap[key] || !WH_DATA[key] || !WH_DATA[key].length){
       showWrongHole(typeParam);
@@ -1347,6 +1364,23 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
     const v=document.createElement('video');
     v.preload='auto'; v.muted=true; v.src=src;
   });
+})();
+
+// ── EVE server restart countdown ─────────────────────────────────────────────
+(function(){
+  function updateRestartTimer(){
+    const el = document.getElementById('eve-restart-timer');
+    if(!el) return;
+    const now = new Date();
+    const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 11, 0, 0));
+    if(now >= next) next.setUTCDate(next.getUTCDate() + 1);
+    const diff = Math.floor((next - now) / 1000);
+    const h = Math.floor(diff / 3600);
+    const m = Math.floor((diff % 3600) / 60);
+    const s = diff % 60;
+    el.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  }
+  setInterval(updateRestartTimer, 1000);
 })();
 
 // ── Viewport-fit scaling removed — table keeps full size, page scrolls ────────

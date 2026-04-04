@@ -178,6 +178,12 @@ const TOOLTIP_CONTENT = {
     <p>&rarr; <em>Wandering:</em> II</p>
   `,
 
+  'C729': `
+    <p>&rarr; <em>Ships allowed:</em> up to Bowhead</p>
+    <p>&rarr; <em>Excluded:</em> all other Freighters</p>
+    <p>&rarr; <em>Unique jump size mass:</em> 410 000 000 kg</p>
+  `,
+
   'K162': `
     <p>&rarr; Generic type designating an exit</p>
   `,
@@ -219,7 +225,8 @@ const TOOLTIP_CONTENT = {
   `,
 
   'spawn-thera': `
-    <p>Unique shattered wormhole system and only one with a name. Has 4 NPC stations belonging to <em>Sisters of EVE</em>.</p>
+    <p>Unique shattered wormhole system and only one with a name.</p>
+    <p>Has 4 NPC stations belonging to <em>Sisters of EVE</em>.</p>
     <p>&rarr; <em>Regions &amp; constellations:</em> G-</p>
   `,
 
@@ -250,7 +257,7 @@ const TOOLTIP_CONTENT = {
   'spawn-jove': `
     <p>&rarr; These structures are located across <em>known space</em></p>
     <p>&rarr; Referred wormhole types spawn only in systems having them</p>
-    <p>First letter in each type reveals the name of a <em>Drifter</em> system destination</p>
+    <p>&rarr; First letter in each type reveals the name of a <em>Drifter</em> system destination</p>
   `,
 
   'spawn-never': `
@@ -408,6 +415,7 @@ const TOOLTIP_CONTENT = {
 
   'eve-clock': `
     <p>EVE Standard Time</p>
+    <p style="margin-top:4px;">Server restarts in: <span id="eve-restart-timer">--:--:--</span></p>
   `,
 
 };

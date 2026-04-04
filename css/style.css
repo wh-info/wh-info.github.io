@@ -362,7 +362,7 @@ body {
   display: none;
   line-height: 1.6;
   width: max-content;
-  max-width: 420px;
+  max-width: 520px;
   opacity: 0;
   transition: opacity 80ms;
 }
@@ -567,6 +567,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 0;
   color: var(--text-hover);
+  box-shadow: 0 -13px 0 0 var(--bg), 0 13px 0 0 var(--bg);
   border: 1px solid var(--text);
   width: 28px;
   height: 28px;
@@ -577,8 +578,9 @@ body {
   padding: 0;
 }
 #reset-btn.visible { display: flex; }
-#reset-btn:hover svg { transform: rotate(90deg); }
-#reset-btn svg { transition: transform .3s ease; }
+#reset-btn:hover { box-shadow: none; }
+#reset-btn:hover svg { opacity: 1; transition: none; }
+#reset-btn svg { transition: opacity .2s ease; opacity: 0.66; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    PRAISE BOB BUTTON
