@@ -811,7 +811,7 @@ body.fade-out #update-overlay {
   position: fixed;
   top: 80px;
   left: 50%;
-  transform: translateX(-50%) translateY(-10px);
+  transform: translateX(-150%);
   z-index: 10004;
   width: 1060px;
   max-height: calc(100vh - 100px);
