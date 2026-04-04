@@ -414,8 +414,8 @@ const TOOLTIP_CONTENT = {
   `,
 
   'eve-clock': `
-    <p>EVE Standard Time</p>
-    <p style="margin-top:4px;">Server restarts in: <span id="eve-restart-timer">--:--:--</span></p>
+    <p style="text-align:center;">EVE Standard Time</p>
+    <p style="text-align:center;margin-top:4px;">Server restarts in: <strong><span id="eve-restart-timer">--:--:--</span></strong></p>
   `,
 
 };
