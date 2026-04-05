@@ -5,17 +5,41 @@
     'intel-tab-recon':
       '<div class="modal-title">Current investigations</div>' +
       '<hr class="info-sep">' +
-      '<p><strong>Medium holes in Nullsec</strong></p>' +
-      '<p style="margin-top:14px;">It appears that wandering medium sized wormholes, thought to appear only in Class 1 systems, spawn in NullSec too.</p>' +
-      '<p>If you find any of the following wormhole type in NullSec, feel free to send your report with screenshots including system, constelation and region name.</p>' +
-      '<p style="margin-bottom:14px;"></p>' +
-      '<div class="investigation-list">' +
-        '<p><strong>H121</strong> (leads to C1)</p>' +
-        '<p><strong>C125</strong> (leads to C2)</p>' +
-        '<p><strong>O883</strong> (leads to C3) — <span class="confirmed">CONFIRMED</span></p>' +
-        '<p><strong>M609</strong> (leads to C4)</p>' +
-        '<p><strong>L614</strong> (leads to C5) — <span class="confirmed">CONFIRMED</span></p>' +
-        '<p><strong>S804</strong> (leads to C6) — <span class="confirmed">CONFIRMED</span></p>' +
+      '<div class="recon-entry">' +
+        '<p><strong>Pochven and Drifter wormhole observations</strong></p>' +
+        '<p style="margin-top:14px;">Following the <a href="https://www.eveonline.com/news/view/patch-notes-version-23-02" target="_blank" rel="noopener">latest changes</a> to Pochven and Drifter wormholes, the tool will be updated with more detailed information after further inspection. Wormhole types in focus:</p>' +
+        '<div class="recon-wh-cols-wrap"><div class="recon-wh-cols">' +
+          '<div class="recon-wh-col">' +
+            '<p class="recon-col-label">Pochven</p>' +
+            '<p><strong>C729</strong></p>' +
+            '<p><strong>I078</strong></p>' +
+            '<p><strong>L687</strong></p>' +
+            '<p><strong>O546</strong></p>' +
+          '</div>' +
+          '<div class="recon-wh-col">' +
+            '<p class="recon-col-label">Drifter</p>' +
+            '<p><strong>B735</strong></p>' +
+            '<p><strong>C414</strong></p>' +
+            '<p><strong>R259</strong></p>' +
+            '<p><strong>S877</strong></p>' +
+            '<p><strong>V928</strong></p>' +
+          '</div>' +
+        '</div></div>' +
+      '</div>' +
+      '<hr class="info-sep">' +
+      '<div class="recon-entry">' +
+        '<p><strong>Medium holes in Nullsec</strong></p>' +
+        '<p style="margin-top:14px;">It appears that wandering medium sized wormholes, thought to appear only in Class 1 systems, spawn in NullSec too.</p>' +
+        '<p>If you find any of the following wormhole type in NullSec, feel free to send your report with screenshots including system, constelation and region name.</p>' +
+        '<p style="margin-bottom:14px;"></p>' +
+        '<div class="investigation-list">' +
+          '<p><strong>H121</strong> (leads to C1)</p>' +
+          '<p><strong>C125</strong> (leads to C2)</p>' +
+          '<p><strong>O883</strong> (leads to C3) — <span class="confirmed">CONFIRMED</span></p>' +
+          '<p><strong>M609</strong> (leads to C4)</p>' +
+          '<p><strong>L614</strong> (leads to C5) — <span class="confirmed">CONFIRMED</span></p>' +
+          '<p><strong>S804</strong> (leads to C6) — <span class="confirmed">CONFIRMED</span></p>' +
+        '</div>' +
       '</div>',
 
     'intel-tab-lexicon':
