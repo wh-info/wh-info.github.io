@@ -144,6 +144,14 @@
     'info-tab-updates':
       '<p style="margin-bottom:16px;"><strong>wh</strong>type <span style="font-size:0.75em;">v2</span> redesigned</p>' +
       '<div class="update-entry update-old">' +
+        '<p style="text-align:right;margin-bottom:4px !important;"><span class="update-date">04/05/128 YC</span></p>' +
+        '<p><strong>-</strong> Launching <a href="https://sde.whtype.info" target="_blank" rel="noopener">sde.whtype.info</a></p>' +
+        '<p><strong>-</strong> Updated current investigations</p>' +
+        '<p><strong>-</strong> Various bugs booshed and under the hood changes</p>' +
+        '<p><strong>-</strong> Added a mobile disclaimer</p>' +
+      '</div>' +
+      '<hr class="info-sep">' +
+      '<div class="update-entry update-old">' +
         '<p style="text-align:right;margin-bottom:4px !important;"><span class="update-date">03/26/128 YC</span></p>' +
         '<p style="margin-bottom:8px;">Added a <strong>search bar</strong></p>' +
         '<p>Just start typing!</p>' +

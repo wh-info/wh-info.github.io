@@ -478,27 +478,26 @@
       updateOverlay.classList.add('open');
     }
 
-    // UPDATE TRIGGER DISABLED — re-enable and set new localStorage key when pushing next update
-    // const updateSeen = localStorage.getItem('whtype-update-v2');
-    // if(!updateSeen){
-    //   const observer = new MutationObserver(()=>{
-    //     const cl = document.documentElement.classList;
-    //     if(!cl.contains('page-loading')){
-    //       observer.disconnect();
-    //       setTimeout(openUpdate, 300);
-    //     }
-    //   });
-    //   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    //   const cl = document.documentElement.classList;
-    //   if(!cl.contains('page-loading')){
-    //     observer.disconnect();
-    //     setTimeout(openUpdate, 300);
-    //   }
-    // }
+    const updateSeen = localStorage.getItem('whtype-update-v209');
+    if(!updateSeen){
+      const observer = new MutationObserver(()=>{
+        const cl = document.documentElement.classList;
+        if(!cl.contains('page-loading')){
+          observer.disconnect();
+          setTimeout(openUpdate, 300);
+        }
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      const cl = document.documentElement.classList;
+      if(!cl.contains('page-loading')){
+        observer.disconnect();
+        setTimeout(openUpdate, 300);
+      }
+    }
 
     updateOverlay.addEventListener('click', ()=>{
       closeUpdatePanel();
-      localStorage.setItem('whtype-update-v2', '1');
+      localStorage.setItem('whtype-update-v209', '1');
     });
   }
 

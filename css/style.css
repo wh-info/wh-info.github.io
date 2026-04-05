@@ -958,7 +958,7 @@ body.fade-out #update-overlay {
   margin: 0 0 14px;
 }
 #update-panel .update-date {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text);
   margin: 4px 0 0;
   opacity: 0.99;
