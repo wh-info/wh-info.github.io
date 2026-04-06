@@ -233,6 +233,7 @@
 
 <!-- Bob overlay — kill widget -->
 <div id="bob-overlay">
+  <div id="bob-frame"></div>
   <div id="wh-kill-widget"></div>
 </div>
 <button id="reset-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-34.34,137.66a8,8,0,0,1-11.32,11.32L128,146.63,93.66,181a8,8,0,0,1-11.32-11.32L116.69,135.3,82.34,101a8,8,0,0,1,11.32-11.32L128,123.94l34.34-34.3A8,8,0,0,1,173.66,101L139.31,135.3Z"></path></svg></button>
@@ -411,13 +412,25 @@
 (function(){
   var btn = document.getElementById('praise-bob');
   var overlay = document.getElementById('bob-overlay');
+  var frame = document.getElementById('bob-frame');
+  var tableWrap = document.getElementById('tableWrap');
   if (!btn || !overlay) return;
 
   var audio = document.getElementById('praise-audio');
   var widgetReady = false;
   var isOpen = false;
 
+  function positionFrame() {
+    if (!frame || !tableWrap) return;
+    var rect = tableWrap.getBoundingClientRect();
+    frame.style.top    = rect.top    + 'px';
+    frame.style.left   = rect.left   + 'px';
+    frame.style.width  = rect.width  + 'px';
+    frame.style.height = rect.height + 'px';
+  }
+
   function openBob() {
+    positionFrame();
     overlay.classList.add('open');
     document.body.classList.add('bob-active');
     document.addEventListener('keydown', onEscape);
