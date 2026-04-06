@@ -1680,14 +1680,6 @@ a.menu-item { display: block; text-decoration: none; }
    WH KILL WIDGET — OVERLAY + WIDGET STYLES
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Decorative frame mimicking table border */
-#bob-frame {
-  position: fixed;
-  border: 1px solid color-mix(in srgb, var(--border) 66%, transparent);
-  pointer-events: none;
-  z-index: 10011;
-}
-
 /* Dark overlay — full screen, centers the widget */
 #bob-overlay {
   position: fixed;
