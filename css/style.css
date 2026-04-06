@@ -102,7 +102,6 @@ body {
   border: 1px solid transparent;
   overflow: visible;
   position: relative;
-  position: relative;
   transition: border-color .2s;
   transform-origin: center center;
   flex-shrink: 0;
@@ -1695,26 +1694,28 @@ a.menu-item { display: block; text-decoration: none; }
   pointer-events: auto;
 }
 
-/* Panel border — covers the table exactly via CSS, no JS measurement */
+/* Panel border — JS-positioned to cover the table */
 #bob-panel {
-  position: absolute;
-  inset: 0;
+  position: fixed;
   z-index: 10011;
   border: 1px solid color-mix(in srgb, var(--border) 66%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   pointer-events: none;
 }
 #bob-panel.open {
   opacity: 1;
+  pointer-events: auto;
 }
 
-/* Widget card — centered on viewport, not table */
+/* Widget card — centered on viewport */
 #bob-panel .wh-kill-widget {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  pointer-events: auto;
 }
 
 /* Widget inside the overlay */
