@@ -11,18 +11,18 @@
         '<div class="recon-wh-cols-wrap"><div class="recon-wh-cols">' +
           '<div class="recon-wh-col">' +
             '<p class="recon-col-label">Pochven</p>' +
-            '<p><strong>C729</strong></p>' +
-            '<p><strong>I078</strong></p>' +
-            '<p><strong>L687</strong></p>' +
-            '<p><strong>O546</strong></p>' +
+            '<p><a class="recon-wh-link" data-wh="C729">C729</a></p>' +
+            '<p><a class="recon-wh-link" data-wh="I078">I078</a></p>' +
+            '<p><a class="recon-wh-link" data-wh="L687">L687</a></p>' +
+            '<p><a class="recon-wh-link" data-wh="O546">O546</a></p>' +
           '</div>' +
           '<div class="recon-wh-col">' +
             '<p class="recon-col-label">Drifter</p>' +
-            '<p><strong>B735</strong></p>' +
-            '<p><strong>C414</strong></p>' +
-            '<p><strong>R259</strong></p>' +
-            '<p><strong>S877</strong></p>' +
-            '<p><strong>V928</strong></p>' +
+            '<p><a class="recon-wh-link" data-wh="B735">B735</a></p>' +
+            '<p><a class="recon-wh-link" data-wh="C414">C414</a></p>' +
+            '<p><a class="recon-wh-link" data-wh="R259">R259</a></p>' +
+            '<p><a class="recon-wh-link" data-wh="S877">S877</a></p>' +
+            '<p><a class="recon-wh-link" data-wh="V928">V928</a></p>' +
           '</div>' +
         '</div></div>' +
       '</div>' +
@@ -33,12 +33,12 @@
         '<p>If you find any of the following wormhole type in NullSec, feel free to send your report with screenshots including system, constelation and region name.</p>' +
         '<p style="margin-bottom:14px;"></p>' +
         '<div class="investigation-list">' +
-          '<p><strong>H121</strong> (leads to C1)</p>' +
-          '<p><strong>C125</strong> (leads to C2)</p>' +
-          '<p><strong>O883</strong> (leads to C3) — <span class="confirmed">CONFIRMED</span></p>' +
-          '<p><strong>M609</strong> (leads to C4)</p>' +
-          '<p><strong>L614</strong> (leads to C5) — <span class="confirmed">CONFIRMED</span></p>' +
-          '<p><strong>S804</strong> (leads to C6) — <span class="confirmed">CONFIRMED</span></p>' +
+          '<p><a class="recon-wh-link" data-wh="H121">H121</a> (leads to C1)</p>' +
+          '<p><a class="recon-wh-link" data-wh="C125">C125</a> (leads to C2)</p>' +
+          '<p><a class="recon-wh-link" data-wh="O883">O883</a> (leads to C3) — <span class="confirmed">CONFIRMED</span></p>' +
+          '<p><a class="recon-wh-link" data-wh="M609">M609</a> (leads to C4)</p>' +
+          '<p><a class="recon-wh-link" data-wh="L614">L614</a> (leads to C5) — <span class="confirmed">CONFIRMED</span></p>' +
+          '<p><a class="recon-wh-link" data-wh="S804">S804</a> (leads to C6) — <span class="confirmed">CONFIRMED</span></p>' +
         '</div>' +
       '</div>',
 
@@ -146,6 +146,7 @@
       '<div class="update-entry update-old">' +
         '<p style="text-align:right;margin-bottom:4px !important;"><span class="update-date">04/05/128 YC</span></p>' +
         '<p><strong>-</strong> Launching <a href="https://sde.whtype.info" target="_blank" rel="noopener">sde.whtype.info</a></p>' +
+        '<p><strong>-</strong> 24h wormhole killcounter is back! praise bob</p>' +
         '<p><strong>-</strong> Updated current investigations</p>' +
         '<p><strong>-</strong> Various bugs booshed and under the hood changes</p>' +
         '<p><strong>-</strong> Added a mobile disclaimer</p>' +

@@ -179,7 +179,7 @@
     const weight = font.includes('Exo 2') ? '600' : '';
     document.body.style.fontFamily = family;
     document.body.style.fontWeight = weight;
-    document.querySelectorAll('#settings-panel, #info-panel, .col-header, #eve-clock').forEach(el=>{
+    document.querySelectorAll('#settings-panel, #info-panel, .col-header, #eve-clock, .wh-kill-widget').forEach(el=>{
       el.style.fontFamily = family;
     });
     document.querySelectorAll('.font-opt').forEach(b=>{
@@ -443,6 +443,19 @@
       const content = document.getElementById('intel-tab-' + tab.dataset.tab);
       if(content) content.classList.add('active');
     });
+  });
+
+  // ── Recon wormhole links — click to lock that WH in the table ────────
+  document.addEventListener('click', e=>{
+    const link = e.target.closest('.recon-wh-link');
+    if(!link) return;
+    e.preventDefault();
+    const whType = link.dataset.wh;
+    if(!whType) return;
+    closeIntelPanel();
+    // Find the matching wormhole in the main table and click it
+    const tableLink = document.querySelector('.wh-list [data-wh="' + whType + '"]');
+    if(tableLink) tableLink.click();
   });
 
   if(infoOverlay){
