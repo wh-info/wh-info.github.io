@@ -1300,7 +1300,7 @@ body.fade-out #update-overlay {
 .toggle-switch {
   width: 32px;
   height: 16px;
-  border-radius: 8px;
+  border-radius: 8px !important;
   background: var(--text-dim);
   opacity: 0.97;
   position: relative;
