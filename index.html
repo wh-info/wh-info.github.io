@@ -421,8 +421,19 @@
   var widgetReady = false;
   var isOpen = false;
 
+  function lockScroll() {
+    // Compensate for scrollbar disappearing so layout doesn't shift
+    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = scrollbarWidth + 'px';
+  }
+
+  function unlockScroll() {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+  }
+
   function positionPanel() {
-    // Measure BEFORE any class changes to avoid reflow shifting the table
     var rect = tableWrap.getBoundingClientRect();
     panel.style.top = rect.top + 'px';
     panel.style.left = rect.left + 'px';
@@ -431,7 +442,8 @@
   }
 
   function openBob() {
-    positionPanel(); // measure first, undisturbed
+    lockScroll();       // freeze layout before anything changes
+    positionPanel();    // measure now — no reflow possible
     overlay.classList.add('open');
     panel.classList.add('open');
     document.body.classList.add('bob-active');
@@ -454,6 +466,7 @@
     document.removeEventListener('keydown', onEscape);
     isOpen = false;
     document.body.classList.remove('bob-active');
+    unlockScroll();
   }
 
   function onEscape(e) {
