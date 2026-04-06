@@ -452,9 +452,7 @@
     panel.classList.remove('open');
     document.removeEventListener('keydown', onEscape);
     isOpen = false;
-    setTimeout(function() {
-      document.body.classList.remove('bob-active');
-    }, 300);
+    document.body.classList.remove('bob-active');
   }
 
   function onEscape(e) {
