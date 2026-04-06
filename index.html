@@ -13,7 +13,7 @@
   <meta name="description" content="Identify your EVE wormholes connection by type, attributes and visual cues.">
   <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
   <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
-  <link rel="stylesheet" href="css/style.css?v=210">
+  <link rel="stylesheet" href="css/style.css?v=211">
   <script defer src="https://cloud.umami.is/script.js" data-website-id="a62cdb4a-dd4c-4f23-b8a0-4cacebccfd32"></script>
   <script>
   (function(){
@@ -229,14 +229,13 @@
   </div><!-- content-row -->
   <button id="praise-bob">praise<strong>bob</strong></button>
   <audio id="praise-audio" src="sound/praisebob.mp3" preload="auto"></audio>
-</div><!-- table-wrap -->
-
-<!-- Bob overlay — kill widget -->
-<div id="bob-overlay">
   <div id="bob-panel">
     <div id="wh-kill-widget"></div>
   </div>
-</div>
+</div><!-- table-wrap -->
+
+<!-- Bob overlay — kill widget -->
+<div id="bob-overlay"></div>
 <button id="reset-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-34.34,137.66a8,8,0,0,1-11.32,11.32L128,146.63,93.66,181a8,8,0,0,1-11.32-11.32L116.69,135.3,82.34,101a8,8,0,0,1,11.32-11.32L128,123.94l34.34-34.3A8,8,0,0,1,173.66,101L139.31,135.3Z"></path></svg></button>
 
 <div id="settings-overlay"></div>
@@ -381,11 +380,11 @@
 <button id="settings-btn"><span>&#9881;</span></button>
 <a id="nav-btn" href="safe-explo.html"><strong>safe</strong>Explo</a>
 
-<script src="js/wormholes.js?v=210"></script>
-<script src="js/tooltips.js?v=210"></script>
-<script src="js/app.js?v=210"></script>
-<script src="js/shared-tabs.js?v=210"></script>
-<script src="js/modal.js?v=210"></script>
+<script src="js/wormholes.js?v=211"></script>
+<script src="js/tooltips.js?v=211"></script>
+<script src="js/app.js?v=211"></script>
+<script src="js/shared-tabs.js?v=211"></script>
+<script src="js/modal.js?v=211"></script>
 <script>
 (function(){
   var nav=document.getElementById('nav-btn');
@@ -414,36 +413,13 @@
   var btn = document.getElementById('praise-bob');
   var overlay = document.getElementById('bob-overlay');
   var panel = document.getElementById('bob-panel');
-  var tableWrap = document.getElementById('tableWrap');
-  if (!btn || !overlay || !panel || !tableWrap) return;
+  if (!btn || !overlay || !panel) return;
 
   var audio = document.getElementById('praise-audio');
   var widgetReady = false;
   var isOpen = false;
 
-  function lockScroll() {
-    // Compensate for scrollbar disappearing so layout doesn't shift
-    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = scrollbarWidth + 'px';
-  }
-
-  function unlockScroll() {
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-  }
-
-  function positionPanel() {
-    var rect = tableWrap.getBoundingClientRect();
-    panel.style.top = rect.top + 'px';
-    panel.style.left = rect.left + 'px';
-    panel.style.width = rect.width + 'px';
-    panel.style.height = rect.height + 'px';
-  }
-
   function openBob() {
-    lockScroll();       // freeze layout before anything changes
-    positionPanel();    // measure now — no reflow possible
     overlay.classList.add('open');
     panel.classList.add('open');
     document.body.classList.add('bob-active');
@@ -466,7 +442,6 @@
     document.removeEventListener('keydown', onEscape);
     isOpen = false;
     document.body.classList.remove('bob-active');
-    unlockScroll();
   }
 
   function onEscape(e) {
@@ -491,6 +466,6 @@
   });
 })();
 </script>
-<script src="js/wh-kill-widget.js?v=210"></script>
+<script src="js/wh-kill-widget.js?v=211"></script>
 </body>
 </html>

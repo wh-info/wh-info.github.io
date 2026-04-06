@@ -24,7 +24,7 @@ const WHKillWidget = (() => {
   let mode = 'all'; // 'all' or 'pvp'
   let expanded = false;
 
-  const CLASS_ORDER = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'Thera', 'C13', 'Drifters'];
+  const CLASS_ORDER = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'Thera', 'C13', 'Drifter WHs'];
 
   // --- Formatting helpers ---
 
