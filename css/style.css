@@ -1894,8 +1894,9 @@ a.menu-item { display: block; text-decoration: none; }
   text-transform: uppercase;
   letter-spacing: .12em;
   color: var(--text);
-  padding: 0 0 10px 0;
+  padding: 10px 0;
   text-align: right;
+  border-top: 1px dotted var(--border);
   border-bottom: 1px dotted var(--border);
 }
 

@@ -174,14 +174,12 @@ const WHKillWidget = (() => {
     dot.className = 'wh-kill-widget__dot';
 
     if (state === 'error') {
-      dot.classList.add('wh-kill-widget__dot--error');
-      dot.style.display = '';
+      dot.style.display = 'none';
       elements.status.style.display = '';
       elements.status.textContent = 'Offline...';
       elements.source.style.display = 'none';
     } else if (state === 'loading') {
-      dot.classList.add('wh-kill-widget__dot--loading');
-      dot.style.display = '';
+      dot.style.display = 'none';
       elements.status.style.display = '';
       elements.status.textContent = 'Loading...';
       elements.source.style.display = 'none';

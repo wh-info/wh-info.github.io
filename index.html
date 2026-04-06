@@ -422,6 +422,7 @@
   var isOpen = false;
 
   function positionPanel() {
+    // Measure BEFORE any class changes to avoid reflow shifting the table
     var rect = tableWrap.getBoundingClientRect();
     panel.style.top = rect.top + 'px';
     panel.style.left = rect.left + 'px';
@@ -430,7 +431,7 @@
   }
 
   function openBob() {
-    positionPanel();
+    positionPanel(); // measure first, undisturbed
     overlay.classList.add('open');
     panel.classList.add('open');
     document.body.classList.add('bob-active');
