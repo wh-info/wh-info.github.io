@@ -1,0 +1,2230 @@
+[
+  {
+    "type": "A009",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "NS",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "C13"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "A239",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "A641",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "A982",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C3",
+      "Thera"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "B041",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 48,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "B274",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "B449",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "B520",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 48,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "B735",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "Liberated Barbican"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 750000000,
+    "lifeTime": 16,
+    "sigLevel": []
+  },
+  {
+    "type": "C008",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "C125",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "C140",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C5",
+      "C6"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "C247",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "C248",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "C391",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 48,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "C414",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "Conflux Eyrie"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 750000000,
+    "lifeTime": 16,
+    "sigLevel": []
+  },
+  {
+    "type": "C729",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "Pochven ▲ Trig space"
+    ],
+    "leadsTo": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 410000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 12,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "D364",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C5"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "D382",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "D792",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C5",
+      "C6"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "D845",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C3"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 5000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "E004",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "E175",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C5"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "E545",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "E587",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "Thera"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "F135",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6"
+    ],
+    "leadsTo": [
+      "Thera"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 750000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "F216",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6"
+    ],
+    "leadsTo": [
+      "Pochven"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 12,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "F353",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "C1"
+    ],
+    "leadsTo": [
+      "Thera"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 100000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "G008",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "G024",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "H121",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "H296",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C5"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "H900",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "I078",
+    "comment": "",
+    "respawn": [],
+    "spawnIn": [
+      "Pochven ▲ Trig space"
+    ],
+    "leadsTo": [
+      "Pochven"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": null,
+    "lifeTime": 4.5,
+    "sigLevel": []
+  },
+  {
+    "type": "I182",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C3",
+      "Thera"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "J244",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C1"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "J377",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "Thera"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "J492",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "K329",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "K346",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C3"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "L005",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "L031",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "NS"
+    ],
+    "leadsTo": [
+      "Thera"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "L477",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "L614",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "NS"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "L687",
+    "comment": "",
+    "respawn": [],
+    "spawnIn": [
+      "Pochven ▲ Trig space"
+    ],
+    "leadsTo": [
+      "Pochven"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": null,
+    "lifeTime": 4.5,
+    "sigLevel": []
+  },
+  {
+    "type": "M001",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "M164",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "LS"
+    ],
+    "leadsTo": [
+      "Thera"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "M267",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C5"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "M555",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "M609",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "N062",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "N110",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C1"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "N290",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "N432",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "III"
+    ]
+  },
+  {
+    "type": "N766",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "N770",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C3",
+      "Thera"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "N944",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "N968",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C3",
+      "Thera"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "O128",
+    "comment": "never spawn",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": []
+  },
+  {
+    "type": "O477",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "O546",
+    "comment": "",
+    "respawn": [],
+    "spawnIn": [
+      "Pochven ▲ Trig space"
+    ],
+    "leadsTo": [
+      "Pochven"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": null,
+    "lifeTime": 4.5,
+    "sigLevel": []
+  },
+  {
+    "type": "O883",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "NS"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "P060",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "Q003",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "Q063",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "Thera"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "Q317",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "R051",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "R081",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "Pochven ▲ Trig space"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 12,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "R259",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "Azdaja Redoubt"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 750000000,
+    "lifeTime": 16,
+    "sigLevel": []
+  },
+  {
+    "type": "R474",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "R943",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "C2"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 750000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "S047",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "HS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "S199",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "S804",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "NS"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "S877",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "Sentinel MZ"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 750000000,
+    "lifeTime": 16,
+    "sigLevel": []
+  },
+  {
+    "type": "T405",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C3",
+      "Thera"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "T458",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [
+      "HS"
+    ],
+    "leadsTo": [
+      "Thera"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "U210",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C3"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "U319",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 48,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "U372",
+    "comment": "",
+    "respawn": [
+      "Wandering",
+      "Reverse"
+    ],
+    "spawnIn": [],
+    "leadsTo": [
+      "Pochven"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 12,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "U574",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "V283",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 3000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "V301",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C3",
+      "Thera"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "V753",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C5"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "V898",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "Thera"
+    ],
+    "leadsTo": [
+      "LS"
+    ],
+    "shipSize": "up to Freighter",
+    "jumpMass": 1000000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "V911",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "C5"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "V928",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "Sanctified Vidette"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 750000000,
+    "lifeTime": 16,
+    "sigLevel": []
+  },
+  {
+    "type": "W237",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "C6"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "X450",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "Pochven ▲ Trig space"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 12,
+    "sigLevel": [
+      "II"
+    ]
+  },
+  {
+    "type": "X702",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 24,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "X877",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C4"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "Y683",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "Y790",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C5"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "Z006",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Thera",
+      "C13"
+    ],
+    "leadsTo": [
+      "C3"
+    ],
+    "shipSize": "up to Destroyer",
+    "jumpMass": 5000000,
+    "regenMass": 3000000000,
+    "totalMass": 3000000000,
+    "lifeTime": 4.5,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "Z060",
+    "comment": "",
+    "respawn": [
+      "Static"
+    ],
+    "spawnIn": [
+      "C1"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 1000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "III"
+    ]
+  },
+  {
+    "type": "Z142",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C5",
+      "C6"
+    ],
+    "leadsTo": [
+      "NS"
+    ],
+    "shipSize": "up to Capital",
+    "jumpMass": 2000000000,
+    "regenMass": null,
+    "totalMass": 3300000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I"
+    ]
+  },
+  {
+    "type": "Z457",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C6"
+    ],
+    "leadsTo": [
+      "C4"
+    ],
+    "shipSize": "up to Battleship",
+    "jumpMass": 375000000,
+    "regenMass": null,
+    "totalMass": 2000000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "Z647",
+    "comment": "",
+    "respawn": [
+      "Static",
+      "Wandering"
+    ],
+    "spawnIn": [
+      "C2"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 500000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II"
+    ]
+  },
+  {
+    "type": "Z971",
+    "comment": "",
+    "respawn": [
+      "Wandering"
+    ],
+    "spawnIn": [
+      "HS",
+      "LS",
+      "NS"
+    ],
+    "leadsTo": [
+      "C1"
+    ],
+    "shipSize": "up to Battlecruiser",
+    "jumpMass": 62000000,
+    "regenMass": null,
+    "totalMass": 100000000,
+    "lifeTime": 16,
+    "sigLevel": [
+      "I",
+      "II",
+      "III"
+    ]
+  },
+  {
+    "type": "K162",
+    "comment": "",
+    "respawn": [],
+    "spawnIn": [],
+    "leadsTo": [],
+    "shipSize": null,
+    "jumpMass": null,
+    "regenMass": null,
+    "totalMass": null,
+    "lifeTime": null,
+    "sigLevel": []
+  }
+]
