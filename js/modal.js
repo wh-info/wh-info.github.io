@@ -491,6 +491,7 @@
       updateOverlay.classList.add('open');
     }
 
+    /* ── DISABLED: auto-open trigger. Re-enable to show update popup on load ──
     const updateSeen = localStorage.getItem('whtype-update-v209');
     if(!updateSeen){
       const observer = new MutationObserver(()=>{
@@ -507,6 +508,7 @@
         setTimeout(openUpdate, 300);
       }
     }
+    */
 
     updateOverlay.addEventListener('click', ()=>{
       closeUpdatePanel();
