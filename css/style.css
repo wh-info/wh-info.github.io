@@ -983,6 +983,9 @@ body.fade-out #update-overlay {
   border-radius: 2px;
 }
 #update-panel .update-content {
+  color: color-mix(in srgb, var(--text-hover) 45%, var(--text));
+}
+#update-panel .update-content strong {
   color: var(--text-hover);
 }
 #update-panel .update-content p { margin: 0; }

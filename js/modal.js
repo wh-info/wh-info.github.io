@@ -491,8 +491,7 @@
       updateOverlay.classList.add('open');
     }
 
-    /* ── DISABLED: auto-open trigger. Re-enable to show update popup on load ──
-    const updateSeen = localStorage.getItem('whtype-update-v209');
+    const updateSeen = localStorage.getItem('whtype-update-anoikis');
     if(!updateSeen){
       const observer = new MutationObserver(()=>{
         const cl = document.documentElement.classList;
@@ -508,11 +507,10 @@
         setTimeout(openUpdate, 300);
       }
     }
-    */
 
     updateOverlay.addEventListener('click', ()=>{
       closeUpdatePanel();
-      localStorage.setItem('whtype-update-v209', '1');
+      localStorage.setItem('whtype-update-anoikis', '1');
     });
   }
 
