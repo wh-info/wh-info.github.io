@@ -491,22 +491,23 @@
       updateOverlay.classList.add('open');
     }
 
-    const updateSeen = localStorage.getItem('whtype-update-anoikis');
-    if(!updateSeen){
-      const observer = new MutationObserver(()=>{
-        const cl = document.documentElement.classList;
-        if(!cl.contains('page-loading')){
-          observer.disconnect();
-          setTimeout(openUpdate, 300);
-        }
-      });
-      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-      const cl = document.documentElement.classList;
-      if(!cl.contains('page-loading')){
-        observer.disconnect();
-        setTimeout(openUpdate, 300);
-      }
-    }
+    // Auto-open disabled — uncomment to re-enable the update popup on site load
+    // const updateSeen = localStorage.getItem('whtype-update-anoikis');
+    // if(!updateSeen){
+    //   const observer = new MutationObserver(()=>{
+    //     const cl = document.documentElement.classList;
+    //     if(!cl.contains('page-loading')){
+    //       observer.disconnect();
+    //       setTimeout(openUpdate, 300);
+    //     }
+    //   });
+    //   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    //   const cl = document.documentElement.classList;
+    //   if(!cl.contains('page-loading')){
+    //     observer.disconnect();
+    //     setTimeout(openUpdate, 300);
+    //   }
+    // }
 
     updateOverlay.addEventListener('click', ()=>{
       closeUpdatePanel();
