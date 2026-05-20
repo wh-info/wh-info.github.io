@@ -137,8 +137,8 @@
         '<p>Your settings are stored in localStorage; clearing your browser data will reset the site to its default settings.</p>' +
       '</div>' +
       '<div class="info-tip" style="margin-top:14px;">' +
-        '<p>All <a href="https://www.eveonline.com/" target="_blank" rel="noopener">EVE Online</a> related materials are property of <a href="https://www.ccpgames.com/" target="_blank" rel="noopener">CCP Games</a>.</p>' +
-        '<p style="margin-top:14px;">EVE Online, the EVE logo, EVE and all associated logos and designs are the intellectual property of CCP hf. All artwork, screenshots, characters, vehicles, storylines, world facts or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of CCP hf. EVE Online and the EVE logo are the registered trademarks of CCP hf. All rights are reserved worldwide. All other trademarks are the property of their respective owners. CCP is in no way responsible for the content on or functioning of this website, nor can it be liable for any damage arising from the use of this website.</p>' +
+        '<p>All <a href="https://www.eveonline.com/" target="_blank" rel="noopener">EVE Online</a> related materials are property of <a href="https://fenriscreations.com/" target="_blank" rel="noopener">Fenris Creations</a>.</p>' +
+        '<p style="margin-top:14px;">EVE Online, the EVE logo, EVE and all associated logos and designs are the intellectual property of Fenris Creations. All artwork, screenshots, characters, vehicles, storylines, world facts or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of Fenris Creations. EVE Online and the EVE logo are the registered trademarks of Fenris Creations. All rights are reserved worldwide. All other trademarks are the property of their respective owners. Fenris Creations is in no way responsible for the content on or functioning of this website, nor can it be liable for any damage arising from the use of this website.</p>' +
       '</div>',
 
     'info-tab-updates':
