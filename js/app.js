@@ -1066,7 +1066,7 @@ window.addEventListener('autofit-done', ()=>{ autofitReady=true; resizeCanvas();
     'c-leads':   'Wormhole inner sphere reflects destination nebula/skybox.',
     'c-jump':    'Wormhole outer color shows jump size limit.',
     'c-mass':    'Total mass may vary &pm; 10%.',
-    'c-life':    'Lifetime may increase for several hours relative to situational spawn mechanics.',
+    'c-life':    'Displayed values are Reliable Lifetime (the earliest time the wormhole can close).<br>There may be some time variation after the wormhole reaches the Expired state.',
     'c-sig':     'Scanning difficulty level is revealed when your signal strength is &ge; 25%.',
   };
   document.querySelectorAll('.header-row .cell').forEach(cell=>{
