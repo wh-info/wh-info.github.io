@@ -362,7 +362,7 @@
     "type": "C729",
     "comment": "",
     "respawn": [
-      "Wandering"
+      "Static"
     ],
     "spawnIn": [
       "Pochven ▲ Trig space"
